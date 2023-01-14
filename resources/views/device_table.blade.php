@@ -50,9 +50,9 @@
                 <td>{{$row->ice_id}}</td>
                 <td>{{$row->imei}}</td>
                 <td>{{$row->sim1}}</td>
-                <td>{{$row->sim1_type}}</td>
+                <td>{{$row->sim_1_type}}</td>
                 <td>{{$row->sim2}}</td>
-                  <td>{{$row->sim2_type}}</td>
+                  <td>{{$row->sim_2_type}}</td>
                   <td>{{$row->activation_date}}</td>
                   <td>{{$row->received_date}}</td>
                   <td>{{$row->renewal_date}}</td>
