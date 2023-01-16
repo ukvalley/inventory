@@ -572,8 +572,8 @@ public function device_edit()
 
 	        $Purchase = new Purchase;	
 
-	        $Purchase->date = $request->input('date');
-	        $Purchase->device_id = $request->input('device_id');
+	        $Purchase->date =  $this->change_date_format($request->input('date'));
+	  
 	        $Purchase->device_number = $request->input('device_number');
 	        $Purchase->amount = $request->input('amount');	
 	         $Purchase->purchase_from = $request->input('purchase_from');	
@@ -632,7 +632,6 @@ public function purchase_edit()
 
 
          $Purchase->date = $request->input('date');
-	        $Purchase->device_id = $request->input('device_id');
 
 	        $Purchase->device_number = $request->input('device_number');
 	        $Purchase->amount =  $request->input('amount');
@@ -661,6 +660,23 @@ public function purchase_edit()
                 
     
         return redirect()->back();
+    }
+
+
+
+    ///recored update purchase
+    public function purchaseOrder(){
+      PurchaseDevice::create($request->all());
+
+      foreach ($data['PurchaseDevice'] as $key => $value)
+      {
+    
+         $purchase_device[$key]['devive_number'] = $data['category_name'][$key];
+         $purchase_device[$key]['amount'] = $data['category_id'][$key];
+         $purchase_device[$key]['purchase_from'] = $data['purchase_cost'][$key];
+         
+     }
+
     }
 
 

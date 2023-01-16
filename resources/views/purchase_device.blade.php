@@ -29,11 +29,11 @@
                                  <input type="date"  class="form-control" name="date" placeholder="Date" required>
                               </div>
 
-                              <div class="form-group">
+                              <!-- <div class="form-group">
                                
                                  <label>Device ID</label>
                                  <input type="text" class="form-control"  name="device_id" placeholder=" device_id" required>
-                              </div>
+                              </div> -->
 
                               <div class="form-group">
                                  <label>Device Number</label>

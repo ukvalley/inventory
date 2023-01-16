@@ -26,7 +26,7 @@
     <tr>
     <th scope="col">id</th>
       <th scope="col">Date</th>
-      <th scope="col">Device ID</th>
+ 
       <th scope="col">Device Number</th>
       <th scope="col">Amount</th>
       <th scope="col">Purchase from</th>
@@ -43,19 +43,17 @@
             <tr>
                <td>{{$row->id }}</td>
                 <td>{{$row->date }}</td>
-                <td>{{$row->device_id}}</td>
+             
                 <td>{{$row->device_number}}</td>
                 <td>{{$row->amount}}</td>
                 <td>{{$row->purchase_from}}</td>
-               
+                <td>
                <a href="{{url('/')}}/purchase_edit?id={{$row->id}}" class="btn btn-primary">Edit</a>
                 </td>
                 <td>
                 <a href="{{url('/')}}/purchase_destroy?id={{$row->id}}" class="btn btn-danger">Delete</a>
                 </td>
-                
-            
-                 
+                   
             </tr>
         @endforeach
 </table>

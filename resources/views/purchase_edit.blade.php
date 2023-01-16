@@ -26,10 +26,10 @@
                                  <input type="Date" class="form-control" name="date" required pattern="\d{3}-\d{2}-\d{4}" placeholder=" Date" value="{{$data->date}}"  required>
                               </div>
 
-                              <div class="form-group">
+                              <!-- <div class="form-group">
                                  <label>Device ID</label>
                                  <input type="text" class="form-control" name="device_id"  value="{{$data->device_id}}" placeholder="  device_id" required>
-                              </div>
+                              </div> -->
 
                               <div class="form-group">
                                  <label>Device Number</label>
