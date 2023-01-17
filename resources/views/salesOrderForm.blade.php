@@ -1,9 +1,8 @@
 @include('common.header')
 
 
- <!-- Main content -->
- <div class="content-wrapper">
- <section class="content">
+<div class="content-wrapper">
+<section class="content">
                <div class="row">
                   <!-- Form controls -->
                   <div class="col-sm-12">
@@ -11,13 +10,13 @@
                         <div class="panel-heading">
                            <div class="btn-group" id="buttonlist"> 
                               <a class="btn btn-add "href="clist.html"> 
-                              <i class="fa fa-list"></i> Purchase  Order</a>  
+                              <i class="fa fa-list"></i> Sales Order</a>  
                            </div>
 
                         </div>
                         <div class="panel-body">
-                             <h3>PurchaseOrder Table</h3>
-                           <form class="col-sm-6" action="{{url('/')}}/purchaseformPost" method="post"  enctype="multipart/form-data">
+                             <h3>SalesOrder Table</h3>
+                           <form class="col-sm-6" action="{{url('/')}}/salesformPost" method="post"  enctype="multipart/form-data">
                     {{ csrf_field() }}
               
                                 
@@ -37,30 +36,8 @@
                                  <input type="text" class="form-control" name="imei" placeholder="IMEI" required>
                               </div>
 
-                              <div class="form-group">
-                                 <label>SIM1</label>
-                                 <input type="text" class="form-control" name="sim1" placeholder="SIM1" required>
-                              </div>
-
-                              <div class="form-group">
-                                 <label>SIM1 Type</label>
-                                 <input type="text" class="form-control" name="sim1_type" placeholder="sim1_type" required>
-                              </div>
-
-                             
-
-                              <div class="form-group">
-                                 <label>SIM2</label>
-                                 <input type="text" class="form-control" name="sim1" placeholder="SIM1" required>
-                              </div>
-
-                              <div class="form-group">
-                                 <label>SIM2 Type</label>
-                                 <input type="text" class="form-control" name="sim2_type" placeholder="sim2_type" required>
-                              </div>
-
-
-            
+                              
+           
 
                               <div class="form-group">
                                  <label>Activation Date</label>
@@ -82,8 +59,8 @@
                                  <input type="text" class="form-control" name="user_id" placeholder="user_id" required>
                               </div>
                               <div class="form-group">
-                                 <label>purchase_from</label>
-                                 <input type="text" class="form-control" name="purchase_from" placeholder="purchase_from" required>
+                                 <label>allocated_to</label>
+                                 <input type="text" class="form-control" name="allocated_to" placeholder="allocated_to" required>
                               </div>
                               
                               
@@ -107,10 +84,6 @@
                   </div>
                </div>
             </section>
-            <!-- /.content -->
-            </div>
-
-
-
+</div>
 
 @include('common.footer')

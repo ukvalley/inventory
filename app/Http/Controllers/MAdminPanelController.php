@@ -667,8 +667,14 @@ public function purchase_edit()
 
 
 
+
+
+
    public function purchaseformPost(Request $request)
-   {
+   {  
+      
+
+
       $make = $request->make;
       $ice_id = $request->ice_id;
       $imei = $request->imei;
@@ -702,7 +708,7 @@ public function purchase_edit()
 
     
     ///recored update purchase
-    public function purchaseOrder($make,$ice_id,$imei,$sim_1_type,$sim_2_type,$received_date,$activation_date,$renewal_date,$user_id,$purchase_from,$amount){
+    public function purchaseOrder($make,$ice_id,$imei,$sim_1_type,$sim_2_type,$received_date,$activation_date,$renewal_date,$user_id,$purchase_from){
 
       //create device information
 
@@ -750,9 +756,81 @@ public function purchase_edit()
 
        $purchase->save();
 
-    } 
-    
+       
 
+    } 
+    // SALE
+///////////////////////////////////////////////////////////////////////////////////////////////
+
+public function salesformPost(Request $request)
+{  
+   
+   $make = $request->make;
+   $ice_id = $request->ice_id;
+   $imei = $request->imei;
+   $sim_1_type = $request->sim_1_type;
+   $sim_2_type = $request->sim_2_type;
+   $activation_date =$request ->activation_date;
+   $received_date =$request ->received_date;
+   $renewal_date = $request ->renewal_date;
+   $user_id = $request->user_id;
+   $allocated_to = $request->allocated_to;
+   $device_number = $request->device_number;
+
+   $this->salesOrder($make,$ice_id,$imei,$sim_1_type,$sim_2_type,$received_date,$activation_date,$renewal_date, $device_number,$user_id,$allocated_to);
+ 
+   
+}
+
+
+
+
+
+ 
+ ///recored update purchase
+ public function salesOrder($make,$ice_id,$imei,$sim_1_type,$sim_2_type,$received_date,$activation_date,$renewal_date, $device_number,$user_id,$allocated_to){
+
+   //create device information
+
+        $device= new Device;
+
+        $user_id->make = $user_id;
+       
+       
+
+        $device->update();
+
+   
+       // update records
+
+        $salesRecord = Records::where('user_id','=',$user_id)->first();
+
+        $update_salesRecord_device_count = $salesRecord->device_count - 1;
+
+        $salesRecord->device_count = $update_salesRecord_device_count;
+
+        $salesRecord->save();
+
+
+
+
+
+    //purchase entry creation
+
+    $sales = new sales;
+
+    $today = date("M d, Y");
+    $sales->date = $today;
+    $sales->device_number= $device_number;
+    $sales->allocated_to = $allocated_to;
+    $sales->user_id = $user_id;
+
+    $sales->save();   
+
+ } 
+ 
+
+    
 
     
 

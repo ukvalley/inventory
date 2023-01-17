@@ -235,6 +235,13 @@ Route::get('/purchaseOrderForm', function () {
     return view('purchaseOrderForm');
 });
 
+Route::get('/salesOrderForm', function () {  
+    return view('salesOrderForm');
+});
+
 Route::post('purchaseformPost', [MAdminPanelController::class, 'purchaseformPost'])->name('purchaseformPost');
 
+Route::get('/purchaseForm', [MAdminPanelController::class, 'purchaseForm'])->name('purchaseForm');
 
+
+Route::post('salesformPost', [MAdminPanelController::class, 'salesformPost'])->name('salesformPost');
