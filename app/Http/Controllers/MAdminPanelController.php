@@ -665,13 +665,39 @@ public function purchase_edit()
     }
 
 
+
+
+   public function purchaseformPost(Request $request)
+   {
+      $make = $request->make;
+      $ice_id = $request->ice_id;
+      $imei = $request->imei;
+      $sim_1_type = $request->sim_1_type;
+      $sim_2_type = $request->sim_2_type;
+      $user_id = $request->user_id;
+      $purchase_from = $request->purchase_from;
+
+      $this->purchaseOrder($make,$ice_id,$imei,$sim_1_type,$sim_2_type,$user_id,$purchase_from);
+
+   }
+
+
+   public function importCsv()
+   {
+
+      $csv_data = [];
+
+      foreach($csv_data as $key=>$value)
+      {
+         $this->purchaseOrder($make,$ice_id,$imei,$sim_1_type,$sim_2_type,$user_id,$purchase_from,$amount);
+      }
+
+   }
+
+
     
-    ///
-    ///
-    ///
-    ///
     ///recored update purchase
-    public function purchaseOrder($make,$ice_id,$imei,$sim_1_type,$sim_2_type,$user_id,$purchase_from){
+    public function purchaseOrder($make,$ice_id,$imei,$sim_1_type,$sim_2_type,$user_id,$purchase_from,$amount){
 
       //create device information
 
@@ -710,14 +736,10 @@ public function purchase_edit()
        $purchase->device_id =  $device->id;
        $purchase->device_number = $ice_id;
        $purchase->quantity = 1;
+       $purchase->amount = $amount;
        $purchase->purchase_from = $purchase_from;
 
        $purchase->save();
- 
-   
-       
-
-     
 
     } 
     
