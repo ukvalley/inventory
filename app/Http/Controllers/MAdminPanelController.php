@@ -697,7 +697,7 @@ public function purchase_edit()
 
     
     ///recored update purchase
-    public function purchaseOrder($make,$ice_id,$imei,$sim_1_type,$sim_2_type,$user_id,$purchase_from,$amount){
+    public function purchaseOrder($make,$ice_id,$imei,$sim_1_type,$sim_2_type,$activation_date,$received_date,$renewal_date,$user_id,$purchase_from,$amount){
 
       //create device information
 
@@ -708,11 +708,15 @@ public function purchase_edit()
            $device->imei = $imei;
            $device->sim_1_type = $sim_1_type;
            $device->sim_2_type = $sim_2_type;
+           $device->activation_date =$activation_date;
+	        $device->received_date =$received_date;
+	        $device->renewal_date = $renewal_date;
+	        
 
            $device->save();
 
       
-            // update records
+          // update records
 
            $record = Records::where('user_id','=',$user_id)->first();
 

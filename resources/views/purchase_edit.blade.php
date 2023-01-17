@@ -20,17 +20,13 @@
                              <h3>Add Purchase Details </h3>
                            <form class="col-sm-6" action="{{url('/')}}/purchase_device-update/{{$data->id}}" method="post"  enctype="multipart/form-data">
                     {{ csrf_field()}}
-                 
+                    
                         <div class="form-group">
                                  <label>Date</label>
                                  <input type="Date" class="form-control" name="date" required pattern="\d{3}-\d{2}-\d{4}" placeholder=" Date" value="{{$data->date}}"  required>
                               </div>
 
-                              <!-- <div class="form-group">
-                                 <label>Device ID</label>
-                                 <input type="text" class="form-control" name="device_id"  value="{{$data->device_id}}" placeholder="  device_id" required>
-                              </div> -->
-
+                             
                               <div class="form-group">
                                  <label>Device Number</label>
                                  <input type="text" class="form-control" name="device_number" value="{{$data->device_number}}" placeholder="device_number" required>
@@ -42,7 +38,7 @@
                               </div>
                               <div class="form-group">
                                  <label>Quantity</label>
-                                 <input type="text" class="form-control" name="quatity" value="{{$data->quantity}}" placeholder="amount" required>
+                                 <input type="text" class="form-control" name="quantity" value="{{$data->quantity}}" placeholder="amount" required>
                               </div>
 
                                <div class="form-group">

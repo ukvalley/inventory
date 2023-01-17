@@ -226,4 +226,12 @@ Route::post('/register_records-update/{id}', [MAdminPanelController::class, 'rec
 Route::get('records_destroy', [MAdminPanelController::class, 'records_destroy'])->name('records_destroy');
 Route::get('/add_user', [MAdminPanelController::class, 'add_user'])->name('add_user');
 
-    
+ 
+
+//purchaseOrder
+
+
+Route::get('/purchaseOrderForm', function () {
+    return view('purchaseOrderForm');
+});
+
