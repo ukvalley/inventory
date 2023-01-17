@@ -686,25 +686,25 @@ public function purchase_edit()
 
          ];
 	        
-
+         $Device->update($data);
 
       // get Total Count of Device  of users
       
 
         
-      // $user_records= DB::table('records')
-      // ->where('user_id','=',$user_id)
-      // ->first();
+      $user_records= DB::table('records')
+      ->where('user_id','=',$user_id)
+      ->first();
 
-      // $count_new = $user_records->device_count + 1;
+      $count_new = $user_records->device_count + 1;
  
-      // $update_count = [];
-      // $update_count['device_count'] = $count_new;
+      $update_count = [];
+      $update_count['device_count'] = $count_new;
       
 
-      //  DB::table('records')
-      // ->where('user_id','=',$user_id)
-      // ->update($update_count);
+       DB::table('records')
+      ->where('user_id','=',$user_id)
+      ->update($update_count);
       
  
        //Total value of device
@@ -748,11 +748,8 @@ public function purchase_edit()
           $Sales->allocated_to = $request->input('allocated_to');  
            $Sales->user_id = $request->input('user_id'); 
 
-
           $Sales->save();
-            
-
-                
+                 
           return redirect()->back();
               
           
