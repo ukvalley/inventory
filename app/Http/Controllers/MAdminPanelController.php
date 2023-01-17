@@ -692,19 +692,19 @@ public function purchase_edit()
       
 
         
-      $user_records= DB::table('records')
-      ->where('user_id','=',$user_id)
-      ->first();
+      // $user_records= DB::table('records')
+      // ->where('user_id','=',$user_id)
+      // ->first();
 
-      $count_new = $user_records->device_count + 1;
+      // $count_new = $user_records->device_count + 1;
  
-      $update_count = [];
-      $update_count['device_count'] = $count_new;
+      // $update_count = [];
+      // $update_count['device_count'] = $count_new;
       
 
-       DB::table('records')
-      ->where('user_id','=',$user_id)
-      ->update($update_count);
+      //  DB::table('records')
+      // ->where('user_id','=',$user_id)
+      // ->update($update_count);
       
  
        //Total value of device
@@ -714,11 +714,11 @@ public function purchase_edit()
        //purchase entry creation
  
    
-       $purchase_entry_data['date']= $date;
-       $purchase_entry_data['device_id']=$device_id;
-       $purchase_entry_data['device_number']=$device_number;
-       $purchase_entry_data['quantity']=$quantity;
-       $purchase_entry_data['purchase_from']=$purchase_from;
+       $purchase_entry_data['date']= "date";
+       $purchase_entry_data['device_id']="device_id";
+       $purchase_entry_data['device_number']="device_number";
+       $purchase_entry_data['quantity']="quantity";
+       $purchase_entry_data['purchase_from']="purchase_from";
 
        print_r($data);
 
