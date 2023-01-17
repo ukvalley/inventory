@@ -682,7 +682,8 @@ public function purchase_edit()
       $amount = $request->amount;
 
       $this->purchaseOrder($make,$ice_id,$imei,$sim_1_type,$sim_2_type,$received_date,$activation_date,$renewal_date,$user_id,$purchase_from,$amount);
-     
+    
+      
    }
 
 
@@ -948,7 +949,7 @@ public function records_edit()
  public function records_destroy()
     {
       $id =$_GET['id'];
-         $data=DB::table('Records')
+         $data=DB::table('records')
                ->where('id',"=",$id)
                ->delete();
 
