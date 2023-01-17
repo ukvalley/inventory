@@ -28,7 +28,6 @@ class Purchase extends Model
 		"device_number",
 		"amount",
 		"purchase_from",
-		"quantity",
     ];
     public function getDateAttribute($value)
     {

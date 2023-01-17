@@ -74,16 +74,6 @@
                         </div>
                     </div>
                 </div>
-                <div class=" col-12">
-                    <div class="form-group row">
-                        <label for="quantity" class="col-md-2 col-form-label">Quantity:</label>
-                        <div class="col-md-10">
-                            <input type="text" class="form-control" id="quantity" name="quantity"  placeholder="Quantity"  value="{{{ old('quantity', isset($data)?$data->quantity : '') }}}">
-                            <div class="invalid-feedback @if ($errors->has('quantity')) d-block @endif">{{trans('admiko.required_text')}}</div>
-                            <small id="quantity_help" class="text-muted"></small>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
         <div class="card-footer form-actions" id="form-group-buttons">

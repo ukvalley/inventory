@@ -29,6 +29,7 @@
  
       <th scope="col">Device Number</th>
       <th scope="col">Amount</th>
+      <th scope="col">Quantity</th>
       <th scope="col">Purchase from</th>
       
 
@@ -46,6 +47,7 @@
              
                 <td>{{$row->device_number}}</td>
                 <td>{{$row->amount}}</td>
+                <td>{{$row->quantity}}</td>
                 <td>{{$row->purchase_from}}</td>
                 <td>
                <a href="{{url('/')}}/purchase_edit?id={{$row->id}}" class="btn btn-primary">Edit</a>

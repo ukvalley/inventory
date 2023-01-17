@@ -44,6 +44,10 @@
                                  <label>Amount</label>
                                  <input type="text" class="form-control" name="amount" placeholder="amount" required>
                               </div>
+                              <div class="form-group">
+                                 <label>Quantity</label>
+                                 <input type="text" class="form-control" name="quantity" placeholder="quantity" required>
+                              </div>
 
                                <div class="form-group">
                                  <label>Purchase from</label>

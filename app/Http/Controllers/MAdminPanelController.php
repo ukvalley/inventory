@@ -570,16 +570,14 @@ public function device_edit()
 	   {        
 	      //insert data in database 	
 
-
-	        	
-
 	        $Purchase = new Purchase;	
 
 	        $Purchase->date =  $this->change_date_format($request->input('date'));
 	  
 	        $Purchase->device_number = $request->input('device_number');
 	        $Purchase->amount = $request->input('amount');	
-	         $Purchase->purchase_from = $request->input('purchase_from');	
+           $Purchase->quantity = $request->input('quantity');
+	        $Purchase->purchase_from = $request->input('purchase_from');	
 
 
 	        $Purchase->save();
@@ -638,6 +636,7 @@ public function purchase_edit()
 
 	        $Purchase->device_number = $request->input('device_number');
 	        $Purchase->amount =  $request->input('amount');
+           $Purchase->quantity =  $request->input('quantity');
 	         $Purchase->purchase_from = $request->input('purchase_from');
 
 
@@ -714,12 +713,12 @@ public function purchase_edit()
  
        //purchase entry creation
  
-       $purchase_entry_data[ ]= ;
-       $purchase_entry_data['date']= ;
-       $purchase_entry_data['device_id']=;
-       $purchase_entry_data['device_number']=;
-       $purchase_entry_data['quantity']=;
-       $purchase_entry_data['purchase_from']=;
+   
+       $purchase_entry_data['date']= $date;
+       $purchase_entry_data['device_id']=$device_id;
+       $purchase_entry_data['device_number']=$device_number;
+       $purchase_entry_data['quantity']=$quantity;
+       $purchase_entry_data['purchase_from']=$purchase_from;
 
        print_r($data);
 

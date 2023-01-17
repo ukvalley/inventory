@@ -40,6 +40,10 @@
                                  <label>Amount</label>
                                  <input type="text" class="form-control" name="amount" value="{{$data->amount}}" placeholder="amount" required>
                               </div>
+                              <div class="form-group">
+                                 <label>Quantity</label>
+                                 <input type="text" class="form-control" name="quatity" value="{{$data->quantity}}" placeholder="amount" required>
+                              </div>
 
                                <div class="form-group">
                                  <label>Purchase from</label>

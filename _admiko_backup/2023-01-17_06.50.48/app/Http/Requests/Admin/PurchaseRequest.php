@@ -29,10 +29,6 @@ class PurchaseRequest extends FormRequest
 			"purchase_from"=>[
 				"string",
 				"nullable"
-			],
-			"quantity"=>[
-				"string",
-				"nullable"
 			]
         ];
     }
@@ -42,8 +38,7 @@ class PurchaseRequest extends FormRequest
             "date"=>"Date &amp; Time",
 			"device_number"=>"Device Number",
 			"amount"=>"Amount",
-			"purchase_from"=>"Purchase From",
-			"quantity"=>"Quantity"
+			"purchase_from"=>"Purchase From"
         ];
     }
     
