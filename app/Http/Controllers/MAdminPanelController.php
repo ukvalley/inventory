@@ -671,56 +671,53 @@ public function purchase_edit()
     ///
     ///
     ///recored update purchase
-    public function purchaseOrder(){
+    public function purchaseOrder($make,$ice_id,$imei,$sim_1_type,$sim_2_type,$user_id,$purchase_from){
 
       //create device information
 
            $device= new Device;
- $data = [
-         
-         'make' => $device->make,
-         'ice_id' => $device->ice_id,
-         'imei' => $device->imei,
-         'sim_1_type' => $device->sim_1_type,
-         'sim_2_type' => $device->sim_2_type,
 
-         ];
-	        
-         $Device->update($data);
+           $device->make = $make;
+           $device->ice_id = $ice_id;
+           $device->imei = $imei;
+           $device->sim_1_type = $sim_1_type;
+           $device->sim_2_type = $sim_2_type;
 
-      // get Total Count of Device  of users
+           $device->save();
+
       
+            // update records
 
-        
-      $user_records= DB::table('records')
-      ->where('user_id','=',$user_id)
-      ->first();
+           $record = Records::where('user_id','=',$user_id)->first();
 
-      $count_new = $user_records->device_count + 1;
- 
-      $update_count = [];
-      $update_count['device_count'] = $count_new;
-      
+           $update_record_device_count = $record->device_count + 1;
 
-       DB::table('records')
-      ->where('user_id','=',$user_id)
-      ->update($update_count);
-      
- 
-       //Total value of device
- 
+           $record->device_count = $update_record_device_count;
+
+           $record->save();
+
+
+
  
  
        //purchase entry creation
+
+       $purchase = new purchase;
+
+       $today = date("M d, Y");
+
+       $purchase->date = $today;
+       $purchase->device_id =  $device->id;
+       $purchase->device_number = $ice_id;
+       $purchase->quantity = 1;
+       $purchase->purchase_from = $purchase_from;
+
+       $purchase->save();
  
    
-       $purchase_entry_data['date']= "date";
-       $purchase_entry_data['device_id']="device_id";
-       $purchase_entry_data['device_number']="device_number";
-       $purchase_entry_data['quantity']="quantity";
-       $purchase_entry_data['purchase_from']="purchase_from";
+       
 
-       print_r($data);
+     
 
     } 
     
