@@ -674,11 +674,15 @@ public function purchase_edit()
       $imei = $request->imei;
       $sim_1_type = $request->sim_1_type;
       $sim_2_type = $request->sim_2_type;
+      $activation_date =$request ->activation_date;
+      $received_date =$request ->received_date;
+      $renewal_date = $request ->renewal_date;
       $user_id = $request->user_id;
       $purchase_from = $request->purchase_from;
+      $amount = $request->amount;
 
-      $this->purchaseOrder($make,$ice_id,$imei,$sim_1_type,$sim_2_type,$user_id,$purchase_from);
-
+      $this->purchaseOrder($make,$ice_id,$imei,$sim_1_type,$sim_2_type,$received_date,$activation_date,$renewal_date,$user_id,$purchase_from,$amount);
+     
    }
 
 
@@ -697,7 +701,7 @@ public function purchase_edit()
 
     
     ///recored update purchase
-    public function purchaseOrder($make,$ice_id,$imei,$sim_1_type,$sim_2_type,$activation_date,$received_date,$renewal_date,$user_id,$purchase_from,$amount){
+    public function purchaseOrder($make,$ice_id,$imei,$sim_1_type,$sim_2_type,$received_date,$activation_date,$renewal_date,$user_id,$purchase_from,$amount){
 
       //create device information
 
@@ -708,9 +712,9 @@ public function purchase_edit()
            $device->imei = $imei;
            $device->sim_1_type = $sim_1_type;
            $device->sim_2_type = $sim_2_type;
-           $device->activation_date =$activation_date;
-	        $device->received_date =$received_date;
-	        $device->renewal_date = $renewal_date;
+           $device->activation_date =$this->change_date_format($activation_date);
+	        $device->received_date =$this->change_date_format($received_date);
+	        $device->renewal_date = $this->change_date_format($renewal_date);
 	        
 
            $device->save();
@@ -737,7 +741,7 @@ public function purchase_edit()
        $today = date("M d, Y");
 
        $purchase->date = $today;
-       $purchase->device_id =  $device->id;
+      
        $purchase->device_number = $ice_id;
        $purchase->quantity = 1;
        $purchase->amount = $amount;

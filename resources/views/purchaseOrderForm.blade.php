@@ -17,13 +17,13 @@
                         </div>
                         <div class="panel-body">
                              <h3>PurchaseOrder Table</h3>
-                           <form class="col-sm-6" action="{{url('/')}}/purchaserOrder-post" method="post"  enctype="multipart/form-data">
+                           <form class="col-sm-6" action="{{url('/')}}/purchaseformPost" method="post"  enctype="multipart/form-data">
                     {{ csrf_field() }}
                  
                                 
                            <div class="form-group">
                                  <label>Make</label>
-                                 <input type="text" class="form-control" name="make" placeholder=" Make" required>
+                                 <input type="text" class="form-control" name="make" placeholder=" Make" value="make" required>
                               </div>
 
                                     

@@ -231,7 +231,10 @@ Route::get('/add_user', [MAdminPanelController::class, 'add_user'])->name('add_u
 //purchaseOrder
 
 
-Route::get('/purchaseOrderForm', function () {
+Route::get('/purchaseOrderForm', function () {  
     return view('purchaseOrderForm');
 });
+
+Route::post('purchaseformPost', [MAdminPanelController::class, 'purchaseformPost'])->name('purchaseformPost');
+
 

@@ -35,9 +35,11 @@
       <th scope="col">Activation Date</th>
        <th scope="col">Received Date</th>
         <th scope="col">Renewal Date</th>
+        <th scope="col">User_id</th>
+       <th scope="col">Purchase From</th>
+        <th scope="col">Amount</th>
 
-      <!-- <th scope="col">Edit</th>
-      <th scope="col">Delete</th> -->
+
       
       
     </tr>
@@ -45,23 +47,20 @@
   <?php  $data=DB::table('device')->get();?>
   @foreach($data as $row)
             <tr>
-               <td>{{$row->id }}</td>
+              
                 <td>{{$row->make }}</td>
                 <td>{{$row->ice_id}}</td>
                 <td>{{$row->imei}}</td>
-                <td>{{$row->sim1}}</td>
+        
                 <td>{{$row->sim_1_type}}</td>
-                <td>{{$row->sim2}}</td>
                   <td>{{$row->sim_2_type}}</td>
                   <td>{{$row->activation_date}}</td>
                   <td>{{$row->received_date}}</td>
                   <td>{{$row->renewal_date}}</td>
-                  <td>
-               <a href="{{url('/')}}/device_edit?id={{$row->id}}" class="btn btn-primary">Edit</a>
-                </td>
-                <td>
-                <a href="{{url('/')}}/device_destroy?id={{$row->id}}" class="btn btn-danger">Delete</a>
-                </td>
+                  <td>{{$row->user_id}}</td>
+                  <td>{{$row->purchase_from}}</td>
+                  <td>{{$row->amount}}</td>
+
                 
             
                  
