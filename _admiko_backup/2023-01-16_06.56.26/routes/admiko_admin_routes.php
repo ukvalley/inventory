@@ -29,6 +29,3 @@ Route::resource("purchase", PurchaseController::class)->parameters(["purchase" =
 /**Sales**/
 Route::delete("sales/destroy", [SalesController::class,"destroy"])->name("sales.delete");
 Route::resource("sales", SalesController::class)->parameters(["sales" => "sales"]);
-/**Records**/
-Route::delete("records/destroy", [RecordsController::class,"destroy"])->name("records.delete");
-Route::resource("records", RecordsController::class)->parameters(["records" => "records"]);

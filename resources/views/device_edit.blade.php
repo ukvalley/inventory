@@ -34,7 +34,7 @@
 
                               <div class="form-group">
                                  <label>IMEI</label>
-                                 <input type="text" class="form-control" name="imei" value="{{$data->IMEI}}"  placeholder="IMEI" required>
+                                 <input type="text" class="form-control" name="imei" value="{{$data->imei}}"  placeholder="IMEI" required>
                               </div>
 
                               <div class="form-group">

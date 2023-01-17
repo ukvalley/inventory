@@ -41,6 +41,7 @@
             <tr>
                <td>{{$row->id }}</td>
                 <td>{{$row->name }}</td>
+                <td>{{$row->mobile }}</td>
                 <td>{{$row->city}}</td>
                 <td>{{$row->admiko_parent_child}}</td>
                 <td>{{$row->basic_amount}}</td>

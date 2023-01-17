@@ -11,30 +11,22 @@
                            </div>
                         </div>
                         <div class="panel-body">
-                           <form class="col-sm-6">
+                           <form class="col-sm-6" action="{{url('/')}}/register_records-post" method="post"  enctype="multipart/form-data">
+                    {{ csrf_field() }}
+                              
                               <div class="form-group">
-                                 <label>Date</label>
-                                 <input type="Date" class="form-control" placeholder="Date" name="date" required>
-                              </div>
-                              <div class="form-group">
-                                 <label>Total Device</label>
-                                 <input type="text" class="form-control" placeholder="Total Device" name="total_device" required>
+                              @foreach ($user_get as $value){ 
+                                 <label>User _Id</label>
+                                 <input type="text" class="form-control" value="{{$value->id}}" placeholder="User _Id" name="{{$value->user_id}}" required>
+                              @endforeach
                               </div>
 
                              
                               <div class="form-group">
-                                 <label>Alloted Device</label>
-                                 <input type="number" class="form-control" placeholder="Alloted Device" name="alloted_device" required>
+                                 <label>Device Count</label>
+                                 <input type="number" class="form-control" placeholder="Device Count" name="device_count" required>
                               </div>
-                               <div class="form-group">
-                                 <label>Available Device</label>
-                                 <input type="text" class="form-control" placeholder="Total Device" name="total_device" required>
-                              </div>
-                             
-                              <div class="form-group">
-                                 <label>Not Alloted</label>
-                                 <input id='minMaxExample' type="text" class="form-control" name="Not Alloted" placeholder="received_by">
-                              </div>
+                              
                              
                              
 

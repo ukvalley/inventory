@@ -208,9 +208,22 @@ Route::get('sim_destroy', [MAdminPanelController::class, 'sim_destroy'])->name('
 
 //Excel
 
-Route::get('/excel', function () {
-    return view('excel');
-});
+// Route::get('/excel', function () {
+//     return view('excel');
+// });
 
-Route::get('/export-device', [MAdminPanelController::class, 'exportDevice'])->name('export-device');
+// Route::get('/export-device', [MAdminPanelController::class, 'exportDevice'])->name('export-device');
 
+
+
+//records updating
+Route::get('purchaseOrder', [MAdminPanelController::class, 'purchaseOrder'])->name('purchaseOrder');
+
+Route::get('Records', [MAdminPanelController::class, 'register_records'])->name('register_records');
+
+Route::post('/register_records-post', [MAdminPanelController::class, 'Records'])->name('VehiclesRegister');
+Route::post('/register_records-update/{id}', [MAdminPanelController::class, 'records_update'])->name('records_update');
+Route::get('records_destroy', [MAdminPanelController::class, 'records_destroy'])->name('records_destroy');
+Route::get('/add_user', [MAdminPanelController::class, 'add_user'])->name('add_user');
+
+    

@@ -25,11 +25,10 @@
   <thead>
     <tr>
     <th scope="col">id</th>
-      <th scope="col">Date</th>
-      <th scope="col">Total Device</th>
-       <th scope="col">Alloted Device</th>
-      <th scope="col">Available Devices</th>
-      <th scope="col">Not Alloted</th>
+    
+    <th scope="col">User Id</th>
+       <th scope="col">Device  Count</th>
+      
       
 
       <!-- <th scope="col">Edit</th>
@@ -38,24 +37,18 @@
       
     </tr>
   </thead>
-  <?php  $data=DB::table('purchase')->get();?>
+  <?php  $data=DB::table('records')->get();?>
   @foreach($data as $row)
             <tr>
-               <td>{{$row->id }}</td>
-                <td>{{$row->date }}</td>
-                <td>{{$row->total_device}}</td>
-                <td>{{$row->alloted_device}}</td>
-                <td>{{$row->available_device}}</td>
-                <td>{{$row->not_alloted}}</td>
+                <td>{{$row->id }}</td>
+                <td>{{$row->user_id}}</td>
+                <td>{{$row->device_count}}</td>
                
-              <!--  <a href="{{url('/')}}/purchase_edit?id={{$row->id}}" class="btn btn-primary">Edit</a>
-                </td>
+              
                 <td>
-                <a href="{{url('/')}}/purchase_destroy?id={{$row->id}}" class="btn btn-danger">Delete</a>
-                </td> -->
-                
-            
-                 
+                <a href="{{url('/')}}/record_destroy?id={{$row->id}}" class="btn btn-danger">Delete</a>
+                </td>
+              
             </tr>
         @endforeach
 </table>

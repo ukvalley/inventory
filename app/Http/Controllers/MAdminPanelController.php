@@ -12,6 +12,7 @@ use App\Models\Admin\Device;
 use App\Models\Admin\Purchase;
 use App\Models\Admin\Sales;
 use App\Models\Admin\SimTypes;
+use App\Models\Admin\Records;
 
 
 
@@ -232,6 +233,8 @@ public function customer_edit()
   public function view_vehicle()
    {
       $data=DB::table('vechicles')->get();
+      
+
 
 
       //print_r($data); die();
@@ -663,21 +666,68 @@ public function purchase_edit()
     }
 
 
-
+    
+    ///
+    ///
+    ///
+    ///
     ///recored update purchase
     public function purchaseOrder(){
-      PurchaseDevice::create($request->all());
 
-      foreach ($data['PurchaseDevice'] as $key => $value)
-      {
-    
-         $purchase_device[$key]['devive_number'] = $data['category_name'][$key];
-         $purchase_device[$key]['amount'] = $data['category_id'][$key];
-         $purchase_device[$key]['purchase_from'] = $data['purchase_cost'][$key];
+      //create device information
+
+           $device= new Device;
+ $data = [
          
-     }
+         'make' => $device->make,
+         'ice_id' => $device->ice_id,
+         'imei' => $device->imei,
+         'sim_1_type' => $device->sim_1_type,
+         'sim_2_type' => $device->sim_2_type,
 
-    }
+         ];
+	        
+
+
+      // get Total Count of Device  of users
+      
+
+        
+      $user_records= DB::table('records')
+      ->where('user_id','=',$user_id)
+      ->first();
+
+      $count_new = $user_records->device_count + 1;
+ 
+      $update_count = [];
+      $update_count['device_count'] = $count_new;
+      
+
+       DB::table('records')
+      ->where('user_id','=',$user_id)
+      ->update($update_count);
+      
+ 
+       //Total value of device
+ 
+ 
+ 
+       //purchase entry creation
+ 
+       $purchase_entry_data[ ]= ;
+       $purchase_entry_data['date']= ;
+       $purchase_entry_data['device_id']=;
+       $purchase_entry_data['device_number']=;
+       $purchase_entry_data['quantity']=;
+       $purchase_entry_data['purchase_from']=;
+
+       print_r($data);
+
+    } 
+    
+
+
+    
 
 
 
@@ -686,7 +736,7 @@ public function purchase_edit()
 
   public function Sales(Request $request)
      {        
-        //insert data in database   
+        //insert data in database
 
 
             
@@ -789,124 +839,17 @@ public function sales_edit()
 
 
 
-// Transction****************************************************************************************************
-
-
-
-//     public function TransactionView()
-//     {
-//     	echo "Transaction";
-
-//     	return view('transaction');
-//     }
-
-      
-//       public function Transaction(Request $request)
-//      {        
-//         //insert data in database   
-
-
-            
-
-//           $Transaction = new Sales; 
-//           $Transaction->date = $request->input('date');
-//           $Transaction->device_id = $request->input('device_id');
-//           $SaTransactionles->device_number = $request->input('device_number');
-//           $Transaction->allocated_to = $request->input('allocated_to');  
-//            $Transaction->user_id = $request->input('user_id'); 
-
-
-//           $Transaction->save();
-            
-
-                
-//           return redirect()->back();
-              
-          
-//       }
-
-
-//       public function view_transaction()
-//    {
-//       $data=DB::table('Transaction')->get();
-
-//       //print_r($data); die();
-
-//       //get data from database 
-//       return view('transaction_table')->with(compact($data)); 
-//    }
-
-// public function sales_edit()
-//     {    
-//          $id =$_GET['id'];
-//          $data=DB::table('Transaction')
-//                ->where('id',"=",$id)
-//                ->first();
-
-
-//         // print_r($data); die();
-//          return view('/transaction_edit')->with(compact('data'));
-//     }
-
-
-       
-
-//     public function transaction_update($id,Request $request)
-//       {
-//          $Transaction = $request->all();
-//                $Sales = Transaction::find($id);
-
-//           $Transaction->date =$request->input('date'); 
-//           $Transaction->device_id =$request->input('device_id');  
-//           $Transaction->device_number =$request->input('device_number'); 
-//           $Transaction->allocated_to = $request->input('allocated_to'); 
-//            $Transaction->user_id = $request->input('user_id'); 
-
-
-           
-
-
-//           $Transaction->update($data);
-      
-
-//        return redirect()->back();
-//          // return redirect()->route('customer_table')
-//          //                ->with('success','Customer updated successfully'); 
-
-//     }
-
-
-//  public function transaction_destroy()
-//     {
-//       $id =$_GET['id'];
-//          $data=DB::table('Transaction')
-//                ->where('id',"=",$id)
-//                ->delete();
-                
-    
-//         return redirect()->back();
-//     }        
-              
-      
-
-
-
-
+    //records
       
       public function Records(Request $request)
-     {        
-        //insert data in database   
-
-
-            
+      
+     {    
 
           $Records = new Records; 
-          $Records->date = $request->input('date');
-          $Records->total_device = $request->input('total_device');
-          $Records->alloted_device = $request->input('alloted_device');
-          $Records->available_device = $request->input('available_device');  
-           $Records->not_alloted = $request->input('not_alloted'); 
-
+         
+          $Records->user_id = $request->input('user_id');
+          $Records->device_count= $request->input('device_count');
+         
 
           $Records->save();
             
@@ -916,6 +859,7 @@ public function sales_edit()
               
           
       }
+
 
 
       public function view_records()
@@ -928,6 +872,17 @@ public function sales_edit()
       return view('records_table')->with(compact($data)); 
    }
 
+   public function register_records()
+    {    
+        
+        $allrecords = records::get();
+        $allUsers = Users::get();
+
+
+        // print_r($allrecords); die();
+         return view('/register_records')->with(compact('allrecords','allUsers'));
+    }
+    
 public function records_edit()
     {    
          $id =$_GET['id'];
@@ -948,11 +903,10 @@ public function records_edit()
          $Records = $request->all();
                $Records = Records::find($id);
 
-          $Records->date =$request->input('date'); 
-          $Records->total_device =$request->input('total_device');  
-          $Records->alloted_device =$request->input('alloted_device'); 
-          $Records->available_device = $request->input('available_device'); 
-          $Records->not_alloted = $request->input('not_alloted'); 
+      
+          $Records->user_id =$request->input('user_id');  
+          $Records->device_alloted =$request->input('device_alloted'); 
+          
 
 
            
@@ -1025,6 +979,19 @@ public function records_edit()
         return view('add_device', compact('sim_get'));
 
    }
+   
+   
+ public function add_user()
+ {
+ 
+
+  $user_get = DB::table('users')->get();
+
+
+    // print_r($data);die();
+      return view('add_user', compact('user_get'));
+
+ }
 
 public function sim_edit()
     {    

@@ -21,6 +21,3 @@
 @if(Gate::any(['sales_allow', 'sales_edit']))
 <li class="nav-item{{ $admiko_data['sideBarActive'] === "sales" ? " active" : "" }}"><a class="nav-link" href="{{route('admin.sales.index')}}"><i class="fas fa-file-alt fa-fw"></i>Sales</a></li>
 @endIf
-@if(Gate::any(['records_allow', 'records_edit']))
-<li class="nav-item{{ $admiko_data['sideBarActive'] === "records" ? " active" : "" }}"><a class="nav-link" href="{{route('admin.records.index')}}"><i class="fas fa-file-alt fa-fw"></i>Records</a></li>
-@endIf
