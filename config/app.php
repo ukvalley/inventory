@@ -105,6 +105,7 @@ return [
     | localized telephone numbers, street address information and more.
     |
     */
+    
 
     'faker_locale' => 'en_US',
 
