@@ -206,16 +206,6 @@ Route::get('sim_destroy', [MAdminPanelController::class, 'sim_destroy'])->name('
 
 
 
-//Excel
-
-// Route::get('/excel', function () {
-//     return view('excel');
-// });
-
-// Route::get('/export-device', [MAdminPanelController::class, 'exportDevice'])->name('export-device');
-
-
-
 //records updating
 Route::get('purchaseOrder', [MAdminPanelController::class, 'purchaseOrder'])->name('purchaseOrder');
 
