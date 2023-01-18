@@ -794,11 +794,11 @@ public function salesformPost(Request $request)
 
         $device= new Device;
 
-        $user_id->make = $user_id;
+        $device->User_id = $User_id;
        
        
 
-        $device->update();
+        $device->save();
 
    
        // update records
