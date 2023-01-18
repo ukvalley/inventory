@@ -23,8 +23,6 @@ class VechiclesRequest extends FormRequest
 			],
 			"rc_book_file"=>[
 				"file",
-				"file_extension:jpg,png,jpeg",
-				"mimes:jpg,png,jpeg",
 				"nullable"
 			],
 			"vehicle_image_1"=>[

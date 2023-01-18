@@ -1147,7 +1147,10 @@ public function sim_edit()
     }
 
 
-    //files import export
+
+
+
+    //CSV files import export
 
     public function getImport()
     {
@@ -1192,15 +1195,16 @@ public function sim_edit()
         $data = CsvData::find($request->csv_data_file_id);
         $csv_data = json_decode($data->csv_data, true);
         foreach ($csv_data as $row) {
-            $contact = new Contact();
+            $device = new Device();
             foreach (config('app.db_fields') as $index => $field) {
                 if ($data->csv_header) {
-                    $contact->$field = $row[$request->fields[$field]];
+                    $device->$field = $row[$request->fields[$field]];
+
                 } else {
-                    $contact->$field = $row[$request->fields[$index]];
+                    $device->$field = $row[$request->fields[$index]];
                 }
             }
-            $contact->save();
+            $device->save();
         }
 
         return view('import_success');

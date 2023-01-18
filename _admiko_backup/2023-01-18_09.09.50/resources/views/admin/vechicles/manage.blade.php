@@ -62,12 +62,12 @@
                                 <label class="form-check-label" for="rc_book_file_admiko_delete"> {{trans('admiko.remove_file')}}</label>
                             </div>
                             @endif
-                            <input type="file" class="fileUpload mt-1" id="rc_book_file" accept=".jpg,.png,.jpeg" data-type=".jpg,.png,.jpeg" name="rc_book_file" >
+                            <input type="file" class="fileUpload mt-1" id="rc_book_file"  name="rc_book_file" >
                             <input type="hidden" id="rc_book_file_admiko_current" name="rc_book_file_admiko_current" value="{{$data->rc_book_file??''}}">
                             <div class="invalid-feedback @if ($errors->has('rc_book_file')) d-block @endif" data-required="{{trans('admiko.required_text')}}" data-size="{{trans('admiko.required_size')}}" data-type="{{trans('admiko.required_type')}}">
                                 @if ($errors->has('rc_book_file')){{ $errors->first('rc_book_file') }}@endif
                             </div>
-                            <small id="rc_book_file_help" class="text-muted">{{trans("admiko.file_extension_limit")}}.jpg,.png,.jpeg. </small>
+                            <small id="rc_book_file_help" class="text-muted"></small>
                         </div>
                     </div>
                 </div>
