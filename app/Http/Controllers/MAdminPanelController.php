@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use DB;
 use Mail;
 use Illuminate\Http\Request;
+use App\Http\Requests\CsvImportRequest;
 use App\Models\Admin\Customer;
 use App\Models\Admin\Vechicles;
 use App\Models\Admin\Users;
@@ -13,6 +14,7 @@ use App\Models\Admin\Purchase;
 use App\Models\Admin\Sales;
 use App\Models\Admin\SimTypes;
 use App\Models\Admin\Records;
+use App\Models\CsvData;
 
 
 
@@ -723,9 +725,11 @@ public function purchase_edit()
 	        $device->received_date =$this->change_date_format($received_date);
 	        $device->renewal_date = $this->change_date_format($renewal_date);
 	        
-
+          
            $device->save();
 
+        
+          
       
           // update records
 
@@ -1178,15 +1182,13 @@ public function sim_edit()
             $csv_data = array_slice($data, 0, 2);
 
             $csv_data_file = CsvData::create([
-                'csv_filename' => $request->file('csv_file')->getClientOriginalName(),
-                'csv_header' => $request->has('header'),
-                'csv_data' => json_encode($data)
-            ]);
-        } else {
-            return redirect()->back();
-        }
+              'csv_filename' => $request->file('csv_file')->getClientOriginalName(),
+              'csv_header' => $request->has('header'),
+              'csv_data' => json_encode($data)
+          ]);
 
-        return view('import_fields', compact( 'csv_header_fields', 'csv_data', 'csv_data_file'));
+            return view('import_fields', compact('csv_data', 'csv_data_file'));
+          }
 
     }
 

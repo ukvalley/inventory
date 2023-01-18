@@ -135,6 +135,12 @@ return [
     |
     */
 
+    'db_fields' => [
+        'first_name',
+        'last_name',
+        'email'
+    ],
+
     'providers' => [
 
         /*
