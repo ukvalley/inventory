@@ -239,6 +239,6 @@ Route::post('salesformPost', [MAdminPanelController::class, 'salesformPost'])->n
 
 
 //csv imports
-Route::get('/', 'ImportController@getImport')->name('import');
-Route::post('/import_parse', 'ImportController@parseImport')->name('import_parse');
-Route::post('/import_process', 'ImportController@processImport')->name('import_process');
+Route::get('/', 'MAdminPanelController@getImport')->name('import');
+Route::post('/import_parse', 'MAdminPanelController@parseImport')->name('import_parse');
+Route::post('/import_process', 'MAdminPanelController@processImport')->name('import_process');
