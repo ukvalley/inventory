@@ -8,12 +8,17 @@ class OfficeController extends Controller
 {
      
 
-     public function  office()
+     public function office()
      {
 
        echo "  Office  controller";
 
 	
-      return view('/office_panel')
+      return view('/office_panel');
+     }
+
+     public function csvUpload()
+     {
+          
      }
 }
