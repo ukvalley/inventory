@@ -136,9 +136,14 @@ return [
     */
 
     'db_fields' => [
-        'first_name',
-        'last_name',
-        'email'
+        'make',
+        'ice_id',
+        'imei',
+        'sim_1_type',
+        'sim_2_type',
+        'received_date',
+        'purchase_from',
+        'amount'
     ],
 
     'providers' => [

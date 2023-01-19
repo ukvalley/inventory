@@ -243,5 +243,5 @@ Route::post('salesformPost', [MAdminPanelController::class, 'salesformPost'])->n
 
 Route::get('getImport', [MAdminPanelController::class, 'getImport'])->name('import');
 Route::post('/import_parse', [MAdminPanelController::class, 'parseImport'])->name('import_parse');
-Route::get('/import_process', [MAdminPanelController::class, 'processImport'])->name('import_process');
+Route::post('/import_process', [MAdminPanelController::class, 'processImport'])->name('import_process');
 
