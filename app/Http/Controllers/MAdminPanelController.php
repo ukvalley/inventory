@@ -1192,6 +1192,7 @@ public function sim_edit()
           $csv_row_data[$field] = $row[$index];
         }
         $this->csvPurchaseProcess($csv_row_data);
+        
     }
 
 
@@ -1219,6 +1220,8 @@ public function sim_edit()
       $user_id = 1;
       $purchase_from = $csv_row_data['purchase_from'];
       $amount = $csv_row_data['amount'];
+      
+
 
 
     
@@ -1227,6 +1230,35 @@ public function sim_edit()
 
 
     }
+
+
+    public function newManifacturer(Request $request)
+	   {      
+
+
+	        $manifacturers = new Manifacturers;
+
+
+
+	        $manifacturers->name = $request->input('name');
+	        $manifacturers->companyname = $request->input('companyname');
+	        $manifacturers->address = $request->input('address');
+	        $manifacturers->contact = $request->input('contact');
+	       
+
+
+	        $manifacturers->save();
+	       // 	
+
+	              
+	        return redirect()->back();
+	        	  
+	        
+	    }
+
+
+
+    
               
 }
 
