@@ -136,6 +136,7 @@ return [
     */
 
     'db_fields' => [
+       
         'make',
         'ice_id',
         'imei',
@@ -143,7 +144,9 @@ return [
         'sim_2_type',
         'received_date',
         'purchase_from',
-        'amount'
+        'amount', 
+        ' ',
+        
     ],
 
     'providers' => [

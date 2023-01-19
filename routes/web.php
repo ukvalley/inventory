@@ -209,7 +209,10 @@ Route::get('sim_destroy', [MAdminPanelController::class, 'sim_destroy'])->name('
 //records updating
 Route::get('purchaseOrder', [MAdminPanelController::class, 'purchaseOrder'])->name('purchaseOrder');
 
-Route::get('Records', [MAdminPanelController::class, 'register_records'])->name('register_records');
+Route::get('/register_records', [MAdminPanelController::class, 'Records']);
+Route::get('/view_records', [MAdminPanelController::class, 'view_records']);
+Route::get('/printuser', [MAdminPanelController::class, 'register_records']);
+
 
 Route::post('/register_records-post', [MAdminPanelController::class, 'Records'])->name('VehiclesRegister');
 Route::post('/register_records-update/{id}', [MAdminPanelController::class, 'records_update'])->name('records_update');

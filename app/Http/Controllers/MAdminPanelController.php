@@ -722,8 +722,8 @@ public function purchase_edit()
            $device->sim_1_type = $sim_1_type;
            $device->sim_2_type = $sim_2_type;
            $device->activation_date =$this->change_date_format($activation_date);
-	        $device->received_date =$this->change_date_format($received_date);
-	        $device->renewal_date = $this->change_date_format($renewal_date);
+	         $device->received_date =$this->change_date_format($received_date);
+	         $device->renewal_date = $this->change_date_format($renewal_date);
 	        
           
            $device->save();
@@ -951,13 +951,14 @@ public function sales_edit()
       
      {    
 
-          $Records = new Records; 
+          $records = new Records; 
          
-          $Records->user_id = $request->input('user_id');
-          $Records->device_count= $request->input('device_count');
+          $records->user_id = $request->input('user_id');
+          $records->device_count= $request->input('device_count');
          
+       
 
-          $Records->save();
+          $records->save();
             
 
                 
@@ -968,11 +969,13 @@ public function sales_edit()
 
 
 
+
       public function view_records()
    {
-      $data=DB::table('Records')->get();
 
-      //print_r($data); die();
+      $data=DB::table('records')->get();
+
+      // print_r($data); die();
 
       //get data from database 
       return view('records_table')->with(compact($data)); 
@@ -985,7 +988,7 @@ public function sales_edit()
         $allUsers = Users::get();
 
 
-        // print_r($allrecords); die();
+        // print_r($allUsers); die();
          return view('/register_records')->with(compact('allrecords','allUsers'));
     }
     
@@ -1185,7 +1188,7 @@ public function sim_edit()
        $csv_row_data = [];
         
         foreach (config('app.db_fields') as $index => $field) {
-          print_r($row);
+          // print_r($row);
           $csv_row_data[$field] = $row[$index];
         }
         $this->csvPurchaseProcess($csv_row_data);
@@ -1220,7 +1223,7 @@ public function sim_edit()
 
     
 
-      $this->purchaseOrder($make,$ice_id,$imei,$sim_1_type,$sim_2_type,$received_date,$activation_date,$renewal_date,$user_id,$purchase_from);
+      $this->purchaseOrder($make,$ice_id,$imei,$sim_1_type,$sim_2_type,$received_date,$activation_date,$renewal_date,$user_id,$purchase_from,$amount);
 
 
     }

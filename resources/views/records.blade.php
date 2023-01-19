@@ -1,4 +1,4 @@
- @include('common.header')
+ @include('common.header')vehicles
 
  <!-- Form controls -->
  <div class="content-wrapper">
@@ -15,12 +15,11 @@
                     {{ csrf_field() }}
                               
                               <div class="form-group">
-                              @foreach ($user_get as $value){ 
+                              @foreach ($allUsers as $value){
                                  <label>User _Id</label>
-                                 <input type="text" class="form-control" value="{{$value->id}}" placeholder="User _Id" name="{{$value->user_id}}" required>
-                              @endforeach
-                              </div>
-
+                                   <option value="{{$value->id}}" >{{$value->id}}</option>}
+                                  @endforeach
+                                  </div>
                              
                               <div class="form-group">
                                  <label>Device Count</label>
