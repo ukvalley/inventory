@@ -8,6 +8,7 @@ use App\Http\Controllers\MAdminPanelController;
 //new
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\VehicleController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\DeviceController;
 use App\Http\Controllers\SalesController;
 use App\Http\Controllers\SimController;
@@ -125,137 +126,7 @@ Route::get('/sim_table', function () {
     return view('sim_table');
 });
 
-
-
-Route::get('/madmin_panel', [MAdminPanelController::class, 'madmin_panel'])->name('madmin_panel');
-
-
-Route::get('/salesagent', [SalesAgentController::class, 'salesagent'])->name('salesagent');
-
-Route::get('/office', [OfficeController::class, 'office'])->name('office');
-
-Route::get('/technician_panel', [TechnicianController::class, 'technician'])->name('technician');
-
-
-
-
-//customer--------------------------------------------------------------------------------
-Route::post('/register_customer-post', [MAdminPanelController::class, 'CustomerRegister'])->name('CustomerRegister');
-
-Route::post('/register_customer-update/{id}', [MAdminPanelController::class, 'update'])->name('update');
-
-
-Route::get('customer_edit', [MAdminPanelController::class, 'customer_edit'])->name('customer_edit');
-Route::get('destroy', [MAdminPanelController::class, 'destroy'])->name('destroy');
-
-
-Route::get('/register_customer', [MAdminPanelController::class, 'register_customer'])->name('register_customer');
-
-
-//vehicle-------------------------------------------------------------------------------------
-Route::get('/register_vehicle', [MAdminPanelController::class, 'register_vehicle'])->name('register_vehicle');
-Route::post('/register_vehicle-post', [MAdminPanelController::class, 'VehiclesRegister'])->name('VehiclesRegister');
-Route::post('/register_vehicle-update/{id}', [MAdminPanelController::class, 'vehicle_update'])->name('vehicle_update');
-Route::get('vehicle_edit', [MAdminPanelController::class, 'vehicle_edit'])->name('vehicle_edit');
-Route::get('vehicle_destroy', [MAdminPanelController::class, 'vehicle_destroy'])->name('vehicle_destroy');
-
-    
-
-
-//User--------------------------------------------------------------------------------------
-
-Route::get('/register_user', [MAdminPanelController::class, 'register_user'])->name('register_user');
-
-Route::post('/register_user-post', [MAdminPanelController::class, 'UserRegister'])->name('UserRegister');
-Route::post('/register_user-update/{id}', [MAdminPanelController::class, 'user_update'])->name('user_update');
-Route::get('user_edit', [MAdminPanelController::class, 'user_edit'])->name('user_edit');
-Route::get('user_destroy', [MAdminPanelController::class, 'user_destroy'])->name('user_destroy');
-
-
-//devices--------------------------------------------------------------------------------------------------
-Route::get('/add_device', [MAdminPanelController::class, 'add_sim'])->name('add_sim');
-
-Route::post('/add_device-post', [MAdminPanelController::class, 'DeviceRegister'])->name('DeviceRegister');
-Route::post('/add_device-update/{id}', [MAdminPanelController::class, 'device_update'])->name('device_update');
-Route::get('device_edit', [MAdminPanelController::class, 'device_edit'])->name('device_edit');
-Route::get('device_destroy', [MAdminPanelController::class, 'device_destroy'])->name('device_destroy');
-Route::get('/register_sim', [MAdminPanelController::class, 'register_sim'])->name('register_sim');
-
-
-
-//Purchase-------------------------------------------------------------------------------------------------------------------------
-Route::get('/register_purchase', [MAdminPanelController::class, 'register_purchase'])->name('register_purchase');
-
-Route::post('/purchase_device-post', [MAdminPanelController::class, 'PurchaseDevice'])->name('PurchaseDevice');
-Route::post('/purchase_device-update/{id}', [MAdminPanelController::class, 'purchase_update'])->name('purchase_update');
-Route::get('purchase_edit', [MAdminPanelController::class, 'purchase_edit'])->name('purchase_edit');
-Route::get('purchase_destroy', [MAdminPanelController::class, 'purchase_destroy'])->name('purchase_destroy');
-
-//SAles-------------------------------------------------------------------------------------------------------------------------
-Route::get('/register_sales', [MAdminPanelController::class, 'register_sales'])->name('register_sales');
-Route::post('/sales-post', [MAdminPanelController::class, 'Sales'])->name('Sales');
-Route::post('/sales-update/{id}', [MAdminPanelController::class, 'sales_update'])->name('sales_update');
-Route::get('sales_edit', [MAdminPanelController::class, 'sales_edit'])->name('sales_edit');
-Route::get('sales_destroy', [MAdminPanelController::class, 'sales_destroy'])->name('sales_destroy');
-
-//Records----------------------------------------------------------------------------------------------------------------------
-
-Route::post('/records-post', [MAdminPanelController::class, 'Records'])->name('Records');
-
-//SIM 
-
-
-Route::post('/simtypes-post', [MAdminPanelController::class, 'SimTypes'])->name('SimTypes');
-
-Route::post('/simtypes-update/{id}', [MAdminPanelController::class,'sim_update'])->name('sim_update');
-Route::get('sim_edit', [MAdminPanelController::class, 'sim_edit'])->name('sim_edit');
-Route::get('sim_destroy', [MAdminPanelController::class, 'sim_destroy'])->name('sim_destroy');
-
-
-
-//records updating
-Route::get('purchaseOrder', [MAdminPanelController::class, 'purchaseOrder'])->name('purchaseOrder');
-
-Route::get('/register_records', [MAdminPanelController::class, 'Records']);
-Route::get('/view_records', [MAdminPanelController::class, 'view_records']);
-Route::get('/printuser', [MAdminPanelController::class, 'register_records']);
-
-
-Route::post('/register_records-post', [MAdminPanelController::class, 'Records'])->name('VehiclesRegister');
-Route::post('/register_records-update/{id}', [MAdminPanelController::class, 'records_update'])->name('records_update');
-Route::get('records_destroy', [MAdminPanelController::class, 'records_destroy'])->name('records_destroy');
-Route::get('/add_user', [MAdminPanelController::class, 'add_user'])->name('add_user');
-
- 
-
-//purchaseOrder
-
-
-Route::get('/purchaseOrderForm', function () {  
-    return view('purchaseOrderForm');
-});
-
-Route::get('/salesOrderForm', function () {  
-    return view('salesOrderForm');
-});
-
-Route::post('purchaseformPost', [MAdminPanelController::class, 'purchaseformPost'])->name('purchaseformPost');
-
-Route::get('/purchaseForm', [MAdminPanelController::class, 'purchaseForm'])->name('purchaseForm');
-
-
-Route::post('salesformPost', [MAdminPanelController::class, 'salesformPost'])->name('salesformPost');
-
-
-
-//csv imports
-
-
-Route::get('getImport', [MAdminPanelController::class, 'getImport'])->name('import');
-Route::post('/import_parse', [MAdminPanelController::class, 'parseImport'])->name('import_parse');
-Route::post('/import_process', [MAdminPanelController::class, 'processImport'])->name('import_process');
-
-
+//old
 
 //New Routes
 //*************************************************************************************************************** */
@@ -353,10 +224,17 @@ Route::get('/salesOrderForm', function () {
     return view('salesOrderForm');
 });
 
-Route::post('purchaseformPost', [PurchaseOrderController::class, 'purchaseformPost'])->name('purchaseformPost');
+Route::post('purchaseformPost', [MAdminPanelController::class, 'purchaseformPost'])->name('purchaseformPost');
 
-Route::get('/purchaseForm', [PurchaseOrderController::class, 'purchaseForm'])->name('purchaseForm');
+Route::get('/purchaseForm', [MAdminPanelController::class, 'purchaseForm'])->name('purchaseForm');
 
 
-Route::post('salesformPost', [PurchaseOrderController::class, 'salesformPost'])->name('salesformPost');
+Route::post('salesformPost', [MAdminPanelController::class, 'salesformPost'])->name('salesformPost');
 
+
+//csv imports
+
+
+Route::get('getImport', [MAdminPanelController::class, 'getImport'])->name('import');
+Route::post('/import_parse', [MAdminPanelController::class, 'parseImport'])->name('import_parse');
+Route::post('/import_process', [MAdminPanelController::class, 'processImport'])->name('import_process');
