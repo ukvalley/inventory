@@ -34,10 +34,10 @@ class MAdminPanelController extends Controller
    
    // Posting data in Customer Table
 
-   public function exportDevice(){
-    print_r('export');
+   // public function exportDevice(){
+   //  print_r('export');
 
-   }
+   // }
 
  	public function CustomerRegister(Request $request)
 	   {      
