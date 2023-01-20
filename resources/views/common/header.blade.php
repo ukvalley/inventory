@@ -8,39 +8,39 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <title>CRM Admin Panel</title>
       <!-- Favicon and touch icons -->
-      <link rel="shortcut icon" href="asset/img//dist/img/ico/favicon.png" type="image/x-icon">
+      <link rel="shortcut icon" href="{{url('/')}}/asset/img//dist/img/ico/favicon.png" type="image/x-icon">
       <!-- Start Global Mandatory Style
          =====================================================================-->
       <!-- jquery-ui css -->
-      <link href="asset/plugins/jquery-ui-1.12.1/jquery-ui.min.css" rel="stylesheet" type="text/css"/>
+      <link href="{{url('/')}}/asset/plugins/jquery-ui-1.12.1/jquery-ui.min.css" rel="stylesheet" type="text/css"/>
       <!-- Bootstrap -->
-      <link href="asset/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+      <link href="{{url('/')}}/asset/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
       <!-- Bootstrap rtl -->
       <!--<link href="asset/bootstrap-rtl/bootstrap-rtl.min.css" rel="stylesheet" type="text/css"/>-->
       <!-- Lobipanel css -->
-      <link href="asset/plugins/lobipanel/lobipanel.min.css" rel="stylesheet" type="text/css"/>
+      <link href="{{url('/')}}/asset/plugins/lobipanel/lobipanel.min.css" rel="stylesheet" type="text/css"/>
       <!-- Pace css -->
-      <link href="asset/plugins/pace/flash.css" rel="stylesheet" type="text/css"/>
+      <link href="{{url('/')}}/asset/plugins/pace/flash.css" rel="stylesheet" type="text/css"/>
       <!-- Font Awesome -->
-      <link href="asset/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+      <link href="{{url('/')}}/asset/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
       <!-- Pe-icon -->
-      <link href="asset/pe-icon-7-stroke/css/pe-icon-7-stroke.css" rel="stylesheet" type="text/css"/>
+      <link href="{{url('/')}}/asset/pe-icon-7-stroke/css/pe-icon-7-stroke.css" rel="stylesheet" type="text/css"/>
       <!-- Themify icons -->
-      <link href="asset/themify-icons/themify-icons.css" rel="stylesheet" type="text/css"/>
+      <link href="{{url('/')}}/asset/themify-icons/themify-icons.css" rel="stylesheet" type="text/css"/>
       <!-- End Global Mandatory Style
          =====================================================================-->
       <!-- Start page Label Plugins 
          =====================================================================-->
       <!-- Emojionearea -->
-      <link href="asset/plugins/emojionearea/emojionearea.min.css" rel="stylesheet" type="text/css"/>
+      <link href="{{url('/')}}/asset/plugins/emojionearea/emojionearea.min.css" rel="stylesheet" type="text/css"/>
       <!-- Monthly css -->
-      <link href="asset/plugins/monthly/monthly.css" rel="stylesheet" type="text/css"/>
+      <link href="{{url('/')}}/asset/plugins/monthly/monthly.css" rel="stylesheet" type="text/css"/>
       <!-- End page Label Plugins 
          =====================================================================-->
       <!-- Start Theme Layout Style
          =====================================================================-->
       <!-- Theme style -->
-      <link href="asset/dist/css/stylecrm.css" rel="stylesheet" type="text/css"/>
+      <link href="{{url('/')}}/asset/dist/css/stylecrm.css" rel="stylesheet" type="text/css"/>
       <!-- Theme style rtl -->
       <!--<link href="asset/dist/css/stylecrm-rtl.css" rel="stylesheet" type="text/css"/>-->
       <!-- End Theme Layout Style
@@ -57,10 +57,10 @@
             <a href="index.html" class="logo">
                <!-- Logo -->
                <span class="logo-mini">
-               <img src="asset/dist/img/mini-logo.png" alt="">
+               <img src="{{url('/')}}/asset/dist/img/mini-logo.png" alt="">
                </span>
                <span class="logo-lg">
-               <img src="asset/dist/img/logo.png" alt="">
+               <img src="{{url('/')}}/asset/dist/img/logo.png" alt="">
                </span>
             </a>
             <!-- Header Navbar -->
@@ -94,7 +94,7 @@
                                     <!-- start Orders -->
                                     <a href="#" class="border-gray">
                                        <div class="pull-left">
-                                          <img src="asset/dist/img/basketball-jersey.png" class="img-thumbnail" alt="User Image">
+                                          <img src="{{url('/')}}/asset/dist/img/basketball-jersey.png" class="img-thumbnail" alt="User Image">
                                        </div>
                                        <h4>polo shirt</h4>
                                        <p><strong>total item:</strong> 21
@@ -104,7 +104,7 @@
                                  <li>
                                     <a href="#" class="border-gray">
                                        <div class="pull-left">
-                                          <img src="asset/dist/img/shirt.png" class="img-thumbnail" alt="User Image">
+                                          <img src="{{url('/')}}/asset/dist/img/shirt.png" class="img-thumbnail" alt="User Image">
                                        </div>
                                        <h4>Kits</h4>
                                        <p><strong>total item:</strong> 11
@@ -114,7 +114,7 @@
                                  <li>
                                     <a href="#" class="border-gray">
                                        <div class="pull-left">
-                                          <img src="asset/dist/img/football.png" class="img-thumbnail" alt="User Image">
+                                          <img src="{{url('/')}}/asset/dist/img/football.png" class="img-thumbnail" alt="User Image">
                                        </div>
                                        <h4>Football</h4>
                                        <p><strong>total item:</strong> 16
@@ -124,7 +124,7 @@
                                  <li class="nav-list">
                                     <a href="#" class="border-gray">
                                        <div class="pull-left">
-                                          <img src="asset/dist/img/shoe.png" class="img-thumbnail" alt="User Image">
+                                          <img src="{{url('/')}}/asset/dist/img/shoe.png" class="img-thumbnail" alt="User Image">
                                        </div>
                                        <h4>Sports sheos</h4>
                                        <p><strong>total item:</strong> 10
