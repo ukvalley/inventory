@@ -1,4 +1,4 @@
-@include('common.header')
+@include('view.common.header')
 
 
 
@@ -69,4 +69,4 @@
     </div>
     </div>
 
-    @include('common.footer')
+    @include('view.common.footer')

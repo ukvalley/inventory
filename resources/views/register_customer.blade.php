@@ -22,6 +22,11 @@
                            <div class="form-group">
                                  <label>Name</label>
                                  <input type="text" class="form-control" name="name" placeholder=" Name" id="name" required>
+                                  <span class="text-danger">
+                                    @error('name')
+                                    {{$message}}
+                                    @enderror
+                                  </span>
                               </div>
                               <div class="form-group">
                                  <label>Address</label>

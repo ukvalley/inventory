@@ -218,7 +218,7 @@
                      </span>
                      </a>
                      <ul class="treeview-menu" >
-                        <li><a href="customer_table">Customer</a></li>
+                        <li><a href="/customer/customer_table">Customer</a></li>
                         <li><a href="vehicle_table">Vehicle</a></li>
                         <li><a href="user_table">User</a></li>
                         <li><a href="device_table">Device</a></li>

@@ -10,6 +10,18 @@ class CustomerController extends Controller
 {
     public function CustomerRegister(Request $request)
     {      
+         $request->validate(
+          [
+               'name'=>'required',
+               'mobile'=>'required|min:10|numeric',
+               'address'=>'required',
+               'adhar_number'=>'required|min:12|numeric',
+               'adhar_front_image'=>'required|image',
+               'adhar_back_image'=>'required|image'
+          ]
+          );
+
+     
 
 
          $Customer = new Customer;
