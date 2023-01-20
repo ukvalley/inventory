@@ -145,7 +145,7 @@ return [
         'received_date',
         'purchase_from',
         'amount', 
-        ' ',
+       
         
     ],
 

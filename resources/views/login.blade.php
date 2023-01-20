@@ -43,20 +43,20 @@
                         </div>
                     </div>
                     <div class="panel-body">
-                        <form action="http://thememinister.com/crm/index.html" id="loginForm" novalidate>
+                        <form  method=post action="{{'admin-dashboard'}}"  >
                             <div class="form-group">
                                 <label class="control-label" for="username">Username</label>
-                                <input type="text" placeholder="example@gmail.com" title="Please enter you username" required="" value="" name="username" id="username" class="form-control">
+                                <input type="text" placeholder="example@gmail.com" title="Please enter you username" required="" value="email" name="username" id="username" class="form-control">
                                 <span class="help-block small">Your unique username to app</span>
                             </div>
                             <div class="form-group">
                                 <label class="control-label" for="password">Password</label>
-                                <input type="password" title="Please enter your password" placeholder="******" required="" value="" name="password" id="password" class="form-control">
+                                <input type="password" title="Please enter your password" placeholder="******" required="" value="password" name="password" id="password" class="form-control">
                                 <span class="help-block small">Your strong password</span>
                             </div>
                             <div>
-                                <button class="btn btn-add">Login</button>
-                                <a class="btn btn-warning" href="register.html">Register</a>
+                                <button class="btn btn-add" type="submit">Login</button>
+                                <a class="btn btn-warning" href="register">Register</a>
                             </div>
                         </form>
                         </div>
@@ -73,3 +73,6 @@
 
 <!-- Mirrored from thememinister.com/crm/login.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 29 Dec 2022 10:04:20 GMT -->
 </html>
+
+
+
