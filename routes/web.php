@@ -62,7 +62,7 @@ Route::get('/technician_panel', function () {
 
 
 
-Route::get('/customer_table', function () {
+Route::get('customer/customer_table', function () {
     return view('customer_table');
 });
 
@@ -137,11 +137,11 @@ Route::post('/register_customer-post', [CustomerController::class, 'CustomerRegi
 Route::post('/register_customer-update/{id}', [CustomerController::class, 'update'])->name('update');
 
 
-Route::get('customer_edit', [CustomerController::class, 'customer_edit'])->name('customer_edit');
+Route::get('customer/customer_edit', [CustomerController::class, 'customer_edit'])->name('customer_edit');
 Route::get('destroy', [CustomerController::class, 'destroy'])->name('destroy');
 
 
-Route::get('/register_customer', [CustomerController::class, 'register_customer'])->name('register_customer');
+Route::get('customer/register_customer', [CustomerController::class, 'register_customer'])->name('register_customer');
 
 
 
