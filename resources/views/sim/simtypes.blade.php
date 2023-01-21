@@ -10,7 +10,7 @@
                      <div class="panel panel-bd lobidrag">
                         <div class="panel-heading">
                            <div class="btn-group" id="buttonlist"> 
-                              <a class="btn btn-add "href="purchase_device"> 
+                              <a class="btn btn-add "href=""> 
                               <i class="fa fa-list"></i>Add Sim Type</a>  
                            </div>
 

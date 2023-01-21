@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 use DB;
 use Illuminate\Http\Request;
+use App\Models\Admin\Purchase;
+
 
 class PurchaseController extends Controller
 {
@@ -38,7 +40,7 @@ class PurchaseController extends Controller
     //print_r($data); die();
 
     //get data from database 
-    return view('purchase_table')->with(compact($data)); 
+    return view('purchase/purchase_table')->with(compact($data)); 
  }
 
  public function register_purchase()

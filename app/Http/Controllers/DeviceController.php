@@ -147,7 +147,7 @@ public function add_sim()
 
 
    // print_r($data);die();
-     return view('device/add_device', compact('sim_get'));
+     return view('add_sim', compact('sim_get'));
 
 }
 }

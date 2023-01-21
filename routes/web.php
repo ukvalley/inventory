@@ -71,9 +71,9 @@ Route::get('/login', function () {
 
 
 
-// Route::get('purchase/purchase_device', function () {
-//     return view('purchase_device');
-// });
+Route::get('purchase/purchase_device', function () {
+    return view('purchase/purchase_device');
+});
 
 Route::get('purchase/purchase_table', function () {
     return view('purchase/purchase_table');
@@ -142,13 +142,14 @@ Route::get('user_destroy', [UserController::class, 'user_destroy'])->name('user_
 
 
 //devices--------------------------------------------------------------------------------------------------
-Route::get('device/add_device', [DeviceController::class, 'add_sim'])->name('add_sim');
+Route::get('add_device', [SimController::class, 'add_sim'])->name('add_sim');
+
+Route::get('device/add_device', [DeviceController::class, 'add_device'])->name('add_device');
 
 Route::post('/add_device-post', [DeviceController::class, 'DeviceRegister'])->name('DeviceRegister');
 Route::post('/add_device-update/{id}', [DeviceController::class, 'device_update'])->name('device_update');
 Route::get('device/device_edit', [DeviceController::class, 'device_edit'])->name('device_edit');
 Route::get('device_destroy', [DeviceController::class, 'device_destroy'])->name('device_destroy');
-Route::get('sim/register_sim', [DeviceController::class, 'register_sim'])->name('register_sim');
 
 
 
@@ -172,7 +173,7 @@ Route::get('sales_destroy', [SalesController::class, 'sales_destroy'])->name('sa
 Route::post('/records-post', [RecordsController::class, 'Records'])->name('Records');
 
 //SIM 
-
+Route::get('sim/register_sim', [SimController::class, 'register_sim'])->name('register_sim');
 Route::post('/simtypes-post', [SimController::class, 'SimTypes'])->name('SimTypes');
 Route::post('/simtypes-update/{id}', [SimController::class,'sim_update'])->name('sim_update');
 Route::get('sim/sim_edit', [SimController::class, 'sim_edit'])->name('sim_edit');
