@@ -142,18 +142,17 @@ Route::get('user_destroy', [UserController::class, 'user_destroy'])->name('user_
 
 // Route::get('add_device', [DeviceController::class, 'add_sim'])->name('add_sim');
 
-Route::get('device/add_device', [DeviceController::class, 'add_device'])->name('add_device');
+Route::get('device/add_device',[DeviceController::class, 'add_device'])->name('add_device');
 
-Route::post('/add_device-post', [DeviceController::class, 'DeviceRegister'])->name('DeviceRegister');
+Route::post('/add_device-post',[DeviceController::class, 'DeviceRegister'])->name('DeviceRegister');
 Route::post('/add_device-update/{id}', [DeviceController::class, 'device_update'])->name('device_update');
-Route::get('device/device_edit', [DeviceController::class, 'device_edit'])->name('device_edit');
-Route::get('device_destroy', [DeviceController::class, 'device_destroy'])->name('device_destroy');
+Route::get('device/device_edit',[DeviceController::class, 'device_edit'])->name('device_edit');
+Route::get('device_destroy',[DeviceController::class, 'device_destroy'])->name('device_destroy');
 
 
 
 //Purchase-------------------------------------------------------------------------------------------------------------------------
-Route::get('purchase/register_purchase', [PurchaseController::class, 'register_purchase'])->name('register_purchase');
-
+Route::get('purchase/register_purchase',[PurchaseController::class, 'register_purchase'])->name('register_purchase');
 Route::post('/purchase_device-post', [PurchaseController::class, 'PurchaseDevice'])->name('PurchaseDevice');
 Route::post('/purchase_device-update/{id}', [PurchaseController::class, 'purchase_update'])->name('purchase_update');
 Route::get('purchase/purchase_edit', [PurchaseController::class, 'purchase_edit'])->name('purchase_edit');
