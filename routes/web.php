@@ -55,9 +55,11 @@ Route::get('/madmin_panel', function () {
 
 
 
-Route::get('customer/customer_table', function () {
-    return view('customer_table');
+Route::get('/customer/customer_table', function () {
+    return view('customer/customer_table');
 });
+
+
 
 
 Route::get('/login', function () {
@@ -69,54 +71,41 @@ Route::get('/login', function () {
 
 
 
-Route::get('/purchase_device', function () {
-    return view('purchase_device');
-});
+// Route::get('purchase/purchase_device', function () {
+//     return view('purchase_device');
+// });
 
-Route::get('/purchase_table', function () {
-    return view('purchase_table');
-});
-
-
-
-
-
-Route::get('/transaction', function () {
-    return view('transaction');
+Route::get('purchase/purchase_table', function () {
+    return view('purchase/purchase_table');
 });
 
 
-
-
-
-Route::get('/user_table', function () {
-    return view('user_table');
+Route::get('user/user_table', function () {
+    return view('user/user_table');
 });
-Route::get('/vehicle_table', function () {
-    return view('vehicle_table');
+Route::get('vehicle/vehicle_table', function () {
+    return view('vehicle/vehicle_table');
 });
 
-Route::get('/device_table', function () {
-    return view('device_table');
+Route::get('device/device_table', function () {
+    return view('device/device_table');
 });
 
-Route::get('/sales', function () {
+Route::get('sales', function () {
     return view('sales');
 });
-Route::get('/sales_table', function () {
-    return view('sales_table');
+Route::get('sales/sales_table', function () {
+    return view('sales/sales_table');
 });
 Route::get('/records', function () {
     return view('records');
 });
-Route::get('/records_table', function () {
-    return view('records_table');
+Route::get('records/records_table', function () {
+    return view('records/records_table');
 });
-Route::get('/simtypes', function () {
-    return view('simtypes');
-});
-Route::get('/sim_table', function () {
-    return view('sim_table');
+
+Route::get('sim/sim_table', function () {
+    return view('sim/sim_table');
 });
 
 //old
@@ -126,16 +115,12 @@ Route::get('/sim_table', function () {
 
 //customer--------------------------------------------------------------------------------
 Route::post('/register_customer-post', [CustomerController::class, 'CustomerRegister'])->name('CustomerRegister');
-
 Route::post('/register_customer-update/{id}', [CustomerController::class, 'update'])->name('update');
 
 
 Route::get('customer/customer_edit', [CustomerController::class, 'customer_edit'])->name('customer_edit');
 Route::get('destroy', [CustomerController::class, 'destroy'])->name('destroy');
-
-
-Route::get('customer/register_customer', [CustomerController::class, 'register_customer'])->name('register_customer');
-
+Route::get('/customer/register_customer', [CustomerController::class, 'register_customer'])->name('register_customer');
 
 
 //vehicle-------------------------------------------------------------------------------------
@@ -145,13 +130,11 @@ Route::post('/register_vehicle-update/{id}', [VehicleController::class, 'vehicle
 Route::get('vehicle/vehicle_edit', [VehicleController::class, 'vehicle_edit'])->name('vehicle_edit');
 Route::get('vehicle_destroy', [VehicleController::class, 'vehicle_destroy'])->name('vehicle_destroy');
 
-    
 
 
 //User--------------------------------------------------------------------------------------
 
 Route::get('user/register_user', [UserController::class, 'register_user'])->name('register_user');
-
 Route::post('/register_user-post', [UserController::class, 'UserRegister'])->name('UserRegister');
 Route::post('/register_user-update/{id}', [UserController::class, 'user_update'])->name('user_update');
 Route::get('user/user_edit', [UserController::class, 'user_edit'])->name('user_edit');
@@ -163,9 +146,9 @@ Route::get('device/add_device', [DeviceController::class, 'add_sim'])->name('add
 
 Route::post('/add_device-post', [DeviceController::class, 'DeviceRegister'])->name('DeviceRegister');
 Route::post('/add_device-update/{id}', [DeviceController::class, 'device_update'])->name('device_update');
-Route::get('decice/device_edit', [DeviceController::class, 'device_edit'])->name('device_edit');
+Route::get('device/device_edit', [DeviceController::class, 'device_edit'])->name('device_edit');
 Route::get('device_destroy', [DeviceController::class, 'device_destroy'])->name('device_destroy');
-Route::get('/register_sim', [DeviceController::class, 'register_sim'])->name('register_sim');
+Route::get('sim/register_sim', [DeviceController::class, 'register_sim'])->name('register_sim');
 
 
 
@@ -190,15 +173,14 @@ Route::post('/records-post', [RecordsController::class, 'Records'])->name('Recor
 
 //SIM 
 
-
 Route::post('/simtypes-post', [SimController::class, 'SimTypes'])->name('SimTypes');
-
 Route::post('/simtypes-update/{id}', [SimController::class,'sim_update'])->name('sim_update');
 Route::get('sim/sim_edit', [SimController::class, 'sim_edit'])->name('sim_edit');
 Route::get('sim_destroy', [SimController::class, 'sim_destroy'])->name('sim_destroy');
 
 
 //Records Table
+
 Route::post('/register_records-post', [RecordsController::class, 'Records']);
 Route::post('/register_records-update/{id}', [RecordsController::class, 'records_update']);
 Route::get('records_destroy', [RecordsController::class, 'records_destroy'])->name('records_destroy');

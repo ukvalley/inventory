@@ -6,7 +6,7 @@
         <div>
             <div class="panel panel-default">
                 <div class="panel-heading role-list-info-header">
-                  <a href="{{ url('/purchase_device') }}" class="btn btn-success">Purchase New Device</a>
+                  <a href="{{ url('/purchase/purchase_device') }}" class="btn btn-success">Purchase New Device</a>
                     <p>Device Table</p>
                     
                 </div>
@@ -48,9 +48,9 @@
                 <td>{{$row->device_number}}</td>
                 <td>{{$row->amount}}</td>
                 <td>{{$row->quantity}}</td>
-                <td>{{$row->purchase_from}}</td>
+                
                 <td>
-               <a href="{{url('/')}}/purchase_edit?id={{$row->id}}" class="btn btn-primary">Edit</a>
+               <a href="{{url('/')}}/purchase/purchase_edit?id={{$row->id}}" class="btn btn-primary">Edit</a>
                 </td>
                 <td>
                 <a href="{{url('/')}}/purchase_destroy?id={{$row->id}}" class="btn btn-danger">Delete</a>

@@ -55,7 +55,7 @@ public function  UserRegister(Request $request)
         $allusers = Users::get();
 
         // print_r($data); die();
-         return view('/register_user')->with(compact('allusers'));
+         return view('/user/register_user')->with(compact('allusers'));
     }
 
 
@@ -69,7 +69,7 @@ public function  UserRegister(Request $request)
         $allusers = Users::get();
 
         // print_r($data); die();
-         return view('/user_edit')->with(compact('data','allusers'));
+         return view('/user/user_edit')->with(compact('data','allusers'));
     }
 
 

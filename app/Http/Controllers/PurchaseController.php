@@ -47,7 +47,7 @@ class PurchaseController extends Controller
       $allpurchase = Purchase::get();
 
       // print_r($allpurchase); die();
-       return view('/register_purchase')->with(compact('allpurchase'));
+       return view('/purchase/register_purchase')->with(compact('allpurchase'));
   }
 
 public function purchase_edit()
@@ -61,7 +61,7 @@ public function purchase_edit()
 
 
       // print_r($allpurchase); die();
-       return view('/purchase_edit')->with(compact('data','allpurchase'));
+       return view('/purchase/purchase_edit')->with(compact('data','allpurchase'));
   }
 
 

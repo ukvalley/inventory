@@ -75,7 +75,7 @@ class VehicleController extends Controller
   
 
     // print_r($allvehicle);die();
-      return view('register_vehicle', compact('allvehicle','allcustomer'));
+      return view('/vehicle/register_vehicle', compact('allvehicle','allcustomer'));
 
  }
 
@@ -105,7 +105,7 @@ public function vehicle_edit()
        $allcustomer = Customer::get();
 
       // print_r($Customer_name); die();
-       return view('/vehicle_edit')->with(compact('data','allcustomer'));
+       return view('/vehicle/vehicle_edit')->with(compact('data','allcustomer'));
   }
 
 

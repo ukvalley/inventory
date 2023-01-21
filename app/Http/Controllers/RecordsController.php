@@ -50,7 +50,7 @@ class RecordsController extends Controller
 
 
        // print_r($allUsers); die();
-        return view('/register_records')->with(compact('allrecords','allUsers'));
+        return view('/records/register_records')->with(compact('allrecords','allUsers'));
    }
    
 public function records_edit()
@@ -62,7 +62,7 @@ public function records_edit()
 
 
        // print_r($data); die();
-        return view('/records_edit')->with(compact('data'));
+        return view('/records/records_edit')->with(compact('data'));
    }
 
 

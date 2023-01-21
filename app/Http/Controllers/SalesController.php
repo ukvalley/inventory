@@ -48,7 +48,7 @@ public function register_sales()
      $allsales = Sales::get();
 
      // print_r($data); die();
-      return view('/register_sales')->with(compact('allsales'));
+      return view('/sales/register_sales')->with(compact('allsales'));
  }
 
 
@@ -63,7 +63,7 @@ public function sales_edit()
       $allsales = Sales::get();
 
      // print_r($data); die();
-      return view('/sales_edit')->with(compact('data','allsales'));
+      return view('/sales/sales_edit')->with(compact('data','allsales'));
  }
 
 

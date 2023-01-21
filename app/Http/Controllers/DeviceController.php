@@ -70,7 +70,7 @@ class DeviceController extends Controller
          $alldevice = device::get();
  
          // print_r($alldevice); die();
-          return view('/add_device')->with(compact('alldevice'));
+          return view('/device/add_device')->with(compact('alldevice'));
      }
  
  
@@ -87,7 +87,7 @@ class DeviceController extends Controller
  
  
          // print_r($data); die();
-          return view('/device_edit')->with(compact('data','alldevice'));
+          return view('/device/device_edit')->with(compact('data','alldevice'));
      }
  
  
@@ -147,7 +147,7 @@ public function add_sim()
 
 
    // print_r($data);die();
-     return view('add_device', compact('sim_get'));
+     return view('device/add_device', compact('sim_get'));
 
 }
 }

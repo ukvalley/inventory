@@ -71,7 +71,7 @@ public function sim_edit()
            
 
       // print_r($data); die();
-       return view('/sim_edit')->with(compact('data'));
+       return view('/sim/sim_edit')->with(compact('data'));
   }
 
 

@@ -6,7 +6,7 @@
         <div>
             <div class="panel panel-default">
                 <div class="panel-heading role-list-info-header">
-                  <a href="{{ url('/add_device') }}" class="btn btn-success">Register New Device</a>
+                  <a href="{{ url('/device/add_device') }}" class="btn btn-success">Register New Device</a>
                     <p>Device Table</p>
                     
                 </div>
@@ -57,7 +57,7 @@
                   <td>{{$row->received_date}}</td>
                   <td>{{$row->renewal_date}}</td>
                   <td>
-               <a href="{{url('/')}}/device_edit?id={{$row->id}}" class="btn btn-primary">Edit</a>
+               <a href="{{url('/')}}/device/device_edit?id={{$row->id}}" class="btn btn-primary">Edit</a>
                 </td>
                 <td>
                 <a href="{{url('/')}}/device_destroy?id={{$row->id}}" class="btn btn-danger">Delete</a>

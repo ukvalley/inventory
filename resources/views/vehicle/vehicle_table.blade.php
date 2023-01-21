@@ -6,7 +6,7 @@
         <div>
             <div class="panel panel-default">
                 <div class="panel-heading role-list-info-header">
-                  <a href="{{ url('/register_vehicle') }}" class="btn btn-success">Register New Vehicle</a>
+                  <a href="{{ url('/vehicle/register_vehicle') }}" class="btn btn-success">Register New Vehicle</a>
                     <p>Vehicle Table</p>
                     
                 </div>
@@ -53,7 +53,7 @@
                 <td>{{$row->vehicle_image_4}}</td>
                 <td>{{$row->vehicle_image_5}}</td>
                 <td>
-                <a href="{{url('/')}}/vehicle_edit?id={{$row->id}}" class="btn btn-primary">Edit</a>
+                <a href="{{url('/')}}/vehicle/vehicle_edit?id={{$row->id}}" class="btn btn-primary">Edit</a>
                 </td>
                 <td>
                 <a href="{{url('/')}}/vehicle_destroy?id={{$row->id}}" class="btn btn-danger">Delete</a>

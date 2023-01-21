@@ -1,4 +1,4 @@
-@include('common.header')
+@include('.common.header')
 
 
  <!-- Main content -->
@@ -70,4 +70,4 @@
             <!-- /.content -->
             </div>
 
-@include('common.footer')
+@include('.common.footer')

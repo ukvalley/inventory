@@ -68,7 +68,7 @@ class CustomerController extends Controller
  
 
    // print_r($data);die();
-     return view('register_customer', compact('customer_get'));
+     return view('customer/register_customer', compact('customer_get'));
 
 }
 
@@ -83,7 +83,7 @@ public function customer_edit()
             ->first();
 
      // print_r($data); die();
-      return view('/customer_edit')->with(compact('data'));
+      return view('customer/customer_edit')->with(compact('data'));
  }
 
 

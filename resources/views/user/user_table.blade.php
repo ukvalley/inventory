@@ -4,7 +4,7 @@
         <div>
             <div class="panel panel-default">
                 <div class="panel-heading role-list-info-header">
-                  <a href="{{ url('/register_user') }}" class="btn btn-success">Register New User</a>
+                  <a href="{{ url('/user/register_user') }}" class="btn btn-success">Register New User</a>
                     <p>User Table</p>
                     
                 </div>
@@ -47,7 +47,7 @@
                 <td>{{$row->basic_amount}}</td>
                 <td>{{$row->user_type}}</td>
                 <td>
-                <a href="{{url('/')}}/user_edit?id={{$row->id}}" class="btn btn-primary">Edit</a>
+                <a href="{{url('/')}}/user/user_edit?id={{$row->id}}" class="btn btn-primary">Edit</a>
                 </td>
                 <td>
                 <a href="{{url('/')}}/user_destroy?id={{$row->id}}" class="btn btn-danger">Delete</a>

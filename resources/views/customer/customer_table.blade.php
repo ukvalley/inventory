@@ -1,4 +1,4 @@
-@include('view.common.header')
+@include('common.header')
 
 
 
@@ -6,7 +6,7 @@
         <div>
             <div class="panel panel-default">
                 <div class="panel-heading role-list-info-header">
-                  <a href="{{ url('/register_customer') }}" class="btn btn-success">Register New Customer</a>
+                  <a href="{{ url('/customer/register_customer') }}" class="btn btn-success">Register New Customer</a>
                     <p>Customer Table</p>
                     
                 </div>
@@ -49,7 +49,7 @@
                 <td>{{$row->adhar_front_image}}</td>
                 <td>{{$row->adhar_back_image}}</td>
                 <td>
-                <a href="{{url('/')}}/customer_edit?id={{$row->id}}" class="btn btn-primary">Edit</a>
+                <a href="{{url('/')}}/customer/customer_edit?id={{$row->id}}" class="btn btn-primary">Edit</a>
                 </td>
                 <td>
                 <a href="{{url('/')}}/destroy?id={{$row->id}}"  class="btn btn-danger">Delete</a>
@@ -69,4 +69,4 @@
     </div>
     </div>
 
-    @include('view.common.footer')
+    @include('common.footer')

@@ -14,25 +14,6 @@ class MAdminPanelController extends Controller
 {
 
 
-        // public function index()
-        // {
-        //     $data=['name'=>"Ashish",'data'=>"hellow Ashish"];
-        //     $user['to']='ashishshinde.ukvalley@gmail.com'; 
-        //     Mail::send('mail',$data,function($messages) use ($user ){
-        //         $messages->to($user['to']);
-        //         $messages->subject('Hello  MAIL check');
-        //     });
-        // }
-   
-   // Posting data in Customer Table
-
-   // public function exportDevice(){
-   //  print_r('export');
-
-   // }
-
- 	
-
 
 
 
