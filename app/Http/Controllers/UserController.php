@@ -12,7 +12,18 @@ class UserController extends Controller
 
 public function  UserRegister(Request $request)
 {
-
+                
+         $request->validate(
+            [
+                 'name'=>'required',
+                 'mobile'=>'required|digits_between:10,10',
+                 'city'=>'required',
+                 'basic_amount'=>'required',
+                 'user_type'=>'required',
+                 ]
+            );
+  
+       
 	         
 
 	          

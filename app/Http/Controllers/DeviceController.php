@@ -12,7 +12,24 @@ class DeviceController extends Controller
     	//Devices section------------------------------------------------------------------------
 
         public function  DeviceRegister(Request $request)
-        {        
+        {    
+             
+         $request->validate(
+          [
+               'make'=>'required',
+               'ice_id'=>'required|digits_between:10,10',
+               'imei'=>'required',
+               'sim1'=>'required',
+               'sim_1_type'=>'required',
+               'sim2'=>'required',
+               'sim_2_type'=>'required',
+               'activation_date'=>'required',
+               'received_date'=>'required',
+               'renewal_date'=>'required',
+              
+          ]
+          );
+    
       
    
               

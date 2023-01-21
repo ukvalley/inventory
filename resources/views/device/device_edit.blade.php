@@ -25,22 +25,34 @@
                                  <label>Make</label>
                                  <input type="text" class="form-control" name="make" value="{{$data->make}}"  placeholder=" Make" required>
                               </div>
+                              @if($errors->has('make'))
+                             <div class="text-danger error">{{ $errors->first('make') }}</div>
+                               @endif
 
                                     
                            <div class="form-group">
                                  <label>ICE ID</label>
                                  <input type="text" class="form-control" name="ice_id"  value="{{$data->ice_id}}"  placeholder=" ICE ID" required>
                               </div>
+                              @if($errors->has('ice_id'))
+                             <div class="text-danger error">{{ $errors->first('ice_id') }}</div>
+                               @endif
 
                               <div class="form-group">
                                  <label>IMEI</label>
                                  <input type="text" class="form-control" name="imei" value="{{$data->imei}}"  placeholder="IMEI" required>
                               </div>
+                              @if($errors->has('imei'))
+                             <div class="text-danger error">{{ $errors->first('imei') }}</div>
+                               @endif
 
                               <div class="form-group">
                                  <label>SIM1</label>
                                  <input type="text" class="form-control" name="sim1" value="{{$data->sim1}}"  placeholder="SIM1" required>
                               </div>
+                              @if($errors->has('sim1'))
+                             <div class="text-danger error">{{ $errors->first('sim1') }}</div>
+                               @endif
 
             
                               <div class="form-group">
@@ -52,11 +64,17 @@
                                  </select>
                                   
                               </div>
+                              @if($errors->has('sim1_type'))
+                             <div class="text-danger error">{{ $errors->first('name') }}</div>
+                               @endif
 
                               <div class="form-group">
                                  <label>SIM2</label>
-                                 <input type="text" class="form-control" name="sim1" value="{{$data->sim1}}"  placeholder="SIM1" required>
+                                 <input type="text" class="form-control" name="sim2" value="{{$data->sim2}}"  placeholder="SIM2" required>
                               </div>
+                              @if($errors->has('sim2'))
+                             <div class="text-danger error">{{ $errors->first('sim2') }}</div>
+                               @endif
 
             
                               <div class="form-group">
@@ -68,20 +86,37 @@
                                  </select>
                                   
                               </div>
+                              @if($errors->has('sim2_type'))
+                             <div class="text-danger error">{{ $errors->first('sim2_type') }}</div>
+                               @endif
 
                               <div class="form-group">
                                  <label>Activation Date</label>
                                  <input id='minMaxExample1' type="Date" name="activation_date" value="{{$data->activation_date}}"  data-date_time_format="MMM DD, Y" class="form-control" placeholder="Enter Activation Date...">
                               </div>
+                              @if($errors->has('activation_date'))
+                             <div class="text-danger error">{{ $errors->first('activation_date') }}</div>
+                               @endif
+
+
                               <div class="form-group">
                                  <label>Received Date</label>
                                  <input id='minMaxExample2' type="Date" name="received_date" value="{{$data->received_date}}"  data-date_time_format="MMM DD, Y" class="form-control" placeholder="Enter  Received Date...">
+                        
                               </div>
+                              @if($errors->has('received_date'))
+                             <div class="text-danger error">{{ $errors->first('received_date') }}</div>
+                               @endif
+
+
                               
                               <div class="form-group">
                                  <label>Renewal Date</label>
                                  <input id='minMaxExample3' type="Date" name="renewal_date" value="{{$data->renewal_date}}"  data-date_time_format="MMM DD, Y" class="form-control" placeholder="Enter Renewal Date...">
                               </div>
+                              @if($errors->has('renewal_date'))
+                             <div class="text-danger error">{{ $errors->first('renewal_date') }}</div>
+                               @endif
                                
 
                               

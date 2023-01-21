@@ -10,8 +10,23 @@ class PurchaseController extends Controller
 {
     
  	public function PurchaseDevice(Request $request)
-     {        
-        //insert data in database 	
+     {     
+      
+         
+      $request->validate(
+        [
+          'date'=>'required',
+          'device_number'=>'required',
+             'amount'=>'required',
+             'quantity'=>'required',
+             'purchase_from'=>'required',
+           
+        ]
+        );
+
+        //insert data in database 
+        
+        
 
           $Purchase = new Purchase;	
 

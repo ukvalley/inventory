@@ -11,6 +11,18 @@ class SalesController extends Controller
     
   public function Sales(Request $request)
   {        
+      
+   $request->validate(
+      [
+           'date'=>'required',
+           'mobile'=>'required',
+           'device_id'=>'required',
+           'device_number'=>'required',
+           'allocated_to'=>'required',
+           'user_id'=>'required'
+      ]
+      );
+
      //insert data in database
 
 

@@ -11,7 +11,14 @@ class SimController extends Controller
 
 
    public function SimTypes(Request $request)
-   {      
+   {         
+    $request->validate(
+     [
+          'name'=>'required',
+         
+           
+     ]
+     );
 
 
         $SimTypes = new SimTypes;

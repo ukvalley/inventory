@@ -14,6 +14,19 @@ class VehicleController extends Controller
 	   
    {      
           
+                     
+         $request->validate(
+          [
+               'nvechicle_numberame'=>'required',
+               'customer'=>'required|digits_between:10,10',
+               'rc_book_file'=>'required|image',
+               'vehicle_image_1'=>'required|image',
+               'vehicle_image_2'=>'required|image',
+               'vehicle_image_3'=>'required|image',
+               'vehicle_image_4'=>'required|image',
+               'vehicle_image_5'=>'required|image',
+          ]
+          );
 
 
            

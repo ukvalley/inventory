@@ -24,6 +24,11 @@
                                  <label>Name</label>
                                  <input type="text" class="form-control" name="name" placeholder="SIM Name" value="{{$data->name}}" required>
                               </div>
+                              @if($errors->has('name'))
+                             <div class="text-danger error">{{ $errors->first('name') }}</div>
+                               @endif
+
+                               
 
                               <div class="reset-button">
                                  <a href="#" class="btn btn-warning">Reset</a>

@@ -13,9 +13,9 @@ class CustomerController extends Controller
          $request->validate(
           [
                'name'=>'required',
-               'mobile'=>'required|min:10|numeric',
+               'mobile'=>'required|digits_between:10,10',
                'address'=>'required',
-               'adhar_number'=>'required|min:12|numeric',
+               'adhar_number'=>'required|digits_between:12,12',
                'adhar_front_image'=>'required|image',
                'adhar_back_image'=>'required|image'
           ]
@@ -33,11 +33,12 @@ class CustomerController extends Controller
          $Customer->address = $request->input('address');
          $Customer->adhar_number = $request->input('adhar_number');
          $Customer->adhar_front_image = $request->input('adhar_front_image');	
-          $Customer->adhar_back_image = $request->input('adhar_back_image');	
+         $Customer->adhar_back_image = $request->input('adhar_back_image');	
 
 
          $Customer->save();
-             
+            
+         
 
                
          return redirect()->back();

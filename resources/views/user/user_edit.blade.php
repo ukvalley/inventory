@@ -23,16 +23,30 @@
                                  <label>Name</label>
                                  <input type="text" class="form-control" name="name" value="{{$data->name}}" placeholder="Name" required>
                               </div>
+                              @if($errors->has('name'))
+                             <div class="text-danger error">{{ $errors->first('name') }}</div>
+                               @endif
+
 
                               <div class="form-group">
                                  <label>Mobile</label>
                                  <input type="number" class="form-control" name="mobile" value="{{$data->mobile}}" placeholder="Enter Mobile" required>
                               </div>
+                              @if($errors->has('mobile'))
+                             <div class="text-danger error">{{ $errors->first('mobile') }}</div>
+                               @endif
+
+
+
 
                                <div class="form-group">
                                  <label>City</label>
                                  <input type="text" class="form-control" name="city" value="{{$data->city}}" placeholder=" City" required>
                               </div>
+                              @if($errors->has('city'))
+                             <div class="text-danger error">{{ $errors->first('city') }}</div>
+                               @endif
+
                               
 
 
@@ -40,19 +54,20 @@
                                  <label>Higher Authority</label>
                                  <select class="form-control" name="admiko_parent_child" id="admiko_parent_child">
                                     <option value="0" @if($data->admiko_parent_child == '0') selected="true" @endif >Parent</option>
-                                    @foreach($allusers as $key=>$value)
-                                    <option value="{{$value->id}}" @if($data->admiko_parent_child == $value->id) selected="true" @endif >{{$value->name}}</option>
-                                    @endforeach
-
-                           
-                   
                                  </select>
                               </div>
+                            
 
                               <div class="form-group">
                               <label>Bacic Amount</label>
                                  <input type="text" class="form-control" name="basic_amount" value="{{$data->basic_amount}}" placeholder=" >Bacic Amount" required>
                               </div>
+                              @if($errors->has('basic_amount'))
+                             <div class="text-danger error">{{ $errors->first('basic_amount') }}</div>
+                               @endif
+                              
+
+                              
                                <div class="form-group">
                                  <label>User Type</label>
                                  <select class="form-control"  name="user_type"  id="user_type">
@@ -61,6 +76,11 @@
                                     <option>Admin</option>
                                  </select>
                               </div>
+                              @if($errors->has('user_type'))
+                             <div class="text-danger error">{{ $errors->first('user_type') }}</div>
+                               @endif
+                              
+
 
                               
 
