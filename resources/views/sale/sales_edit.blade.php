@@ -1,7 +1,4 @@
-
 @include('common.header')
-
-
 
 <div class="content-wrapper">
    <section class="content">
@@ -11,48 +8,42 @@
                      <div class="panel panel-bd lobidrag">
                         <div class="panel-heading">
                            <div class="btn-group" id="buttonlist"> 
-                              <a class="btn btn-add "href="purchase_device"> 
-                              <i class="fa fa-list"></i>Add Purchase Details </a>  
+                              <a class="btn btn-add "href="sales"> 
+                              <i class="fa fa-list"></i>Add Sale</a>  
                            </div>
 
                         </div>
                         <div class="panel-body">
-                             <h3> Purchase Details </h3>
-                           <form class="col-sm-6" action="{{url('/')}}/purchase_device-post" method="post"  enctype="multipart/form-data">
+                             <h3> Sale Details </h3>
+                           <form class="col-sm-6" action="{{url('/')}}/sales-update/{{$data->id}}" method="post"  enctype="multipart/form-data">
                     {{ csrf_field() }}
-
-                    
                  
-
                         <div class="form-group">
                                  <label>Date</label>
-                                 <input type="date"  class="form-control" name="date" placeholder="Date" required>
+                                 <input type="date" class="form-control" value="$data->date" name="date"  placeholder="date" required>
                               </div>
 
-                              <!-- <div class="form-group">
-                               
+                              <div class="form-group">
                                  <label>Device ID</label>
-                                 <input type="text" class="form-control"  name="device_id" placeholder=" device_id" required>
-                              </div> -->
+                                 <input type="text" class="form-control" value="$data->device_id" name="device_id" placeholder=" device_id" required>
+                              </div>
 
                               <div class="form-group">
                                  <label>Device Number</label>
-                                 <input type="text" class="form-control" name="device_number" placeholder="device_number" required>
+                                 <input type="text" class="form-control" value="$data->device_number" name="device_number" placeholder="device_number" required>
                               </div>
 
                               <div class="form-group">
-                                 <label>Amount</label>
-                                 <input type="text" class="form-control" name="amount" placeholder="amount" required>
-                              </div>
-                              <div class="form-group">
-                                 <label>Quantity</label>
-                                 <input type="text" class="form-control" name="quantity" placeholder="quantity" required>
+                                 <label>Allocated to</label>
+                                 <input type="text" class="form-control" value="$data->allocated_to" name="allocated_to" placeholder="allocated_to" required>
                               </div>
 
                                <div class="form-group">
-                                 <label>Purchase from</label>
-                                 <input type="text" class="form-control" name="purchase_from" placeholder="purchase_from" required>
+                                 <label>User Id</label>
+                                 <input type="text" class="form-control" value="$data->user_id" name="user_id" placeholder="user_id" required>
                               </div>
+
+
                               <div class="reset-button">
                                  <a href="#" class="btn btn-warning">Reset</a>
                                  <input class="btn btn-success" type="submit" value="Submit" />
@@ -69,9 +60,5 @@
  <!-- Main content -->
 
             </div>
-
-
-
-
 
 @include('common.footer')

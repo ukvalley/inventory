@@ -68,9 +68,11 @@ class DeviceController extends Controller
      {    
          
          $alldevice = device::get();
- 
+
+          $sim_get = SimTypes::get();
+
          // print_r($alldevice); die();
-          return view('/device/add_device')->with(compact('alldevice'));
+          return view('/device/add_device')->with(compact('alldevice','sim_get'));
      }
  
  

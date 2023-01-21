@@ -6,8 +6,8 @@
         <div>
             <div class="panel panel-default">
                 <div class="panel-heading role-list-info-header">
-                  <a href="{{ url('/purchase_device') }}" class="btn btn-success">Purchase New Device</a>
-                    <p>Device Table</p>
+                  <a href="{{ url('/sale/sales') }}" class="btn btn-success">Sales New Device</a>
+                    <p>Sale Table</p>
                     
                 </div>
 
@@ -26,11 +26,10 @@
     <tr>
     <th scope="col">id</th>
       <th scope="col">Date</th>
- 
+      <th scope="col">Device ID</th>
       <th scope="col">Device Number</th>
-      <th scope="col">Amount</th>
-      <th scope="col">Quantity</th>
-      <th scope="col">Purchase from</th>
+      <th scope="col">Allocated to</th>
+      <th scope="col">User id</th>
       
 
       <!-- <th scope="col">Edit</th>
@@ -39,23 +38,24 @@
       
     </tr>
   </thead>
-  <?php  $data=DB::table('purchase')->get();?>
+  <?php  $data=DB::table('sales')->get();?>
   @foreach($data as $row)
             <tr>
                <td>{{$row->id }}</td>
                 <td>{{$row->date }}</td>
-             
+                <td>{{$row->device_id}}</td>
                 <td>{{$row->device_number}}</td>
-                <td>{{$row->amount}}</td>
-                <td>{{$row->quantity}}</td>
-                <td>{{$row->purchase_from}}</td>
-                <td>
-               <a href="{{url('/')}}/purchase_edit?id={{$row->id}}" class="btn btn-primary">Edit</a>
+                <td>{{$row->allocated}}</td>
+                <td>{{$row->user_id}}</td>
+               
+               <a href="{{url('/')}}/sale/sales_edit?id={{$row->id}}" class="btn btn-primary">Edit</a>
                 </td>
                 <td>
-                <a href="{{url('/')}}/purchase_destroy?id={{$row->id}}" class="btn btn-danger">Delete</a>
+                <a href="{{url('/')}}/sales_destroy?id={{$row->id}}" class="btn btn-danger">Delete</a>
                 </td>
-                   
+                
+            
+                 
             </tr>
         @endforeach
 </table>

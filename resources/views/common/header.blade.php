@@ -223,7 +223,7 @@
                         <li><a href="/user/user_table">User</a></li>
                         <li><a href="/device/device_table">Device</a></li>
                         <li><a href="/purchase/purchase_table">Purchase</a></li>
-                        <li><a href="/sales/sales_table">Sales</a></li>
+                        <li><a href="/sale/sales_table">Sales</a></li>
                          <li><a href="/records/records_table">Records</a></li>
                          <li><a href="/sim/sim_table">Sim Types</a></li>
                      </ul>
