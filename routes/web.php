@@ -172,7 +172,7 @@ Route::post('/records-post', [RecordsController::class, 'Records'])->name('Recor
 //SIM 
 Route::get('sim/register_sim', [SimController::class, 'register_sim'])->name('register_sim');
 
-Route::get('sim/simtypes', [SimController::class, 'simtypes'])->name('simtypes');
+Route::get('/sim/simtypes', [SimController::class, 'add_sim'])->name('add_sim');
 
 Route::post('/simtypes-post', [SimController::class, 'SimTypes'])->name('SimTypes');
 Route::post('/simtypes-update/{id}', [SimController::class,'sim_update'])->name('sim_update');
