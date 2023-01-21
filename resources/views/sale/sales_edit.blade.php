@@ -8,7 +8,7 @@
                      <div class="panel panel-bd lobidrag">
                         <div class="panel-heading">
                            <div class="btn-group" id="buttonlist"> 
-                              <a class="btn btn-add "href="sales"> 
+                              <a class="btn btn-add "href="/sale/sales"> 
                               <i class="fa fa-list"></i>Add Sale</a>  
                            </div>
 

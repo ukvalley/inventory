@@ -206,12 +206,12 @@ Route::get('/salesOrderForm', function () {
     return view('salesOrderForm');
 });
 
-Route::post('purchaseformPost', [MAdminPanelController::class, 'purchaseformPost'])->name('purchaseformPost');
+Route::post('purchaseformPost', [PurchaseOrderController::class, 'purchaseformPost'])->name('purchaseformPost');
 
-Route::get('/purchaseForm', [MAdminPanelController::class, 'purchaseForm'])->name('purchaseForm');
+Route::get('/purchaseForm', [PurchaseOrderController::class, 'purchaseForm'])->name('purchaseForm');
 
 
-Route::post('salesformPost', [MAdminPanelController::class, 'salesformPost'])->name('salesformPost');
+Route::post('salesformPost', [SalesOrderController::class, 'salesformPost'])->name('salesformPost');
 
 
 //csv imports
