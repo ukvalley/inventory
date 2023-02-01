@@ -210,7 +210,7 @@ Route::post('purchaseformPost', [PurchaseOrderController::class, 'purchaseformPo
 
 Route::get('/purchaseForm', [PurchaseOrderController::class, 'purchaseForm'])->name('purchaseForm');
 
-
+//sales
 Route::post('salesformPost', [SalesOrderController::class, 'salesformPost'])->name('salesformPost');
 
 

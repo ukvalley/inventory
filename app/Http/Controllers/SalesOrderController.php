@@ -72,7 +72,7 @@ public function salesformPost(Request $request)
 
 
 
-    //purchase entry creation
+    //sales entry creation
 
     $sales = new sales;
 
