@@ -178,11 +178,12 @@ Route::post('/simtypes-post', [SimController::class, 'SimTypes'])->name('SimType
 Route::post('/simtypes-update/{id}', [SimController::class,'sim_update'])->name('sim_update');
 Route::get('sim/sim_edit', [SimController::class, 'sim_edit'])->name('sim_edit');
 Route::get('sim_destroy', [SimController::class, 'sim_destroy'])->name('sim_destroy');
+Route::get('sim/simtypes', [SimController::class, 'add_simtype'])->name('add_simtype');
 
 //
 //changes
 //device
-Route::get('sim/add_device', [MAdminPanelController::class, 'add_sim'])->name('add_sim');
+Route::get('add_device', [DeviceController::class, 'add_sim'])->name('add_sim');
 
 
 //Records Table

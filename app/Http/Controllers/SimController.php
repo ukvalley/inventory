@@ -119,4 +119,18 @@ public function sim_destroy()
       return redirect()->back();
   }
 
+
+  public function add_simtype()
+  {
+  
+  
+   $sim_get = DB::table('sim_types')->get();
+  
+  
+     // print_r($data);die();
+       return view('sim/simtypes', compact('sim_get'));
+  
+  }
+    
+
 }
