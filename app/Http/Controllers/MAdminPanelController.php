@@ -149,7 +149,7 @@ class MAdminPanelController extends Controller
 
 
  
-//  ///recored update purchase
+//  ///recored update sales
 //  public function salesOrder($make,$ice_id,$imei,$sim_1_type,$sim_2_type,$received_date,$activation_date,$renewal_date, $device_number,$user_id,$allocated_to){
 
 //    //create device information
@@ -163,7 +163,7 @@ class MAdminPanelController extends Controller
 //         $device->save();
 
    
-//        // update records
+//        // update  sales records
 
 //         $salesRecord = Records::where('user_id','=',$user_id)->first();
 
@@ -177,7 +177,7 @@ class MAdminPanelController extends Controller
 
 
 
-//     //purchase entry creation
+//     //sales entry creation
 
 //     $sales = new sales;
 
