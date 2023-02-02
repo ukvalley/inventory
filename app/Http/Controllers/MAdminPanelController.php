@@ -8,6 +8,7 @@ use App\Http\Requests\CsvImportRequest;
 use App\Models\Admin\Customer;
 use App\Models\Admin\Vechicles;
 use App\Models\Admin\Device;
+use App\Models\Admin\Users;
 use App\Models\Admin\Purchase;
 use App\Models\Admin\Sales;
 use App\Models\Admin\SimTypes;
@@ -324,12 +325,11 @@ class MAdminPanelController extends Controller
 
 public function get_users()
 { 
-   $allusers = Users::get();
+   $allusers = Users::all();
+                    //   ->except($currentUser->id);
 
- 
-
-   // print_r($allvehicle);die();
-     return view('/transfer_transaction', compact('allusers'));
+   print_r($allusers);die();
+     return view('/get_users', compact('allusers'));
 
 }
 

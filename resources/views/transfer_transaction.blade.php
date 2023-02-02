@@ -25,7 +25,7 @@
   <thead>
     <tr>
     <th scope="col">id</th>
-      <th scope="col">device_id</th>
+   
       <th scope="col">Select</th>
 
 
@@ -36,9 +36,8 @@
   <?php  $data=DB::table('device')->get();?>
   @foreach($data as $row)
             <tr>
-               <td>{{$row->id }}</td>
-                <td>{{$row->ice_id}}</td>
-                <td><input type="checkbox" name="device_id" value="device_id"></td>
+                <td>{{$row->id}}</td>
+                <td><input type="checkbox" name="id" value="id"></td>
             </tr>
         @endforeach
 
@@ -47,7 +46,7 @@
        
 </table>
 
-                  <a href="/transfer" class="btn btn-primary">Transfer To</a>
+                  <a href="" type="submit" class="btn btn-primary">Transfer To</a>
         
                 <!-- /.panel-body -->
             </div>
@@ -68,7 +67,7 @@
                         
                         <div class="panel-body">
                              <h3>Device Transferr</h3>
-                           <form class="col-sm-6" action="{{url('/')}}/device_transfer-update" method="post"  enctype="multipart/form-data">
+                           <form class="col-sm-6" action="{{url('/')}}/device_transfer-" method="post"  enctype="multipart/form-data">
                     {{ csrf_field() }}
 
                      <div class="form-group">
@@ -81,15 +80,15 @@
                                  @endforeach
                                  </select>
                               </div> -->
-                               
+                              
 
                               <div class="form-group">
                                  <label>User Type</label>
                                  <select class="form-control"  name="user_type"  id="user_type">
                                     <option>Sales Agent</option>
                                     <option>Technician</option>
-                                
                                  </select>
+                                 
                               </div>
                                
 

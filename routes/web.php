@@ -222,7 +222,6 @@ Route::post('/import_parse', [MAdminPanelController::class, 'parseImport'])->nam
 Route::post('/import_process', [MAdminPanelController::class, 'processImport'])->name('import_process');
 
 
-
 //Transfer Device
 
 
@@ -231,4 +230,7 @@ Route::get('/device_transfer', function () {
 });
 
 Route::get('transfer', [MAdminPanelController::class, 'get_device'])->name('get_device');
+
+
+Route::get('get_users', [MAdminPanelController::class, 'get_users'])->name('get_users');
 
