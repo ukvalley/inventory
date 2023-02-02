@@ -46,11 +46,9 @@
 
        
 </table>
- <div class="reset-button">                     
-        <input  class="btn btn-success" type="submit" value="Submit"  />
+
+                  <a href="/transfer" class="btn btn-primary">Transfer To</a>
         
-         </div>
-</div>
                 <!-- /.panel-body -->
             </div>
             <!-- /.panel -->

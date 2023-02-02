@@ -16,12 +16,12 @@
 
                         </div>
                         <div class="panel-body">
-                             <h3>Device Transfer</h3>
+                             <h3>Device Transferr</h3>
                            <form class="col-sm-6" action="" method="post"  enctype="multipart/form-data">
                     {{ csrf_field() }}
 
                      <div class="form-group">
-                     <div class="form-group">
+                     <!-- <div class="form-group">
                                  <label>Device</label>
                                    <select class="form-control" name="device_id" id="device_id">
                                    @foreach ($alldevice as $value){
@@ -29,8 +29,17 @@
                                     <option value="{{$value->id}}" >{{$value->device_id}}</option>}
                                  @endforeach
                                  </select>
-                              </div>
+                              </div> -->
+                               
 
+                              <div class="form-group">
+                                 <label>User Type</label>
+                                 <select class="form-control"  name="user_type"  id="user_type">
+                                    <option>Sales Agent</option>
+                                    <option>Technician</option>
+                                
+                                 </select>
+                              </div>
                                
 
                               <div class="reset-button">

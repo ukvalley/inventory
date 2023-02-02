@@ -362,14 +362,7 @@ public function transfer()
      return view('device_transfer')->with(compact('data'));
 }
 
-        
-        
-       
-          
-        
-   
-        
-           
+                 
           
   }
 
