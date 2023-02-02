@@ -300,44 +300,12 @@ class MAdminPanelController extends Controller
 
 
 
-        //
+        //INTERNAL TRANSFER-------------------------------------------------------------------------
 
 
-        public function DeviceTransfer(){
-           
-                     
-         $request->validate(
-          [
-               'select_devices'=>'required',
-               'transfer_to'=>'required',
-              
-          ]
-          ); 
-          $Transfers = new Transfers;	
-
-          $Transfers->select_devices =  $request->input('select_devices');
-          $Transfers->transfer_to =   $request->input('transfer_to'); 
-         
-          $Transfers->save();
-              
-
-                
-          return redirect()->back();
-
-        }
+        
 
     
-        public function device_transfer()
-        { 
-           $alldevice = Device::get();
-       
-         
-       
-           // print_r($allvehicle);die();
-             return view('/device_transfer', compact('alldevice'));
-       
-        }
-
 
         public function get_device()
         { 
@@ -345,21 +313,24 @@ class MAdminPanelController extends Controller
        
          
        
-           // print_r($allvehicle);die();
+        //    print_r($alldevice);die();
              return view('/transfer_transaction', compact('alldevice'));
        
         }
 
-        
-public function transfer()
-{    
-     $id =$_GET['id'];
-     $data=DB::table('device')
-           ->where('id',"=",$id)
-           ->get();
+       
 
-    // print_r($data); die();
-     return view('device_transfer')->with(compact('data'));
+
+
+public function get_users()
+{ 
+   $allusers = Users::get();
+
+ 
+
+   // print_r($allvehicle);die();
+     return view('/transfer_transaction', compact('allusers'));
+
 }
 
                  

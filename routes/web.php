@@ -226,14 +226,9 @@ Route::post('/import_process', [MAdminPanelController::class, 'processImport'])-
 //Transfer Device
 
 
-
-Route::get('/transfer_transaction', function () {  
-    return view('transfer_transaction');
+Route::get('/device_transfer', function () {  
+    return view('device_transfer');
 });
 
-Route::get('device_transfer', [MAdminPanelController::class, 'device_transfer'])->name('device_transfer');
-Route::get('transfer_transaction', [MAdminPanelController::class, 'get_device'])->name('get_device');
-
-
-Route::get('transfer', [MAdminPanelController::class, 'device_transfer'])->name('device_transfer');
+Route::get('transfer', [MAdminPanelController::class, 'get_device'])->name('get_device');
 
