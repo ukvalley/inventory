@@ -323,15 +323,20 @@ class MAdminPanelController extends Controller
 
 
 
-public function get_users()
+public function getUserType($user_type)
 { 
-   $allusers = Users::all();
-                    //   ->except($currentUser->id);
+    $userType = Users::where('user_type',"=",$user_type)->get();
 
-   print_r($allusers);die();
-     return view('/get_users', compact('allusers'));
+    $userType=json_encode($userType);
+
+   return $userType;
+     
 
 }
+
+
+
+      
 
                  
           

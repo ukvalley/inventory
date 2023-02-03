@@ -25,8 +25,9 @@
   <thead>
     <tr>
     <th scope="col">id</th>
-   
-      <th scope="col">Select</th>
+     <th scope="col">Select</th>
+     <th scope="col">imei</th>
+     <th scope="col">ice_id</th>
 
 
     </tr>
@@ -38,6 +39,9 @@
             <tr>
                 <td>{{$row->id}}</td>
                 <td><input type="checkbox" name="id" value="id"></td>
+                <td>{{$row->imei}}</td>
+                <td>{{$row->ice_id}}</td>
+              
             </tr>
         @endforeach
 
@@ -46,7 +50,6 @@
        
 </table>
 
-                  <a href="" type="submit" class="btn btn-primary">Transfer To</a>
         
                 <!-- /.panel-body -->
             </div>
@@ -67,7 +70,7 @@
                         
                         <div class="panel-body">
                              <h3>Device Transferr</h3>
-                           <form class="col-sm-6" action="{{url('/')}}/device_transfer-" method="post"  enctype="multipart/form-data">
+                           <form class="col-sm-6" action="{{url('/')}}/device_transfer" method="post"  enctype="multipart/form-data">
                     {{ csrf_field() }}
 
                      <div class="form-group">
@@ -84,9 +87,19 @@
 
                               <div class="form-group">
                                  <label>User Type</label>
-                                 <select class="form-control"  name="user_type"  id="user_type">
+                                 <select class="form-control" onChange=''  name="user_type"  id="user-select">
                                     <option>Sales Agent</option>
-                                    <option>Technician</option>
+                                    <option value="technician">technician</option>
+                                 </select>
+                                 
+                              </div>
+
+
+                              <div class="form-group">
+                                 <label>Select User</label>
+                                 <select class="form-control" onChange=''  name="user"  id="user">
+                                    <option>Select User</option>
+                                    
                                  </select>
                                  
                               </div>
@@ -110,7 +123,35 @@
 
  <!-- Main content -->
 
+ <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 
+
+ <script>
+
+$('#user-select').change(function(){
+       $('#user').find('option').remove().end()
+         console.log('{{url('/')}}/api/getUserType/'+$(this).val()+'');
+         $.ajax({
+        url: '{{url('/')}}/api/getUserType/'+$(this).val()+'',
+        type: "GET",
+        dataType: 'json',
+        success: function (result) {
+            $.each(result, function (i, value) {
+                $('#user').append('<option id=' + JSON.stringify(value.id) + '>' + value.name + '</option>');
+            });
+        },
+        error: function (request, status, error) {
+            alert(request.statusText + "[" + request.status + "]");
+            alert(request.responseText);
+            $('button#form_salesReport_button').html(config.messages.searchReport);
+        }
+    });
+
+
+    alert($(this).val());
+})
+        </script>
 
 
 

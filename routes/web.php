@@ -232,5 +232,6 @@ Route::get('/device_transfer', function () {
 Route::get('transfer', [MAdminPanelController::class, 'get_device'])->name('get_device');
 
 
-Route::get('get_users', [MAdminPanelController::class, 'get_users'])->name('get_users');
+
+Route::get('getUserType', [MAdminPanelController::class, 'getUserType'])->name('getUserType');
 
