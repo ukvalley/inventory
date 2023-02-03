@@ -59,6 +59,13 @@ class PurchaseOrderController extends Controller
     ///recored update purchase
     public function purchaseOrder($make,$ice_id,$imei,$sim_1_type,$sim_2_type,$received_date,$activation_date,$renewal_date,$user_id,$purchase_from){
 
+         // purchase validation add here
+
+
+
+
+
+
       //create device information
 
            $device= new Device;
@@ -69,8 +76,8 @@ class PurchaseOrderController extends Controller
            $device->sim_1_type = $sim_1_type;
            $device->sim_2_type = $sim_2_type;
            $device->activation_date =$this->change_date_format($activation_date);
-	         $device->received_date =$this->change_date_format($received_date);
-	         $device->renewal_date = $this->change_date_format($renewal_date);
+	       $device->received_date =$this->change_date_format($received_date);
+	       $device->renewal_date = $this->change_date_format($renewal_date);
 	        
           
            $device->save();
@@ -89,7 +96,7 @@ class PurchaseOrderController extends Controller
            $record->save();
 
 
-
+           
  
  
        //purchase entry creation
@@ -143,8 +150,8 @@ class PurchaseOrderController extends Controller
 
         $data = CsvData::find($request->csv_data_file_id);
         $csv_data = json_decode($data->csv_data, true);
-    foreach ($csv_data as $row) {
-       $csv_row_data = [];
+        foreach ($csv_data as $row) {
+        $csv_row_data = [];
         
         foreach (config('app.db_fields') as $index => $field) {
           // print_r($row);
@@ -166,7 +173,6 @@ class PurchaseOrderController extends Controller
     public function csvPurchaseProcess($csv_row_data)
     {
 
-      
 
       $make = $csv_row_data['make'];
       $ice_id = $csv_row_data['ice_id'];
@@ -181,9 +187,6 @@ class PurchaseOrderController extends Controller
       $amount = $csv_row_data['amount'];
       
 
-
-
-    
 
       $this->purchaseOrder($make,$ice_id,$imei,$sim_1_type,$sim_2_type,$received_date,$activation_date,$renewal_date,$user_id,$purchase_from,$amount);
 
@@ -204,8 +207,6 @@ class PurchaseOrderController extends Controller
 	        $manifacturers->address = $request->input('address');
 	        $manifacturers->contact = $request->input('contact');
 	       
-
-
 	        $manifacturers->save();
 	       // 	
 

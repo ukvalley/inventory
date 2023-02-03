@@ -49,6 +49,12 @@ public function salesformPost(Request $request)
 
    //create device information
 
+
+   // verify user having device available or not
+
+
+
+
         $device= new Device;
 
         $device->User_id = $User_id;
