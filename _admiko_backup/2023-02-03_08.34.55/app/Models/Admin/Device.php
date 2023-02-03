@@ -36,8 +36,6 @@ class Device extends Model
 		"received_date",
 		"renewal_date",
 		"asset_id_type",
-		"user_id",
-		"customer_id",
     ];
     public function sim_1_type_id()
     {

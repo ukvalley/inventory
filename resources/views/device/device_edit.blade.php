@@ -118,7 +118,20 @@
                              <div class="text-danger error">{{ $errors->first('renewal_date') }}</div>
                                @endif
                                
+                               
+                               <div class="form-group">
+                                 <label>Asset Id Type</label>
+                                 <input type="text" class="form-control" name="asset_id_type" value="{{$data->asset_id_type}}" placeholder="asset_id_type" required>
+                              </div>
 
+                              <div class="form-group">
+                                 <label>User Id</label>
+                                 <input type="text" class="form-control" name="user_id" value="{{$data->user_id}}" placeholder="user_id" required>
+                              </div>
+                              <div class="form-group">
+                                 <label>Customer Id</label>
+                                 <input type="text" class="form-control" name="customer_id" value="{{$data->customer_id}}" placeholder="customer_id" required>
+                              </div>
                               
                              
 

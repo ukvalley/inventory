@@ -174,26 +174,6 @@
                         </div>
                     </div>
                 </div>
-                <div class=" col-12">
-                    <div class="form-group row">
-                        <label for="user_id" class="col-md-2 col-form-label">User Id:</label>
-                        <div class="col-md-10">
-                            <input type="text" class="form-control" id="user_id" name="user_id"  placeholder="User Id"  value="{{{ old('user_id', isset($data)?$data->user_id : '') }}}">
-                            <div class="invalid-feedback @if ($errors->has('user_id')) d-block @endif">{{trans('admiko.required_text')}}</div>
-                            <small id="user_id_help" class="text-muted"></small>
-                        </div>
-                    </div>
-                </div>
-                <div class=" col-12">
-                    <div class="form-group row">
-                        <label for="customer_id" class="col-md-2 col-form-label">Customer Id:</label>
-                        <div class="col-md-10">
-                            <input type="text" class="form-control" id="customer_id" name="customer_id"  placeholder="Customer Id"  value="{{{ old('customer_id', isset($data)?$data->customer_id : '') }}}">
-                            <div class="invalid-feedback @if ($errors->has('customer_id')) d-block @endif">{{trans('admiko.required_text')}}</div>
-                            <small id="customer_id_help" class="text-muted"></small>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
         <div class="card-footer form-actions" id="form-group-buttons">

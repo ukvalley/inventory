@@ -24,6 +24,3 @@
 @if(Gate::any(['records_allow', 'records_edit']))
 <li class="nav-item{{ $admiko_data['sideBarActive'] === "records" ? " active" : "" }}"><a class="nav-link" href="{{route('admin.records.index')}}"><i class="fas fa-file-alt fa-fw"></i>Records</a></li>
 @endIf
-@if(Gate::any(['device_transfer_allow', 'device_transfer_edit']))
-<li class="nav-item{{ $admiko_data['sideBarActive'] === "device_transfer" ? " active" : "" }}"><a class="nav-link" href="{{route('admin.device_transfer.index')}}"><i class="fas fa-file-alt fa-fw"></i>Device Transfer</a></li>
-@endIf

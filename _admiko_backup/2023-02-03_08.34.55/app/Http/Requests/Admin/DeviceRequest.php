@@ -55,14 +55,6 @@ class DeviceRequest extends FormRequest
 			"asset_id_type"=>[
 				"string",
 				"nullable"
-			],
-			"user_id"=>[
-				"string",
-				"nullable"
-			],
-			"customer_id"=>[
-				"string",
-				"nullable"
 			]
         ];
     }
@@ -79,9 +71,7 @@ class DeviceRequest extends FormRequest
 			"activation_date"=>"Activation Date",
 			"received_date"=>"Received Date",
 			"renewal_date"=>"Renewal Date",
-			"asset_id_type"=>"Asset ID Type",
-			"user_id"=>"User Id",
-			"customer_id"=>"Customer Id"
+			"asset_id_type"=>"Asset ID Type"
         ];
     }
     

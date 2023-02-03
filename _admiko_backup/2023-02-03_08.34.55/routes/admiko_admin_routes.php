@@ -32,6 +32,3 @@ Route::resource("sales", SalesController::class)->parameters(["sales" => "sales"
 /**Records**/
 Route::delete("records/destroy", [RecordsController::class,"destroy"])->name("records.delete");
 Route::resource("records", RecordsController::class)->parameters(["records" => "records"]);
-/**DeviceTransfer**/
-Route::delete("device_transfer/destroy", [DeviceTransferController::class,"destroy"])->name("device_transfer.delete");
-Route::resource("device_transfer", DeviceTransferController::class)->parameters(["device_transfer" => "device_transfer"]);

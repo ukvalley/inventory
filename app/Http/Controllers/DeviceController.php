@@ -131,6 +131,13 @@ class DeviceController extends Controller
            $device->activation_date = $request->input('activation_date');
            $device->received_date = $request->input('received_date');
            $device->renewal_date = $request->input('renewal_date');
+
+           $device->asset_id_type = $request->input('asset_id_type');
+
+           $device->user_id = $request->input('user_id');
+
+           $device->customer_id = $request->input('customer_id');
+
                
  
  
@@ -166,7 +173,7 @@ public function add_sim()
 
 
    // print_r($data);die();
-     return view('add_sim', compact('sim_get'));
+     return view('/device_edit', compact('sim_get'));
 
 }
 }

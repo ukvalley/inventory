@@ -325,6 +325,7 @@ class MAdminPanelController extends Controller
 
 public function getUserType($user_type)
 { 
+
     $userType = Users::where('user_type',"=",$user_type)->get();
 
     $userType=json_encode($userType);
@@ -333,6 +334,32 @@ public function getUserType($user_type)
      
 
 }
+public function transferUpdate(Request $request)
+{
+
+$devices = $request->select;
+
+    foreach ($devices as $key => $value) {
+        
+
+
+        $device = Device::find($value);
+
+        $device->user_id = $request->user;
+
+        $device->save();
+
+
+        // create transaction for device transfer
+
+
+    }
+
+}
+
+
+}
+
 
 
 
@@ -340,7 +367,7 @@ public function getUserType($user_type)
 
                  
           
-  }
+  
 
 
 

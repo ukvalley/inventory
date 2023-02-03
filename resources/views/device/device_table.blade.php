@@ -35,6 +35,9 @@
       <th scope="col">Activation Date</th>
        <th scope="col">Received Date</th>
         <th scope="col">Renewal Date</th>
+        <th scope="col">Asset Id Type</th>
+        <th scope="col">user Id</th>
+        <th scope="col">customer Id</th>
 
       <!-- <th scope="col">Edit</th>
       <th scope="col">Delete</th> -->
@@ -56,6 +59,10 @@
                   <td>{{$row->activation_date}}</td>
                   <td>{{$row->received_date}}</td>
                   <td>{{$row->renewal_date}}</td>
+                  <td>{{$row->asset_id_type}}</td>
+                  <td>{{$row->user_id}}</td>
+                  <td>{{$row->customer_id}}</td>
+
                   <td>
                <a href="{{url('/')}}/device/device_edit?id={{$row->id}}" class="btn btn-primary">Edit</a>
                 </td>

@@ -149,6 +149,8 @@ Route::post('/add_device-update/{id}', [DeviceController::class, 'device_update'
 Route::get('device/device_edit',[DeviceController::class, 'device_edit'])->name('device_edit');
 Route::get('device_destroy',[DeviceController::class, 'device_destroy'])->name('device_destroy');
 
+Route::get('device_edit',[DeviceController::class, 'add_sim'])->name('add_sim');
+
 
 
 //Purchase-------------------------------------------------------------------------------------------------------------------------
@@ -225,11 +227,10 @@ Route::post('/import_process', [MAdminPanelController::class, 'processImport'])-
 //Transfer Device
 
 
-Route::get('/device_transfer', function () {  
-    return view('device_transfer');
-});
-
 Route::get('transfer', [MAdminPanelController::class, 'get_device'])->name('get_device');
+Route::post('transferUpdate', [MAdminPanelController::class, 'transferUpdate'])->name('transferUpdate');
+
+
 
 
 
