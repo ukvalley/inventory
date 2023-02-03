@@ -247,3 +247,16 @@ Route::get('getCustomer', [MAdminPanelController::class, 'getCustomer'])->name('
 Route::post('saleUpdate', [MAdminPanelController::class, 'saleUpdate'])->name('saleUpdate');
 Route::get('get_customer', [MAdminPanelController::class, 'get_customer'])->name('get_customer');
 
+
+
+//transcaction genaration
+
+Route::get('/transaction/transaction_table', function () {
+    return view('transaction/transaction_table');
+});
+
+Route::get('/transaction/transaction', [SalesController::class, 'register_sales'])->name('register_sales');
+Route::post('/sales-post', [SalesController::class, 'Sales'])->name('Sales');
+Route::post('/sales-update/{id}', [SalesController::class, 'sales_update'])->name('sales_update');
+Route::get('/sale/sales_edit', [SalesController::class, 'sales_edit'])->name('sales_edit');
+Route::get('sales_destroy', [SalesController::class, 'sales_destroy'])->name('sales_destroy');

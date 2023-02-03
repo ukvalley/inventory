@@ -411,6 +411,22 @@ public function get_customer($user_type)
           
 }
 
+//transaction  generation
+
+public function Transaction(){
+
+
+    $allCustomer = Customer::get();
+    $alldevice = Device::get();
+
+        //    print_r($alldevice);die();
+
+
+    return view('/Transaction', compact('allCustomer','alldevice'));
+
+
+}
+
 
 
 

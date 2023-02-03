@@ -15,7 +15,7 @@
 
                 <!-- /.panel-heading -->
                 <div class="panel-body">
-                             <h3>Device Transferr</h3>
+                             <h3>Device Transfer</h3>
                            <form class="col-sm-6" action="{{url('/')}}/transferUpdate" method="post"  enctype="multipart/form-data">
                     {{ csrf_field() }}
 
