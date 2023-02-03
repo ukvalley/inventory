@@ -15,6 +15,8 @@ use App\Http\Controllers\SimController;
 use App\Http\Controllers\PurchaseController;
 use App\Http\Controllers\PurchaseOrderController;
 use App\Http\Controllers\RecordsController;
+use App\Http\Controllers\TransactionController;
+
 
 
 
@@ -255,8 +257,8 @@ Route::get('/transaction/transaction_table', function () {
     return view('transaction/transaction_table');
 });
 
-Route::get('/transaction/transaction', [SalesController::class, 'register_sales'])->name('register_sales');
-Route::post('/sales-post', [SalesController::class, 'Sales'])->name('Sales');
-Route::post('/sales-update/{id}', [SalesController::class, 'sales_update'])->name('sales_update');
-Route::get('/sale/sales_edit', [SalesController::class, 'sales_edit'])->name('sales_edit');
-Route::get('sales_destroy', [SalesController::class, 'sales_destroy'])->name('sales_destroy');
+Route::get('/transaction/transaction', [TransactionController::class, 'register_sales'])->name('register_sales');
+Route::post('/sales-post', [TransactionController::class, 'Sales'])->name('Sales');
+Route::post('/sales-update/{id}', [TransactionController::class, 'sales_update'])->name('sales_update');
+Route::get('/sale/sales_edit', [TransactionController::class, 'sales_edit'])->name('sales_edit');
+Route::get('sales_destroy', [TransactionController::class, 'sales_destroy'])->name('sales_destroy');

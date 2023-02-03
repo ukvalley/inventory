@@ -93,7 +93,7 @@
                               
                               <div class="reset-button">
                                 
-                                 <button class="btn btn-success" type="submit" value="Submit"/>
+                                 <button class="btn btn-success" type="submit" value="Submit">Submit</button>
                               </div>
 
 

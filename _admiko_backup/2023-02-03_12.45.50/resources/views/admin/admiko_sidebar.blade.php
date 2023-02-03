@@ -27,6 +27,3 @@
 @if(Gate::any(['device_transfer_allow', 'device_transfer_edit']))
 <li class="nav-item{{ $admiko_data['sideBarActive'] === "device_transfer" ? " active" : "" }}"><a class="nav-link" href="{{route('admin.device_transfer.index')}}"><i class="fas fa-file-alt fa-fw"></i>Device Transfer</a></li>
 @endIf
-@if(Gate::any(['transaction_allow', 'transaction_edit']))
-<li class="nav-item{{ $admiko_data['sideBarActive'] === "transaction" ? " active" : "" }}"><a class="nav-link" href="{{route('admin.transaction.index')}}"><i class="fas fa-file-alt fa-fw"></i>Transaction</a></li>
-@endIf
