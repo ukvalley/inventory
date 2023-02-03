@@ -41,10 +41,6 @@ class CustomerRequest extends FormRequest
 			"mobile"=>[
 				"string",
 				"required"
-			],
-			"device_allocated"=>[
-				"string",
-				"nullable"
 			]
         ];
     }
@@ -56,8 +52,7 @@ class CustomerRequest extends FormRequest
 			"adhar_number"=>"Adhar Number",
 			"adhar_front_image"=>"Adhar Front Image",
 			"adhar_back_image"=>"Adhar Back Image",
-			"mobile"=>"Mobile",
-			"device_allocated"=>"Device Allocated"
+			"mobile"=>"Mobile"
         ];
     }
     

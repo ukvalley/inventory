@@ -39,7 +39,6 @@ class Customer extends Model
 		"adhar_back_image",
 		"adhar_back_image_admiko_delete",
 		"mobile",
-		"device_allocated",
     ];
     public function setAdharFrontImageAttribute()
     {

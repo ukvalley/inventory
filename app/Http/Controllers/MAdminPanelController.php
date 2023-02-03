@@ -357,17 +357,59 @@ $devices = $request->select;
 
 }
 
+//////////Salessssssssssss DEvice
+
+public function getCustomer()
+        { 
+           $allCustomer = Customer::get();
+       
+         
+       
+        //    print_r($alldevice);die();
+        return view('/device_sale', compact('allCustomer'));
+
+        }
+
+
+
+        
+public function get_customer($user_type)
+{ 
+
+    $customer = Customer::where('customer',"=",$customer)->get();
+
+    $customer=json_encode($customer);
+
+   return $customer;
+     
 
 }
 
 
 
+        public function saleUpdate(Request $request)
+        {
+         
+            $devices = $request->select;
 
-      
+        foreach ($devices as $key => $value) {
+            
+    
+    
+            $device = Device::find($value);
+    
+            $device->customer_id = $request->customer;
+    
+            $device->save();
+    
 
-                 
+
+
+
+}
+
           
-  
+}
 
 
 
@@ -380,3 +422,4 @@ $devices = $request->select;
               
 
 
+}

@@ -109,16 +109,6 @@
                         </div>
                     </div>
                 </div>
-                <div class=" col-12">
-                    <div class="form-group row">
-                        <label for="device_allocated" class="col-md-2 col-form-label">Device Allocated:</label>
-                        <div class="col-md-10">
-                            <input type="text" class="form-control" id="device_allocated" name="device_allocated"  placeholder="Device Allocated"  value="{{{ old('device_allocated', isset($data)?$data->device_allocated : '') }}}">
-                            <div class="invalid-feedback @if ($errors->has('device_allocated')) d-block @endif">{{trans('admiko.required_text')}}</div>
-                            <small id="device_allocated_help" class="text-muted"></small>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
         <div class="card-footer form-actions" id="form-group-buttons">

@@ -18,6 +18,9 @@ use App\Http\Controllers\MAdminPanelController;
 Route::get('getUserType/{id}', [MAdminPanelController::class, 'getUserType'])->name('getUserType');
 
 
+Route::get('getCustomer/{id}', [MAdminPanelController::class, 'getCustomer'])->name('getCustomer');
+
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });

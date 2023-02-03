@@ -236,3 +236,14 @@ Route::post('transferUpdate', [MAdminPanelController::class, 'transferUpdate'])-
 
 Route::get('getUserType', [MAdminPanelController::class, 'getUserType'])->name('getUserType');
 
+//sale device
+
+
+Route::get('device_sale', [MAdminPanelController::class, 'getCustomer'])->name('device_sale');
+
+Route::get('getCustomer', [MAdminPanelController::class, 'getCustomer'])->name('getCustomer');
+
+
+Route::post('saleUpdate', [MAdminPanelController::class, 'saleUpdate'])->name('saleUpdate');
+Route::get('get_customer', [MAdminPanelController::class, 'get_customer'])->name('get_customer');
+
