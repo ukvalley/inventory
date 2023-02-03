@@ -30,7 +30,7 @@ public function Transaction(){
 
 }
 
-public function saleUpdate(Request $request)
+public function transactionUpdate(Request $request)
         {
          
           foreach ($transaction as $key => $value) {

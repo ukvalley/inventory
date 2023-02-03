@@ -258,7 +258,3 @@ Route::get('/transaction/transaction_table', function () {
 });
 
 Route::get('/transaction/transaction', [TransactionController::class, 'register_sales'])->name('register_sales');
-Route::post('/sales-post', [TransactionController::class, 'Sales'])->name('Sales');
-Route::post('/sales-update/{id}', [TransactionController::class, 'sales_update'])->name('sales_update');
-Route::get('/sale/sales_edit', [TransactionController::class, 'sales_edit'])->name('sales_edit');
-Route::get('sales_destroy', [TransactionController::class, 'sales_destroy'])->name('sales_destroy');
