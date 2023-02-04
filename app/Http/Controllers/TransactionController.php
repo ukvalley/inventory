@@ -39,7 +39,7 @@ public function transactionUpdate(Request $request)
     
             $transaction = Transaction::find($value);
     
-            $transaction->transaction_id = $request->sender;
+            $transaction->user_id = $request->sender;
     
             $transaction->save();
     
