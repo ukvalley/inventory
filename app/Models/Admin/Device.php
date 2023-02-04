@@ -43,6 +43,12 @@ class Device extends Model
     {
         return $this->belongsTo(SimTypes::class, 'sim_1_type');
     }
+
+    public function customer_id_id()
+    {
+        return $this->belongsTo(Customer::class, 'customer_id');
+    }
+
 	public function sim_2_type_id()
     {
         return $this->belongsTo(SimTypes::class, 'sim_2_type');

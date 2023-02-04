@@ -60,7 +60,7 @@ class DeviceController extends Controller
  
          public function view_device()
     {
-       $data=Device::with(['sim_1_type_id','sim_2_type_id'])->get();
+       $data=Device::with(['sim_1_type_id','sim_2_type_id','customer_id_id'])->get();
 
  
       //  print_r($data); die();
