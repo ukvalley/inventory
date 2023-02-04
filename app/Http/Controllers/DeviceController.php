@@ -167,11 +167,7 @@ class DeviceController extends Controller
 
 public function add_sim()
 {
-
-
  $sim_get = DB::table('sim_types')->get();
-
-
    // print_r($data);die();
      return view('/device_edit', compact('sim_get'));
 

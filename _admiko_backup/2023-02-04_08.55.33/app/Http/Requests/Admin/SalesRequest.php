@@ -15,7 +15,7 @@ class SalesRequest extends FormRequest
     {
         return [
             "date"=>[
-				'date_format:"'.config('admiko_config.table_date_format').'"',
+				'date_format:"'.config('admiko_config.table_date_time_format').'"',
 				"nullable"
 			],
 			"device_id"=>[
