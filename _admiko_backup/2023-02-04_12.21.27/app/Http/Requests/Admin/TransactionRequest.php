@@ -23,7 +23,7 @@ class TransactionRequest extends FormRequest
 				"nullable"
 			],
 			"date"=>[
-				'date_format:"'.config('admiko_config.table_date_format').'"',
+				'date_format:"'.config('admiko_config.table_date_time_format').'"',
 				"nullable"
 			],
 			"amount"=>[

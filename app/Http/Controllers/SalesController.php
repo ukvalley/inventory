@@ -116,4 +116,13 @@ public function sales_destroy()
  
      return redirect()->back();
  }
+ 
+ private function change_date_format($date)
+ {
+        $chnage_date = strtotime($date);
+
+        $chnage_date_f = date('M d, Y', strtotime( $chnage_date ) );
+
+        return $chnage_date_f;
+ }
 }

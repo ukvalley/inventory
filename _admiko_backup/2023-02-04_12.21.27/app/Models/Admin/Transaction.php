@@ -33,10 +33,10 @@ class Transaction extends Model
     ];
     public function getDateAttribute($value)
     {
-        return $value ? Carbon::parse($value)->format(config('admiko_config.table_date_format')) : null;
+        return $value ? Carbon::parse($value)->format(config('admiko_config.table_date_time_format')) : null;
     }
     public function setDateAttribute($value)
     {
-        $this->attributes['date'] = $value ? Carbon::createFromFormat(config('admiko_config.table_date_format'), $value)->format('Y-m-d H:i:s') : null;
+        $this->attributes['date'] = $value ? Carbon::createFromFormat(config('admiko_config.table_date_time_format'), $value)->format('Y-m-d H:i:s') : null;
     }
 }

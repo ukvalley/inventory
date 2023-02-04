@@ -124,7 +124,7 @@ $('#user-select').change(function(){
         dataType: 'json',
         success: function (result) {
             $.each(result, function (i, value) {
-                $('#user').append('<option id=' + JSON.stringify(value.id) + '>' + value.name + '</option>');
+                $('#user').append('<option value="' + value.id + '">' + value.name + '</option>');
             });
         },
         error: function (request, status, error) {

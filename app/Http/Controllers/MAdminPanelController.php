@@ -19,16 +19,20 @@ use App\Models\Admin\Transaction;
 
 
 
-//NOT YET DELETED...???????????????????????????????????????????
+//NOT YET DELETED...??????????????????
 
 class MAdminPanelController extends Controller
 {
 
     private function change_date_format($date)
     {
+        
            $chnage_date = strtotime($date);
+          
  
-           $chnage_date_f = date('M d, Y', strtotime( $chnage_date ) );
+           $chnage_date_f = date('M d, Y', $chnage_date);
+
+        
  
            return $chnage_date_f;
     }
@@ -37,7 +41,7 @@ class MAdminPanelController extends Controller
     {
            $chnage_date = strtotime($date);
  
-           $chnage_date_f = date('M d, Y', strtotime( $chnage_date ) );
+           $chnage_date_f = date('M d, Y', strtotime($chnage_date) );
  
            return $chnage_date_f;
     }
@@ -176,53 +180,50 @@ public function get_customer($user_type)
             $device->save();
 
 
+            //entry in sales
+
             $Sale = new Sales;
 
-            $today = date('M d, Y');
-
-            echo  $this->change_date_format($today); die();
-
+            $today = date('d-m-Y');
            
-
             $Sale->date =  $this->change_date_format($today);
             $Sale->device_id = $device->id;
             $Sale->device_number = $device->ice_id;
             $Sale->allocated_to = $device->customer_id;
             $Sale->user_id = $device->user_id;
           
-            $Sale->insert();
+            $Sale->save();
 
-            // print_r($Sale);die();
+            
                  
               
 
 
-        //transaction table
+        //entry in transaction table
             $Transaction = new Transaction;
+          
+            $today = date('d-m-Y');
+           
 
-            $Transaction->sender = $device->user_id;          //  $this->change_date_format($request->input('date'));
+            $Transaction->sender = $device->user_id;         
             $Transaction->receiver = $device->customer_id;
-            $Transaction->date = $device->activation_date;
-            // $Transaction->amount = $device->customer_id;
-            // $Transaction->transaction_type = $device->customer_id;
-            // $Transaction->quantity = $device->customer_id;
+            $Transaction->date =  $this->change_date_format($today);
+            
+            $Transaction->amount =1;
+            $Transaction->transaction_type =1;
+            $Transaction->quantity =1;
  
-            $Transaction->insert();
+
+          
+
+            $Transaction->save();
+
+           
+                 
 }
 
           
 }
-
-
-
-
-
-
-
-
-
-    
-              
 
 
 }

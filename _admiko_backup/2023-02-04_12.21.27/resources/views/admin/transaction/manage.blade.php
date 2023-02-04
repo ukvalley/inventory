@@ -49,13 +49,13 @@
                     <div class="form-group row">
                         <label for="date" class="col-md-2 col-form-label">Date:</label>
                         <div class="col-md-10">
-                            <div class="input-group" id="datePicker_date" data-target-input="nearest">
+                            <div class="input-group" id="dateTimePicker_date" data-target-input="nearest">
                                 <input type="text" autocomplete="off" style="max-width: 170px;border-right: unset;"
-                                       data-date_time_format="{{config('admiko_config.form_date_format')}}"
-                                       class="form-control datetimepicker-input datePicker"
-                                       data-target="#datePicker_date"  id="date" data-toggle="datetimepicker"
+                                       data-date_time_format="{{config('admiko_config.form_date_time_format')}}"
+                                       class="form-control datetimepicker-input dateTimePicker"
+                                       data-target="#dateTimePicker_date"  id="date" data-toggle="datetimepicker"
                                        placeholder="Date" name="date" value="{{{ old('date', isset($data)?$data->date : '') }}}">
-                                <div class="input-group-append input-group-text" data-target="#datePicker_date" data-toggle="datetimepicker">
+                                <div class="input-group-append input-group-text" data-target="#dateTimePicker_date" data-toggle="datetimepicker">
                                     <i class="fas fa-calendar-alt fa-fw"></i>
                                 </div>
                             </div>
