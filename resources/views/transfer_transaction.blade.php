@@ -117,7 +117,7 @@
 
 $('#user-select').change(function(){
        $('#user').find('option').remove().end()
-         console.log('{{url('/')}}/api/getUserType/'+$(this).val()+'');
+        
          $.ajax({
         url: '{{url('/')}}/api/getUserType/'+$(this).val()+'',
         type: "GET",
@@ -135,7 +135,7 @@ $('#user-select').change(function(){
     });
 
 
-    alert($(this).val());
+    
 })
         </script>
 

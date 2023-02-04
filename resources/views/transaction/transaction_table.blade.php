@@ -28,6 +28,7 @@
       <th scope="col">Receiver</th>
       <th scope="col">Date</th>
       <th scope="col">Amount</th>
+      <th scope="col">Quantity</th>
       <th scope="col">Transaction Type</th>
       
 
@@ -43,7 +44,10 @@
                <td>{{$row->sender }}</td>
                 <td>{{$row->receiver }}</td>
                 <td>{{$row->date}}</td>
+                <td>{{$row->quantity}}</td>
                 <td>{{$row->amount}}</td>
+
+
                 <td>{{$row->transaction_type}}</td>
                
                   <td>

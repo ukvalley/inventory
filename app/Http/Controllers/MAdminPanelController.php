@@ -401,6 +401,19 @@ public function get_customer($user_type)
             $device->customer_id = $request->customer;
     
             $device->save();
+
+            $Sale = new Sales;
+
+            $Sale->date = 
+            $Sale->device_id = $device->id;
+            $Sale->device_number = $device->ice_id;
+            $Sale->allocated_to = $device->user_id;
+            $Sale->user_id = $device->customer_id;
+            
+            $Sale->insert();
+            
+
+            
     
 
 
