@@ -17,6 +17,7 @@ public function Transaction(){
 
     $allCustomer = Customer::get();
     $allDevice = Device::get();
+    $allVehicle = Vehicle::get();
     $allUser = Users::get();
 
 
@@ -25,7 +26,7 @@ public function Transaction(){
         //    print_r($alldevice);die();
 
 
-    return view('/Transaction', compact('allCustomer','alldevice','allUser'));
+    return view('/Transaction', compact('allCustomer','alldevice','allUser','allVehicle'));
 
 
 }

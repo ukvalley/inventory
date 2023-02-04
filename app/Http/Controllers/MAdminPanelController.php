@@ -336,6 +336,7 @@ public function getUserType($user_type)
      
 
 }
+
 public function transferUpdate(Request $request)
 {
 
@@ -364,11 +365,14 @@ $devices = $request->select;
 public function getCustomer()
         { 
            $allCustomer = Customer::get();
+
+           $allVehicle = Vechicles::get();
+
        
          
        
         //    print_r($alldevice);die();
-        return view('/device_sale', compact('allCustomer'));
+        return view('/device_sale', compact('allCustomer','allVehicle'));
 
         }
 

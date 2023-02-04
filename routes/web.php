@@ -249,6 +249,8 @@ Route::get('getCustomer', [MAdminPanelController::class, 'getCustomer'])->name('
 Route::post('saleUpdate', [MAdminPanelController::class, 'saleUpdate'])->name('saleUpdate');
 Route::get('get_customer', [MAdminPanelController::class, 'get_customer'])->name('get_customer');
 
+Route::get('getVehicle', [MAdminPanelController::class, 'getVehicle'])->name('getVehicle');
+
 
 
 //transcaction genaration

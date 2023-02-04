@@ -88,6 +88,26 @@
                                     <option value="{{$value->id}}" >{{$value->name}}</option>}
                                    @endforeach
                                  </select>
+
+                              </div>
+
+
+                              
+                              <div class="form-group">
+
+                               <label>Select Vehicle</label>
+                          <select class="form-control" name="vehicle" onChange=''    id="vehicle-select" >
+                         
+                     
+                                   @foreach ($allVehicle as $value){
+                                   
+                                    <option value="{{$value->id}}" >{{$value->vehicle_number}}</option>}
+                                   @endforeach
+                                 </select>
+
+                                 
+                                 
+                              </div>
                               
 
                               
@@ -115,16 +135,16 @@
 
  <script>
 
-$('#customer-select').change(function(){
+$('#vehicle-select').change(function(){
        $('#user').find('option').remove().end()
-         console.log('{{url('/')}}/api/getCustomer/'+$(this).val()+'');
+         console.log('{{url('/')}}/api/getVehicle/'+$(this).val()+'');
          $.ajax({
-        url: '{{url('/')}}/api/getCustomer/'+$(this).val()+'',
+        url: '{{url('/')}}/api/getVehicle/'+$(this).val()+'',
         type: "GET",
         dataType: 'json',
         success: function (result) {
             $.each(result, function (i, value) {
-                $('#user').append('<option id=' + JSON.stringify(value.id) + '>' + value.name + '</option>');
+                $('#vehicle').append('<option id=' + JSON.stringify(value.id) + '>' + value.name + '</option>');
             });
         },
         error: function (request, status, error) {

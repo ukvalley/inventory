@@ -20,6 +20,7 @@ Route::get('getUserType/{id}', [MAdminPanelController::class, 'getUserType'])->n
 
 Route::get('getCustomer/{id}', [MAdminPanelController::class, 'getCustomer'])->name('getCustomer');
 
+Route::get('getVehicle/{id}', [MAdminPanelController::class, 'getVehicle'])->name('getVehicle');
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
