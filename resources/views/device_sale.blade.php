@@ -55,7 +55,7 @@
                 <td>{{$row->user_id}}</td>
                 <td>
                 <td>
-                  <input type='checkbox' value="{{$row->id}}" name="select[]"> <a class="btn btn-primary">Sell</a>
+                  <input type='checkbox' value="{{$row->id}}" name="select[]">
                 </td>
 
             </tr>
@@ -101,7 +101,7 @@
                      
                                    @foreach ($allVehicle as $value){
                                    
-                                    <option value="{{$value->id}}" >{{$value->vehicle_number}}</option>}
+                                    <option value="{{$value->id}}" >{{$value->vechicle_number}}</option>}
                                    @endforeach
                                  </select>
 

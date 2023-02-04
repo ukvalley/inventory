@@ -14,6 +14,8 @@ use App\Http\Controllers\SalesController;
 use App\Http\Controllers\SimController;
 use App\Http\Controllers\PurchaseController;
 use App\Http\Controllers\PurchaseOrderController;
+use App\Http\Controllers\SalesOrderController;
+
 use App\Http\Controllers\RecordsController;
 use App\Http\Controllers\TransactionController;
 
@@ -113,13 +115,13 @@ Route::get('sim/sim_table', function () {
 //*************************************************************************************************************** */
 
 //customer--------------------------------------------------------------------------------
+Route::get('/customer/register_customer', [CustomerController::class, 'register_customer'])->name('register_customer');
 Route::post('/register_customer-post', [CustomerController::class, 'CustomerRegister'])->name('CustomerRegister');
 Route::post('/register_customer-update/{id}', [CustomerController::class, 'update'])->name('update');
 
 
 Route::get('customer/customer_edit', [CustomerController::class, 'customer_edit'])->name('customer_edit');
 Route::get('destroy', [CustomerController::class, 'destroy'])->name('destroy');
-Route::get('/customer/register_customer', [CustomerController::class, 'register_customer'])->name('register_customer');
 
 
 //vehicle-------------------------------------------------------------------------------------
@@ -221,9 +223,15 @@ Route::post('salesformPost', [SalesOrderController::class, 'salesformPost'])->na
 //csv imports
 
 
-Route::get('getImport', [MAdminPanelController::class, 'getImport'])->name('import');
-Route::post('/import_parse', [MAdminPanelController::class, 'parseImport'])->name('import_parse');
-Route::post('/import_process', [MAdminPanelController::class, 'processImport'])->name('import_process');
+Route::get('getImport', [PurchaseOrderController::class, 'getImport'])->name('import');
+Route::post('/import_parse', [PurchaseOrderController::class, 'parseImport'])->name('import_parse');
+Route::post('/import_process', [PurchaseOrderController::class, 'processImport'])->name('import_process');
+
+//sale csv import
+
+Route::get('getSaleImport', [SalesOrderController::class, 'getSaleImport'])->name('import');
+Route::post('/import_parse', [SalesOrderController::class, 'parseSaleImport'])->name('import_parse');
+Route::post('/import_process', [SalesOrderController::class, 'processSaleImport'])->name('import_process');
 
 
 //Transfer Device

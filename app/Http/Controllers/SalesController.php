@@ -30,7 +30,7 @@ class SalesController extends Controller
 
        $Sales = new Sales; 
 
-       $Sales->date = $request->input('date');
+       $Sales->date = $this->change_date_format($request->input('date'));
        $Sales->device_id = $request->input('device_id');
        $Sales->device_number = $request->input('device_number');
        $Sales->allocated_to = $request->input('allocated_to');  
@@ -86,7 +86,7 @@ public function sales_edit()
       $data = $request->all();
             $Sales = Sales::find($id);
 
-       $Sales->date =$request->input('date'); 
+       $Sales->date =$this->change_date_format($request->input('date'));
        $Sales->device_id =$request->input('device_id');  
        $Sales->device_number =$request->input('device_number'); 
        $Sales->allocated_to = $request->input('allocated_to'); 

@@ -24,7 +24,15 @@ use App\Models\Admin\Transaction;
 class MAdminPanelController extends Controller
 {
 
-
+    private function change_date_format($date)
+    {
+           $chnage_date = strtotime($date);
+ 
+           $chnage_date_f = date('M d, Y', strtotime( $chnage_date ) );
+ 
+           return $chnage_date_f;
+    }
+ 
 
 
 
@@ -408,19 +416,30 @@ public function get_customer($user_type)
     
             $device->save();
 
+
             $Sale = new Sales;
 
-            $Sale->date = 
+            $Sale->date =  $this->change_date_format('date');         //  $this->change_date_format($request->input('date'));
             $Sale->device_id = $device->id;
             $Sale->device_number = $device->ice_id;
-            $Sale->allocated_to = $device->user_id;
-            $Sale->user_id = $device->customer_id;
+            $Sale->allocated_to = $device->customer_id;
+            $Sale->user_id = $device->user_id;
             
             $Sale->insert();
+
+        //transaction table
+            $Transaction = new Transaction;
+
+            $Transaction->sender = $device->user_id;          //  $this->change_date_format($request->input('date'));
+            $Transaction->receiver = $device->customer_id;
+            $Transaction->date = $device->activation_date;
+            // $Transaction->amount = $device->customer_id;
+            // $Transaction->transaction_type = $device->customer_id;
+            // $Transaction->quantity = $device->customer_id;
+ 
+            $Transaction->insert();
             
 
-            
-    
 
 
 
