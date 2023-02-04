@@ -45,7 +45,7 @@
       
     </tr>
   </thead>
-  <?php  $data=DB::table('device')->get();?>
+ 
   @foreach($data as $row)
             <tr>
                <td>{{$row->id }}</td>
@@ -53,9 +53,10 @@
                 <td>{{$row->ice_id}}</td>
                 <td>{{$row->imei}}</td>
                 <td>{{$row->sim1}}</td>
-                <td>{{$row->sim_1_type}}</td>
+                
+                <td>{{$row->sim_1_type_id->name ?? ''}}</td>
                 <td>{{$row->sim2}}</td>
-                  <td>{{$row->sim_2_type}}</td>
+                  <td>{{$row->sim_2_type_id->name ?? ''}}</td>
                   <td>{{$row->activation_date}}</td>
                   <td>{{$row->received_date}}</td>
                   <td>{{$row->renewal_date}}</td>

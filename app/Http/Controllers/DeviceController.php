@@ -60,12 +60,13 @@ class DeviceController extends Controller
  
          public function view_device()
     {
-       $data=DB::table('device')->get();
+       $data=Device::with(['sim_1_type_id','sim_2_type_id'])->get();
+
  
-       // print_r($data); die();
+      //  print_r($data); die();
  
        //get data from database 
-       return view('device_table')->with(compact($data)); 
+       return view('device.device_table')->with(compact('data')); 
     }
  
  
@@ -103,10 +104,12 @@ class DeviceController extends Controller
                 ->first();
  
           $alldevice = Device::get();
+
+          $sim_get = DB::table('sim_types')->get();
  
  
          // print_r($data); die();
-          return view('/device/device_edit')->with(compact('data','alldevice'));
+          return view('/device/device_edit')->with(compact('data','alldevice','sim_get'));
      }
  
  

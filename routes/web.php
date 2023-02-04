@@ -91,9 +91,7 @@ Route::get('vehicle/vehicle_table', function () {
     return view('vehicle/vehicle_table');
 });
 
-Route::get('device/device_table', function () {
-    return view('device/device_table');
-});
+
 
 Route::get('sale/sales_table', function () {
     return view('sale/sales_table');
@@ -154,6 +152,10 @@ Route::get('device/device_edit',[DeviceController::class, 'device_edit'])->name(
 Route::get('device_destroy',[DeviceController::class, 'device_destroy'])->name('device_destroy');
 
 Route::get('device_edit',[DeviceController::class, 'add_sim'])->name('add_sim');
+
+
+Route::get('device/device_table', [DeviceController::class, 'view_device'])->name('view_device');
+
 
 
 
