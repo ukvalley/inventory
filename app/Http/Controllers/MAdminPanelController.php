@@ -79,11 +79,6 @@ class MAdminPanelController extends Controller
 
         //INTERNAL TRANSFER-------------------------------------------------------------------------
 
-
-        
-
-    
-
         public function get_device()
         { 
            $alldevice = Device::get();
@@ -143,8 +138,6 @@ public function getCustomer()
            $allVehicle = Vechicles::get();
 
        
-         
-       
         //    print_r($alldevice);die();
         return view('/device_sale', compact('allCustomer','allVehicle'));
 
@@ -185,19 +178,24 @@ public function get_customer($user_type)
 
             $Sale = new Sales;
 
-            $today = date("M d, Y");
+            $today = date('M d, Y');
 
             echo  $this->change_date_format($today); die();
 
            
 
-            $Sale->date =  $this->change_date_format($today);         //  $this->change_date_format($request->input('date'));
+            $Sale->date =  $this->change_date_format($today);
             $Sale->device_id = $device->id;
             $Sale->device_number = $device->ice_id;
             $Sale->allocated_to = $device->customer_id;
             $Sale->user_id = $device->user_id;
-            
+          
             $Sale->insert();
+
+            // print_r($Sale);die();
+                 
+              
+
 
         //transaction table
             $Transaction = new Transaction;
@@ -210,12 +208,6 @@ public function get_customer($user_type)
             // $Transaction->quantity = $device->customer_id;
  
             $Transaction->insert();
-            
-
-
-
-
-
 }
 
           
