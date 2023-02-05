@@ -128,6 +128,7 @@ Route::post('/register_vehicle-post', [VehicleController::class, 'VehiclesRegist
 Route::post('/register_vehicle-update/{id}', [VehicleController::class, 'vehicle_update'])->name('vehicle_update');
 Route::get('vehicle/vehicle_edit', [VehicleController::class, 'vehicle_edit'])->name('vehicle_edit');
 Route::get('vehicle_destroy', [VehicleController::class, 'vehicle_destroy'])->name('vehicle_destroy');
+Route::get('/vehicle/vehicle_table', [VehicleController::class, 'vehicle_table'])->name('vehicle_table');
 
 
 

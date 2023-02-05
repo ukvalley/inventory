@@ -61,14 +61,14 @@ class VehicleController extends Controller
      public function vehicle_table()
  {
 
-    $data=DB::table('vechicles')->get();
+    $data=Vechicles::with(['customer_id'])->get();
 
-    //print_r($data); die();
+  //  print_r($data); die();
 
 
 
     //get data from database 
-    return view('vehicle_table'); 
+    return view('vehicle.vehicle_table')->with(compact('data')); 
 
  }
 
