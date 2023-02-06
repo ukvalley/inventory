@@ -20,7 +20,7 @@ class Device extends Model
     public $table = 'device';
     
     
-	const STATUS_CONS = ["sold"=>"Sold","unsold"=>"Unsold"];
+	const STATUS_CONS = ["Sold"=>"Sold","Unsold"=>"Unsold"];
     protected $dates = [
         'created_at',
         'updated_at',
@@ -75,6 +75,7 @@ class Device extends Model
     {
         $this->attributes['renewal_date'] = $value ? Carbon::createFromFormat(config('admiko_config.table_date_format'), $value)->format('Y-m-d H:i:s') : null;
     }
+
     public function Customer_id_id()
     {
         return $this->belongsTo(Customer::class, 'Customer_id');

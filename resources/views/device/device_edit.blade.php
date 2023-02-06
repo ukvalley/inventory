@@ -132,6 +132,14 @@
                                  <label>Customer Id</label>
                                  <input type="text" class="form-control" name="customer_id" value="{{$data->customer_id}}" placeholder="customer_id" required>
                               </div>
+
+                              <div class="form-group">
+                                 <label>Status</label >
+                                 <select class="form-control" name="status"  id="status">
+                                    <option  value="sold" >Sold</option>
+                                    <option  value="unsold">Unsold</option>
+                                 </select>
+                              </div>
                               
                              
 
@@ -139,6 +147,8 @@
                                  <a href="#" class="btn btn-warning">Reset</a>
                                  <input class="btn btn-success" type="submit" value="Submit" />
                               </div>
+
+                              
 
 
                            

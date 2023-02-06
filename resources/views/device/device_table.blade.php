@@ -37,7 +37,7 @@
         <th scope="col">Renewal Date</th>
         <th scope="col">Asset Id Type</th>
         <th scope="col">Staff</th>
-        <th scope="col">customer</th>
+        <th scope="col">Customer</th>
         <th scope="col">Status</th>
 
       <!-- <th scope="col">Edit</th>

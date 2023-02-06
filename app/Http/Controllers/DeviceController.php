@@ -48,7 +48,7 @@ class DeviceController extends Controller
              $Device->activation_date = $this->change_date_format($request->input('activation_date'));
              $Device->received_date = $this->change_date_format($request->input('received_date'));
              $Device->renewal_date = $this->change_date_format($request->input('renewal_date'));
-             
+             $Device->status = $request->input('status');
  
              $Device->save();
                  
@@ -140,6 +140,9 @@ class DeviceController extends Controller
            $device->user_id = $request->input('user_id');
 
            $device->customer_id = $request->input('customer_id');
+
+           $device->status = $request->input('status');
+
 
                
  
