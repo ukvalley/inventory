@@ -76,6 +76,7 @@
                                  <label>Activation Date</label>
                                  <input id='minMaxExample1' type="Date" name="activation_date" data-date_time_format="MMM DD, Y" class="form-control" placeholder="Enter Activation Date...">
                               </div>
+
                               <div class="form-group">
                                  <label>Received Date</label>
                                  <input id='minMaxExample2' type="Date" name="received_date" data-date_time_format="MMM DD, Y" class="form-control" placeholder="Enter  Received Date...">
@@ -96,13 +97,15 @@
                                  <label>User Id</label>
                                  <input type="text" class="form-control" name="user_id" placeholder="user_id" >
                               </div>
+
                               <div class="form-group">
                                  <label>Customer Id</label>
                                  <input type="text" class="form-control" name="customer_id" placeholder="customer_id" >
                               </div>
+
                               <div class="form-group">
                                  <label>Status</label >
-                                 <select class="form-control" name="status"  id="status">
+                                 <select  class="form-control" name="status"  id="status" >
                                     <option  value="sold" >Sold</option>
                                     <option  value="unsold">Unsold</option>
                                  </select>
