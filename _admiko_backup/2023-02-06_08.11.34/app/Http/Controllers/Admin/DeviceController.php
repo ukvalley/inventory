@@ -39,8 +39,7 @@ class DeviceController extends Controller
         
         
 		$sim_types_all = SimTypes::all()->sortBy("name")->pluck("name", "id");
-		$status_all = Device::STATUS_CONS;
-        return view("admin.device.manage")->with(compact('admiko_data','sim_types_all','status_all'));
+        return view("admin.device.manage")->with(compact('admiko_data','sim_types_all'));
     }
 
     public function store(DeviceRequest $request)
@@ -73,9 +72,8 @@ class DeviceController extends Controller
         
         
 		$sim_types_all = SimTypes::all()->sortBy("name")->pluck("name", "id");
-		$status_all = Device::STATUS_CONS;
         $data = $Device;
-        return view("admin.device.manage")->with(compact('admiko_data', 'data','sim_types_all','status_all'));
+        return view("admin.device.manage")->with(compact('admiko_data', 'data','sim_types_all'));
     }
 
     public function update(DeviceRequest $request,$id)

@@ -194,22 +194,6 @@
                         </div>
                     </div>
                 </div>
-                <div class=" col-12">
-                    <div class="form-group row">
-                        <label for="status" class="col-md-2 col-form-label">Status:</label>
-                        <div class="col-md-10">
-                            <select class="form-select" id="status" name="status" >
-                                <option value="">{{trans("admiko.select")}}</option>
-                                @foreach($status_all as $id => $value)
-                                    <option value="{{ $id }}" {{ (old('status') ? old('status') : $data->status ?? '') == $id ? 'selected' : '' }}>{{ $value }}</option>
-                                @endforeach
-                            </select>
-                            <div class="invalid-feedback @if ($errors->has('status')) d-block @endif">{{trans('admiko.required_text')}}</div>
-                            <small id="status_help" class="text-muted"></small>
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </div>
         <div class="card-footer form-actions" id="form-group-buttons">

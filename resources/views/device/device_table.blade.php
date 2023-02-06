@@ -38,6 +38,7 @@
         <th scope="col">Asset Id Type</th>
         <th scope="col">Staff</th>
         <th scope="col">customer</th>
+        <th scope="col">Status</th>
 
       <!-- <th scope="col">Edit</th>
       <th scope="col">Delete</th> -->
@@ -61,8 +62,10 @@
                   <td>{{$row->received_date}}</td>
                   <td>{{$row->renewal_date}}</td>
                   <td>{{$row->asset_id_type}}</td>
-                  <td>{{$row->user_id}}</td>
+                  <td>{{$row->user_id_id->name ?? ''}}</td>
                   <td>{{$row->customer_id_id->name ?? ''}}</td>
+                  <td>{{$row->status}}</td>
+
 
                   <td>
                <a href="{{url('/')}}/device/device_edit?id={{$row->id}}" class="btn btn-primary">Edit</a>

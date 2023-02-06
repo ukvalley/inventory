@@ -8,8 +8,6 @@
 namespace App\Models\Admin;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Admin\SimTypes;
-use App\Models\Admin\Customer;
-
 use Carbon\Carbon;
 use App\Http\Controllers\Traits\Admin\AdmikoFileUploadTrait;
 
@@ -20,7 +18,6 @@ class Device extends Model
     public $table = 'device';
     
     
-	const STATUS_CONS = ["Sold"=>"Sold","Unsold"=>"Unsold"];
     protected $dates = [
         'created_at',
         'updated_at',
@@ -41,12 +38,22 @@ class Device extends Model
 		"asset_id_type",
 		"user_id",
 		"customer_id",
-		"status",
     ];
     public function sim_1_type_id()
     {
         return $this->belongsTo(SimTypes::class, 'sim_1_type');
     }
+
+    public function customer_id_id()
+    {
+        return $this->belongsTo(Customer::class, 'customer_id');
+    }
+
+    public function user_id_id()
+    {
+        return $this->belongsTo(Customer::class, 'user_id');
+    }
+
 	public function sim_2_type_id()
     {
         return $this->belongsTo(SimTypes::class, 'sim_2_type');
@@ -74,10 +81,5 @@ class Device extends Model
     public function setRenewalDateAttribute($value)
     {
         $this->attributes['renewal_date'] = $value ? Carbon::createFromFormat(config('admiko_config.table_date_format'), $value)->format('Y-m-d H:i:s') : null;
-    }
-
-    public function Customer_id_id()
-    {
-        return $this->belongsTo(Customer::class, 'Customer_id');
     }
 }

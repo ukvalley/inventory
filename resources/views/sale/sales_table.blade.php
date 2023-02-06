@@ -45,9 +45,9 @@
                 <td>{{$row->date }}</td>
                 <td>{{$row->device_id}}</td>
                 <td>{{$row->device_number}}</td>
-                <td>{{$row->allocated}}</td>
+                <td>{{$row->allocated_to}}</td>
                 <td>{{$row->user_id}}</td>
-               
+               <td>
                <a href="{{url('/')}}/sale/sales_edit?id={{$row->id}}" class="btn btn-primary">Edit</a>
                 </td>
                 <td>

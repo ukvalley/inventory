@@ -63,9 +63,6 @@ class DeviceRequest extends FormRequest
 			"customer_id"=>[
 				"string",
 				"nullable"
-			],
-			"status"=>[
-				"nullable"
 			]
         ];
     }
@@ -84,8 +81,7 @@ class DeviceRequest extends FormRequest
 			"renewal_date"=>"Renewal Date",
 			"asset_id_type"=>"Asset ID Type",
 			"user_id"=>"User Id",
-			"customer_id"=>"Customer Id",
-			"status"=>"Status"
+			"customer_id"=>"Customer Id"
         ];
     }
     
