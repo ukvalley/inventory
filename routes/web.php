@@ -277,3 +277,15 @@ Route::get('/transaction/transaction_table', function () {
 });
 
 Route::get('/transaction/transaction', [TransactionController::class, 'register_sales'])->name('register_sales');
+
+///view for single device
+
+
+Route::get('/device_info', function () {  
+    return view('device_info');
+});
+
+Route::get('/device_info', [DeviceController::class, 'openDeviceInfo'])->name('openDeviceInfo');
+
+
+

@@ -51,7 +51,9 @@
  
   @foreach($data as $row)
             <tr>
-               <td>{{$row->id }}</td>
+              
+               <td> <a href="{{url('/')}}/device_info?id={{$row->id }}">{{$row->id }} </a></td>
+               
                 <td>{{$row->make }}</td>
                 <td>{{$row->ice_id}}</td>
                 <td>{{$row->imei}}</td>
@@ -66,6 +68,7 @@
                   <!-- <td>{{$row->asset_id_type}}</td> -->
                   <td>{{$row->user_id_id->name ?? ''}}</td>
                   <td>{{$row->customer_id_id->name ?? ''}}</td>
+
                   <td>
                     @if($row->statuss == null || $row->statuss == 'unsold')
                       <span class="btn btn-danger small">Unsold</span>

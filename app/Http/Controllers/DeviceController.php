@@ -34,6 +34,8 @@ class DeviceController extends Controller
    
               
              $Device = new Device ;	
+
+             
  
  
            
@@ -48,12 +50,13 @@ class DeviceController extends Controller
              $Device->activation_date = $this->change_date_format($request->input('activation_date'));
              $Device->received_date = $this->change_date_format($request->input('received_date'));
              $Device->renewal_date = $this->change_date_format($request->input('renewal_date'));
-             $Device->statuss = $request->input('statuss');
+             $Device->status = $request->input('status');
  
              $Device->save();
+         
 
 
-             print_r($Device); die();
+          //    print_r($Device); die();
                  
  
                    
@@ -71,13 +74,12 @@ class DeviceController extends Controller
        //get data from database 
        return view('device.device_table')->with(compact('data')); 
     }
- 
- 
+
     private function change_date_format($date)
     {
            $chnage_date = strtotime($date);
  
-           $chnage_date_f = date('M d, Y', strtotime( $chnage_date ) );
+           $chnage_date_f = date('M d, Y',( $chnage_date ) );
  
            return $chnage_date_f;
     }
@@ -126,34 +128,28 @@ class DeviceController extends Controller
  
          $data = $request->all();
                 $device = Device::find($id);
+                
                
           $device->make = $request->input('make');
            $device->ice_id = $request->input('ice_id');
            $device->imei = $request->input('imei');
            $device->sim1 = $request->input('sim1');
-           $device->sim1_type = $request->input('sim_1_type');
+           $device->sim_1_type = $request->input('sim_1_type');
            $device->sim2 = $request->input('sim2');
-           $device->sim2_type = $request->input('sim_2_type');
-           $device->activation_date = $request->input('activation_date');
-           $device->received_date = $request->input('received_date');
-           $device->renewal_date = $request->input('renewal_date');
-
-           $device->asset_id_type = $request->input('asset_id_type');
-
+           $device->sim_2_type = $request->input('sim_2_type');
+           $device->activation_date =$this->change_date_format($request->input('activation_date'));
+           $device->received_date =$this->change_date_format($request->input('received_date'));
+           $device->renewal_date = $this->change_date_format($request->input('renewal_date'));
            $device->user_id = $request->input('user_id');
-
            $device->customer_id = $request->input('customer_id');
+           $device->status = $request->input('status');
 
-           $device->statuss = $request->input('statuss');
+
+                    // print_r($device); die();
 
 
-               
- 
- 
- 
              $device->update($data);
               
- 
                return redirect()->back();
           // return redirect()->route('customer_table')
           //                ->with('success','Customer updated successfully'); 
@@ -181,4 +177,26 @@ public function add_sim()
      return view('/device_edit', compact('sim_get'));
 
 }
+
+
+public function openDeviceInfo()
+{    
+     $id =$_GET['id'];
+
+     
+     $data=DB::table('device')
+           ->where('id',"=",$id)
+           ->first();
+
+     $alldevice = Device::get();
+
+     $sim_get = DB::table('sim_types')->get();
+
+
+
+
+    // print_r($data); die();
+     return view('/device_info')->with(compact('data','alldevice','sim_get'));
+}
+
 }
