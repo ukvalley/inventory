@@ -51,6 +51,9 @@ class DeviceController extends Controller
              $Device->statuss = $request->input('statuss');
  
              $Device->save();
+
+
+             print_r($Device); die();
                  
  
                    

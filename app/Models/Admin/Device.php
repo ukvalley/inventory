@@ -43,7 +43,7 @@ class Device extends Model
 		"asset_id_type",
 		"user_id",
 		"customer_id",
-		"status",
+		"statuss",
     ];
     public function sim_1_type_id()
     {
@@ -77,8 +77,15 @@ class Device extends Model
     {
         $this->attributes['renewal_date'] = $value ? Carbon::createFromFormat(config('admiko_config.table_date_format'), $value)->format('Y-m-d H:i:s') : null;
     }
+
+
     public function Customer_id_id()
     {
-        return $this->belongsTo(Customer::class, 'Customer_id');
+        return $this->belongsTo(Customer::class, 'customer_id');
+    }
+
+    public function User_id_id()
+    {
+        return $this->belongsTo(Customer::class, 'user_id');
     }
 }
