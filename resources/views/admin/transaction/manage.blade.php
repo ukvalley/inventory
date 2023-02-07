@@ -29,22 +29,34 @@
                     <div class="form-group row">
                         <label for="sender" class="col-md-2 col-form-label">Sender:</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" id="sender" name="sender"  placeholder="Sender"  value="{{{ old('sender', isset($data)?$data->sender : '') }}}">
+                            <select class="form-select" id="sender" name="sender" >
+                                <option value="">{{trans("admiko.select")}}</option>
+                                @foreach($users_all as $id => $value)
+                                    <option value="{{ $id }}" {{ (old('sender') ? old('sender') : $data->sender ?? '') == $id ? 'selected' : '' }}>{{ $value }}</option>
+                                @endforeach
+                            </select>
                             <div class="invalid-feedback @if ($errors->has('sender')) d-block @endif">{{trans('admiko.required_text')}}</div>
                             <small id="sender_help" class="text-muted"></small>
                         </div>
                     </div>
                 </div>
+
                 <div class=" col-12">
                     <div class="form-group row">
                         <label for="receiver" class="col-md-2 col-form-label">Receiver:</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" id="receiver" name="receiver"  placeholder="Receiver"  value="{{{ old('receiver', isset($data)?$data->receiver : '') }}}">
+                            <select class="form-select" id="receiver" name="receiver" >
+                                <option value="">{{trans("admiko.select")}}</option>
+                                @foreach($users_all as $id => $value)
+                                    <option value="{{ $id }}" {{ (old('receiver') ? old('receiver') : $data->receiver ?? '') == $id ? 'selected' : '' }}>{{ $value }}</option>
+                                @endforeach
+                            </select>
                             <div class="invalid-feedback @if ($errors->has('receiver')) d-block @endif">{{trans('admiko.required_text')}}</div>
                             <small id="receiver_help" class="text-muted"></small>
                         </div>
                     </div>
                 </div>
+
                 <div class=" col-12">
                     <div class="form-group row">
                         <label for="date" class="col-md-2 col-form-label">Date:</label>

@@ -14,12 +14,11 @@ class RecordsRequest extends FormRequest
     public function rules()
     {
         return [
-            "user_id"=>[
+            "device_count"=>[
 				"string",
 				"nullable"
 			],
-			"device_count"=>[
-				"string",
+			"user_id"=>[
 				"nullable"
 			]
         ];
@@ -27,8 +26,8 @@ class RecordsRequest extends FormRequest
     public function attributes()
     {
         return [
-            "user_id"=>"User_Id",
-			"device_count"=>"Device Count"
+            "device_count"=>"Device Count",
+			"user_id"=>"User_id"
         ];
     }
     

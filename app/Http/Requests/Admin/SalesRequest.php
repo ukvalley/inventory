@@ -31,7 +31,6 @@ class SalesRequest extends FormRequest
 				"nullable"
 			],
 			"user_id"=>[
-				"string",
 				"nullable"
 			]
         ];

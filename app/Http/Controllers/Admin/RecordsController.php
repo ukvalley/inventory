@@ -11,6 +11,7 @@ use App\Models\Admin\Records;
 use Illuminate\Http\Request;
 use App\Http\Requests\Admin\RecordsRequest;
 use Gate;
+use App\Models\Admin\Users;
 
 class RecordsController extends Controller
 {
@@ -37,7 +38,8 @@ class RecordsController extends Controller
         $admiko_data['formAction'] = route("admin.records.store");
         
         
-        return view("admin.records.manage")->with(compact('admiko_data'));
+		$users_all = Users::getParentChildrenList();
+        return view("admin.records.manage")->with(compact('admiko_data','users_all'));
     }
 
     public function store(RecordsRequest $request)
@@ -69,8 +71,9 @@ class RecordsController extends Controller
         $admiko_data['formAction'] = route("admin.records.update", [$Records->id]);
         
         
+		$users_all = Users::getParentChildrenList();
         $data = $Records;
-        return view("admin.records.manage")->with(compact('admiko_data', 'data'));
+        return view("admin.records.manage")->with(compact('admiko_data', 'data','users_all'));
     }
 
     public function update(RecordsRequest $request,$id)

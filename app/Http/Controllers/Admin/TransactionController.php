@@ -11,6 +11,7 @@ use App\Models\Admin\Transaction;
 use Illuminate\Http\Request;
 use App\Http\Requests\Admin\TransactionRequest;
 use Gate;
+use App\Models\Admin\Users;
 
 class TransactionController extends Controller
 {
@@ -37,7 +38,8 @@ class TransactionController extends Controller
         $admiko_data['formAction'] = route("admin.transaction.store");
         
         
-        return view("admin.transaction.manage")->with(compact('admiko_data'));
+		$users_all = Users::getParentChildrenList();
+        return view("admin.transaction.manage")->with(compact('admiko_data','users_all'));
     }
 
     public function store(TransactionRequest $request)
@@ -69,8 +71,9 @@ class TransactionController extends Controller
         $admiko_data['formAction'] = route("admin.transaction.update", [$Transaction->id]);
         
         
+		$users_all = Users::getParentChildrenList();
         $data = $Transaction;
-        return view("admin.transaction.manage")->with(compact('admiko_data', 'data'));
+        return view("admin.transaction.manage")->with(compact('admiko_data', 'data','users_all'));
     }
 
     public function update(TransactionRequest $request,$id)

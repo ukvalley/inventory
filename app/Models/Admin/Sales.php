@@ -8,6 +8,7 @@
 namespace App\Models\Admin;
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
+use App\Models\Admin\Users;
 use App\Http\Controllers\Traits\Admin\AdmikoFileUploadTrait;
 
 class Sales extends Model
@@ -36,6 +37,10 @@ class Sales extends Model
     }
     public function setDateAttribute($value)
     {
-        $this->attributes['date'] = $value ? Carbon::createFromFormat(config('admiko_config.table_date_format'), $value)->format('Y-m-d') : null;
+        $this->attributes['date'] = $value ? Carbon::createFromFormat(config('admiko_config.table_date_format'), $value)->format('Y-m-d H:i:s') : null;
+    }
+	public function user_id_id()
+    {
+        return $this->belongsTo(Users::class, 'user_id');
     }
 }

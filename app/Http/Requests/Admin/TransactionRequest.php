@@ -15,11 +15,9 @@ class TransactionRequest extends FormRequest
     {
         return [
             "sender"=>[
-				"string",
 				"nullable"
 			],
 			"receiver"=>[
-				"string",
 				"nullable"
 			],
 			"date"=>[

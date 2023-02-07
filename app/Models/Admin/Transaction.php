@@ -7,6 +7,7 @@
  */
 namespace App\Models\Admin;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Admin\Users;
 use Carbon\Carbon;
 use App\Http\Controllers\Traits\Admin\AdmikoFileUploadTrait;
 
@@ -31,7 +32,15 @@ class Transaction extends Model
 		"transaction_type",
 		"quantity",
     ];
-    public function getDateAttribute($value)
+    public function sender_id()
+    {
+        return $this->belongsTo(Users::class, 'sender');
+    }
+	public function receiver_id()
+    {
+        return $this->belongsTo(Users::class, 'receiver');
+    }
+	public function getDateAttribute($value)
     {
         return $value ? Carbon::parse($value)->format(config('admiko_config.table_date_format')) : null;
     }
