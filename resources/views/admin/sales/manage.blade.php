@@ -29,13 +29,13 @@
                     <div class="form-group row">
                         <label for="date" class="col-md-2 col-form-label">Date:</label>
                         <div class="col-md-10">
-                            <div class="input-group" id="dateTimePicker_date" data-target-input="nearest">
+                            <div class="input-group" id="datePicker_date" data-target-input="nearest">
                                 <input type="text" autocomplete="off" style="max-width: 170px;border-right: unset;"
-                                       data-date_time_format="{{config('admiko_config.form_date_time_format')}}"
-                                       class="form-control datetimepicker-input dateTimePicker"
-                                       data-target="#dateTimePicker_date"  id="date" data-toggle="datetimepicker"
+                                       data-date_time_format="{{config('admiko_config.form_date_format')}}"
+                                       class="form-control datetimepicker-input datePicker"
+                                       data-target="#datePicker_date"  id="date" data-toggle="datetimepicker"
                                        placeholder="Date" name="date" value="{{{ old('date', isset($data)?$data->date : '') }}}">
-                                <div class="input-group-append input-group-text" data-target="#dateTimePicker_date" data-toggle="datetimepicker">
+                                <div class="input-group-append input-group-text" data-target="#datePicker_date" data-toggle="datetimepicker">
                                     <i class="fas fa-calendar-alt fa-fw"></i>
                                 </div>
                             </div>
@@ -78,12 +78,18 @@
                     <div class="form-group row">
                         <label for="user_id" class="col-md-2 col-form-label">User Id:</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" id="user_id" name="user_id"  placeholder="User Id"  value="{{{ old('user_id', isset($data)?$data->user_id : '') }}}">
+                            <select class="form-select" id="user_id" name="user_id" >
+                                <option value="">{{trans("admiko.select")}}</option>
+                                @foreach($users_all as $id => $value)
+                                    <option value="{{ $id }}" {{ (old('user_id') ? old('user_id') : $data->user_id ?? '') == $id ? 'selected' : '' }}>{{ $value }}</option>
+                                @endforeach
+                            </select>
                             <div class="invalid-feedback @if ($errors->has('user_id')) d-block @endif">{{trans('admiko.required_text')}}</div>
                             <small id="user_id_help" class="text-muted"></small>
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
         <div class="card-footer form-actions" id="form-group-buttons">

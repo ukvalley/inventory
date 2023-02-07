@@ -24,16 +24,15 @@
       <th scope="col"><table class="table table-striped table-dark">
   <thead>
     <tr>
-    <th scope="col">id</th>
+    <th scope="col">ID</th>
       <th scope="col">Name</th>
       <th scope="col">Address</th>
       <th scope="col">Mobile</th>
       <th scope="col">Adhar Number</th>
-      
       <th scope="col">Adhar Front Image</th>
       <th scope="col">Adhar Back Image</th>
-      <!-- <th scope="col">Edit</th>
-      <th scope="col">Delete</th> -->
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th> 
       
       
     </tr>
@@ -46,8 +45,20 @@
                 <td>{{$row->address}}</td>
                 <td>{{$row->mobile}}</td>
                 <td>{{$row->adhar_number}}</td>
-                <td>{{$row->adhar_front_image}}</td>
-                <td>{{$row->adhar_back_image}}</td>
+                <td> 
+                  @if(isset($row->adhar_front_image))
+                  <img width="50px" src="{{url('/')}}/upload/{{$row->adhar_front_image}}"> 
+                  @else
+                  <p>No Image</p>
+                  @endif
+                </td>
+                <td>
+                  @if(isset($row->adhar_back_image))
+                  <img width="50px" src="{{url('/')}}/upload/{{$row->adhar_back_image}}"> 
+                  @else
+                  <p>No Image</p>
+                  @endif
+                </td>
                 <td>
                 <a href="{{url('/')}}/customer/customer_edit?id={{$row->id}}" class="btn btn-primary">Edit</a>
                 </td>

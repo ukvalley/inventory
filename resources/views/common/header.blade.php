@@ -162,37 +162,6 @@
                            </li>
                         </ul>
                      </li>
-                     <!-- Help -->
-                    <!--  <li class="dropdown dropdown-help hidden-xs">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <i class="pe-7s-settings"></i></a>
-                        <ul class="dropdown-menu" >
-                           <li>
-                              <a href="profile.html">
-                              <i class="fa fa-line-chart"></i> Networking</a>
-                           </li>
-                           <li><a href="#"><i class="fa fa fa-bullhorn"></i> Lan settings</a></li>
-                           <li><a href="#"><i class="fa fa-bar-chart"></i> Settings</a></li>
-                           <li><a href="login.html">
-                              <i class="fa fa-wifi"></i> wifi</a>
-                           </li>
-                        </ul>
-                     </li> -->
-                     <!-- user -->
-                     <!-- <li class="dropdown dropdown-user">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <img src="asset/dist/img/avatar5.png" class="img-circle" width="45" height="45" alt="user"></a>
-                        <ul class="dropdown-menu" >
-                           <li>
-                              <a href="profile.html">
-                              <i class="fa fa-user"></i> User Profile</a>
-                           </li>
-                           <li><a href="#"><i class="fa fa-inbox"></i> Inbox</a></li>
-                           <li><a href="login.html">
-                              <i class="fa fa-sign-out"></i> Signout</a>
-                           </li>
-                        </ul>
-                     </li> -->
                   </ul>
                </div>
             </nav>
@@ -205,14 +174,108 @@
                <!-- sidebar menu -->
                <ul class="sidebar-menu">
                   <li class="active">
-                     <a href="index"><i class="fa fa-tachometer"></i><span>Dashboard</span>
+                     <a href="/"><i class="fa fa-tachometer"></i><span>Dashboard</span>
                      <span class="pull-right-container">
                      </span>
                      </a>
                   </li>
+                 
+
+                   <li class="treeview">
+                     <a href="/transaction">
+                     <i class="fa fa-users"></i><span>Customer</span>
+                     <span class="pull-right-container">
+                     <i class="fa fa-angle-left pull-right"></i>
+                     </span>
+                     </a>
+                     <ul class="treeview-menu">
+                     <li><a href="/customer/customer_table">Show Customer</a></li>
+                         <li><a href="/customer/register_customer">Add New Customer</a></li>
+                         <li><a href="/vehicle/vehicle_table">Show Vehicle</a></li>
+                        <li><a href="/vehicle/register_vehicle">Add New Vehicle</a></li>
+                        
+                     </ul>
+                  </li>
                   <li class="treeview">
                      <a href="#">
-                     <i class="fa fa-users"></i><span>MAdmin</span>
+                     <i class="fa fa-bitbucket-square"></i><span>Device</span>
+                     <span class="pull-right-container">
+                     <i class="fa fa-angle-left pull-right"></i>
+                     </span>
+                     </a>
+                     <ul class="treeview-menu">
+                        <li><a href="/device/device_table">Show Device</a></li>
+                        <li><a href="/device/add_device">Add New Device</a></li>
+                        <li><a href="/getImport">Import Device</a></li>
+                        <li><a href="/transfer">Transfer Device</a></li>
+
+                     </ul>
+                  </li>
+                  <li class="treeview">
+                     <a href="#">
+                     <i class="fa fa-shopping-cart"></i><span>Sales</span>
+                     <span class="pull-right-container">
+                     <i class="fa fa-angle-left pull-right"></i>
+                     </span>
+                     </a>
+                     <ul class="treeview-menu">
+                        <li><a href="/device_sale">Sale Device</a></li>
+                        <li><a href="">Show Sale Device</a></li>
+                        <li><a href="">Device Activation</a></li>
+                      
+                     </ul>
+                  </li>
+                 
+                  
+                  <li class="treeview">
+                     <a href="#">
+                     <i class="fa fa-list"></i><span>Report</span>
+                     <span class="pull-right-container">
+                     <i class="fa fa-angle-left pull-right"></i>
+                     </span>
+                     </a>
+                     <ul class="treeview-menu">
+                        <li><a href="#">Customer Report</a></li>
+                        <li><a href="#">Vehicle Report</a></li>
+                        <li><a href="#">Device Report</a></li>
+                        <li><a href="#">Device Transfer Report</a></li>
+                        <li><a href="#">Device Sell Report</a></li>
+                        <li><a href="#">Device History</a></li>
+
+                     </ul>
+                  </li>
+                  <li class="treeview">
+                     <a href="#">
+                     <i class="fa fa-gear"></i><span>Setting</span>
+                     <span class="pull-right-container">
+                     <i class="fa fa-angle-left pull-right"></i>
+                     </span>
+                     </a>
+                     <ul class="treeview-menu">
+                        <li><a href="/sim/simtypes">Add Sim Types</a></li>
+                        <li><a href="add_manifactures]r">Add Manifacturer</a></li>
+                        <li><a href="user/register_user">Add User</a></li>
+                        
+                     </ul>
+                  </li>
+                  <li class="treeview">
+                     <a href="#">
+                     <i class="fa fa-book"></i><span>Service Order</span>
+                     <span class="pull-right-container">
+                     <i class="fa fa-angle-left pull-right"></i>
+                     </span>
+                     </a>
+                     <ul class="treeview-menu">
+                        <li><a href="rtask.html">Service1</a></li>
+                        <li><a href="atask.html">Service2</a></li>
+                     
+                        
+                     </ul>
+                  </li>
+
+                  <li class="treeview">
+                     <a href="#">
+                     <i class="fa fa-users"></i><span>MAdmin  Delete</span>
                      <span class="pull-right-container">
                      <i class="fa fa-angle-left pull-right"></i>
                      </span>
@@ -226,69 +289,6 @@
                         <li><a href="/sale/sales_table">Sales</a></li>
                          <li><a href="/records/records_table">Records</a></li>
                          <li><a href="/sim/sim_table">Sim Types</a></li>
-                     </ul>
-                  </li>
-
-                   <li class="treeview">
-                     <a href="/transaction">
-                     <i class="fa fa-shopping-basket"></i><span>Transaction</span>
-                     <span class="pull-right-container">
-                     <i class="fa fa-angle-left pull-right"></i>
-                     </span>
-                     </a>
-                     <ul class="treeview-menu">
-                         <li><a href="transaction">Tranaction</a></li>
-                        <li><a href="deposit.html">New Deposit</a></li>
-                        <li><a href="expense.html">New Expense</a></li>
-                        <li><a href="transfer.html">Transfer</a></li>
-                        <li><a href="view-tsaction.html">View transaction</a></li>
-                        <li><a href="balance.html">Balance Sheet</a></li>
-                        <li><a href="treport.html">Transfer Report</a></li>
-                     </ul>
-                  </li>
-                  <li class="treeview">
-                     <a href="#">
-                     <i class="fa fa-bitbucket-square"></i><span>Stock</span>
-                     <span class="pull-right-container">
-                     <i class="fa fa-angle-left pull-right"></i>
-                     </span>
-                     </a>
-                     <ul class="treeview-menu">
-                        <li><a href="stockcat.html">Stock category</a></li>
-                        <li><a href="manstock.html">Manage Stock</a></li>
-                        <li><a href="astock.html">Assign stock</a></li>
-                     </ul>
-                  </li>
-                  <li class="treeview">
-                     <a href="#">
-                     <i class="fa fa-shopping-cart"></i><span>Sales</span>
-                     <span class="pull-right-container">
-                     <i class="fa fa-angle-left pull-right"></i>
-                     </span>
-                     </a>
-                     <ul class="treeview-menu">
-                        <li><a href="invoice.html">Invoices</a></li>
-                        <li><a href="ninvoices.html">New Invoices</a></li>
-                        <li><a href="recurring.html">Recurring invoices</a></li>
-                        <li><a href="nrecurring.html">New Recurring invoices</a></li>
-                        <li><a href="quote.html">quotes</a></li>
-                        <li><a href="nquote.html">New quote</a></li>
-                        <li><a href="payment.html">Payments</a></li>
-                        <li><a href="taxeport.html">Tax Rates</a></li>
-                     </ul>
-                  </li>
-                 
-                  
-                  <li class="treeview">
-                     <a href="#">
-                     <i class="fa fa-book"></i><span>Task</span>
-                     <span class="pull-right-container">
-                     <i class="fa fa-angle-left pull-right"></i>
-                     </span>
-                     </a>
-                     <ul class="treeview-menu">
-                        <li><a href="rtask.html">Running Task</a></li>
-                        <li><a href="atask.html">Archive Task</a></li>
                      </ul>
                   </li>
                 

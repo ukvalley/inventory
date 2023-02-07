@@ -25,6 +25,7 @@
                                  <label>Make</label>
                                  <input type="text" class="form-control" name="make" placeholder=" Make" required>
                               </div>
+                              
 
                                     
                            <div class="form-group">
@@ -75,6 +76,7 @@
                                  <label>Activation Date</label>
                                  <input id='minMaxExample1' type="Date" name="activation_date" data-date_time_format="MMM DD, Y" class="form-control" placeholder="Enter Activation Date...">
                               </div>
+
                               <div class="form-group">
                                  <label>Received Date</label>
                                  <input id='minMaxExample2' type="Date" name="received_date" data-date_time_format="MMM DD, Y" class="form-control" placeholder="Enter  Received Date...">
@@ -85,11 +87,31 @@
                                  <label>Renewal Date</label>
                               <input type="Date"  data-date_time_format="MMM DD, Y" class="form-control datetimepicker-input datePicker" name="renewal_date"  data-target="datePicker_renewal_date" data-toggle="datetimepicker" placeholder="Renewal Date" >
                                 </div>
-                              
-                              
-                              
 
+                                
+                              <div class="form-group">
+                                 <label>Status</label >
+                                 <select  class="form-control" name="statuss"  id="statuss" >
+                                    <option  value="sold" >Sold</option>
+                                    <option  value="unsold">Unsold</option>
+                                 </select>
+                              </div>
+                             
                               
+                                <!-- <div class="form-group">
+                                 <label>Asset Id Type</label>
+                                 <input type="text" class="form-control" name="asset_id_type" placeholder="asset_id_type" >
+                              </div> -->
+
+                              <div class="form-group">
+                                 <label>User Id</label>
+                                 <input type="text" class="form-control" name="user_id" placeholder="user_id" >
+                              </div>
+
+                              <div class="form-group">
+                                 <label>Customer Id</label>
+                                 <input type="text" class="form-control" name="customer_id" placeholder="customer_id" >
+                              </div>
                              
 
                               <div class="reset-button">

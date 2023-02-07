@@ -27,16 +27,6 @@
                 
                 <div class=" col-12">
                     <div class="form-group row">
-                        <label for="user_id" class="col-md-2 col-form-label">User_Id:</label>
-                        <div class="col-md-10">
-                            <input type="text" class="form-control" id="user_id" name="user_id"  placeholder="User_Id"  value="{{{ old('user_id', isset($data)?$data->user_id : '') }}}">
-                            <div class="invalid-feedback @if ($errors->has('user_id')) d-block @endif">{{trans('admiko.required_text')}}</div>
-                            <small id="user_id_help" class="text-muted"></small>
-                        </div>
-                    </div>
-                </div>
-                <div class=" col-12">
-                    <div class="form-group row">
                         <label for="device_count" class="col-md-2 col-form-label">Device Count:</label>
                         <div class="col-md-10">
                             <input type="text" class="form-control" id="device_count" name="device_count"  placeholder="Device Count"  value="{{{ old('device_count', isset($data)?$data->device_count : '') }}}">
@@ -45,6 +35,22 @@
                         </div>
                     </div>
                 </div>
+                <div class=" col-12">
+                    <div class="form-group row">
+                        <label for="user_id" class="col-md-2 col-form-label">User_id:</label>
+                        <div class="col-md-10">
+                            <select class="form-select" id="user_id" name="user_id" >
+                                <option value="">{{trans("admiko.select")}}</option>
+                                @foreach($users_all as $id => $value)
+                                    <option value="{{ $id }}" {{ (old('user_id') ? old('user_id') : $data->user_id ?? '') == $id ? 'selected' : '' }}>{{ $value }}</option>
+                                @endforeach
+                            </select>
+                            <div class="invalid-feedback @if ($errors->has('user_id')) d-block @endif">{{trans('admiko.required_text')}}</div>
+                            <small id="user_id_help" class="text-muted"></small>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
         <div class="card-footer form-actions" id="form-group-buttons">

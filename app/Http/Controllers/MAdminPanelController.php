@@ -8,270 +8,51 @@ use App\Http\Requests\CsvImportRequest;
 use App\Models\Admin\Customer;
 use App\Models\Admin\Vechicles;
 use App\Models\Admin\Device;
+use App\Models\Admin\Users;
 use App\Models\Admin\Purchase;
 use App\Models\Admin\Sales;
 use App\Models\Admin\SimTypes;
 use App\Models\Admin\Records;
 use App\Models\CsvData;
+use App\Models\Admin\Transaction;
 
 
 
-//NOT YET DELETED...???????????????????????????????????????????
+
+//NOT YET DELETED...??????????????????
 
 class MAdminPanelController extends Controller
 {
 
-
-
-
-
-
-
-
-
-
-//    public function purchaseformPost(Request $request)
-//    {  
-      
-
-
-//       $make = $request->make;
-//       $ice_id = $request->ice_id;
-//       $imei = $request->imei;
-//       $sim_1_type = $request->sim_1_type;
-//       $sim_2_type = $request->sim_2_type;
-//       $activation_date =$request ->activation_date;
-//       $received_date =$request ->received_date;
-//       $renewal_date = $request ->renewal_date;
-//       $user_id = $request->user_id;
-//       $purchase_from = $request->purchase_from;
-//       $amount = $request->amount;
-
-//       $this->purchaseOrder($make,$ice_id,$imei,$sim_1_type,$sim_2_type,$received_date,$activation_date,$renewal_date,$user_id,$purchase_from,$amount);
-    
-      
-//    }
-
-
-//    public function importCsv()
-//    {
-
-//       $csv_data = [];
-
-//       foreach($csv_data as $key=>$value)
-//       {
-//          $this->purchaseOrder($make,$ice_id,$imei,$sim_1_type,$sim_2_type,$user_id,$purchase_from,$amount);
-//       }
-
-//    }
-
-
-    
-//     ///recored update purchase
-//     public function purchaseOrder($make,$ice_id,$imei,$sim_1_type,$sim_2_type,$received_date,$activation_date,$renewal_date,$user_id,$purchase_from){
-
-//       //create device information
-
-//            $device= new Device;
-
-//            $device->make = $make;
-//            $device->ice_id = $ice_id;
-//            $device->imei = $imei;
-//            $device->sim_1_type = $sim_1_type;
-//            $device->sim_2_type = $sim_2_type;
-//            $device->activation_date =$this->change_date_format($activation_date);
-// 	         $device->received_date =$this->change_date_format($received_date);
-// 	         $device->renewal_date = $this->change_date_format($renewal_date);
-	        
+    private function change_date_format($date)
+    {
+        
+           $chnage_date = strtotime($date);
           
-//            $device->save();
+ 
+           $chnage_date_f = date('M d, Y', $chnage_date);
 
         
-          
-      
-//           // update records
-
-//            $record = Records::where('user_id','=',$user_id)->first();
-
-//            $update_record_device_count = $record->device_count + 1;
-
-//            $record->device_count = $update_record_device_count;
-
-//            $record->save();
-
-
-
  
- 
-//        //purchase entry creation
+           return $chnage_date_f;
+    }
 
-//        $purchase = new purchase;
-
-//        $today = date("M d, Y");
-
-//        $purchase->date = $today;
-      
-//        $purchase->device_number = $ice_id;
-//        $purchase->quantity = 1;
-      
-//        $purchase->purchase_from = $purchase_from;
-
-//        $purchase->save();
-
-       
-
-//     } 
-//     // SALE
-// ///////////////////////////////////////////////////////////////////////////////////////////////
-
-// public function salesformPost(Request $request)
-// {  
-   
-//    $make = $request->make;
-//    $ice_id = $request->ice_id;
-//    $imei = $request->imei;
-//    $sim_1_type = $request->sim_1_type;
-//    $sim_2_type = $request->sim_2_type;
-//    $activation_date =$request ->activation_date;
-//    $received_date =$request ->received_date;
-//    $renewal_date = $request ->renewal_date;
-//    $user_id = $request->user_id;
-//    $allocated_to = $request->allocated_to;
-//    $device_number = $request->device_number;
-
-//    $this->salesOrder($make,$ice_id,$imei,$sim_1_type,$sim_2_type,$received_date,$activation_date,$renewal_date, $device_number,$user_id,$allocated_to);
- 
-   
-// }
-
-
-
-
-
- 
-//  ///recored update sales
-//  public function salesOrder($make,$ice_id,$imei,$sim_1_type,$sim_2_type,$received_date,$activation_date,$renewal_date, $device_number,$user_id,$allocated_to){
-
-//    //create device information
-
-//         $device= new Device;
-
-//         $device->User_id = $User_id;
-       
-       
-
-//         $device->save();
-
-   
-//        // update  sales records
-
-//         $salesRecord = Records::where('user_id','=',$user_id)->first();
-
-//         $update_salesRecord_device_count = $salesRecord->device_count - 1;
-
-//         $salesRecord->device_count = $update_salesRecord_device_count;
-
-//         $salesRecord->save();
-
-
-
-
-
-//     //sales entry creation
-
-//     $sales = new sales;
-
-//     $today = date("M d, Y");
-//     $sales->date = $today;
-//     $sales->device_number= $device_number;
-//     $sales->allocated_to = $allocated_to;
-//     $sales->user_id = $user_id;
-
-//     $sales->save();   
-
-//  } 
- 
-
-    
-
-
-//     //CSV files import export Functions
-
-    public function getImport()
+    private function change_date_format_time($date)
     {
-        return view('import');
+           $chnage_date = strtotime($date);
+ 
+           $chnage_date_f = date('M d, Y', strtotime($chnage_date) );
+ 
+           return $chnage_date_f;
     }
-       
-    public function parseImport(CsvImportRequest $request)
-{
-    $path = $request->file('csv_file')->getRealPath();
-    $data = array_map('str_getcsv', file($path));
-
-    $csv_data_file = CsvData::create([
-        'csv_filename' => $request->file('csv_file')->getClientOriginalName(),
-        'csv_header' => $request->has('header'),
-        'csv_data' => json_encode($data)
-    ]);
-
-    $csv_data = array_slice($data, 0, 2);
-    return view('import_fields', compact('csv_data', 'csv_data_file'));
-}
-
-    public function processImport(Request $request)
-    {
-       
-
-
-
-
-        $data = CsvData::find($request->csv_data_file_id);
-        $csv_data = json_decode($data->csv_data, true);
-    foreach ($csv_data as $row) {
-       $csv_row_data = [];
-        
-        foreach (config('app.db_fields') as $index => $field) {
-          // print_r($row);
-          $csv_row_data[$field] = $row[$index];
-        }
-        $this->csvPurchaseProcess($csv_row_data);
-        
-    }
+ 
 
 
 
 
 
 
-    }
 
-      
-
-    public function csvPurchaseProcess($csv_row_data)
-    {
-
-      
-
-      $make = $csv_row_data['make'];
-      $ice_id = $csv_row_data['ice_id'];
-      $imei = $csv_row_data['imei'];
-      $sim_1_type = $csv_row_data['sim_1_type'];
-      $sim_2_type = $csv_row_data['sim_2_type'];
-      $received_date = $csv_row_data['received_date'];
-      $activation_date = null;
-      $renewal_date = null;
-      $user_id = 1;
-      $purchase_from = $csv_row_data['purchase_from'];
-      $amount = $csv_row_data['amount'];
-      
-
-
-
-    
-
-      $this->purchaseOrder($make,$ice_id,$imei,$sim_1_type,$sim_2_type,$received_date,$activation_date,$renewal_date,$user_id,$purchase_from,$amount);
-
-
-    }
 
 
     public function newManifacturer(Request $request)
@@ -302,15 +83,10 @@ class MAdminPanelController extends Controller
 
         //INTERNAL TRANSFER-------------------------------------------------------------------------
 
-
-        
-
-    
-
         public function get_device()
         { 
            $alldevice = Device::get();
-       
+                                       //where('Status','=','Unsold')->get();
          
        
         //    print_r($alldevice);die();
@@ -322,29 +98,132 @@ class MAdminPanelController extends Controller
 
 
 
-public function get_users()
+public function getUserType($user_type)
 { 
-   $allusers = Users::get();
 
- 
+    $userType = Users::where('user_type',"=",$user_type)->get();
 
-   // print_r($allvehicle);die();
-     return view('/transfer_transaction', compact('allusers'));
+    $userType=json_encode($userType);
+
+   return $userType;
+     
 
 }
 
-                 
-          
-  }
+public function transferUpdate(Request $request)
+{
+
+$devices = $request->select;
+
+    foreach ($devices as $key => $value) {
+        
+
+
+        $device = Device::find($value);
+
+        $device->user_id = $request->user;
+
+        $device->save();
+
+
+        // create transaction for device transfer
+
+
+    }
+
+}
+
+//////////Salessssssssssss DEvice
+
+public function getCustomer()
+        { 
+           $allCustomer = Customer::get();
+
+           $allVehicle = Vechicles::get();
+
+       
+        //    print_r($alldevice);die();
+        return view('/device_sale', compact('allCustomer','allVehicle'));
+
+        }
 
 
 
+        
+public function get_customer($user_type)
+{ 
+
+    $customer = Customer::where('customer',"=",$customer)->get();
+
+    $customer=json_encode($customer);
+
+   return $customer;
+     
+
+}
 
 
 
+        public function saleUpdate(Request $request)
+        {
+         
+            $devices = $request->select;
 
-
+        foreach ($devices as $key => $value) {
+            
     
+    
+            $device = Device::find($value);
+    
+            $device->customer_id = $request->customer;
+    
+            $device->save();
+
+
+            //entry in sales
+
+            $Sale = new Sales;
+
+            $today = date('d-m-Y');
+           
+            $Sale->date =  $this->change_date_format($today);
+            $Sale->device_id = $device->id;
+            $Sale->device_number = $device->ice_id;
+            $Sale->allocated_to = $device->customer_id;
+            $Sale->user_id = $device->user_id;
+          
+            $Sale->save();
+
+            
+                 
               
 
 
+        //entry in transaction table
+            $Transaction = new Transaction;
+          
+            $today = date('d-m-Y');
+           
+
+            $Transaction->sender = $device->user_id;         
+            $Transaction->receiver = $device->customer_id;
+            $Transaction->date =  $this->change_date_format($today);
+            
+            $Transaction->amount =1;
+            $Transaction->transaction_type =1;
+            $Transaction->quantity =1;
+ 
+
+          
+
+            $Transaction->save();
+
+           
+                 
+}
+
+          
+}
+
+
+}

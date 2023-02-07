@@ -13,11 +13,13 @@
 
                 <!-- /.panel-heading -->
                 <div class="panel-body">
+                  
 
 
 
 
 <table class="table table-striped table-dark">
+  
   <thead>
     <tr>
       
@@ -28,34 +30,51 @@
       <th scope="col">Make</th>
       <th scope="col">ICE_ID</th>
       <th scope="col">IMEI</th>
-      <th scope="col">SIM1</th>
+      <!-- <th scope="col">SIM1</th> -->
       <th scope="col">SIM1 Type</th>
-      <th scope="col">SIM2</th>
+      <!-- <th scope="col">SIM2</th> -->
       <th scope="col">SIM2 Type</th>
-      <th scope="col">Activation Date</th>
+      <!-- <th scope="col">Activation Date</th> -->
        <th scope="col">Received Date</th>
-        <th scope="col">Renewal Date</th>
+        <!-- <th scope="col">Renewal Date</th> -->
+        <!-- <th scope="col">Asset Id Type</th> -->
+        <th scope="col">Staff</th>
+        <th scope="col">Customer</th>
+        <th scope="col">Status</th>
 
-      <!-- <th scope="col">Edit</th>
-      <th scope="col">Delete</th> -->
+       <th scope="col">Edit</th>
+      <th scope="col">Delete</th> 
       
       
     </tr>
   </thead>
-  <?php  $data=DB::table('device')->get();?>
+ 
   @foreach($data as $row)
             <tr>
                <td>{{$row->id }}</td>
                 <td>{{$row->make }}</td>
                 <td>{{$row->ice_id}}</td>
                 <td>{{$row->imei}}</td>
-                <td>{{$row->sim1}}</td>
-                <td>{{$row->sim_1_type}}</td>
-                <td>{{$row->sim2}}</td>
-                  <td>{{$row->sim_2_type}}</td>
-                  <td>{{$row->activation_date}}</td>
+                <!-- <td>{{$row->sim1}}</td> -->
+                
+                <td>{{$row->sim_1_type_id->name ?? ''}}</td>
+                <!-- <td>{{$row->sim2}}</td> -->
+                  <td>{{$row->sim_2_type_id->name ?? ''}}</td>
+                  <!-- <td>{{$row->activation_date}}</td> -->
                   <td>{{$row->received_date}}</td>
-                  <td>{{$row->renewal_date}}</td>
+                  <!-- <td>{{$row->renewal_date}}</td> -->
+                  <!-- <td>{{$row->asset_id_type}}</td> -->
+                  <td>{{$row->user_id_id->name ?? ''}}</td>
+                  <td>{{$row->customer_id_id->name ?? ''}}</td>
+                  <td>
+                    @if($row->statuss == null || $row->statuss == 'unsold')
+                      <span class="btn btn-danger small">Unsold</span>
+                    @else
+                    <span class="btn btn-success small">Sold</span>
+                    @endif
+                  </td>
+
+
                   <td>
                <a href="{{url('/')}}/device/device_edit?id={{$row->id}}" class="btn btn-primary">Edit</a>
                 </td>

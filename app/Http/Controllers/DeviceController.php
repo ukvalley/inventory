@@ -48,9 +48,12 @@ class DeviceController extends Controller
              $Device->activation_date = $this->change_date_format($request->input('activation_date'));
              $Device->received_date = $this->change_date_format($request->input('received_date'));
              $Device->renewal_date = $this->change_date_format($request->input('renewal_date'));
-             
+             $Device->statuss = $request->input('statuss');
  
              $Device->save();
+
+
+             print_r($Device); die();
                  
  
                    
@@ -60,12 +63,13 @@ class DeviceController extends Controller
  
          public function view_device()
     {
-       $data=DB::table('device')->get();
+       $data=Device::with(['sim_1_type_id','sim_2_type_id','customer_id_id'])->get();
+
  
-       // print_r($data); die();
+      //  print_r($data); die();
  
        //get data from database 
-       return view('device_table')->with(compact($data)); 
+       return view('device.device_table')->with(compact('data')); 
     }
  
  
@@ -103,10 +107,12 @@ class DeviceController extends Controller
                 ->first();
  
           $alldevice = Device::get();
+
+          $sim_get = DB::table('sim_types')->get();
  
  
          // print_r($data); die();
-          return view('/device/device_edit')->with(compact('data','alldevice'));
+          return view('/device/device_edit')->with(compact('data','alldevice','sim_get'));
      }
  
  
@@ -125,12 +131,22 @@ class DeviceController extends Controller
            $device->ice_id = $request->input('ice_id');
            $device->imei = $request->input('imei');
            $device->sim1 = $request->input('sim1');
-           $device->sim1_type = $request->input('sim1_type');
+           $device->sim1_type = $request->input('sim_1_type');
            $device->sim2 = $request->input('sim2');
-           $device->sim2_type = $request->input('sim2_type');
+           $device->sim2_type = $request->input('sim_2_type');
            $device->activation_date = $request->input('activation_date');
            $device->received_date = $request->input('received_date');
            $device->renewal_date = $request->input('renewal_date');
+
+           $device->asset_id_type = $request->input('asset_id_type');
+
+           $device->user_id = $request->input('user_id');
+
+           $device->customer_id = $request->input('customer_id');
+
+           $device->statuss = $request->input('statuss');
+
+
                
  
  
@@ -160,13 +176,9 @@ class DeviceController extends Controller
 
 public function add_sim()
 {
-
-
  $sim_get = DB::table('sim_types')->get();
-
-
    // print_r($data);die();
-     return view('add_sim', compact('sim_get'));
+     return view('/device_edit', compact('sim_get'));
 
 }
 }

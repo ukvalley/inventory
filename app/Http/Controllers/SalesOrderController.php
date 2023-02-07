@@ -98,12 +98,12 @@ public function salesformPost(Request $request)
 
     //CSV files import export Functions
 
-    public function getImport()
+    public function getSaleImport()
     {
         return view('import');
     }
        
-    public function parseImport(CsvImportRequest $request)
+    public function parseSaleImport(CsvImportRequest $request)
 {
     $path = $request->file('csv_file')->getRealPath();
     $data = array_map('str_getcsv', file($path));
@@ -118,7 +118,7 @@ public function salesformPost(Request $request)
     return view('import_fields', compact('csv_data', 'csv_data_file'));
 }
 
-    public function processImport(Request $request)
+    public function processSaleImport(Request $request)
     {
        
 
@@ -147,7 +147,7 @@ public function salesformPost(Request $request)
 
       
 
-    public function csvPurchaseProcess($csv_row_data)
+    public function csvSaleProcess($csv_row_data)
     {
 
       
@@ -169,7 +169,7 @@ public function salesformPost(Request $request)
 
     
 
-      $this->purchaseOrder($make,$ice_id,$imei,$sim_1_type,$sim_2_type,$received_date,$activation_date,$renewal_date,$user_id,$purchase_from,$amount);
+      $this->saleOrder($make,$ice_id,$imei,$sim_1_type,$sim_2_type,$received_date,$activation_date,$renewal_date,$user_id,$purchase_from,$amount);
 
 
     }

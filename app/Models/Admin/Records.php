@@ -7,6 +7,7 @@
  */
 namespace App\Models\Admin;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Admin\Users;
 use App\Http\Controllers\Traits\Admin\AdmikoFileUploadTrait;
 
 class Records extends Model
@@ -23,8 +24,11 @@ class Records extends Model
     ];
 
     protected $fillable = [
-		"user_id",
 		"device_count",
+		"user_id",
     ];
-    
+    public function user_id_id()
+    {
+        return $this->belongsTo(Users::class, 'user_id');
+    }
 }

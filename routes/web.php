@@ -14,7 +14,13 @@ use App\Http\Controllers\SalesController;
 use App\Http\Controllers\SimController;
 use App\Http\Controllers\PurchaseController;
 use App\Http\Controllers\PurchaseOrderController;
+use App\Http\Controllers\SalesOrderController;
+
 use App\Http\Controllers\RecordsController;
+use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\SearchController;
+
+
 
 
 
@@ -36,6 +42,10 @@ Route::get('/', function () {
     return view('index');
 });
 
+//search
+
+// Route::get('/', [SearchController::class, 'index']);
+// Route::get('/action', [SearchController::class, 'action'])->name('action');
 
 //
 Route::get('/index', function () {
@@ -87,9 +97,7 @@ Route::get('vehicle/vehicle_table', function () {
     return view('vehicle/vehicle_table');
 });
 
-Route::get('device/device_table', function () {
-    return view('device/device_table');
-});
+
 
 Route::get('sale/sales_table', function () {
     return view('sale/sales_table');
@@ -111,13 +119,13 @@ Route::get('sim/sim_table', function () {
 //*************************************************************************************************************** */
 
 //customer--------------------------------------------------------------------------------
+Route::get('/customer/register_customer', [CustomerController::class, 'register_customer'])->name('register_customer');
 Route::post('/register_customer-post', [CustomerController::class, 'CustomerRegister'])->name('CustomerRegister');
 Route::post('/register_customer-update/{id}', [CustomerController::class, 'update'])->name('update');
 
 
 Route::get('customer/customer_edit', [CustomerController::class, 'customer_edit'])->name('customer_edit');
 Route::get('destroy', [CustomerController::class, 'destroy'])->name('destroy');
-Route::get('/customer/register_customer', [CustomerController::class, 'register_customer'])->name('register_customer');
 
 
 //vehicle-------------------------------------------------------------------------------------
@@ -126,6 +134,7 @@ Route::post('/register_vehicle-post', [VehicleController::class, 'VehiclesRegist
 Route::post('/register_vehicle-update/{id}', [VehicleController::class, 'vehicle_update'])->name('vehicle_update');
 Route::get('vehicle/vehicle_edit', [VehicleController::class, 'vehicle_edit'])->name('vehicle_edit');
 Route::get('vehicle_destroy', [VehicleController::class, 'vehicle_destroy'])->name('vehicle_destroy');
+Route::get('/vehicle/vehicle_table', [VehicleController::class, 'vehicle_table'])->name('vehicle_table');
 
 
 
@@ -148,6 +157,12 @@ Route::post('/add_device-post',[DeviceController::class, 'DeviceRegister'])->nam
 Route::post('/add_device-update/{id}', [DeviceController::class, 'device_update'])->name('device_update');
 Route::get('device/device_edit',[DeviceController::class, 'device_edit'])->name('device_edit');
 Route::get('device_destroy',[DeviceController::class, 'device_destroy'])->name('device_destroy');
+
+Route::get('device_edit',[DeviceController::class, 'add_sim'])->name('add_sim');
+
+
+Route::get('device/device_table', [DeviceController::class, 'view_device'])->name('view_device');
+
 
 
 
@@ -217,18 +232,48 @@ Route::post('salesformPost', [SalesOrderController::class, 'salesformPost'])->na
 //csv imports
 
 
-Route::get('getImport', [MAdminPanelController::class, 'getImport'])->name('import');
-Route::post('/import_parse', [MAdminPanelController::class, 'parseImport'])->name('import_parse');
-Route::post('/import_process', [MAdminPanelController::class, 'processImport'])->name('import_process');
+Route::get('getImport', [PurchaseOrderController::class, 'getImport'])->name('import');
+Route::post('/import_parse', [PurchaseOrderController::class, 'parseImport'])->name('import_parse');
+Route::post('/import_process', [PurchaseOrderController::class, 'processImport'])->name('import_process');
 
+//sale csv import
+
+Route::get('getSaleImport', [SalesOrderController::class, 'getSaleImport'])->name('import');
+Route::post('/import_parse', [SalesOrderController::class, 'parseSaleImport'])->name('import_parse');
+Route::post('/import_process', [SalesOrderController::class, 'processSaleImport'])->name('import_process');
 
 
 //Transfer Device
 
 
-Route::get('/device_transfer', function () {  
-    return view('device_transfer');
+Route::get('transfer', [MAdminPanelController::class, 'get_device'])->name('get_device');
+Route::post('transferUpdate', [MAdminPanelController::class, 'transferUpdate'])->name('transferUpdate');
+
+
+
+
+
+Route::get('getUserType', [MAdminPanelController::class, 'getUserType'])->name('getUserType');
+
+//sale device
+
+
+Route::get('device_sale', [MAdminPanelController::class, 'getCustomer'])->name('device_sale');
+
+Route::get('getCustomer', [MAdminPanelController::class, 'getCustomer'])->name('getCustomer');
+
+
+Route::post('saleUpdate', [MAdminPanelController::class, 'saleUpdate'])->name('saleUpdate');
+Route::get('get_customer', [MAdminPanelController::class, 'get_customer'])->name('get_customer');
+
+Route::get('getVehicle', [MAdminPanelController::class, 'getVehicle'])->name('getVehicle');
+
+
+
+//transcaction genaration
+
+Route::get('/transaction/transaction_table', function () {
+    return view('transaction/transaction_table');
 });
 
-Route::get('transfer', [MAdminPanelController::class, 'get_device'])->name('get_device');
-
+Route::get('/transaction/transaction', [TransactionController::class, 'register_sales'])->name('register_sales');

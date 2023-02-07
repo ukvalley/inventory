@@ -11,6 +11,7 @@ use App\Models\Admin\Sales;
 use Illuminate\Http\Request;
 use App\Http\Requests\Admin\SalesRequest;
 use Gate;
+use App\Models\Admin\Users;
 
 class SalesController extends Controller
 {
@@ -37,7 +38,8 @@ class SalesController extends Controller
         $admiko_data['formAction'] = route("admin.sales.store");
         
         
-        return view("admin.sales.manage")->with(compact('admiko_data'));
+		$users_all = Users::getParentChildrenList();
+        return view("admin.sales.manage")->with(compact('admiko_data','users_all'));
     }
 
     public function store(SalesRequest $request)
@@ -69,8 +71,9 @@ class SalesController extends Controller
         $admiko_data['formAction'] = route("admin.sales.update", [$Sales->id]);
         
         
+		$users_all = Users::getParentChildrenList();
         $data = $Sales;
-        return view("admin.sales.manage")->with(compact('admiko_data', 'data'));
+        return view("admin.sales.manage")->with(compact('admiko_data', 'data','users_all'));
     }
 
     public function update(SalesRequest $request,$id)

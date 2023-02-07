@@ -25,7 +25,7 @@
                               <span class="slight"><i class="fa fa-play fa-rotate-270"> </i>
                               </span>
                            </div>
-                           <h3> Active Client</h3>
+                           <h3> Active Devices</h3>
                         </div>
                      </div>
                   </div>
@@ -38,7 +38,7 @@
                               <span class="slight"><i class="fa fa-play fa-rotate-270"> </i>
                               </span>
                            </div>
-                           <h3>  Active Admin</h3>
+                           <h3>  Active Users</h3>
                         </div>
                      </div>
                   </div>
@@ -51,7 +51,7 @@
                               <span class="slight"><i class="fa fa-play fa-rotate-270"> </i>
                               </span>
                            </div>
-                           <h3>  Total Expenses</h3>
+                           <h3>  Total Devices</h3>
                         </div>
                      </div>
                   </div>
@@ -64,7 +64,7 @@
                               <span class="slight"><i class="fa fa-play fa-rotate-270"> </i>
                               </span>
                            </div>
-                           <h3> Running Projects</h3>
+                           <h3> Saled Devices</h3>
                         </div>
                      </div>
                   </div>
