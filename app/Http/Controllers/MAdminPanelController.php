@@ -86,7 +86,7 @@ class MAdminPanelController extends Controller
         public function get_device()
         { 
            $alldevice = Device::get();
-       
+                                       //where('Status','=','Unsold')->get();
          
        
         //    print_r($alldevice);die();

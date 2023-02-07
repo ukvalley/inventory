@@ -135,7 +135,7 @@
 
                               <div class="form-group">
                                  <label>Status</label >
-                                 <select class="form-control" name="status"  id="status">
+                                 <select class="form-control" name="statuss"  id="statuss">
                                     <option  value="sold" >Sold</option>
                                     <option  value="unsold">Unsold</option>
                                  </select>

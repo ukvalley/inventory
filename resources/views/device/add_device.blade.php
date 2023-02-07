@@ -87,6 +87,16 @@
                                  <label>Renewal Date</label>
                               <input type="Date"  data-date_time_format="MMM DD, Y" class="form-control datetimepicker-input datePicker" name="renewal_date"  data-target="datePicker_renewal_date" data-toggle="datetimepicker" placeholder="Renewal Date" >
                                 </div>
+
+                                
+                              <div class="form-group">
+                                 <label>Status</label >
+                                 <select  class="form-control" name="statuss"  id="statuss" >
+                                    <option  value="sold" >Sold</option>
+                                    <option  value="unsold">Unsold</option>
+                                 </select>
+                              </div>
+                             
                               
                                 <div class="form-group">
                                  <label>Asset Id Type</label>
@@ -102,21 +112,6 @@
                                  <label>Customer Id</label>
                                  <input type="text" class="form-control" name="customer_id" placeholder="customer_id" >
                               </div>
-
-                              <div class="form-group">
-                                 <label>Status</label >
-                                 <select  class="form-control" name="status"  id="status" >
-                                    <option  value="sold" >Sold</option>
-                                    <option  value="unsold">Unsold</option>
-                                 </select>
-                              </div>
-                             
-                     
-                              
-                              
-                              
-
-                              
                              
 
                               <div class="reset-button">

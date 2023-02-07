@@ -13,11 +13,13 @@
 
                 <!-- /.panel-heading -->
                 <div class="panel-body">
+                  
 
 
 
 
 <table class="table table-striped table-dark">
+  
   <thead>
     <tr>
       
@@ -64,7 +66,7 @@
                   <td>{{$row->asset_id_type}}</td>
                   <td>{{$row->user_id_id->name ?? ''}}</td>
                   <td>{{$row->customer_id_id->name ?? ''}}</td>
-                  <td>{{$row->status}}</td>
+                  <td>{{$row->statuss}}</td>
 
 
                   <td>

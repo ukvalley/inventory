@@ -18,6 +18,8 @@ use App\Http\Controllers\SalesOrderController;
 
 use App\Http\Controllers\RecordsController;
 use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\SearchController;
+
 
 
 
@@ -40,6 +42,10 @@ Route::get('/', function () {
     return view('index');
 });
 
+//search
+
+// Route::get('/', [SearchController::class, 'index']);
+// Route::get('/action', [SearchController::class, 'action'])->name('action');
 
 //
 Route::get('/index', function () {

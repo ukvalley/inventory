@@ -15,6 +15,9 @@
 
                 <!-- /.panel-heading -->
                 <div class="panel-body">
+                  
+
+                
                 <h3>Device Transferr</h3>
                            <form class="col-sm-6" action="{{url('/')}}/saleUpdate" method="post"  enctype="multipart/form-data">
                     {{ csrf_field() }}
@@ -131,6 +134,7 @@
 
  <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+ 
 
 
  <script>
