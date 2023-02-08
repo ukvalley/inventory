@@ -6,6 +6,10 @@
     .spaninfo{color:chocolate}
     .divid{background: #e8f1f3;
           padding: 5px;}
+    .left{display:inline;
+float:left;}
+    .right{display:inline;
+float:right;}
 </style>
 
  <!-- Main content -->
@@ -30,18 +34,17 @@
                               
                
                             <p>
-                                 <h4>Manafactured By: &nbsp&nbsp&nbsp<span class="spaninfo">{{$data->make}} </span></h4>
+                                 <h4 >Manafactured By: &nbsp&nbsp&nbsp<span class="spaninfo">{{$data->make}} </span></h4>
                                  
 
                                  
-                                 <p><h4>ICE ID:&nbsp&nbsp&nbsp<span class="spaninfo">{{$data->ice_id}}</span></h4>
+                                 <p><h4 class="left">ICE ID:&nbsp&nbsp&nbsp<span class="spaninfo">{{$data->ice_id}}</span></h4>
                               
-                                 <h4>IMEI:&nbsp&nbsp&nbsp<span class="spaninfo">{{$data->imei}}</span></h4></p>
+                                 <h4 class="right">IMEI:&nbsp&nbsp&nbsp<span class="spaninfo">{{$data->imei}}</span></h4></p>
                               </p>
                              <hr>
 
                              <h4 class="divid">Devices Connections</span></h4>
-
 
 
                           <p>
@@ -89,10 +92,10 @@
                                <h4 class="divid">Devices Allocations</span></h4>
 
 
-                              <div class="form-group">
+                              <div class="col-4">
                                  <h4>User Id:&nbsp&nbsp&nbsp<span class="spaninfo">{{$data->user_id}}</span></h4>
                               </div>
-                              <div class="form-group">
+                              <div class="col-4">
                                  <h4>Customer Id:&nbsp&nbsp&nbsp<span class="spaninfo">{{$data->customer_id}}</span></h4>
                               </div>
 

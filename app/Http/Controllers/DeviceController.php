@@ -34,6 +34,7 @@ class DeviceController extends Controller
    
               
              $Device = new Device ;	
+             $today = date('d-m-Y');
 
              
  
@@ -48,7 +49,7 @@ class DeviceController extends Controller
              $Device->sim2 = $request->input('sim2');
              $Device->sim_2_type = $request->input('sim2_type');
              $Device->activation_date = $this->change_date_format($request->input('activation_date'));
-             $Device->received_date = $this->change_date_format($request->input('received_date'));
+             $Device->received_date = $this->change_date_format($today);
              $Device->renewal_date = $this->change_date_format($request->input('renewal_date'));
              $Device->status = $request->input('status');
  
