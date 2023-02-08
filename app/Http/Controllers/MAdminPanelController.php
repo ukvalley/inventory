@@ -175,7 +175,7 @@ public function get_customer($user_type)
     
             $device = Device::find($value);
     
-            $device->customer_id = $request->customer;
+            $device->customer_id= $request->customer;
     
             $device->save();
 

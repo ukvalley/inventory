@@ -162,4 +162,19 @@ public function vehicle_destroy()
   
       return redirect()->back();
   }
+
+  
+public function openVehicleInfo()
+{    
+         $id =$_GET['id'];
+     $data=DB::table('vechicles')
+           ->where('id',"=",$id)
+           ->first();
+
+     $allcustomer = Customer::get();
+
+    // print_r($Customer_name); die();
+     return view('vehicle_info')->with(compact('data','allcustomer'));
+}
+
 }

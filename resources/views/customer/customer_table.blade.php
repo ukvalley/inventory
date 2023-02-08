@@ -40,25 +40,26 @@
   <?php  $data=DB::table('customer')->get();?>
   @foreach($data as $row)
             <tr>
-               <td>{{$row->id }}</td>
-                <td>{{$row->name }}</td>
-                <td>{{$row->address}}</td>
-                <td>{{$row->mobile}}</td>
-                <td>{{$row->adhar_number}}</td>
-                <td> 
+               <td><a href="{{url('/')}}/customer_info?id={{$row->id }}">{{$row->id }}</td>
+                <td><a href="{{url('/')}}/customer_info?id={{$row->id }}">{{$row->name }}</td>
+                <td><a href="{{url('/')}}/customer_info?id={{$row->id }}">{{$row->address}}</td>
+                <td><a href="{{url('/')}}/customer_info?id={{$row->id }}">{{$row->mobile}}</td>
+                <td><a href="{{url('/')}}/customer_info?id={{$row->id }}">{{$row->adhar_number}}</td>
+                <td><a href="{{url('/')}}/customer_info?id={{$row->id }}"> 
                   @if(isset($row->adhar_front_image))
                   <img width="50px" src="{{url('/')}}/upload/{{$row->adhar_front_image}}"> 
                   @else
                   <p>No Image</p>
                   @endif
                 </td>
-                <td>
+                <td><a href="{{url('/')}}/customer_info?id={{$row->id }}">
                   @if(isset($row->adhar_back_image))
                   <img width="50px" src="{{url('/')}}/upload/{{$row->adhar_back_image}}"> 
                   @else
                   <p>No Image</p>
                   @endif
                 </td>
+                
                 <td>
                 <a href="{{url('/')}}/customer/customer_edit?id={{$row->id}}" class="btn btn-primary">Edit</a>
                 </td>

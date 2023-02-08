@@ -125,4 +125,19 @@ public function  UserRegister(Request $request)
         return redirect()->back();
     }
 
+
+    
+   public function openUserInfo()
+   {    
+        $id =$_GET['id'];
+        $data=DB::table('users')
+              ->where('id',"=",$id)
+              ->first();
+
+       $allusers = Users::get();
+
+       // print_r($data); die();
+        return view('user_info')->with(compact('data','allusers'));
+   }
+
 }

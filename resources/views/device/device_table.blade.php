@@ -54,20 +54,20 @@
               
                <td> <a href="{{url('/')}}/device_info?id={{$row->id }}">{{$row->id }} </a></td>
                
-                <td>{{$row->make }}</td>
-                <td>{{$row->ice_id}}</td>
-                <td>{{$row->imei}}</td>
-                <!-- <td>{{$row->sim1}}</td> -->
+                <td><a href="{{url('/')}}/device_info?id={{$row->id }}">{{$row->make }}</td>
+                <td><a href="{{url('/')}}/device_info?id={{$row->id }}">{{$row->ice_id}}</td>
+                <td><a href="{{url('/')}}/device_info?id={{$row->id }}">{{$row->imei}}</td>
+                <!-- <td><a href="{{url('/')}}/device_info?id={{$row->id }}">{{$row->sim1}}</td> -->
                 
-                <td>{{$row->sim_1_type_id->name ?? ''}}</td>
-                <!-- <td>{{$row->sim2}}</td> -->
-                  <td>{{$row->sim_2_type_id->name ?? ''}}</td>
-                  <!-- <td>{{$row->activation_date}}</td> -->
-                  <td>{{$row->received_date}}</td>
-                  <!-- <td>{{$row->renewal_date}}</td> -->
-                  <!-- <td>{{$row->asset_id_type}}</td> -->
-                  <td>{{$row->user_id_id->name ?? ''}}</td>
-                  <td>{{$row->customer_id_id->name ?? ''}}</td>
+                <td><a href="{{url('/')}}/device_info?id={{$row->id }}">{{$row->sim_1_type_id->name ?? ''}}</td>
+                <!-- <td<a href="{{url('/')}}/device_info?id={{$row->id }}">{{$row->sim2}}</td> -->
+                  <td><a href="{{url('/')}}/device_info?id={{$row->id }}">{{$row->sim_2_type_id->name ?? ''}}</td>
+                  <!-- <td><a href="{{url('/')}}/device_info?id={{$row->id }}">{{$row->activation_date}}</td> -->
+                  <td><a href="{{url('/')}}/device_info?id={{$row->id }}">{{$row->received_date}}</td>
+                  <!-- <td><a href="{{url('/')}}/device_info?id={{$row->id }}">{{$row->renewal_date}}</td> -->
+                  <!-- <td><a href="{{url('/')}}/device_info?id={{$row->id }}">{{$row->asset_id_type}}</td> -->
+                  <td><a href="{{url('/')}}/device_info?id={{$row->id }}">{{$row->user_id_id->name ?? ''}}</td>
+                  <td><a href="{{url('/')}}/device_info?id={{$row->id }}">{{$row->customer_id_id->name ?? ''}}</td>
 
                   <td>
                     @if($row->statuss == null || $row->statuss == 'unsold')

@@ -284,8 +284,13 @@ Route::get('/transaction/transaction', [TransactionController::class, 'register_
 Route::get('/device_info', function () {  
     return view('device_info');
 });
-
 Route::get('/device_info', [DeviceController::class, 'openDeviceInfo'])->name('openDeviceInfo');
+
+Route::get('/customer_info', [CustomerController::class, 'openCustomerInfo'])->name('openCustomerInfo');
+
+Route::get('/user_info', [UserController::class, 'openUserInfo'])->name('openUserInfo');
+
+Route::get('/vehicle_info', [VehicleController::class, 'openVehicleInfo'])->name('openVehicleInfo');
 
 
 

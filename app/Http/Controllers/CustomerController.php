@@ -41,7 +41,7 @@ class CustomerController extends Controller
          
 
                
-         return redirect()->back();
+         return redirect('/customer/customer_table');
                
          
      }
@@ -125,4 +125,18 @@ public function destroy()
  
      return redirect()->back();
  }
+
+
+ 
+public function openCustomerInfo()
+{    
+     $id =$_GET['id'];
+     $data=DB::table('customer')
+           ->where('id',"=",$id)
+           ->first();
+
+    // print_r($data); die();
+     return view('customer_info')->with(compact('data'));
+}
+
 }

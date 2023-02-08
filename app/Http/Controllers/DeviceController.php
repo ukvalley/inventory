@@ -23,9 +23,7 @@ class DeviceController extends Controller
                'sim_1_type'=>'required',
                'sim2'=>'required',
                'sim_2_type'=>'required',
-               'activation_date'=>'required',
                'received_date'=>'required',
-               'renewal_date'=>'required',
               
           ]
           );
@@ -34,13 +32,6 @@ class DeviceController extends Controller
    
               
              $Device = new Device ;	
-             $today = date('d-m-Y');
-
-             
- 
- 
-           
- 
              $Device->make = $request->input('make');
              $Device->ice_id = $request->input('ice_id');
              $Device->imei = $request->input('imei');
@@ -49,18 +40,16 @@ class DeviceController extends Controller
              $Device->sim2 = $request->input('sim2');
              $Device->sim_2_type = $request->input('sim2_type');
              $Device->activation_date = $this->change_date_format($request->input('activation_date'));
-             $Device->received_date = $this->change_date_format($today);
+             $Device->received_date = $this->change_date_format($request->input('received_date'));
              $Device->renewal_date = $this->change_date_format($request->input('renewal_date'));
              $Device->status = $request->input('status');
  
              $Device->save();
          
 
-
-          //    print_r($Device); die();
-                 
- 
-                   
+        
+             //    print_r($Device); die();
+           
              return redirect()->back();
                  
                  }

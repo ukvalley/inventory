@@ -46,7 +46,7 @@
             
                               <div class="form-group">
                                  <label>SIM1 Type</label>
-                                     <select class="form-control" name="sim1_type" id="sim1_type">
+                                     <select class="form-control" name="sim_1_type" id="sim_1_type">
                                    @foreach ($sim_get as $value){ 
                                     <option value="{{$value->id}}">{{$value->name}}</option>
                                  @endforeach
@@ -57,13 +57,13 @@
 
                               <div class="form-group">
                                  <label>SIM2</label>
-                                 <input type="text" class="form-control" name="sim1" placeholder="SIM1" required>
+                                 <input type="text" class="form-control" name="sim2" placeholder="SIM2" required>
                               </div>
 
             
                                <div class="form-group">
                                  <label>SIM2 Type</label>
-                                     <select class="form-control" name="sim2_type" id="sim2_type">
+                                     <select class="form-control" name="sim_2_type" id="sim_2_type">
                                    @foreach ($sim_get as $value){ 
                                     <option value="{{$value->id}}" >{{$value->name}}</option>
                                  @endforeach
@@ -88,14 +88,14 @@
                               <input type="Date"  data-date_time_format="MMM DD, Y" class="form-control datetimepicker-input datePicker" name="renewal_date"  data-target="datePicker_renewal_date" data-toggle="datetimepicker" placeholder="Renewal Date" >
                                 </div>
 
-                                
+<!--                                 
                               <div class="form-group">
                                  <label>Status</label >
                                  <select  class="form-control" name="statuss"  id="statuss" >
                                     <option  value="sold" >Sold</option>
                                     <option  value="unsold">Unsold</option>
                                  </select>
-                              </div>
+                              </div> -->
                              
                               
                                 <!-- <div class="form-group">

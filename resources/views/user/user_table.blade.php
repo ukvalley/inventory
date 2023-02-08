@@ -39,13 +39,13 @@
   <?php  $data=DB::table('users')->get();?>
   @foreach($data as $row)
             <tr>
-               <td>{{$row->id }}</td>
-                <td>{{$row->name }}</td>
-                <td>{{$row->mobile }}</td>
-                <td>{{$row->city}}</td>
-                <td>{{$row->admiko_parent_child}}</td>
-                <td>{{$row->basic_amount}}</td>
-                <td>{{$row->user_type}}</td>
+               <td><a href="{{url('/')}}/user_info?id={{$row->id }}">{{$row->id }}</td>
+                <td><a href="{{url('/')}}/user_info?id={{$row->id }}">{{$row->name }}</td>
+                <td><a href="{{url('/')}}/user_info?id={{$row->id }}">{{$row->mobile }}</td>
+                <td><a href="{{url('/')}}/user_info?id={{$row->id }}">{{$row->city}}</td>
+                <td><a href="{{url('/')}}/user_info?id={{$row->id }}">{{$row->admiko_parent_child}}</td>
+                <td><a href="{{url('/')}}/user_info?id={{$row->id }}">{{$row->basic_amount}}</td>
+                <td><a href="{{url('/')}}/user_info?id={{$row->id }}">{{$row->user_type}}</td>
                 <td>
                 <a href="{{url('/')}}/user/user_edit?id={{$row->id}}" class="btn btn-primary">Edit</a>
                 </td>

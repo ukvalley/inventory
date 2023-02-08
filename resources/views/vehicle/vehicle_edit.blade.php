@@ -56,7 +56,7 @@
 
                               
                               <div class="form-group">
-                                 <label>Vehicle Image 1</label>
+                                 <label>Vehicle Front View</label>
                                  <input type="file" name="vehicle_image_1">
                                  <input type="hidden" name="vehicle_image_1" value="{{$data->vehicle_image_1}}">
                               </div>
@@ -67,7 +67,7 @@
 
 
                               <div class="form-group">
-                                 <label>Vehicle Image 2</label>
+                                 <label>Vehicle Rear View</label>
                                  <input type="file" name="vehicle_image_2">
                                  <input type="hidden" name="vehicle_image_2" value="{{$data->vehicle_image_2}}">
                               </div>
@@ -78,7 +78,7 @@
                                
 
                               <div class="form-group">
-                                 <label>Vehicle Image 3</label>
+                                 <label>Vehicle Back View</label>
                                  <input type="file" name="vehicle_image_3">
                                  <input type="hidden" name="vehicle_image_3" value="{{$data->vehicle_image_3}}">
                               </div>
@@ -89,7 +89,7 @@
                                
 
                               <div class="form-group">
-                                 <label>Vehicle Image 4</label>
+                                 <label>Vehicle  Leftside View</label>
                                  <input type="file" name="vehicle_image_4">
                                  <input type="hidden" name="vehicle_image_4" value="{{$data->vehicle_image_4}}">
                               </div>
@@ -100,7 +100,7 @@
                                
 
                               <div class="form-group">
-                                 <label>Vehicle Image 5</label>
+                                 <label>Vehicle Rightside View</label>
                                  <input type="file" name="vehicle_image_5">
                                  <input type="hidden" name="vehicle_image_5" value="{{$data->vehicle_image_5}}">
                               </div>
