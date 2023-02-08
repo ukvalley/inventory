@@ -42,12 +42,12 @@
   <?php  $data=DB::table('purchase')->get();?>
   @foreach($data as $row)
             <tr>
-               <td>{{$row->id }}</td>
-                <td>{{$row->date }}</td>
+               <td><a href="{{url('/')}}/purchase_info?id={{$row->id }}">{{$row->id }}</td>
+                <td><a href="{{url('/')}}/purchase_info?id={{$row->id }}">{{$row->date }}</td>
              
-                <td>{{$row->device_number}}</td>
-                <td>{{$row->amount}}</td>
-                <td>{{$row->quantity}}</td>
+                <td><a href="{{url('/')}}/purchase_info?id={{$row->id }}">{{$row->device_number}}</td>
+                <td><a href="{{url('/')}}/purchase_info?id={{$row->id }}">{{$row->amount}}</td>
+                <td><a href="{{url('/')}}/purchase_info?id={{$row->id }}">{{$row->quantity}}</td>
                 
                 <td>
                <a href="{{url('/')}}/purchase/purchase_edit?id={{$row->id}}" class="btn btn-primary">Edit</a>

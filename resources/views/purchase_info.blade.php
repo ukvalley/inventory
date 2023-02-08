@@ -30,26 +30,26 @@
                            <form  method="post"  enctype="multipart/form-data">
                     {{ csrf_field()}}
 
-                    <h4>Purchase de</h4>
+                    <h4 class="divid">Purchase Details</h4>
 
                     <h4>
                     Date: <span class="spaninfo">{{$data->date}}</span>
                     </h4>
 
                     <h4>
-                    Device Number: <span class="spaninfo">{{$data->device_number}}"</span>
+                    Device Number: <span class="spaninfo">{{$data->device_number}}</span>
                     </h4>
 
                     <h4>
-                    Amount: <span class="spaninfo">{{$data->amount}}"</span>
+                    Amount: <span class="spaninfo">{{$data->amount}}</span>
                     </h4>
 
                     <h4>
-                    Quantity: <span class="spaninfo">{{$data->quantity}}"</span>
+                    Quantity: <span class="spaninfo">{{$data->quantity}}</span>
                     </h4>
 
                     <h4>
-                    Purchase from: <span class="spaninfo">{{$data->purchase_from}}"</span>
+                    Purchase from: <span class="spaninfo">{{$data->purchase_from}}</span>
                     </h4>
 
                                
