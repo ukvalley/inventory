@@ -121,4 +121,19 @@ public function purchase_destroy()
   
       return redirect()->back();
   }
+
+  
+public function openPurchaseInfo()
+{    
+     $id =$_GET['id'];
+     $data=DB::table('purchase')
+           ->where('id',"=",$id)
+           ->first();
+      
+              $allpurchase = Purchase::get();
+
+
+    // print_r($allpurchase); die();
+     return view('purchase_info')->with(compact('data','allpurchase'));
+}
 }

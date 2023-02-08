@@ -292,5 +292,8 @@ Route::get('/user_info', [UserController::class, 'openUserInfo'])->name('openUse
 
 Route::get('/vehicle_info', [VehicleController::class, 'openVehicleInfo'])->name('openVehicleInfo');
 
+Route::get('/purchase_info', [PurchaseController::class, 'openPurchaseInfo'])->name('openPurchaseInfo');
+
+Route::get('/sales_info', [SalesController::class, 'openSalesInfo'])->name('openSalesInfo');
 
 

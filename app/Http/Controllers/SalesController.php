@@ -125,4 +125,18 @@ public function sales_destroy()
 
         return $chnage_date_f;
  }
+
+ 
+public function openSalesInfo()
+{    
+     $id =$_GET['id'];
+     $data=DB::table('Sales')
+           ->where('id',"=",$id)
+           ->first();
+    
+     $allsales = Sales::get();
+
+    // print_r($data); die();
+     return view('sales_info')->with(compact('data','allsales'));
+}
 }
