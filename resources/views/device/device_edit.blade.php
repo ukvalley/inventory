@@ -92,7 +92,7 @@
 
                               <div class="form-group">
                                  <label>Activation Date</label>
-                                 <input id='minMaxExample1' type="Date" name="activation_date" value="{{$data->activation_date}}"  data-date_time_format="MMM DD, Y" class="form-control" placeholder="Enter Activation Date...">
+                                 <input id='activation_date' type="Date" name="activation_date" value="{{$data->activation_date}}"  data-date_time_format="MMM DD, Y" class="form-control" placeholder="Enter Activation Date...">
                               </div>
                               @if($errors->has('activation_date'))
                              <div class="text-danger error">{{ $errors->first('activation_date') }}</div>
@@ -101,7 +101,7 @@
 
                               <div class="form-group">
                                  <label>Received Date</label>
-                                 <input id='minMaxExample2' type="Date" name="received_date" value="{{$data->received_date}}"  data-date_time_format="MMM DD, Y" class="form-control" placeholder="Enter  Received Date...">
+                                 <input id='received_date' type="Date" name="received_date" value="{{$data->received_date}}"   data-date_time_format="MMM DD, Y" class="form-control" placeholder="Enter  Received Date...">
                         
                               </div>
                               @if($errors->has('received_date'))
@@ -112,7 +112,7 @@
                               
                               <div class="form-group">
                                  <label>Renewal Date</label>
-                                 <input id='minMaxExample3' type="Date" name="renewal_date" value="{{$data->renewal_date}}"  data-date_time_format="MMM DD, Y" class="form-control" placeholder="Enter Renewal Date...">
+                                 <input id='renewal_date' type="Date" name="renewal_date" value="{{$data->renewal_date}}"  data-date_time_format="MMM DD, Y" class="form-control" placeholder="Enter Renewal Date...">
                               </div>
                               @if($errors->has('renewal_date'))
                              <div class="text-danger error">{{ $errors->first('renewal_date') }}</div>

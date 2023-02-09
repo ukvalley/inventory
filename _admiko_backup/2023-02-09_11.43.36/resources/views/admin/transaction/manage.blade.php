@@ -27,16 +27,6 @@
                 
                 <div class=" col-12">
                     <div class="form-group row">
-                        <label for="device_id" class="col-md-2 col-form-label">Device_id:</label>
-                        <div class="col-md-10">
-                            <input type="text" class="form-control" id="device_id" name="device_id"  placeholder="Device_id"  value="{{{ old('device_id', isset($data)?$data->device_id : '') }}}">
-                            <div class="invalid-feedback @if ($errors->has('device_id')) d-block @endif">{{trans('admiko.required_text')}}</div>
-                            <small id="device_id_help" class="text-muted"></small>
-                        </div>
-                    </div>
-                </div>
-                <div class=" col-12">
-                    <div class="form-group row">
                         <label for="sender" class="col-md-2 col-form-label">Sender:</label>
                         <div class="col-md-10">
                             <select class="form-select" id="sender" name="sender" >

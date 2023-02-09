@@ -204,7 +204,7 @@ public function get_customer($user_type)
           
             $today = date('d-m-Y');
            
-
+            $Transaction->device_id = $device->device_id; 
             $Transaction->sender = $device->user_id;         
             $Transaction->receiver = $device->customer_id;
             $Transaction->date =  $this->change_date_format($today);

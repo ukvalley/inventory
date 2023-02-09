@@ -34,17 +34,16 @@
                                    
 
                     <h4 class="divid">
-                        Vehicle Details
-
+                        Vehicle Details 
                     </h4>
 
                     <h4 >
-                    Vehicle Number <span>{{$data->vechicle_number}}</span>
+                    Vehicle Number <span class="spaninfo">{{$data->vechicle_number}}</span>
                     </h4>
 
                    
                     <h4 >
-                    Customer <span>{{$data->customer}}</span>
+                    Customer <span class="spaninfo">{{$data->customer}}</span>
                     </h4>
                    
                       

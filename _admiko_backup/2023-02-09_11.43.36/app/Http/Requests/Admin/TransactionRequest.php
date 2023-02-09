@@ -14,11 +14,7 @@ class TransactionRequest extends FormRequest
     public function rules()
     {
         return [
-            "device_id"=>[
-				"string",
-				"nullable"
-			],
-			"sender"=>[
+            "sender"=>[
 				"nullable"
 			],
 			"receiver"=>[
@@ -45,8 +41,7 @@ class TransactionRequest extends FormRequest
     public function attributes()
     {
         return [
-            "device_id"=>"Device_id",
-			"sender"=>"Sender",
+            "sender"=>"Sender",
 			"receiver"=>"Receiver",
 			"date"=>"Date",
 			"amount"=>"Amount",

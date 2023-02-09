@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 use DB;
 use Illuminate\Http\Request;
 use App\Models\Admin\Device;
+use App\Models\Admin\Purchase;
+use App\Models\Admin\Sales;
+use App\Models\Admin\Transaction;
+
 use App\Models\Admin\SimTypes;
 
 
@@ -17,7 +21,7 @@ class DeviceController extends Controller
          $request->validate(
           [
                'make'=>'required',
-               'ice_id'=>'required|digits_between:10,10',
+               'ice_id'=>'required',
                'imei'=>'required',
                'sim1'=>'required',
                'sim_1_type'=>'required',
@@ -187,6 +191,25 @@ public function openDeviceInfo()
 
     // print_r($data); die();
      return view('/device_info')->with(compact('data','alldevice','sim_get'));
+}
+
+public function deviceReport()
+{    
+    
+
+     
+    
+     $alldevice = Device::get();
+     $allpurchase=DB::table('Purchase')->get();
+     $allsales=Sales::with(['device_id_id'])->get();
+     $alltransaction=Transaction::get();
+     $sim_get = DB::table('sim_types')->get();
+
+
+
+
+    // print_r($data); die();
+     return view('/report_device')->with(compact('alldevice','allpurchase','allsales','sim_get'));
 }
 
 }

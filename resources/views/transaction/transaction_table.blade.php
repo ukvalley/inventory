@@ -24,6 +24,7 @@
       <th scope="col"><table class="table table-striped table-dark">
   <thead>
     <tr>
+    <th scope="col">Device Id</th>
     <th scope="col">Sender</th>
       <th scope="col">Receiver</th>
       <th scope="col">Date</th>
@@ -41,7 +42,8 @@
   <?php  $data=DB::table('Transaction')->get();?>
   @foreach($data as $row)
             <tr>
-               <td>{{$row->sender }}</td>
+            <td>{{$row->device_id}}</td>
+               <td>{{$row->sender}}</td>
                 <td>{{$row->receiver }}</td>
                 <td>{{$row->date}}</td>
                 <td>{{$row->quantity}}</td>

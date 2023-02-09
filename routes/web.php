@@ -198,6 +198,7 @@ Route::get('sim/simtypes', [SimController::class, 'add_simtype'])->name('add_sim
 //
 //changes
 //device
+
 Route::get('add_device', [DeviceController::class, 'add_sim'])->name('add_sim');
 
 
@@ -295,5 +296,14 @@ Route::get('/vehicle_info', [VehicleController::class, 'openVehicleInfo'])->name
 Route::get('/purchase_info', [PurchaseController::class, 'openPurchaseInfo'])->name('openPurchaseInfo');
 
 Route::get('/sales_info', [SalesController::class, 'openSalesInfo'])->name('openSalesInfo');
+
+
+
+//reports 
+
+Route::get('/report_device', [DeviceController::class, 'deviceReport'])->name('deviceReport');
+
+Route::get('/report_customer', [DeviceController::class, 'customerReport'])->name('customerReport');
+
 
 

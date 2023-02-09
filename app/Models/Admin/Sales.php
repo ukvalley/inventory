@@ -43,4 +43,9 @@ class Sales extends Model
     {
         return $this->belongsTo(Users::class, 'user_id');
     }
+    
+	public function device_id_id()
+    {
+        return $this->belongsTo(Device::class, 'device_id');
+    }
 }

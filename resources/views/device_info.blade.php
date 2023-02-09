@@ -24,8 +24,11 @@
                            </div>
 
                         </div>
+                        <div class="reset-button ">
+                                 <a href="/device/device_table" class="btn btn-warning ">Back</a>
+</div>
                         <div class="panel-body ">
-                             <h4 class="divid ">Devices Id:  {{$data->id}}</span></h4>
+                             <h4 class="divid ">Devices Id: {{$data->id}}</span></h4>
                            <form  action="" method="post"  enctype="multipart/form-data">
                     {{ csrf_field() }}
                  
@@ -114,9 +117,7 @@
                               
                              
 
-                              <div class="reset-button">
-                                 <a href="/device/device_table" class="btn btn-warning">Back</a>
-</div>
+                              
 
                               
 

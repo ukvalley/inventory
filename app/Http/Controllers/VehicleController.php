@@ -18,7 +18,7 @@ class VehicleController extends Controller
          $request->validate(
           [
                'vechicle_number'=>'required',
-               'customer'=>'required|digits_between:10,10',
+               'customer'=>'required',
                'rc_book_file'=>'required|image',
                'vehicle_image_1'=>'required|image',
                'vehicle_image_2'=>'required|image',
@@ -64,10 +64,6 @@ class VehicleController extends Controller
     $data=Vechicles::with(['customer_id'])->get();
 
   //  print_r($data); die();
-
-
-
-    //get data from database 
     return view('vehicle.vehicle_table')->with(compact('data')); 
 
  }
