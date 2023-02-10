@@ -276,10 +276,11 @@ Route::get('getVehicle', [MAdminPanelController::class, 'getVehicle'])->name('ge
 Route::get('/transaction/transaction_table', function () {
     return view('transaction/transaction_table');
 });
-
 Route::get('/transaction/transaction', [TransactionController::class, 'register_sales'])->name('register_sales');
 
-///view for single device
+
+
+///view for single id in table
 
 
 Route::get('/device_info', function () {  
@@ -299,11 +300,13 @@ Route::get('/sales_info', [SalesController::class, 'openSalesInfo'])->name('open
 
 
 
-//reports 
+//reports and single id reports
 
 Route::get('/report_device', [DeviceController::class, 'deviceReport'])->name('deviceReport');
 
 Route::get('/reportById/{id}', [DeviceController::class, 'reportById'])->name('reportById');
 
+//search ajax action 
 
-
+Route::get('/transfer_transaction', [SearchController::class, 'index']);
+Route::get('/transfer_transaction/action', [SearchController::class, 'action'])->name('action');
