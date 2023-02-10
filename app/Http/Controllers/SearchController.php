@@ -15,22 +15,35 @@ class SearchController extends Controller
  
     function action(Request $request)
     {
-        if($request->ajax())
-        {
+        
+        
             $output = '';
             $query = $request->get('query');
-            if($query != '') {
-                $data = DB::table('device')
-                    ->where('make', 'like', '%'.$query.'%')
-                    ->orWhere('ice_id', 'like', '%'.$query.'%')
-                    ->orWhere('imei', 'like', '%'.$query.'%')
-                  
+            if($query != '') 
+            {
+                
+                $data = Device::
+                      where('status','=','unsold')
+
+                       ->where(function($query1) use ($query){
+                            $query1->where('make', 'LIKE', '%'.$query.'%')
+                                  ->orWhere('ice_id', 'LIKE', '%'.$query.'%')
+                                  ->orWhere('imei', 'LIKE', '%'.$query.'%');
+                        })
+
                     ->get();
+
                     
-            } else {
-                $data = DB::table('device')
+                    
+            } 
+            else 
+            {
+                $data = Device::where('status','=','unsold')
                     ->orderBy('id', 'desc')
+                    ->limit(10)
                     ->get();
+
+                   
             }
              
             $total_row = $data->count();
@@ -39,6 +52,8 @@ class SearchController extends Controller
                 {
                     $output .= '
                     <tr>
+                    <td><input type="checkbox" value="'.$row->id.'" name="select[]"></td>
+                    <td>'.$row->id.'</td>
                     <td>'.$row->make.'</td>
                     <td>'.$row->ice_id.'</td>
                     <td>'.$row->imei.'</td>
@@ -58,6 +73,6 @@ class SearchController extends Controller
                 'total_data'  => $total_row
             );
             echo json_encode($data);
-        }
+        
     }
 }

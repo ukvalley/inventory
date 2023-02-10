@@ -176,16 +176,16 @@
                 </div>
                 <div class=" col-12">
                     <div class="form-group row">
-                        <label for="statuss" class="col-md-2 col-form-label">Status:</label>
+                        <label for="status" class="col-md-2 col-form-label">Status:</label>
                         <div class="col-md-10">
-                            <select class="form-select" id="statuss" name="statuss" >
+                            <select class="form-select" id="status" name="status" >
                                 <option value="">{{trans("admiko.select")}}</option>
-                                @foreach($statuss_all as $id => $value)
-                                    <option value="{{ $id }}" {{ (old('statuss') ? old('statuss') : $data->statuss ?? '') == $id ? 'selected' : '' }}>{{ $value }}</option>
+                                @foreach($status_all as $id => $value)
+                                    <option value="{{ $id }}" {{ (old('status') ? old('status') : $data->status ?? '') == $id ? 'selected' : '' }}>{{ $value }}</option>
                                 @endforeach
                             </select>
-                            <div class="invalid-feedback @if ($errors->has('statuss')) d-block @endif">{{trans('admiko.required_text')}}</div>
-                            <small id="statuss_help" class="text-muted"></small>
+                            <div class="invalid-feedback @if ($errors->has('status')) d-block @endif">{{trans('admiko.required_text')}}</div>
+                            <small id="status_help" class="text-muted"></small>
                         </div>
                     </div>
                 </div>

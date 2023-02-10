@@ -88,14 +88,14 @@
                               <input type="Date"  data-date_time_format="MMM DD, Y" class="form-control datetimepicker-input datePicker" name="renewal_date"  data-target="datePicker_renewal_date" data-toggle="datetimepicker" placeholder="Renewal Date" >
                                 </div>
 
-<!--                                 
+                                
                               <div class="form-group">
                                  <label>Status</label >
                                  <select  class="form-control" name="statuss"  id="statuss" >
                                     <option  value="sold" >Sold</option>
                                     <option  value="unsold">Unsold</option>
                                  </select>
-                              </div> -->
+                              </div>
                              
                               
                                 <!-- <div class="form-group">

@@ -32,11 +32,12 @@
             </div>
           </div>
           <div class="reset-button btn-flt">
+          <a href="/device_sale" class="btn btn-purple ">Sale</a>
             <a href="/device/device_table" class="btn btn-warning ">Back</a>
           </div>
           <br>
           <div class="panel-body ">
-            <h4 class="divid ">Devices Id: {{$data->id}}
+            <h4 class="divid">Devices Id: {{$data->id}}
               </span>
             </h4>
             <form action="" method="post" enctype="multipart/form-data">

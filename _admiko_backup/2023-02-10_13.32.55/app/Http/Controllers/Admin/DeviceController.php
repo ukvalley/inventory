@@ -41,10 +41,10 @@ class DeviceController extends Controller
         
         
 		$sim_types_all = SimTypes::all()->sortBy("name")->pluck("name", "id");
-		$statuss_all = Device::STATUSS_CONS;
+		$status_all = Device::STATUS_CONS;
 		$users_all = Users::getParentChildrenList();
 		$customer_all = Customer::all()->sortBy("name")->pluck("name", "id");
-        return view("admin.device.manage")->with(compact('admiko_data','sim_types_all','statuss_all','users_all','customer_all'));
+        return view("admin.device.manage")->with(compact('admiko_data','sim_types_all','status_all','users_all','customer_all'));
     }
 
     public function store(DeviceRequest $request)
@@ -77,11 +77,11 @@ class DeviceController extends Controller
         
         
 		$sim_types_all = SimTypes::all()->sortBy("name")->pluck("name", "id");
-		$statuss_all = Device::STATUSS_CONS;
+		$status_all = Device::STATUS_CONS;
 		$users_all = Users::getParentChildrenList();
 		$customer_all = Customer::all()->sortBy("name")->pluck("name", "id");
         $data = $Device;
-        return view("admin.device.manage")->with(compact('admiko_data', 'data','sim_types_all','statuss_all','users_all','customer_all'));
+        return view("admin.device.manage")->with(compact('admiko_data', 'data','sim_types_all','status_all','users_all','customer_all'));
     }
 
     public function update(DeviceRequest $request,$id)

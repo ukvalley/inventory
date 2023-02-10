@@ -11,34 +11,31 @@
           <!-- /.panel-heading -->
           <div class="panel-body">
             <h3>Device Transfer</h3>
-            <form class="col-sm-6" action="{{url('/')}}/transferUpdate" method="post" enctype="multipart/form-data">
-              {{ csrf_field() }}
+            
+             
               <!--search bar -->
-              <div class="form-group">
-                <label>Search</label>
-                <input type="text" name="search" id="search" class="form-control" placeholder="Search Device Data" />
+              <div class="">
+                <label>Search.</label>
+                <input type="text" name="search1" id="search1" class="" placeholder="Search Device Data" />
               </div>
               <!-- End search bar -->
               <table class="table table-striped table-dark">
+              
                 <thead>
                   <tr>
                     <th scope="col">
                       <table class="table table-striped table-dark">
                         <thead>
                           <tr>
-                            <th scope="col">id</th>
-                            <th scope="col">Select</th>
-                            <th scope="col">imei</th>
-                            <th scope="col">ice_id</th>
+                            <th scope="col">Check</th>
+                            <th scope="col">ID</th>
+                            <th scope="col">Manufacturer</th>
+                            <th scope="col">IMEI</th>
+                            <th scope="col">ICE ID</th>
                           </tr>
-                        </thead> <?php  $data=DB::table('device')->get();?> @foreach($data as $row) <tr>
-                          <td>{{$row->id}}</td>
-                          <td>
-                            <input type='checkbox' value="{{$row->id}}" name="select[]">
-                          </td>
-                          <td>{{$row->imei}}</td>
-                          <td>{{$row->ice_id}}</td>
-                        </tr> @endforeach
+                        </thead> <?php  $data=DB::table('device')->get();?> 
+                          <tbody>
+                          </tbody>
                       </table>
                       <!------------------------------ //FORM------------------ -->
                       <div class="form-group">
@@ -74,12 +71,13 @@
     $('#user-select').change(function() {
           $('#user').find('option').remove().end()
           $.ajax({
-              url: '{{url(' / ')}}/api/getUserType/' + $(this).val() + '',
+              url: '{{url('/')}}/api/getUserType/' + $(this).val() + '',
               type: "GET",
               dataType: 'json',
               success: function(result) {
+                console.log(result);
                 $.each(result, function(i, value) {
-                      $('#user').append(' < option value = "' + value.id + '" > ' + value.name + ' < /option>');
+                      $('#user').append('<option value = "' + value.id + '" > ' + value.name + ' </option>');
                       });
                   },
                   error: function(request, status, error) {
@@ -88,29 +86,43 @@
                     $('button#form_salesReport_button').html(config.messages.searchReport);
                   }
               });
-          })
+          });
   </script>
+
+
+
   <script>
     $(document).ready(function() {
+      
       fetch_device_data();
 
-      function fetch_device_data(query = '') {
+      function fetch_device_data(query = '') 
+      {
         $.ajax({
-          url: "{{ route('transfer_transaction.action') }}",
-          method: 'GET',
+          url: "{{url('/')}}/transfer_transaction/action",
+          type: "GET",
+          dataType: "json",
           data: {
             query: query
           },
-          dataType: 'json',
-          success: function(data) {
-            $('tbody').html(data.table_data);
-            $('#total_records').text(data.total_data);
+         
+          success: function(data)
+           {
+            $("tbody").html(data.table_data);
+            $("#total_records").text(data.total_data);
           }
         })
       }
-      $(document).on('keyup', '#search', function() {
+
+
+      $(document).on("keyup", "#search1", function() 
+      {
         var query = $(this).val();
         fetch_device_data(query);
       });
+
     });
-  </script> @include('common.footer')
+  </script> 
+
+  @include("common.footer")
+

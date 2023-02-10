@@ -20,7 +20,7 @@ class Device extends Model
     public $table = 'device';
     
     
-	const STATUSS_CONS = ["sold"=>"Sold","unsold"=>"Unsold"];
+	const STATUS_CONS = ["sold"=>"Sold","unsold"=>"Unsold"];
     protected $dates = [
         'created_at',
         'updated_at',
@@ -39,7 +39,7 @@ class Device extends Model
 		"received_date",
 		"renewal_date",
 		"asset_id_type",
-		"statuss",
+		"status",
 		"user_id",
 		"customer_id",
     ];
@@ -57,7 +57,7 @@ class Device extends Model
     }
     public function setActivationDateAttribute($value)
     {
-        $this->attributes['activation_date'] = $value ? Carbon::createFromFormat(config('admiko_config.table_date_format'), $value)->format('Y-m-d H:i:s') : null;
+        $this->attributes['activation_date'] = $value ? Carbon::createFromFormat(config('admiko_config.table_date_format'), $value)->format('Y-m-d') : null;
     }
 	public function getReceivedDateAttribute($value)
     {
@@ -65,7 +65,7 @@ class Device extends Model
     }
     public function setReceivedDateAttribute($value)
     {
-        $this->attributes['received_date'] = $value ? Carbon::createFromFormat(config('admiko_config.table_date_format'), $value)->format('Y-m-d H:i:s') : null;
+        $this->attributes['received_date'] = $value ? Carbon::createFromFormat(config('admiko_config.table_date_format'), $value)->format('Y-m-d ') : null;
     }
 	public function getRenewalDateAttribute($value)
     {
@@ -73,7 +73,7 @@ class Device extends Model
     }
     public function setRenewalDateAttribute($value)
     {
-        $this->attributes['renewal_date'] = $value ? Carbon::createFromFormat(config('admiko_config.table_date_format'), $value)->format('Y-m-d H:i:s') : null;
+        $this->attributes['renewal_date'] = $value ? Carbon::createFromFormat(config('admiko_config.table_date_format'), $value)->format('Y-m-d ') : null;
     }
 	public function user_id_id()
     {

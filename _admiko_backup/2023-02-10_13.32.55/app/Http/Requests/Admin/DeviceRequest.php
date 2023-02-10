@@ -56,7 +56,7 @@ class DeviceRequest extends FormRequest
 				"string",
 				"nullable"
 			],
-			"statuss"=>[
+			"status"=>[
 				"nullable"
 			],
 			"user_id"=>[
@@ -81,7 +81,7 @@ class DeviceRequest extends FormRequest
 			"received_date"=>"Received Date",
 			"renewal_date"=>"Renewal Date",
 			"asset_id_type"=>"Asset ID Type",
-			"statuss"=>"Status",
+			"status"=>"Status",
 			"user_id"=>"User Id",
 			"customer_id"=>"Customer Id"
         ];

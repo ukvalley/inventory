@@ -309,4 +309,5 @@ Route::get('/reportById/{id}', [DeviceController::class, 'reportById'])->name('r
 //search ajax action 
 
 Route::get('/transfer_transaction', [SearchController::class, 'index']);
-Route::get('/transfer_transaction/action', [SearchController::class, 'action'])->name('action');
+
+Route::get('/transfer_transaction/action', [SearchController::class, 'action']);
