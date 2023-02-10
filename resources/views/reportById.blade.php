@@ -19,7 +19,6 @@
                               <table id="dataTableExample1" class="table table-bordered table-striped table-hover">
                                  <thead>
                                     <tr class="info">
-                                       <th>Device Number(ICE)</th>
                                        <th>Purchase Date</th>
                                        <th>Purchase From</th>
                                        <th>Amount</th>
@@ -30,14 +29,13 @@
                                 
                                   @foreach($allpurchase as $row)
                                     <tr>
-                                       <td>{{$row->device_id}}</td>
                                        <td>{{$row->date}}</td>
                                        <td>{{$row->purchase_from}}</td>
                                        <td>{{$row->amount}}</td>
-                                       <td class="text-center">
-                                          <button type="button" class="btn btn-add btn-xs" data-toggle="modal" data-target="#update"><i class="fa fa-pencil"></i></button>
-                                          <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#delt"><i class="fa fa-trash-o"></i> </button>
-                                       </td>
+                                       <!-- <td class="text-center">
+                                          <button type="button" class="btn btn-add btn-xs" data-toggle="modal" data-target=""><i class="fa fa-pencil"></i></button>
+                                          <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target=""><i class="fa fa-trash-o"></i> </button>
+                                       </td> -->
                                     </tr>
                                     @endforeach
                                    
@@ -68,7 +66,7 @@
                                        <th>Sale Date</th>
                                        <th>Sold to</th>
                                        <th>By User</th>
-                                       <th>Action</th>
+                                       <!-- <th>Action</th> -->
                                     </tr>
                                  </thead>
                                  <tbody>
@@ -78,10 +76,7 @@
                                        <td>{{$row->date}}</td>
                                        <td>{{$row->allocated_to}}</td>
                                        <td>{{$row->user_id}}</td>
-                                       <td class="text-center">
-                                          <button type="button" class="btn btn-add btn-xs" data-toggle="modal" data-target="#update"><i class="fa fa-pencil"></i></button>
-                                          <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#delt"><i class="fa fa-trash-o"></i> </button>
-                                       </td>
+                                      
                                     </tr>
                                     @endforeach
                                    
@@ -111,7 +106,6 @@
                                  <thead>
                                  
                                     <tr class="info">
-                                       <th>Device Id</th>
                                        <th>Sender</th>
                                        <th>Receiver</th>
                                        <th>Date</th>
@@ -124,7 +118,6 @@
 
                                  @foreach($alltransaction as $row)
                                     <tr>
-                                       <td>Not Available</td>
                                        <td>{{$row->sender}}</td>
                                        <td>{{$row->receiver}}</td>
                                        <td>{{$row->date}}</td>

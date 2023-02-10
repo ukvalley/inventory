@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use DB;
+use App\Models\Admin\Device;
 
 use Illuminate\Http\Request;
 
@@ -9,7 +10,7 @@ class SearchController extends Controller
 {
     function index()
     {
-        return view('livesearch');
+        return view('transfer_transaction');
     }
  
     function action(Request $request)
@@ -20,9 +21,9 @@ class SearchController extends Controller
             $query = $request->get('query');
             if($query != '') {
                 $data = DB::table('device')
-                    ->where('Make', 'like', '%'.$query.'%')
-                    ->orWhere('ICE_ID', 'like', '%'.$query.'%')
-                    ->orWhere('Imei', 'like', '%'.$query.'%')
+                    ->where('make', 'like', '%'.$query.'%')
+                    ->orWhere('ice_id', 'like', '%'.$query.'%')
+                    ->orWhere('imei', 'like', '%'.$query.'%')
                   
                     ->get();
                     

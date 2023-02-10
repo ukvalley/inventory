@@ -62,11 +62,15 @@
 
                               <div class="col-sm-6">
                         <img class="imgwid" src="{{url('/')}}/upload/{{$data->adhar_front_image}}" alt="" >
-                        <b>Adhar Front Image</b>
+                        <a href="{{url('/')}}/upload/{{$data->adhar_front_image}}" download> 
+                         <b>Adhar Front Image</b>
+                        </a>
                         </div>
                         <div class="col-sm-6">
                         <img class="imgwid" src="{{url('/')}}/upload/{{$data->adhar_back_image}}" alt="" >
-                        <b>Adhar Back Image</b>
+                        <a href="{{url('/')}}/upload/{{$data->adhar_back_image}}" download> 
+                         <b>Adhar Back Image</b>
+                        </a>
                         </div>
                         </div>
 
