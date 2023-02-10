@@ -79,89 +79,17 @@
                    <button type="submit" class="btn btn-add">Search...</button>
                 </form>
              </div>
+
              <div class="navbar-custom-menu">
                   <ul class="nav navbar-nav">
                      <!-- Orders -->
-                     <li class="dropdown messages-menu">
-                        <a href="#" class="dropdown-toggle admin-notification" data-toggle="dropdown"> 
-                        <i class="pe-7s-cart"></i>
-                        <span class="label label-primary">5</span>
-                        </a>
-                        <ul class="dropdown-menu">
-                           <li>
-                              <ul class="menu">
-                                 <li >
-                                    <!-- start Orders -->
-                                    <a href="#" class="border-gray">
-                                       <div class="pull-left">
-                                          <img src="{{url('/')}}/asset/dist/img/basketball-jersey.png" class="img-thumbnail" alt="User Image">
-                                       </div>
-                                       <h4>polo shirt</h4>
-                                       <p><strong>total item:</strong> 21
-                                       </p>
-                                    </a>
-                                 </li>
-                                 <li>
-                                    <a href="#" class="border-gray">
-                                       <div class="pull-left">
-                                          <img src="{{url('/')}}/asset/dist/img/shirt.png" class="img-thumbnail" alt="User Image">
-                                       </div>
-                                       <h4>Kits</h4>
-                                       <p><strong>total item:</strong> 11
-                                       </p>
-                                    </a>
-                                 </li>
-                                 <li>
-                                    <a href="#" class="border-gray">
-                                       <div class="pull-left">
-                                          <img src="{{url('/')}}/asset/dist/img/football.png" class="img-thumbnail" alt="User Image">
-                                       </div>
-                                       <h4>Football</h4>
-                                       <p><strong>total item:</strong> 16
-                                       </p>
-                                    </a>
-                                 </li>
-                                 <li class="nav-list">
-                                    <a href="#" class="border-gray">
-                                       <div class="pull-left">
-                                          <img src="{{url('/')}}/asset/dist/img/shoe.png" class="img-thumbnail" alt="User Image">
-                                       </div>
-                                       <h4>Sports sheos</h4>
-                                       <p><strong>total item:</strong> 10
-                                       </p>
-                                    </a>
-                                 </li>
-                              </ul>
-                           </li>
-                        </ul>
-                     </li>
+                     
                      <!-- Messages -->
                     
                      <!-- Notifications -->
                
                      <!-- Tasks -->
-                     <li class="dropdown tasks-menu">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <i class="pe-7s-note2"></i>
-                        <span class="label label-danger">6</span>
-                        </a>
-                        <ul class="dropdown-menu">
-                           <li>
-                              <ul class="menu">
-                                 
-                               
-                                 <li>
-                                    <!-- Task item -->
-                                    <a href="#"  class="border-gray">
-                                       <span class="label label-info pull-right">20%</span>
-                                       <h3><i class="fa fa-check-circle"></i> data table data missing</h3>
-                                    </a>
-                                 </li>
-                                 <!-- end task item -->
-                              </ul>
-                           </li>
-                        </ul>
-                     </li>
+                    
                   </ul>
                </div>
             </nav>
@@ -251,12 +179,13 @@
                      <i class="fa fa-angle-left pull-right"></i>
                      </span>
                      </a>
+
                      <ul class="treeview-menu">
                         <li><a href="/sim/simtypes">Add Sim Types</a></li>
                         <li><a href="add_manifactures]r">Add Manifacturer</a></li>
                         <li><a href="user/register_user">Add User</a></li>
-                        
                      </ul>
+                     
                   </li>
                   <li class="treeview">
                      <a href="#">
@@ -266,8 +195,8 @@
                      </span>
                      </a>
                      <ul class="treeview-menu">
-                        <li><a href="rtask.html">Service1</a></li>
-                        <li><a href="atask.html">Service2</a></li>
+                        <li><a href="">Service1</a></li>
+                        <li><a href="">Service2</a></li>
                      
                         
                      </ul>
