@@ -303,7 +303,7 @@ Route::get('/sales_info', [SalesController::class, 'openSalesInfo'])->name('open
 
 Route::get('/report_device', [DeviceController::class, 'deviceReport'])->name('deviceReport');
 
-Route::get('/report_customer', [DeviceController::class, 'customerReport'])->name('customerReport');
+Route::get('/reportById/{id}', [DeviceController::class, 'reportById'])->name('reportById');
 
 
 

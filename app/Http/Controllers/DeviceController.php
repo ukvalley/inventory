@@ -175,9 +175,7 @@ public function add_sim()
 
 public function openDeviceInfo()
 {    
-     $id =$_GET['id'];
-
-     
+     $id =$_GET['id'];   
      $data=DB::table('device')
            ->where('id',"=",$id)
            ->first();
@@ -197,19 +195,42 @@ public function deviceReport()
 {    
     
 
-     
-    
      $alldevice = Device::get();
      $allpurchase=DB::table('Purchase')->get();
      $allsales=Sales::with(['device_id_id'])->get();
      $alltransaction=Transaction::get();
      $sim_get = DB::table('sim_types')->get();
 
+    // print_r($data); die();
+     return view('/report_device')->with(compact('alldevice','allpurchase','allsales','sim_get','alltransaction'));
+}
+
+public function reportById($id)
+{    
+     $data=DB::table('device')
+           ->where('id',"=",$id)
+           ->first();
+     
+          
+     $allpurchase=DB::table('Purchase')
+           ->where('device_number',"=",$id)->get();
+
+           $alldevice=DB::table('Device')
+           ->where('id',"=",$id)->get();
 
 
+     $allsales=DB::table('Sales')
+     ->where('device_id',"=",$id)->get();
+
+
+     $alltransaction=DB::table('Transaction')
+                       ->where('device_id',"=",$id)->get();
+
+    
 
     // print_r($data); die();
-     return view('/report_device')->with(compact('alldevice','allpurchase','allsales','sim_get'));
+     return view('/reportById')->with(compact('data','alldevice','allpurchase','allsales','alltransaction'));
 }
+
 
 }

@@ -30,7 +30,7 @@
                                 
                                   @foreach($allpurchase as $row)
                                     <tr>
-                                       <td>{{$row->device_number}}</td>
+                                       <td>{{$row->device_id}}</td>
                                        <td>{{$row->date}}</td>
                                        <td>{{$row->purchase_from}}</td>
                                        <td>{{$row->amount}}</td>
@@ -65,7 +65,6 @@
                               <table id="dataTableExample1" class="table table-bordered table-striped table-hover">
                                  <thead>
                                     <tr class="info">
-                                       <th>Device Number(ICE)</th>
                                        <th>Sale Date</th>
                                        <th>Sold to</th>
                                        <th>By User</th>
@@ -76,7 +75,6 @@
                                 
                                   @foreach($allsales as $row)
                                     <tr>
-                                       <td>{{$row->device_id_id->ice_id}}</td>
                                        <td>{{$row->date}}</td>
                                        <td>{{$row->allocated_to}}</td>
                                        <td>{{$row->user_id}}</td>
@@ -113,6 +111,7 @@
                                  <thead>
                                  
                                     <tr class="info">
+                                       <th>Device Id</th>
                                        <th>Sender</th>
                                        <th>Receiver</th>
                                        <th>Date</th>
@@ -125,6 +124,7 @@
 
                                  @foreach($alltransaction as $row)
                                     <tr>
+                                       <td>Not Available</td>
                                        <td>{{$row->sender}}</td>
                                        <td>{{$row->receiver}}</td>
                                        <td>{{$row->date}}</td>
@@ -158,7 +158,7 @@
                                     <tr class="info">
                                        <th>Activation Date</th>
                                        <th>Renewal Date</th>
-                                       
+
                                        <th>Customer Id</th>
                                     
                                     </tr>

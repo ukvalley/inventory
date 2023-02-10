@@ -107,7 +107,7 @@ class PurchaseOrderController extends Controller
 
        $purchase->date = $today;
       
-       $purchase->device_number = $ice_id;
+       $purchase->device_number = $device_id;
        $purchase->quantity = 1;
       
        $purchase->purchase_from = $purchase_from;
