@@ -55,9 +55,9 @@ class PurchaseController extends Controller
           $Device->ice_id = $request->input('ice_id');
           $Device->imei = $request->input('imei');
           $Device->sim1 = $request->input('sim1_number');
-          $Device->sim_1_type = $request->input('sim1_type');
+          $Device->sim_1_type = $request->input('sim_1_type');
           $Device->sim2 = $request->input('sim2_number');
-          $Device->sim_2_type = $request->input('sim2_type');
+          $Device->sim_2_type = $request->input('sim_2_type');
           $Device->user_id = $request->input('user_id');
 
          
@@ -70,7 +70,6 @@ class PurchaseController extends Controller
 
 
          
-
 
        
 
@@ -156,7 +155,7 @@ public function purchase_edit()
           $Purchase->amount =  $request->input('amount');
           $Purchase->quantity =  $request->input('quantity');
 
-
+          $Purchase->update($data);
            $Device = Device::find($id);
 
            $Device->make = $request->input('manufactured_by');
@@ -168,7 +167,7 @@ public function purchase_edit()
           $Device->sim_2_type = $request->input('sim2_type');
 
 
-          $Purchase->update($data);
+          
           $Device->update($data);
 
            

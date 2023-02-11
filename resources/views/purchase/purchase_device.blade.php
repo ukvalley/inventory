@@ -51,7 +51,7 @@
 
                                <div class="form-group">
                                  <label>Manufactured By</label>
-                                 <select class="form-control" name="manifactured_by" id="manifactured_by">
+                                 <select class="form-control" name="manufactured_by" id="manufactured_by">
 
                                  @foreach ($allmanifacturer as $value)
                                     <option value="{{$value->id}}">{{$value->name}}</option>
@@ -107,7 +107,7 @@
                                  <div class="form-group">
                                  <label>User </label>
                                   
-                                 <select class="form-control" name="customer" >
+                                 <select class="form-control" name="user_id" >
                                    @foreach ($allusers as $value)
                                    
                                     <option value="{{$value->id}}" >{{$value->name}}</option>

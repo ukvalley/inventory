@@ -32,7 +32,6 @@ public function salesformPost(Request $request)
    $renewal_date = $request ->renewal_date;
    $user_id = $request->user_id;
    $allocated_to = $request->allocated_to;
-   $device_number = $request->device_number;
 
    $this->salesOrder($make,$ice_id,$imei,$sim_1_type,$sim_2_type,$received_date,$activation_date,$renewal_date, $device_number,$user_id,$allocated_to);
  

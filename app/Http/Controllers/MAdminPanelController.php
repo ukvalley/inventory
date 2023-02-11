@@ -187,7 +187,7 @@ public function get_customer($user_type)
             $today = date('d-m-Y');
            
             $Sale->date =  $this->change_date_format($today);
-            $Sale->device_id = $device->device_id;
+            $Sale->device_id = $device->id;
             $Sale->device_number = $device->ice_id;
             $Sale->allocated_to = $device->customer_id;
             $Sale->user_id = $device->user_id;
