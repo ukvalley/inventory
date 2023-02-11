@@ -20,6 +20,8 @@ use App\Http\Controllers\RecordsController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\SearchController;
 
+use App\Http\Controllers\ManifacturerController;
+
 
 
 
@@ -167,7 +169,7 @@ Route::get('device/device_table', [DeviceController::class, 'view_device'])->nam
 
 
 //Purchase-------------------------------------------------------------------------------------------------------------------------
-Route::get('purchase/register_purchase',[PurchaseController::class, 'register_purchase'])->name('register_purchase');
+Route::get('purchase/purchase_device',[PurchaseController::class, 'register_purchase'])->name('register_purchase');
 Route::post('/purchase_device-post', [PurchaseController::class, 'PurchaseDevice'])->name('PurchaseDevice');
 Route::post('/purchase_device-update/{id}', [PurchaseController::class, 'purchase_update'])->name('purchase_update');
 Route::get('purchase/purchase_edit', [PurchaseController::class, 'purchase_edit'])->name('purchase_edit');
@@ -311,3 +313,24 @@ Route::get('/reportById/{id}', [DeviceController::class, 'reportById'])->name('r
 Route::get('/transfer_transaction', [SearchController::class, 'index']);
 
 Route::get('/transfer_transaction/action', [SearchController::class, 'action']);
+
+
+//manifacturer register edit delete
+
+Route::get('/manifacturer/manifacturer_table', function () {
+    return view('manifacturer/manifacturer_table');
+});
+
+
+Route::get('/manifacturer/manifacturer', function () {  
+    return view('/manifacturer/manifacturer');
+});
+
+Route::post('/manifacturer-post', [ManifacturerController::class, 'ManifacturerRegister'])->name('ManifacturerRegister');
+Route::post('/manifacturer-update/{id}', [ManifacturerController::class, 'update'])->name('update');
+
+
+Route::get('/manifacturer/manifacturer_edit', [ManifacturerController::class, 'manifacturer_edit'])->name('manifacturer_edit');
+Route::get('destroy', [ManifacturerController::class, 'destroy'])->name('destroy');
+
+

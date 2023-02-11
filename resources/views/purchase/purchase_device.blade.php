@@ -12,7 +12,7 @@
                         <div class="panel-heading">
                            <div class="btn-group" id="buttonlist"> 
                               <a class="btn btn-add "href="purchase_device"> 
-                              <i class="fa fa-list"></i>Add Purchase Details </a>  
+                              <i class="fa fa-list"></i>Add Device Purchase Details </a>  
                            </div>
 
                         </div>
@@ -36,8 +36,8 @@
                               </div> -->
 
                               <div class="form-group">
-                                 <label>Device Number</label>
-                                 <input type="text" class="form-control" name="device_number" placeholder="device_number" required>
+                                 <label>Ice Id</label>
+                                 <input type="text" class="form-control" name="ice_id" placeholder="ice_id" required>
                               </div>
 
                               <div class="form-group">
@@ -50,9 +50,82 @@
                               </div>
 
                                <div class="form-group">
-                                 <label>Purchase from</label>
-                                 <input type="text" class="form-control" name="purchase_from" placeholder="purchase_from" required>
+                                 <label>Manufactured By</label>
+                                 <input type="text" class="form-control" name="manufactured_by" placeholder="manufactured_by" required>
                               </div>
+
+                              <div class="form-group">
+                                 <label>IMEI</label>
+                                 <input type="text" class="form-control" name="imei" placeholder="imei" required>
+                              </div>
+                               
+                              <div class="form-group">
+                                 <label>Device Status</label >
+                                 <select  class="form-control" name="device_status"  id="device_status" >
+                                    <option  value="sold" >Sold</option>
+                                    <option  value="unsold">Unsold</option>
+                                 </select>
+
+                              </div>
+                              <div class="form-group">
+                                 <label>SIM1 Number</label>
+                                 <input type="text" class="form-control" name="sim1_number" placeholder="sim1_number" required>
+                              </div>
+
+            
+                              <div class="form-group">
+                                 <label>SIM1 Type</label>
+                                     <select class="form-control" name="sim_1_type" id="sim_1_type">
+                                   @foreach ($sim_get as $value){ 
+                                    <option value="{{$value->id}}">{{$value->name}}</option>
+                                  @endforeach
+                                 </select>
+                                  
+                              </div>
+
+
+                              <div class="form-group">
+                                 <label>SIM2 Number</label>
+                                 <input type="text" class="form-control" name="sim2_number" placeholder="sim2_number" required>
+                              </div>
+
+            
+                               <div class="form-group">
+                                 <label>SIM2 Type</label>
+                                     <select class="form-control" name="sim_2_type" id="sim_2_type">
+                                   @foreach ($sim_get as $value){ 
+                                    <option value="{{$value->id}}" >{{$value->name}}</option>
+                                 @endforeach
+                                 </select>
+                                   </div>
+
+                                 <<div class="form-group">
+                                 <label>User </label>
+                                  
+                                 <select class="form-control" name="customer" >
+                                   @foreach ($allusers as $value){
+                                   
+                                    <option value="{{$value->id}}" >{{$value->name}}</option>}
+                                   @endforeach
+                                 </select>
+                                
+                              </div>
+
+
+                                 <div class="form-group">
+                                 <label>Customer</label>
+                                  
+                                 <select class="form-control" name="customer" >
+                                   @foreach ($allcustomer as $value){
+                                   
+                                    <option value="{{$value->id}}" >{{$value->name}}</option>}
+                                   @endforeach
+                                 </select>
+                                
+                              </div>
+                                  
+                              </div>
+
                               <div class="reset-button">
                                  <a href="#" class="btn btn-warning">Reset</a>
                                  <input class="btn btn-success" type="submit" value="Submit" />

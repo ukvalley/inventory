@@ -4,6 +4,14 @@ namespace App\Http\Controllers;
 use DB;
 use Illuminate\Http\Request;
 use App\Models\Admin\Purchase;
+use App\Models\Admin\SimTypes;
+use App\Models\Admin\Customer;
+use App\Models\Admin\Users;
+
+use App\Models\Admin\Device;
+
+
+
 
 
 class PurchaseController extends Controller
@@ -16,10 +24,10 @@ class PurchaseController extends Controller
       $request->validate(
         [
           'date'=>'required',
-          'device_number'=>'required',
+          'ice_id'=>'required',
              'amount'=>'required',
              'quantity'=>'required',
-             'purchase_from'=>'required',
+             'manufactured_by'=>'required',
            
         ]
         );
@@ -32,13 +40,38 @@ class PurchaseController extends Controller
 
           $Purchase->date =  $this->change_date_format($request->input('date'));
     
-          $Purchase->device_number = $request->input('device_number');
+          $Purchase->ice_id = $request->input('ice_id');
           $Purchase->amount = $request->input('amount');	
-         $Purchase->quantity = $request->input('quantity');
-          $Purchase->purchase_from = $request->input('purchase_from');	
-
+          $Purchase->quantity = $request->input('quantity');
+          $Purchase->manufactured_by = $request->input('manufactured_by');	
 
           $Purchase->save();
+          
+
+          $Device = new Device ;	
+          $Device->make = $request->input('manufactured_by');
+          $Device->ice_id = $request->input('ice_id');
+          $Device->imei = $request->input('imei');
+          $Device->sim1 = $request->input('sim1_number');
+          $Device->sim_1_type = $request->input('sim1_type');
+          $Device->sim2 = $request->input('sim2_number');
+          $Device->sim_2_type = $request->input('sim2_type');
+          $Device->user_id = $request->input('user_id');
+
+         
+          $Device->received_date = $this->change_date_format($request->input('date'));
+          $Device->statuss = $request->input('device_status');
+
+
+          
+          $Device->save();
+
+
+         
+
+
+       
+
               
 
                 
@@ -47,24 +80,42 @@ class PurchaseController extends Controller
           
       }
 
+      private function change_date_format($date)
+      {
+             $chnage_date = strtotime($date);
+   
+             $chnage_date_f = date('M d, Y',( $chnage_date ) );
+   
+             return $chnage_date_f;
+      }
+
 
       public function view_purchase()
  {
     $data=DB::table('purchase')->get();
+    $sim_get=DB::table('simtypes')->get();
 
     //print_r($data); die();
 
     //get data from database 
-    return view('purchase/purchase_table')->with(compact($data)); 
+    return view('purchase/purchase_table')->with(compact($data,$sim_get)); 
  }
 
  public function register_purchase()
   {    
       
       $allpurchase = Purchase::get();
+      $sim_get = SimTypes::get();
+      $allcustomer = Customer::get();
+      $allusers = Users::get();
+
+
+
+     
+
 
       // print_r($allpurchase); die();
-       return view('/purchase/register_purchase')->with(compact('allpurchase'));
+       return view('/purchase/purchase_device')->with(compact('allpurchase','sim_get','allcustomer','allusers'));
   }
 
 public function purchase_edit()
@@ -75,10 +126,15 @@ public function purchase_edit()
              ->first();
         
                 $allpurchase = Purchase::get();
+                $sim_get = DB::table('sim_types')->get();
+                $allcustomer = Customer::get();
+
+                $allusers = Users::get();
+
 
 
       // print_r($allpurchase); die();
-       return view('/purchase/purchase_edit')->with(compact('data','allpurchase'));
+       return view('/purchase/purchase_edit')->with(compact('data','allpurchase','sim_get','allcustomer','allusers'));
   }
 
 
@@ -88,21 +144,30 @@ public function purchase_edit()
       {
           $data = $request->all();
              $Purchase = Purchase::find($id);
+             
 
 
        $Purchase->date = $request->input('date');
 
-          $Purchase->device_number = $request->input('device_number');
+          $Purchase->ice_id = $request->input('ice_id');
           $Purchase->amount =  $request->input('amount');
-         $Purchase->quantity =  $request->input('quantity');
-           $Purchase->purchase_from = $request->input('purchase_from');
+          $Purchase->quantity =  $request->input('quantity');
 
 
-           
+           $Device = Device::find($id);
+
+           $Device->make = $request->input('manufactured_by');
+          $Device->ice_id = $request->input('ice_id');
+          $Device->imei = $request->input('imei');
+          $Device->sim1 = $request->input('sim1_number');
+          $Device->sim_1_type = $request->input('sim1_type');
+          $Device->sim2 = $request->input('sim2_number');
+          $Device->sim_2_type = $request->input('sim2_type');
 
 
-
+          $Purchase->update($data);
           $Device->update($data);
+
            
 
             return redirect()->back();
@@ -131,6 +196,7 @@ public function openPurchaseInfo()
            ->first();
       
               $allpurchase = Purchase::get();
+              
 
 
     // print_r($allpurchase); die();

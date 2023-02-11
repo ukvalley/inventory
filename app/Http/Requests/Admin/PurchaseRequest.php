@@ -18,7 +18,15 @@ class PurchaseRequest extends FormRequest
 				'date_format:"'.config('admiko_config.table_date_format').'"',
 				"nullable"
 			],
-			"device_number"=>[
+			"ice_id"=>[
+				"string",
+				"nullable"
+			],
+			"manufactured_by"=>[
+				"string",
+				"nullable"
+			],
+			"quantity"=>[
 				"string",
 				"nullable"
 			],
@@ -26,12 +34,31 @@ class PurchaseRequest extends FormRequest
 				"string",
 				"nullable"
 			],
-			"purchase_from"=>[
+			"imei"=>[
 				"string",
 				"nullable"
 			],
-			"quantity"=>[
+			"device_status"=>[
+				"nullable"
+			],
+			"sim1_number"=>[
 				"string",
+				"nullable"
+			],
+			"sim_1_type"=>[
+				"nullable"
+			],
+			"sim2_number"=>[
+				"string",
+				"nullable"
+			],
+			"sim_2_type"=>[
+				"nullable"
+			],
+			"user_id"=>[
+				"nullable"
+			],
+			"customer_id"=>[
 				"nullable"
 			]
         ];
@@ -40,10 +67,18 @@ class PurchaseRequest extends FormRequest
     {
         return [
             "date"=>"Date &amp; Time",
-			"device_number"=>"Device Number",
+			"ice_id"=>"ICE Id",
+			"manufactured_by"=>"Manufactured By",
+			"quantity"=>"Quantity",
 			"amount"=>"Amount",
-			"purchase_from"=>"Purchase From",
-			"quantity"=>"Quantity"
+			"imei"=>"IMEI",
+			"device_status"=>"Device Status",
+			"sim1_number"=>"Sim1 Number",
+			"sim_1_type"=>"SIm_1_Type",
+			"sim2_number"=>"Sim2 Number",
+			"sim_2_type"=>"Sim_2_type",
+			"user_id"=>"User Id",
+			"customer_id"=>"Customer Id"
         ];
     }
     

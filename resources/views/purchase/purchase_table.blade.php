@@ -27,10 +27,10 @@
     <th scope="col">id</th>
       <th scope="col">Date</th>
  
-      <th scope="col">Device Number</th>
+      <th scope="col">ICE ID</th>
       <th scope="col">Amount</th>
       <th scope="col">Quantity</th>
-      <th scope="col">Purchase from</th>
+      <th scope="col">Manufactured By</th>
       
 
       <!-- <th scope="col">Edit</th>
@@ -45,9 +45,11 @@
                <td><a href="{{url('/')}}/purchase_info?id={{$row->id }}">{{$row->id }}</td>
                 <td><a href="{{url('/')}}/purchase_info?id={{$row->id }}">{{$row->date }}</td>
              
-                <td><a href="{{url('/')}}/purchase_info?id={{$row->id }}">{{$row->device_number}}</td>
+                <td><a href="{{url('/')}}/purchase_info?id={{$row->id }}">{{$row->ice_id}}</td>
                 <td><a href="{{url('/')}}/purchase_info?id={{$row->id }}">{{$row->amount}}</td>
                 <td><a href="{{url('/')}}/purchase_info?id={{$row->id }}">{{$row->quantity}}</td>
+                <td><a href="{{url('/')}}/purchase_info?id={{$row->id }}">{{$row->manufactured_by}}</td>
+
                 
                 <td>
                <a href="{{url('/')}}/purchase/purchase_edit?id={{$row->id}}" class="btn btn-primary">Edit</a>

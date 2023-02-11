@@ -218,6 +218,7 @@
                         <li><a href="/sale/sales_table">Sales</a></li>
                          <li><a href="/records/records_table">Records</a></li>
                          <li><a href="/sim/sim_table">Sim Types</a></li>
+                         <li><a href="/manifacturer/manifacturer_table">Manifacturer</a></li>
                      </ul>
                   </li>
                 

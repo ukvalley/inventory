@@ -35,11 +35,11 @@
 
                              
                               <div class="form-group">
-                                 <label>Device Number</label>
-                                 <input type="text" class="form-control" name="device_number" value="{{$data->device_number}}" placeholder="device_number" required>
+                                 <label>Ice Id</label>
+                                 <input type="text" class="form-control" name="ice_id" value="{{$data->ice_id}}" placeholder="device_number" required>
                               </div>
-                              @if($errors->has('device_number'))
-                             <div class="text-danger error">{{ $errors->first('device_number') }}</div>
+                              @if($errors->has('ice_id'))
+                             <div class="text-danger error">{{ $errors->first('ice_id') }}</div>
                                @endif
                                
 
@@ -68,12 +68,75 @@
 
 
                                <div class="form-group">
-                                 <label>Purchase from</label>
-                                 <input type="text" class="form-control" name="purchase_from" value="{{$data->purchase_from}}" placeholder="purchase_from" required>
+                                 <label>Manufactured By</label>
+                                 <input type="text" class="form-control" name="manufactured_by" value="{{$data->manufactured_by}}" placeholder="manufactured_by" required>
                               </div>
-                              @if($errors->has('purchase_from'))
-                             <div class="text-danger error">{{ $errors->first('purchase_from') }}</div>
+                              
+                               <div class="form-group">
+                                 <label>Device Status</label >
+                                 <select  class="form-control" name="device_status"  id="device_status" >
+                                    <option  value="sold" >Sold</option>
+                                    <option  value="unsold">Unsold</option>
+                                 </select>
+                              </div>
+                              @if($errors->has('device_status'))
+                             <div class="text-danger error">{{ $errors->first('device_status') }}</div>
                                @endif
+
+                              <div class="form-group">
+                                 <label>SIM1 Number</label>
+                                 <input type="text" class="form-control" name="sim1_number" placeholder="sim1_number" required>
+                              </div>
+
+            
+                              <div class="form-group">
+                                 <label>SIM1 Type</label>
+                                     <select class="form-control" name="sim_1_type" id="sim_1_type">
+                                   @foreach ($sim_get as $value){ 
+                                    <option value="{{$value->id}}">{{$value->name}}</option>
+                                  @endforeach
+                                 </select>
+                                  
+                              </div>
+
+
+                              <div class="form-group">
+                                 <label>SIM2 Number</label>
+                                 <input type="text" class="form-control" name="sim2_number" value="{{$data->sim2_number}}"  placeholder="sim2_number" required>
+                              </div>
+
+            
+                               <div class="form-group">
+                                 <label>SIM2 Type</label>
+                                     <select class="form-control" name="sim_2_type" id="sim_2_type">
+                                   @foreach ($sim_get as $value){ 
+                                    <option value="{{$value->id}}" >{{$value->name}}</option>
+                                 @endforeach
+                                 </select>
+                                   </div>
+
+                                 <div class="form-group">
+                                 <label>User Type</label >
+                                 @foreach ($allusers as $value)
+
+                                 <select class="form-control" name="user_id" value="{{$data->user_id}}"  id="user_id">
+                                 <option value="{{$value->id}}" >{{$value->name}}</option>
+                                 @endforeach
+                                 </select>
+                              </div>
+
+
+                                 <div class="form-group">
+                                 <label>Customer</label>
+                                  
+                                 <select class="form-control" name="customer" >
+                                   @foreach ($allusers as $value)
+                                   
+                                    <option value="{{$value->id}}" >{{$value->name}}</option>
+                                   @endforeach
+                                 </select>
+                                
+                              </div>
 
 
                                
