@@ -11,9 +11,9 @@ use App\Models\Admin\Purchase;
 use Illuminate\Http\Request;
 use App\Http\Requests\Admin\PurchaseRequest;
 use Gate;
-use App\Models\Admin\Manifacturer;
 use App\Models\Admin\SimTypes;
 use App\Models\Admin\Users;
+use App\Models\Admin\Customer;
 
 class PurchaseController extends Controller
 {
@@ -40,11 +40,11 @@ class PurchaseController extends Controller
         $admiko_data['formAction'] = route("admin.purchase.store");
         
         
-		$manifacturer_all = Manifacturer::all()->sortBy("name")->pluck("name", "id");
 		$device_status_all = Purchase::DEVICE_STATUS_CONS;
 		$sim_types_all = SimTypes::all()->sortBy("name")->pluck("name", "id");
 		$users_all = Users::getParentChildrenList();
-        return view("admin.purchase.manage")->with(compact('admiko_data','manifacturer_all','device_status_all','sim_types_all','users_all'));
+		$customer_all = Customer::all()->sortBy("name")->pluck("name", "id");
+        return view("admin.purchase.manage")->with(compact('admiko_data','device_status_all','sim_types_all','users_all','customer_all'));
     }
 
     public function store(PurchaseRequest $request)
@@ -76,12 +76,12 @@ class PurchaseController extends Controller
         $admiko_data['formAction'] = route("admin.purchase.update", [$Purchase->id]);
         
         
-		$manifacturer_all = Manifacturer::all()->sortBy("name")->pluck("name", "id");
 		$device_status_all = Purchase::DEVICE_STATUS_CONS;
 		$sim_types_all = SimTypes::all()->sortBy("name")->pluck("name", "id");
 		$users_all = Users::getParentChildrenList();
+		$customer_all = Customer::all()->sortBy("name")->pluck("name", "id");
         $data = $Purchase;
-        return view("admin.purchase.manage")->with(compact('admiko_data', 'data','manifacturer_all','device_status_all','sim_types_all','users_all'));
+        return view("admin.purchase.manage")->with(compact('admiko_data', 'data','device_status_all','sim_types_all','users_all','customer_all'));
     }
 
     public function update(PurchaseRequest $request,$id)

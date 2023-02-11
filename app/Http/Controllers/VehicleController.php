@@ -49,7 +49,7 @@ class VehicleController extends Controller
               
 
                 
-          return redirect()->back();
+          return redirect('/vehicle/vehicle_table');
            
           
   }

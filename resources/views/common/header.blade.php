@@ -133,7 +133,7 @@
                      </a>
                      <ul class="treeview-menu">
                         <li><a href="/device/device_table">Show Device</a></li>
-                        <li><a href="/device/add_device">Add New Device</a></li>
+                        <li><a href="/purchase/purchase_device">Purchase Device</a></li>
                         <li><a href="/getImport">Import Device</a></li>
                         <li><a href="/transfer">Transfer Device</a></li>
 

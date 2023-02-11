@@ -8,9 +8,10 @@
 namespace App\Models\Admin;
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
-use App\Models\Admin\Manifacturer;
 use App\Models\Admin\SimTypes;
 use App\Models\Admin\Users;
+use App\Models\Admin\Customer;
+use App\Models\Admin\Manifacturer;
 use App\Http\Controllers\Traits\Admin\AdmikoFileUploadTrait;
 
 class Purchase extends Model
@@ -33,13 +34,14 @@ class Purchase extends Model
 		"quantity",
 		"amount",
 		"imei",
-		"manufactured_by",
 		"device_status",
 		"sim1_number",
 		"sim_1_type",
 		"sim2_number",
 		"sim_2_type",
 		"user_id",
+		"customer_id",
+		"manufactured_by",
     ];
     public function getDateAttribute($value)
     {
@@ -48,10 +50,6 @@ class Purchase extends Model
     public function setDateAttribute($value)
     {
         $this->attributes['date'] = $value ? Carbon::createFromFormat(config('admiko_config.table_date_format'), $value)->format('Y-m-d H:i:s') : null;
-    }
-	public function manufactured_by_id()
-    {
-        return $this->belongsTo(Manifacturer::class, 'manufactured_by');
     }
 	public function sim_1_type_id()
     {
@@ -64,5 +62,13 @@ class Purchase extends Model
 	public function user_id_id()
     {
         return $this->belongsTo(Users::class, 'user_id');
+    }
+	public function customer_id_id()
+    {
+        return $this->belongsTo(Customer::class, 'customer_id');
+    }
+	public function manufactured_by_id()
+    {
+        return $this->belongsTo(Manifacturer::class, 'manufactured_by');
     }
 }

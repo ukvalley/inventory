@@ -22,6 +22,10 @@ class PurchaseRequest extends FormRequest
 				"string",
 				"nullable"
 			],
+			"manufactured_by"=>[
+				"string",
+				"nullable"
+			],
 			"quantity"=>[
 				"string",
 				"nullable"
@@ -32,9 +36,6 @@ class PurchaseRequest extends FormRequest
 			],
 			"imei"=>[
 				"string",
-				"nullable"
-			],
-			"manufactured_by"=>[
 				"nullable"
 			],
 			"device_status"=>[
@@ -56,6 +57,9 @@ class PurchaseRequest extends FormRequest
 			],
 			"user_id"=>[
 				"nullable"
+			],
+			"customer_id"=>[
+				"nullable"
 			]
         ];
     }
@@ -64,16 +68,17 @@ class PurchaseRequest extends FormRequest
         return [
             "date"=>"Date &amp; Time",
 			"ice_id"=>"ICE Id",
+			"manufactured_by"=>"Manufactured By",
 			"quantity"=>"Quantity",
 			"amount"=>"Amount",
 			"imei"=>"IMEI",
-			"manufactured_by"=>"Manufactured By",
 			"device_status"=>"Device Status",
 			"sim1_number"=>"Sim1 Number",
 			"sim_1_type"=>"SIm_1_Type",
 			"sim2_number"=>"Sim2 Number",
 			"sim_2_type"=>"Sim_2_type",
-			"user_id"=>"User Id"
+			"user_id"=>"User Id",
+			"customer_id"=>"Customer Id"
         ];
     }
     

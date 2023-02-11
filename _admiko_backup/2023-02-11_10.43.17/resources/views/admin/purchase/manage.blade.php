@@ -56,6 +56,16 @@
                 </div>
                 <div class=" col-12">
                     <div class="form-group row">
+                        <label for="manufactured_by" class="col-md-2 col-form-label">Manufactured By:</label>
+                        <div class="col-md-10">
+                            <input type="text" class="form-control" id="manufactured_by" name="manufactured_by"  placeholder="Manufactured By"  value="{{{ old('manufactured_by', isset($data)?$data->manufactured_by : '') }}}">
+                            <div class="invalid-feedback @if ($errors->has('manufactured_by')) d-block @endif">{{trans('admiko.required_text')}}</div>
+                            <small id="manufactured_by_help" class="text-muted"></small>
+                        </div>
+                    </div>
+                </div>
+                <div class=" col-12">
+                    <div class="form-group row">
                         <label for="quantity" class="col-md-2 col-form-label">Quantity:</label>
                         <div class="col-md-10">
                             <input type="text" class="form-control" id="quantity" name="quantity"  placeholder="Quantity"  value="{{{ old('quantity', isset($data)?$data->quantity : '') }}}">
@@ -84,22 +94,6 @@
                         </div>
                     </div>
                 </div>
-                <div class=" col-12">
-                    <div class="form-group row">
-                        <label for="manufactured_by" class="col-md-2 col-form-label">Manufactured By:</label>
-                        <div class="col-md-10">
-                            <select class="form-select" id="manufactured_by" name="manufactured_by" >
-                                <option value="">{{trans("admiko.select")}}</option>
-                                @foreach($manifacturer_all as $id => $value)
-                                    <option value="{{ $id }}" {{ (old('manufactured_by') ? old('manufactured_by') : $data->manufactured_by ?? '') == $id ? 'selected' : '' }}>{{ $value }}</option>
-                                @endforeach
-                            </select>
-                            <div class="invalid-feedback @if ($errors->has('manufactured_by')) d-block @endif">{{trans('admiko.required_text')}}</div>
-                            <small id="manufactured_by_help" class="text-muted"></small>
-                        </div>
-                    </div>
-                </div>
-
                 <div class=" col-12">
                     <div class="form-group row">
                         <label for="device_status" class="col-md-2 col-form-label">Device Status:</label>
@@ -180,6 +174,22 @@
                             </select>
                             <div class="invalid-feedback @if ($errors->has('user_id')) d-block @endif">{{trans('admiko.required_text')}}</div>
                             <small id="user_id_help" class="text-muted"></small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class=" col-12">
+                    <div class="form-group row">
+                        <label for="customer_id" class="col-md-2 col-form-label">Customer Id:</label>
+                        <div class="col-md-10">
+                            <select class="form-select" id="customer_id" name="customer_id" >
+                                <option value="">{{trans("admiko.select")}}</option>
+                                @foreach($customer_all as $id => $value)
+                                    <option value="{{ $id }}" {{ (old('customer_id') ? old('customer_id') : $data->customer_id ?? '') == $id ? 'selected' : '' }}>{{ $value }}</option>
+                                @endforeach
+                            </select>
+                            <div class="invalid-feedback @if ($errors->has('customer_id')) d-block @endif">{{trans('admiko.required_text')}}</div>
+                            <small id="customer_id_help" class="text-muted"></small>
                         </div>
                     </div>
                 </div>

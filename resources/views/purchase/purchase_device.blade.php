@@ -51,8 +51,13 @@
 
                                <div class="form-group">
                                  <label>Manufactured By</label>
-                                 <input type="text" class="form-control" name="manufactured_by" placeholder="manufactured_by" required>
-                              </div>
+                                 <select class="form-control" name="manifactured_by" id="manifactured_by">
+
+                                 @foreach ($allmanifacturer as $value)
+                                    <option value="{{$value->id}}">{{$value->name}}</option>
+                                 @endforeach
+                              </select>
+                                 </div>
 
                               <div class="form-group">
                                  <label>IMEI</label>
@@ -99,32 +104,26 @@
                                  </select>
                                    </div>
 
-                                 <<div class="form-group">
+                                 <div class="form-group">
                                  <label>User </label>
                                   
                                  <select class="form-control" name="customer" >
-                                   @foreach ($allusers as $value){
+                                   @foreach ($allusers as $value)
                                    
-                                    <option value="{{$value->id}}" >{{$value->name}}</option>}
+                                    <option value="{{$value->id}}" >{{$value->name}}</option>
                                    @endforeach
                                  </select>
                                 
                               </div>
 
 
-                                 <div class="form-group">
-                                 <label>Customer</label>
-                                  
-                                 <select class="form-control" name="customer" >
-                                   @foreach ($allcustomer as $value){
-                                   
-                                    <option value="{{$value->id}}" >{{$value->name}}</option>}
-                                   @endforeach
-                                 </select>
                                 
-                              </div>
                                   
-                              </div>
+                                
+                                
+                   
+                                  
+                              
 
                               <div class="reset-button">
                                  <a href="#" class="btn btn-warning">Reset</a>

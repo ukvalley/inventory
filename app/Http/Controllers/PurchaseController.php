@@ -8,6 +8,8 @@ use App\Models\Admin\SimTypes;
 use App\Models\Admin\Customer;
 use App\Models\Admin\Users;
 
+use App\Models\Admin\Manifacturer;
+
 use App\Models\Admin\Device;
 
 
@@ -106,8 +108,9 @@ class PurchaseController extends Controller
       
       $allpurchase = Purchase::get();
       $sim_get = SimTypes::get();
-      $allcustomer = Customer::get();
       $allusers = Users::get();
+      $allmanifacturer = Manifacturer::get();
+
 
 
 
@@ -115,7 +118,7 @@ class PurchaseController extends Controller
 
 
       // print_r($allpurchase); die();
-       return view('/purchase/purchase_device')->with(compact('allpurchase','sim_get','allcustomer','allusers'));
+       return view('/purchase/purchase_device')->with(compact('allpurchase','sim_get','allusers','allmanifacturer'));
   }
 
 public function purchase_edit()

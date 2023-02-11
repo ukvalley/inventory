@@ -126,17 +126,7 @@
                               </div>
 
 
-                                 <div class="form-group">
-                                 <label>Customer</label>
-                                  
-                                 <select class="form-control" name="customer" >
-                                   @foreach ($allusers as $value)
-                                   
-                                    <option value="{{$value->id}}" >{{$value->name}}</option>
-                                   @endforeach
-                                 </select>
                                 
-                              </div>
 
 
                                
