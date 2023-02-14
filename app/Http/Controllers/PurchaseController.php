@@ -71,7 +71,7 @@ class PurchaseController extends Controller
 
          
           $Device->received_date = $this->change_date_format($request->input('date'));
-          $Device->statuss = $request->input('device_status');
+          $Device->status = $request->input('device_status');
 
 
           
@@ -141,11 +141,12 @@ public function purchase_edit()
                 $allcustomer = Customer::get();
 
                 $allusers = Users::get();
+                $alldevice = Device::get();
 
 
 
       // print_r($allpurchase); die();
-       return view('/purchase/purchase_edit')->with(compact('data','allpurchase','sim_get','allcustomer','allusers'));
+       return view('/purchase/purchase_edit')->with(compact('data','allpurchase','sim_get','allcustomer','allusers','alldevice'));
   }
 
 
@@ -155,7 +156,7 @@ public function purchase_edit()
       {
           $data = $request->all();
              $Purchase = Purchase::find($id);
-             
+             $Device = Device::find($id);
 
 
        $Purchase->date = $request->input('date');
@@ -164,8 +165,8 @@ public function purchase_edit()
           $Purchase->amount =  $request->input('amount');
           $Purchase->quantity =  $request->input('quantity');
 
-          $Purchase->update($data);
-           $Device = Device::find($id);
+          
+          
 
            $Device->make = $request->input('manufactured_by');
           $Device->ice_id = $request->input('ice_id');
@@ -176,7 +177,7 @@ public function purchase_edit()
           $Device->sim_2_type = $request->input('sim2_type');
 
 
-          
+          $Purchase->update($data);
           $Device->update($data);
 
            

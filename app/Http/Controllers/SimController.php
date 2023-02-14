@@ -33,7 +33,8 @@ class SimController extends Controller
           
 
               
-        return redirect()->back();
+        return redirect('/sim/sim_table');
+
             
         
     }

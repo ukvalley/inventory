@@ -93,8 +93,8 @@ public function register_manifacturer()
              $Manifacturer->update($data);
               
     
-                return redirect()->back();
-          
+                return redirect('/manifacturer/manifacturer_table');
+
      }
     
     

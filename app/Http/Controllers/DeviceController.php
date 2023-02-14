@@ -46,7 +46,7 @@ class DeviceController extends Controller
              $Device->activation_date = $this->change_date_format($request->input('activation_date'));
              $Device->received_date = $this->change_date_format($request->input('received_date'));
              $Device->renewal_date = $this->change_date_format($request->input('renewal_date'));
-             $Device->status = $request->input('statuss');
+             $Device->status = $request->input('status');
  
              $Device->save();
          
@@ -54,7 +54,8 @@ class DeviceController extends Controller
         
              //    print_r($Device); die();
            
-             return redirect()->back();
+             return redirect('/device/device_table');
+
                  
                  }
  
@@ -136,7 +137,7 @@ class DeviceController extends Controller
            $device->renewal_date = $this->change_date_format($request->input('renewal_date'));
            $device->user_id = $request->input('user_id');
            $device->customer_id = $request->input('customer_id');
-           $device->status = $request->input('statuss');
+           $device->status = $request->input('status');
 
 
                     // print_r($device); die();

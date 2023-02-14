@@ -43,7 +43,7 @@ public function  UserRegister(Request $request)
 	        	
 
 	              
-	        return redirect()->back();
+             return redirect('/user/user_table');
 	        	
 	        	}
             
