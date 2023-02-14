@@ -6,7 +6,7 @@
         <div>
             <div class="panel panel-default">
                 <div class="panel-heading role-list-info-header">
-                  <a href="{{ url('/device/add_device') }}" class="btn btn-success">Register New Device</a>
+                  <a href="{{ url('/purchase/purchase_device') }}" class="btn btn-success">Purchase New Device</a>
                     <p>Device Table</p>
                     
                 </div>

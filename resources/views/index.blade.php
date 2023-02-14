@@ -19,57 +19,114 @@
                   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
                      <div id="cardbox1">
                         <div class="statistic-box">
-                           <i class="fa fa-user-plus fa-3x"></i>
+                           <i class="fa fa-tablet fa-3x"></i>
                            <div class="counter-number pull-right">
-                              <span class="count-number">11</span> 
+                              <span class="count-number">{{$totalDeviceCount}}</span> 
                               <span class="slight"><i class="fa fa-play fa-rotate-270"> </i>
                               </span>
                            </div>
-                           <h3> Active Devices</h3>
+                           <h3> Total Devices</h3>
                         </div>
                      </div>
                   </div>
                   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
                      <div id="cardbox2">
                         <div class="statistic-box">
-                           <i class="fa fa-user-secret fa-3x"></i>
+                           <i class="fa fa-check-square-o fa-3x"></i>
                            <div class="counter-number pull-right">
-                              <span class="count-number">4</span> 
+                              <span class="count-number">{{$soldCount}}</span> 
                               <span class="slight"><i class="fa fa-play fa-rotate-270"> </i>
                               </span>
                            </div>
-                           <h3>  Active Users</h3>
+                           <h3>  Sold Device</h3>
                         </div>
                      </div>
                   </div>
                   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
                      <div id="cardbox3">
                         <div class="statistic-box">
-                           <i class="fa fa-money fa-3x"></i>
+                           <i class="fa fa-hdd-o fa-3x"></i>
                            <div class="counter-number pull-right">
-                              <i class="ti ti-money"></i><span class="count-number">965</span> 
+                             </i><span class="count-number">{{$unsoldCount}}</span> 
                               <span class="slight"><i class="fa fa-play fa-rotate-270"> </i>
                               </span>
                            </div>
-                           <h3>  Total Devices</h3>
+                           <h3>Unsold Device</h3>
                         </div>
                      </div>
                   </div>
                   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
                      <div id="cardbox4">
                         <div class="statistic-box">
-                           <i class="fa fa-files-o fa-3x"></i>
+                           <i class="fa fa-user-circle fa-3x"></i>
                            <div class="counter-number pull-right">
-                              <span class="count-number">11</span> 
+                              <span class="count-number">{{$salesAgentCount}}</span> 
                               <span class="slight"><i class="fa fa-play fa-rotate-270"> </i>
                               </span>
                            </div>
-                           <h3> Saled Devices</h3>
+                           <h3>Total Staff</h3>
                         </div>
                      </div>
                   </div>
                </div>
+               
                <div class="row">
+                  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+                     <div id="cardbox1">
+                        <div class="statistic-box">
+
+                           <i class="fa fa-wrench fa-3x"></i>
+                           <div class="counter-number pull-right">
+                              <span class="count-number">{{$technicianCount}}</span> 
+                              <span class="slight"><i class="fa fa-play fa-rotate-270"> </i>
+                              </span>
+                           </div>
+                           <h3>Total Technician</h3>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+                     <div id="cardbox2">
+                        <div class="statistic-box">
+                           <i class="fa fa-group  fa-3x"></i>
+                           <div class="counter-number pull-right">
+                              <span class="count-number">{{$customerCount}}</span> 
+                              <span class="slight"><i class="fa fa-play fa-rotate-270"> </i>
+                              </span>
+                           </div>
+                           <h3>Total Customers</h3>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+                     <div id="cardbox3">
+                        <div class="statistic-box">
+                           <i class="fa fa-automobile fa-3x"></i>
+                           <div class="counter-number pull-right">
+                            </i><span class="count-number">{{$vehicleCount}}</span> 
+                              <span class="slight"><i class="fa fa-play fa-rotate-270"> </i>
+                              </span>
+                           </div>
+                           <h3>  Total Vehicles</h3>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+                     <div id="cardbox4">
+                        <div class="statistic-box">
+                           <i class="fa fa-gears  fa-3x"></i>
+                           <div class="counter-number pull-right">
+                              <span class="count-number">{{$manifacturerCount}}</span> 
+                              <span class="slight"><i class="fa fa-play fa-rotate-270"> </i>
+                              </span>
+                           </div>
+                           <h3> Manifacturers</h3>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               
+               <!-- <div class="row">
                   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                      <div class="panel panel-bd lobidisable">
                         <div class="panel-heading">
@@ -131,9 +188,111 @@
                         </div>
                      </div>
                   </div>
-               </div>s
-              
-              
+               </div> -->
+
+               <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                     <div class="panel panel-bd lobidisable">
+                        <div class="panel-heading">
+                           <div class="panel-title">
+                              <h4>Latest Sold Devices</h4>
+                           </div>
+                        </div>
+                        <div class="panel-body">
+                           <div class="Workslist">
+                              <div class="worklistdate">
+                                 <table class="table table-hover">
+                                    <thead>
+                                       <tr>
+                                          <th>Device Id</th>
+                                          <th>Date</th>
+                                       </tr>
+                                    </thead>
+                                    <tbody>
+                                    <?php  $data=DB::table('sales')->latest()->limit(3)->get();?>
+
+                                     @foreach($data as $row)
+                                       <tr class="info">
+                                          <td>{{$row->device_id}}</td>
+                                          <td>{{$row->date}}</td>
+                                       </tr>
+                                       @endforeach
+                                    </tbody>
+                                 </table>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+
+                  <!-- Latest 5 Customers -->
+
+                  
+                  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                     <div class="panel panel-bd lobidisable">
+                        <div class="panel-heading">
+                           <div class="panel-title">
+                              <h4>Latest Customers</h4>
+                           </div>
+                        </div>
+                        <div class="panel-body">
+                           <div class="Workslist">
+                              <div class="worklistdate">
+                                 <table class="table table-hover">
+                                    <thead>
+                                       <tr>
+                                          <th>Customer Id</th>
+                                          <th>Name</th>
+                                       </tr>
+                                    </thead>
+                                    <tbody>
+                                    <?php  $allcustomer=DB::table('customer')->latest()->limit(3)->get();?>
+                                     @foreach($allcustomer as $row)
+                                       <tr class="info">
+                                          <td>{{$row->id}}</td>
+                                          <td>{{$row->name}}</td>
+                                       </tr>
+                                       @endforeach
+                                    </tbody>
+                                 </table>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+
+                  <!-- lates % Vehicles -->
+                  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                     <div class="panel panel-bd lobidisable">
+                        <div class="panel-heading">
+                           <div class="panel-title">
+                              <h4>New Vehicles</h4>
+                           </div>
+                        </div>
+                        <div class="panel-body">
+                           <div class="Workslist">
+                              <div class="worklistdate">
+                                 <table class="table table-hover">
+                                    <thead>
+                                       <tr>
+                                          <th>Vehicle Number</th>
+                                          <th>Customer</th>
+                                       </tr>
+                                    </thead>
+                                    <tbody>
+                                    <?php  $allvehicle=DB::table('Vechicles')->latest()->limit(3)->get();?>
+                                     @foreach($allvehicle as $row)
+                                       <tr class="info">
+                                          <td>{{$row->vechicle_number}}</td>
+                                          <td>{{$row->customer}}</td>
+                                       </tr>
+                                       @endforeach
+                                    </tbody>
+                                 </table>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
                <!-- /.row -->
               
             </section>
@@ -141,7 +300,5 @@
          </div>
          <!-- /.content-wrapper -->
          
-      </div>
-      
-
-      @include('common.footer')
+</div>     
+@include('common.footer')

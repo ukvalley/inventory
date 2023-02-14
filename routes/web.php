@@ -6,6 +6,8 @@ use App\Http\Controllers\MAdminPanelController;
 
 
 //new
+use App\Http\Controllers\Controller;
+
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\VehicleController;
 use App\Http\Controllers\UserController;
@@ -39,10 +41,16 @@ use App\Http\Controllers\ManifacturerController;
 */
 // Route::get('/mail',[MAdminPanelController::class,'index']);
 
+Route::get('Dashboard', [Controller::class, 'Dashboard'])->name('Dashboard');
 
-Route::get('/', function () {
-    return view('index');
-});
+
+
+
+Route::get('/', [Controller::class, 'Dashboard'])->name('Dashboard');
+Route::get('latesDevice', [Controller::class, 'latesDevice'])->name('latesDevice');
+
+
+
 
 //search
 
