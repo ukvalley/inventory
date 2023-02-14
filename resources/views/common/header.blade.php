@@ -138,7 +138,6 @@
                         <li><a href="/purchase/purchase_device">Purchase Device</a></li>
                         <li><a href="/getImport">Import Device</a></li>
                         <li><a href="/transfer">Transfer Device</a></li>
-
                      </ul>
                   </li>
                   <li class="treeview">
@@ -221,6 +220,10 @@
                          <li><a href="/records/records_table">Records</a></li>
                          <li><a href="/sim/sim_table">Sim Types</a></li>
                          <li><a href="/manifacturer/manifacturer_table">Manifacturer</a></li>
+                         <li><a href="/transaction/transaction_table">Transaction</a></li>
+                         <li><a href="/device_sale">Device Sale</a></li>
+                         <li><a href="/purchase/purchase_table">Purchase Table</a> </li>
+                         <li><a href="/sale/sale_table">Sales Table</a></li>
                      </ul>
                   </li>
                 

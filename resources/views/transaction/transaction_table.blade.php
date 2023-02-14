@@ -42,7 +42,7 @@
   <?php  $data=DB::table('Transaction')->get();?>
   @foreach($data as $row)
             <tr>
-            <td>{{$row->device_id}}</td>
+            <td>{{$row->id}}</td>
                <td>{{$row->sender}}</td>
                 <td>{{$row->receiver }}</td>
                 <td>{{$row->date}}</td>
