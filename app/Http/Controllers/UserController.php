@@ -16,7 +16,7 @@ public function  UserRegister(Request $request)
          $request->validate(
             [
                  'name'=>'required',
-                 'mobile'=>'required|digits_between:10,10',
+                 'mobile'=>'required|digits_between:10,10|unique:Users',
                  'city'=>'required',
                  'basic_amount'=>'required',
                  'user_type'=>'required',

@@ -7,7 +7,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading role-list-info-header">
                   <a href="{{ url('/purchase/purchase_device') }}" class="btn btn-success">Purchase New Device</a>
-                    <p>Device Table</p>
+                    <p>Device Purchase Table</p>
                     
                 </div>
 

@@ -21,8 +21,8 @@ class DeviceController extends Controller
          $request->validate(
           [
                'make'=>'required',
-               'ice_id'=>'required',
-               'imei'=>'required',
+               'ice_id'=>'required|unique:Device',
+               'imei'=>'required|unique:Device',
                'sim1'=>'required',
                'sim_1_type'=>'required',
                'sim2'=>'required',

@@ -23,16 +23,25 @@ class PurchaseController extends Controller
      {     
       
          
-      $request->validate(
-        [
+      $validator = \Validator::make($request->all(), [
           'date'=>'required',
-          'ice_id'=>'required',
-             'amount'=>'required',
-             'quantity'=>'required',
-             'manufactured_by'=>'required',
+          'ice_id'=>'required|unique:Purchase',
+          'imei'=>'required|unique:Purchase',
+          'sim1_number'=>'required|unique:Purchase',
+          'sim2_number'=>'required|unique:Purchase',
+           'amount'=>'required',
+           'quantity'=>'required',
+           'manufactured_by'=>'required',
            
         ]
         );
+        if ($validator->fails()) {
+          $errors = $validator->errors();
+          return $errors->toJson();
+      }
+     
+      else {
+        
 
         //insert data in database 
         
@@ -77,7 +86,7 @@ class PurchaseController extends Controller
 
                 
           return redirect()->back();
-                
+      }       
           
       }
 

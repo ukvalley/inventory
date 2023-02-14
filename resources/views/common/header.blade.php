@@ -121,6 +121,8 @@
                          <li><a href="/customer/register_customer">Add New Customer</a></li>
                          <li><a href="/vehicle/vehicle_table">Show Vehicle</a></li>
                         <li><a href="/vehicle/register_vehicle">Add New Vehicle</a></li>
+                        <li><a href="/manifacturer/manifacturer_table">Show Manifacturers</a></li>
+
                         
                      </ul>
                   </li>
@@ -182,7 +184,7 @@
 
                      <ul class="treeview-menu">
                         <li><a href="/sim/simtypes">Add Sim Types</a></li>
-                        <li><a href="add_manifactures]r">Add Manifacturer</a></li>
+                        <li><a href="/manifacturer/manifacturer">Add Manifacturer</a></li>
                         <li><a href="user/register_user">Add User</a></li>
                      </ul>
                      

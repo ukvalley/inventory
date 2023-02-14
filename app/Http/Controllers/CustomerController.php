@@ -15,7 +15,7 @@ class CustomerController extends Controller
                'name'=>'required',
                'mobile'=>'required|digits_between:10,10',
                'address'=>'required',
-               'adhar_number'=>'required|digits_between:12,12',
+               'adhar_number'=>'required|unique:Customer|digits_between:12,12',
                'adhar_front_image'=>'required|image',
                'adhar_back_image'=>'required|image'
           ]

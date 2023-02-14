@@ -17,7 +17,7 @@ class VehicleController extends Controller
                      
          $request->validate(
           [
-               'vechicle_number'=>'required',
+               'vechicle_number'=>'required|unique:Vechicles',
                'customer'=>'required',
                'rc_book_file'=>'required|image',
                'vehicle_image_1'=>'required|image',
