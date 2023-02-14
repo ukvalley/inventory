@@ -1,4 +1,6 @@
-@include('common.header') <div class="content-wrapper">
+@include('common.header') 
+
+<div class="content-wrapper">
   <section class="content">
     <div class="row">
       <!-- Form controls -->
@@ -33,7 +35,8 @@
                             <th scope="col">IMEI</th>
                             <th scope="col">ICE ID</th>
                           </tr>
-                        </thead> <?php  $data=DB::table('device')->get();?> 
+                        </thead>
+                         <?php  $data=DB::table('device')->get();?> 
                           <tbody>
                           </tbody>
                       </table>
@@ -43,7 +46,7 @@
                           <label>User Type</label>
                           <select class="form-control" onChange='' name="user_type" id="user-select">
                             <option>Select</option>
-                            <option value="Sales Agent">Sales Agent</option>
+                            <option value="sales_agent">Sales Agent</option>
                             <option value="technician">technician</option>
                           </select>
                         </div>
