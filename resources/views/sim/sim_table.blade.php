@@ -24,8 +24,8 @@
       <th scope="col"><table class="table table-striped table-dark">
   <thead>
     <tr>
-    <th scope="col">id</th>
-      <th scope="col">name</th>
+    <th scope="col">ID</th>
+      <th scope="col">Name</th>
 
     </tr>
 

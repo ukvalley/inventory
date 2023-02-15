@@ -24,12 +24,12 @@
       <th scope="col"><table class="table table-striped table-dark">
   <thead>
     <tr>
-    <th scope="col">id</th>
+    <th scope="col">ID</th>
       <th scope="col">Date</th>
       <th scope="col">Device ID</th>
-      <th scope="col">Device Number</th>
+      <th scope="col"> ICE ID</th>
       <th scope="col">Allocated to</th>
-      <th scope="col">User id</th>
+      <th scope="col">User ID</th>
       
 
       <!-- <th scope="col">Edit</th>
