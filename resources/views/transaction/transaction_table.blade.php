@@ -44,7 +44,7 @@
             <tr>
             <td>{{$row->id}}</td>
                <td>{{$row->sender}}</td>
-                <td>{{$row->receiver }}</td>
+                <td>{{$row->receiver}}</td>
                 <td>{{$row->date}}</td>
                 <td>{{$row->quantity}}</td>
                 <td>{{$row->amount}}</td>
