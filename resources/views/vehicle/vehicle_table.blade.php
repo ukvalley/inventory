@@ -55,7 +55,7 @@
                   <p>No Image</p>
                   @endif
                 </td>
-
+               
                 <td><a href="{{url('/')}}/vehicle_info?id={{$row->id }}">
                 @if(isset($row->vehicle_image_1))
                   <img width="50px" src="{{url('/')}}/upload/{{$row->vehicle_image_1}}"> 
