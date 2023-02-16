@@ -70,7 +70,7 @@
                   <td><a href="{{url('/')}}/device_info?id={{$row->id }}">{{$row->customer_id_id->name ?? ''}}</td>
 
                   <td>
-                    @if($row->statuss == null || $row->statuss == 'unsold')
+                    @if($row->statuss == null || $row->status == 'unsold')
                       <span class="btn btn-danger small">Unsold</span>
                     @else
                     <span class="btn btn-success small">Sold</span>

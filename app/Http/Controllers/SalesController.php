@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use DB;
 use Illuminate\Http\Request;
 use App\Models\Admin\Sales;
+use PDF;
+
 
 
 class SalesController extends Controller
@@ -51,7 +53,7 @@ class SalesController extends Controller
    //print_r($data); die();
 
    //get data from database 
-   return view('sales_table')->with(compact($data)); 
+   return view('sales_table')->with(compact('data')); 
 }
 
 public function register_sales()
@@ -139,4 +141,17 @@ public function openSalesInfo()
     // print_r($data); die();
      return view('sales_info')->with(compact('data','allsales'));
 }
+
+
+//Export Pdf
+// Generate PDF
+public function createPDF() {
+     // retreive all records from db
+     $data = Sales::all();
+     // share data to view
+     view()->share('sales',$data);
+     $pdf = PDF::loadView('pdf_view', $data);
+     // download PDF file with download method
+     return $pdf->download('pdf_file.pdf');
+   }
 }

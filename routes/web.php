@@ -342,3 +342,9 @@ Route::get('/manifacturer/manifacturer_edit', [ManifacturerController::class, 'm
 Route::get('destroy', [ManifacturerController::class, 'destroy'])->name('destroy');
 
 
+
+
+//sales PDF Export
+Route::get('/sales/pdf', [SalesController::class, 'createPDF']);
+
+

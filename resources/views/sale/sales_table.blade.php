@@ -8,6 +8,7 @@
                 <div class="panel-heading role-list-info-header">
                   <a href="{{ url('/sale/sales') }}" class="btn btn-success">Sales New Device</a>
                     <p>Sale Table</p>
+                    <a class="btn btn-primary" href="{{ URL::to('/sales/pdf') }}">Export to PDF</a>
                     
                 </div>
 
