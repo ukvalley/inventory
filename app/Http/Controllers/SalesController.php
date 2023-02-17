@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Admin\Sales;
 use PDF;
 
-
+use load;
 
 class SalesController extends Controller
 {
@@ -50,18 +50,22 @@ class SalesController extends Controller
 {
    $data=DB::table('Sales')->get();
 
+   $pdf = PDF::loadView('data',$data);  
+   return $pdf->download('pdfview.pdf');  
+
    //print_r($data); die();
 
    //get data from database 
-   return view('sales_table')->with(compact('data')); 
+   return view('sale/sales_table')->with(compact('data')); 
 }
 
 public function register_sales()
  {    
      
      $allsales = Sales::get();
-
-     // print_r($data); die();
+     $pdf = PDF::loadView('data',$allsales);  
+     return $pdf->download('pdfview.pdf');  
+     // print_r($allsales); die();
       return view('/sale/register_sales')->with(compact('allsales'));
  }
 
@@ -128,6 +132,16 @@ public function sales_destroy()
         return $chnage_date_f;
  }
 
+ public function createPDF() {
+     // retreive all records from db
+     $data = Sales::all();
+     // share data to view
+     view()->share('sales',$data);
+     $pdf = PDF::loadView('sales_table', $data);
+     // download PDF file with download method
+
+     return $pdf->download('pdf_file.pdf');
+   }
  
 public function openSalesInfo()
 {    
@@ -142,16 +156,45 @@ public function openSalesInfo()
      return view('sales_info')->with(compact('data','allsales'));
 }
 
+//script pdf
+     public function pdfview(Request $request)  
+    {  
+        $data = DB::table("sales")->get();  
+     //    view()->('sales',$data);  
+          
+        if($request->has('download')){  
+            $pdf = PDF::loadView('/sale/sales_table',$data);  
+            return $pdf->download('pdfview.pdf');  
+        }  
+  
+        return view('sale/sales_table');  
+    }  
 
-//Export Pdf
-// Generate PDF
-public function createPDF() {
-     // retreive all records from db
-     $data = Sales::all();
-     // share data to view
-     view()->share('sales',$data);
-     $pdf = PDF::loadView('pdf_view', $data);
-     // download PDF file with download method
-     return $pdf->download('pdf_file.pdf');
-   }
+
+
+
+//    public function viewPDF()
+//     {
+//         $sales = Sales::all();
+
+//         $pdf = PDF::loadView('pdf.salesdetails', array('users' =>  $sales))
+//         ->setPaper('a4', 'portrait');
+
+//         return $pdf->stream();
+
+//     }
+
+
+
+
+//     public function downloadPDF()
+//     {
+//         $sales = Sales::all();
+
+//         $pdf = PDF::loadView('pdf.salesdetails', array('sales' =>  $sales))
+//         ->setPaper('a4', 'portrait');
+
+//         return $pdf->download('sales-details.pdf');   
+//     }
+
 }
