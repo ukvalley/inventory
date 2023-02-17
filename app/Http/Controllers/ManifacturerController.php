@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 use DB;
+use PDF;
+
 
 use Illuminate\Http\Request;
 use App\Models\Admin\Manifacturer;
@@ -108,7 +110,16 @@ public function register_manifacturer()
      
          return redirect()->back();
      }
-    
+    // Generate PDF
+    public function createPDF() {
+      // retreive all records from db
+      $data = Manifacturer::all();
+      // share data to view
+      view()->share('manifacturer',$data);
+      $pdf = PDF::loadView('pdf_view', $data);
+      // download PDF file with download method
+      return $pdf->download('pdf_file.pdf');
+    }
     
  
     

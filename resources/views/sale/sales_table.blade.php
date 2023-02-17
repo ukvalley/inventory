@@ -8,7 +8,7 @@
                 <div class="panel-heading role-list-info-header">
                   <a href="{{ url('/sale/sales') }}" class="btn btn-success">Sales New Device</a>
                     <p>Sale Table</p>
-                    <a class="btn btn-primary" href="{{ URL::to('/sales/pdf') }}">Export to PDF</a>
+                    <a class="btn btn-primary" href="{{route('pdfview',['download'=>'pdf']) }}">Export to PDF</a>
                     
                 </div>
 
@@ -39,20 +39,22 @@
       
     </tr>
   </thead>
-  <?php  $data=DB::table('sales')->get();?>
-  @foreach($data as $row)
+  <?php  $data=DB::table('sales')->get();
+  
+  ?>
+  @foreach($data as $data)
             <tr>
-               <td>{{$row->id }}</td>
-                <td>{{$row->date }}</td>
-                <td>{{$row->device_id}}</td>
-                <td>{{$row->device_number}}</td>
-                <td>{{$row->allocated_to}}</td>
-                <td>{{$row->user_id}}</td>
+               <td>{{$data->id }}</td>
+                <td>{{$data->date }}</td>
+                <td>{{$data->device_id}}</td>
+                <td>{{$data->device_number}}</td>
+                <td>{{$data->allocated_to}}</td>
+                <td>{{$data->user_id}}</td>
                <td>
-               <a href="{{url('/')}}/sale/sales_edit?id={{$row->id}}" class="btn btn-primary">Edit</a>
+               <a href="{{url('/')}}/sale/sales_edit?id={{$data->id}}" class="btn btn-primary">Edit</a>
                 </td>
                 <td>
-                <a href="{{url('/')}}/sales_destroy?id={{$row->id}}" class="btn btn-danger">Delete</a>
+                <a href="{{url('/')}}/sales_destroy?id={{$data->id}}" class="btn btn-danger">Delete</a>
                 </td>
                 
             

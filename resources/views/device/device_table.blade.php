@@ -54,7 +54,7 @@
               
                <td> <a href="{{url('/')}}/device_info?id={{$row->id }}">{{$row->id }} </a></td>
                
-                <td><a href="{{url('/')}}/device_info?id={{$row->id }}">{{$row->make }}</td>
+                <td><a href="{{url('/')}}/device_info?id={{$row->id }}">{{$row->manifacturer_name}}</td>
                 <td><a href="{{url('/')}}/device_info?id={{$row->id }}">{{$row->ice_id}}</td>
                 <td><a href="{{url('/')}}/device_info?id={{$row->id }}">{{$row->imei}}</td>
                 <!-- <td><a href="{{url('/')}}/device_info?id={{$row->id }}">{{$row->sim1}}</td> -->

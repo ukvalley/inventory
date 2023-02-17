@@ -333,6 +333,7 @@ Route::get('/manifacturer/manifacturer_table', function () {
 Route::get('/manifacturer/manifacturer', function () {  
     return view('/manifacturer/manifacturer');
 });
+Route::post('register_manifacturer', [ManifacturerController::class, 'register_manifacturer'])->name('register_manifacturer');
 
 Route::post('/manifacturer-post', [ManifacturerController::class, 'ManifacturerRegister'])->name('ManifacturerRegister');
 Route::post('/manifacturer-update/{id}', [ManifacturerController::class, 'update'])->name('update');
@@ -345,6 +346,14 @@ Route::get('destroy', [ManifacturerController::class, 'destroy'])->name('destroy
 
 
 //sales PDF Export
-Route::get('/sales/pdf', [SalesController::class, 'createPDF']);
+//Route::get('/sales/pdf',[SalesController::class,'createPDF']);
+
+//new pdf
+
+// Route::post('sales/view-pdf', [SalesController::class, 'viewPDF'])->name('view-pdf');
+// Route::post('sales/download-pdf', [SalesController::class, 'downloadPDF'])->name('download-pdf');
+
+Route::get('pdfview', [SalesController::class, 'pdfview'])->name('pdfview');
 
 
+//manifacturer pdf

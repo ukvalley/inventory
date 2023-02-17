@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
 use App\Models\Admin\Users;
 use App\Http\Controllers\Traits\Admin\AdmikoFileUploadTrait;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Sales extends Model
 {
@@ -48,4 +49,5 @@ class Sales extends Model
     {
         return $this->belongsTo(Device::class, 'device_id');
     }
+    
 }
