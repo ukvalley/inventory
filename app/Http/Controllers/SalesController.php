@@ -50,8 +50,7 @@ class SalesController extends Controller
 {
    $data=DB::table('Sales')->get();
 
-   $pdf = PDF::loadView('data',$data);  
-   return $pdf->download('pdfview.pdf');  
+   
 
    //print_r($data); die();
 
@@ -63,8 +62,7 @@ public function register_sales()
  {    
      
      $allsales = Sales::get();
-     $pdf = PDF::loadView('data',$allsales);  
-     return $pdf->download('pdfview.pdf');  
+    
      // print_r($allsales); die();
       return view('/sale/register_sales')->with(compact('allsales'));
  }
@@ -132,16 +130,16 @@ public function sales_destroy()
         return $chnage_date_f;
  }
 
- public function createPDF() {
-     // retreive all records from db
-     $data = Sales::all();
-     // share data to view
-     view()->share('sales',$data);
-     $pdf = PDF::loadView('sales_table', $data);
-     // download PDF file with download method
+//  public function createPDF() {
+//      // retreive all records from db
+//      $data = Sales::all();
+//      // share data to view
+//      view()->share('sales',$data);
+//      $pdf = PDF::loadView('sale/sales_table', $data);
+//      // download PDF file with download method
 
-     return $pdf->download('pdf_file.pdf');
-   }
+//      return $pdf->download('pdf_file.pdf');
+//    }
  
 public function openSalesInfo()
 {    
@@ -159,15 +157,14 @@ public function openSalesInfo()
 //script pdf
      public function pdfview(Request $request)  
     {  
-        $data = DB::table("sales")->get();  
-     //    view()->('sales',$data);  
-          
-        if($request->has('download')){  
-            $pdf = PDF::loadView('/sale/sales_table',$data);  
-            return $pdf->download('pdfview.pdf');  
-        }  
-  
-        return view('sale/sales_table');  
+        
+        $a = [];
+        $data = Sales::all();
+
+       // die();        
+        $pdf = PDF::loadView('sale.salespdf', array('data' =>  $data));
+
+         return $pdf->stream();
     }  
 
 

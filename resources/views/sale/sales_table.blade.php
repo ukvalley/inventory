@@ -6,10 +6,9 @@
         <div>
             <div class="panel panel-default">
                 <div class="panel-heading role-list-info-header">
-                  <a href="{{ url('/sale/sales') }}" class="btn btn-success">Sales New Device</a>
+                  <a href="{{ url('/sale/sales') }}" class="btn btn-success">Sale New Device</a>
                     <p>Sale Table</p>
                     <a class="btn btn-primary" href="{{route('pdfview',['download'=>'pdf']) }}">Export to PDF</a>
-                    
                 </div>
 
                 <!-- /.panel-heading -->
@@ -28,7 +27,7 @@
     <th scope="col">ID</th>
       <th scope="col">Date</th>
       <th scope="col">Device ID</th>
-      <th scope="col"> ICE ID</th>
+      <th scope="col">ICE ID</th>
       <th scope="col">Allocated to</th>
       <th scope="col">User ID</th>
       

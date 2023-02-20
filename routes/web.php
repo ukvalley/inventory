@@ -353,7 +353,15 @@ Route::get('destroy', [ManifacturerController::class, 'destroy'])->name('destroy
 // Route::post('sales/view-pdf', [SalesController::class, 'viewPDF'])->name('view-pdf');
 // Route::post('sales/download-pdf', [SalesController::class, 'downloadPDF'])->name('download-pdf');
 
+
+//-----------pdf Routes-------------
+Route::get('/sale/salespdf', function () {
+    return view('/sale/salespdf');
+});
+
 Route::get('pdfview', [SalesController::class, 'pdfview'])->name('pdfview');
 
 
-//manifacturer pdf
+// Route::get('pdfview', [TransactionController::class, 'pdfview'])->name('pdfview');
+// Route::get('pdfview', [PurchaseController::class, 'pdfview'])->name('pdfview');
+
