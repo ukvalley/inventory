@@ -148,7 +148,7 @@ public function openSalesInfo()
 
 
 
-//script pdf
+// pdf
      public function pdfview(Request $request)  
     {  
       $sales = Sales::all();

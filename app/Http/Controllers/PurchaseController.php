@@ -7,8 +7,9 @@ use App\Models\Admin\Purchase;
 use App\Models\Admin\SimTypes;
 use App\Models\Admin\Customer;
 use App\Models\Admin\Users;
-
+use PDF;
 use App\Models\Admin\Manifacturer;
+use load;
 
 use App\Models\Admin\Device;
 
@@ -214,4 +215,18 @@ public function openPurchaseInfo()
     // print_r($allpurchase); die();
      return view('purchase_info')->with(compact('data','allpurchase'));
 }
+
+public function pdfview_purchase(Request $request)  
+{  
+  $purchase= Purchase::all();
+  $data= [
+     'title' => 'Welcome to CodeSolutionStuff.com',
+     'date' => date('m/d/Y'),
+     'purchase' => $purchase
+ ];
+   
+ $pdf = PDF::loadView('purchase.purchasepdf', $data);
+
+ return $pdf->download('purchase.pdf');
+}  
 }

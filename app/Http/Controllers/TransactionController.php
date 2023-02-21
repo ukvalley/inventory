@@ -5,7 +5,8 @@ use DB;
 
 use Illuminate\Http\Request;
 use App\Models\Admin\Transaction;
-
+use PDF;
+use load;
 
 
 class TransactionController extends Controller
@@ -49,8 +50,19 @@ public function transactionUpdate(Request $request)
 
 
 
+}    
 }
+public function pdfview_transaction(Request $request)  
+{  
+  $transaction = Transaction::all();
+  $data = [
+     'title' => 'Welcome to CodeSolutionStuff.com',
+     'date' => date('m/d/Y'),
+     'transaction' => $transaction
+ ];
+   
+ $pdf = PDF::loadView('transaction.transactionpdf', $data);
 
-    
-}
+ return $pdf->download('transactionpdf.pdf');
+}  
 }

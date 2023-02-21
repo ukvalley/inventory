@@ -7,12 +7,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Laravel 7 PDF Example</title>
+    <title>Sales PDF</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 </head>
 <body>
     <div class="container mt-5">
-        <h2 class="text-center mb-3">Laravel HTML to PDF Example</h2>
+        <h2 class="text-center mb-3">Sales PDF</h2>
         <div class="d-flex justify-content-end mb-4">
         </div>
         <table class="table table-bordered mb-5">
@@ -30,7 +30,7 @@
                 @foreach($sales ?? '' as $data)
                 <tr>
                 <td>{{$data->id }}</td>
-                <td>{{$data->date }}</td>
+                <td>{{$data->date}}</td>
                 <td>{{$data->device_id}}</td>
                 <td>{{$data->device_number}}</td>
                 <td>{{$data->allocated_to}}</td>

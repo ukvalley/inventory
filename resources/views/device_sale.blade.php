@@ -18,7 +18,7 @@
                   
 
                 
-                <h3>Device Transferr</h3>
+                <h3>Device Sale</h3>
                            <form class="col-sm-6" action="{{url('/')}}/saleUpdate" method="post"  enctype="multipart/form-data">
                     {{ csrf_field() }}
                     

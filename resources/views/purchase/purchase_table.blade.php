@@ -8,6 +8,8 @@
                 <div class="panel-heading role-list-info-header">
                   <a href="{{ url('/purchase/purchase_device') }}" class="btn btn-success">Purchase New Device</a>
                     <p>Device Purchase Table</p>
+                    <a class="btn btn-primary" href="{{route('pdfview_purchase',['download'=>'pdf']) }}">Export to PDF</a>
+
                     
                 </div>
 
@@ -24,7 +26,7 @@
       <th scope="col"><table class="table table-striped table-dark">
   <thead>
     <tr>
-    <th scope="col">ID</th>
+    <th scope="col">ID </th>
       <th scope="col">Date</th>
  
       <th scope="col">ICE ID</th>
@@ -40,22 +42,22 @@
     </tr>
   </thead>
   <?php  $data=DB::table('purchase')->get();?>
-  @foreach($data as $row)
+  @foreach($data as $data)
             <tr>
-               <td><a href="{{url('/')}}/purchase_info?id={{$row->id }}">{{$row->id }}</td>
-                <td><a href="{{url('/')}}/purchase_info?id={{$row->id }}">{{$row->date }}</td>
+               <td><a href="{{url('/')}}/purchase_info?id={{$data->id }}">{{$data->id }}</td>
+                <td><a href="{{url('/')}}/purchase_info?id={{$data->id }}">{{$data->date }}</td>
              
-                <td><a href="{{url('/')}}/purchase_info?id={{$row->id }}">{{$row->ice_id}}</td>
-                <td><a href="{{url('/')}}/purchase_info?id={{$row->id }}">{{$row->amount}}</td>
-                <td><a href="{{url('/')}}/purchase_info?id={{$row->id }}">{{$row->quantity}}</td>
-                <td><a href="{{url('/')}}/purchase_info?id={{$row->id }}">{{$row->manufactured_by}}</td>
+                <td><a href="{{url('/')}}/purchase_info?id={{$data->id }}">{{$data->ice_id}}</td>
+                <td><a href="{{url('/')}}/purchase_info?id={{$data->id }}">{{$data->amount}}</td>
+                <td><a href="{{url('/')}}/purchase_info?id={{$data->id }}">{{$data->quantity}}</td>
+                <td><a href="{{url('/')}}/purchase_info?id={{$data->id }}">{{$data->manufactured_by}}</td>
 
                 
                 <td>
-               <a href="{{url('/')}}/purchase/purchase_edit?id={{$row->id}}" class="btn btn-primary">Edit</a>
+               <a href="{{url('/')}}/purchase/purchase_edit?id={{$data->id}}" class="btn btn-primary">Edit</a>
                 </td>
                 <td>
-                <a href="{{url('/')}}/purchase_destroy?id={{$row->id}}" class="btn btn-danger">Delete</a>
+                <a href="{{url('/')}}/purchase_destroy?id={{$data->id}}" class="btn btn-danger">Delete</a>
                 </td>
                    
             </tr>

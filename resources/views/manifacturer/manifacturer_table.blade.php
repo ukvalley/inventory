@@ -32,7 +32,9 @@
 
 
   </thead>
-  @foreach($manifacturer as $row)
+  <?php  $data=DB::table('manifacturer')->get();?>
+
+  @foreach($data as $row)
             <tr>
                <td>{{$row->id }}</td>
                 <td>{{$row->name}}</td>
