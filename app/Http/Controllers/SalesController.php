@@ -130,16 +130,6 @@ public function sales_destroy()
         return $chnage_date_f;
  }
 
-//  public function createPDF() {
-//      // retreive all records from db
-//      $data = Sales::all();
-//      // share data to view
-//      view()->share('sales',$data);
-//      $pdf = PDF::loadView('sale/sales_table', $data);
-//      // download PDF file with download method
-
-//      return $pdf->download('pdf_file.pdf');
-//    }
  
 public function openSalesInfo()
 {    
@@ -154,19 +144,37 @@ public function openSalesInfo()
      return view('sales_info')->with(compact('data','allsales'));
 }
 
+
+
+
+
 //script pdf
      public function pdfview(Request $request)  
     {  
-        
-        $a = [];
-        $data = Sales::all();
-
-       // die();        
-        $pdf = PDF::loadView('sale.salespdf', array('data' =>  $data));
-
-         return $pdf->stream();
+      $sales = Sales::all();
+      $data = [
+         'title' => 'Welcome to CodeSolutionStuff.com',
+         'date' => date('m/d/Y'),
+         'sales' => $sales
+     ];
+       
+     $pdf = PDF::loadView('sale.salespdf', $data);
+ 
+     return $pdf->download('salepdf.pdf');
     }  
 
+
+    
+//  public function createPDF() {
+//      // retreive all records from db
+//      $data = Sales::all();
+//      // share data to view
+//      view()->share('sales',$data);
+//      $pdf = PDF::loadView('sale/sales_table', $data);
+//      // download PDF file with download method
+
+//      return $pdf->download('pdf_file.pdf');
+//    }
 
 
 
@@ -193,5 +201,6 @@ public function openSalesInfo()
 
 //         return $pdf->download('sales-details.pdf');   
 //     }
+
 
 }

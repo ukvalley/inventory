@@ -346,7 +346,7 @@ Route::get('destroy', [ManifacturerController::class, 'destroy'])->name('destroy
 
 
 //sales PDF Export
-//Route::get('/sales/pdf',[SalesController::class,'createPDF']);
+// Route::get('',[SalesController::class,'createPDF']);
 
 //new pdf
 
@@ -364,4 +364,3 @@ Route::get('pdfview', [SalesController::class, 'pdfview'])->name('pdfview');
 
 // Route::get('pdfview', [TransactionController::class, 'pdfview'])->name('pdfview');
 // Route::get('pdfview', [PurchaseController::class, 'pdfview'])->name('pdfview');
-
