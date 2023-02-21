@@ -27,20 +27,14 @@
                 
                 <div class=" col-12">
                     <div class="form-group row">
-                        <label for="manufactured_by" class="col-md-2 col-form-label">Manufactured By:</label>
+                        <label for="make" class="col-md-2 col-form-label">Make:</label>
                         <div class="col-md-10">
-                            <select class="form-select" id="manufactured_by" name="manufactured_by" >
-                                <option value="">{{trans("admiko.select")}}</option>
-                                @foreach($manifacturer_all as $id => $value)
-                                    <option value="{{ $id }}" {{ (old('manufactured_by') ? old('manufactured_by') : $data->manufactured_by ?? '') == $id ? 'selected' : '' }}>{{ $value }}</option>
-                                @endforeach
-                            </select>
-                            <div class="invalid-feedback @if ($errors->has('manufactured_by')) d-block @endif">{{trans('admiko.required_text')}}</div>
-                            <small id="manufactured_by_help" class="text-muted"></small>
+                            <input type="text" class="form-control" id="make" name="make"  placeholder="Make"  value="{{{ old('make', isset($data)?$data->make : '') }}}">
+                            <div class="invalid-feedback @if ($errors->has('make')) d-block @endif">{{trans('admiko.required_text')}}</div>
+                            <small id="make_help" class="text-muted"></small>
                         </div>
                     </div>
                 </div>
-
                 <div class=" col-12">
                     <div class="form-group row">
                         <label for="ice_id" class="col-md-2 col-form-label">ICE ID:</label>

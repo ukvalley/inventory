@@ -11,7 +11,6 @@ use App\Models\Admin\Device;
 use Illuminate\Http\Request;
 use App\Http\Requests\Admin\DeviceRequest;
 use Gate;
-use App\Models\Admin\Manifacturer;
 use App\Models\Admin\SimTypes;
 use App\Models\Admin\Users;
 use App\Models\Admin\Customer;
@@ -41,12 +40,11 @@ class DeviceController extends Controller
         $admiko_data['formAction'] = route("admin.device.store");
         
         
-		$manifacturer_all = Manifacturer::all()->sortBy("name")->pluck("name", "id");
 		$sim_types_all = SimTypes::all()->sortBy("name")->pluck("name", "id");
 		$statuss_all = Device::STATUSS_CONS;
 		$users_all = Users::getParentChildrenList();
 		$customer_all = Customer::all()->sortBy("name")->pluck("name", "id");
-        return view("admin.device.manage")->with(compact('admiko_data','manifacturer_all','sim_types_all','statuss_all','users_all','customer_all'));
+        return view("admin.device.manage")->with(compact('admiko_data','sim_types_all','statuss_all','users_all','customer_all'));
     }
 
     public function store(DeviceRequest $request)
@@ -78,13 +76,12 @@ class DeviceController extends Controller
         $admiko_data['formAction'] = route("admin.device.update", [$Device->id]);
         
         
-		$manifacturer_all = Manifacturer::all()->sortBy("name")->pluck("name", "id");
 		$sim_types_all = SimTypes::all()->sortBy("name")->pluck("name", "id");
 		$statuss_all = Device::STATUSS_CONS;
 		$users_all = Users::getParentChildrenList();
 		$customer_all = Customer::all()->sortBy("name")->pluck("name", "id");
         $data = $Device;
-        return view("admin.device.manage")->with(compact('admiko_data', 'data','manifacturer_all','sim_types_all','statuss_all','users_all','customer_all'));
+        return view("admin.device.manage")->with(compact('admiko_data', 'data','sim_types_all','statuss_all','users_all','customer_all'));
     }
 
     public function update(DeviceRequest $request,$id)

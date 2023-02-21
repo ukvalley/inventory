@@ -37,12 +37,12 @@
           </div>
           <br>
           <div class="panel-body ">
-            <h4 class="divid">Devices Id: {{$data->id}}
+            <h4 class="divid">Devices Id:{{$data->id}}
               </span>
             </h4>
             <form action="" method="post" enctype="multipart/form-data">
               {{ csrf_field() }}
-              <h4>Manafactured By: &nbsp&nbsp&nbsp <span class="spaninfo">{{$data->make}} </span>
+              <h4>Manafactured By: &nbsp&nbsp&nbsp <span class="spaninfo">{{$data->manufactured_by}} </span>
               </h4>
               <div class="row">
                 <div class="col-sm-4">
@@ -94,7 +94,7 @@
               </h4>
               <div class="row">
                 <div class="col-sm-4">
-                  <h4>User Id:&nbsp&nbsp&nbsp <span class="spaninfo">{{$data->user_id}}</span>
+                  <h4>User Id:&nbsp&nbsp&nbsp <span class="spaninfo">{{$data->user_id_id->name}}</span>
                   </h4>
                 </div>
                 <div class="col-sm-4">

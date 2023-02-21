@@ -7,7 +7,6 @@
  */
 namespace App\Models\Admin;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Admin\Manifacturer;
 use App\Models\Admin\SimTypes;
 use Carbon\Carbon;
 use App\Models\Admin\Users;
@@ -29,7 +28,7 @@ class Device extends Model
     ];
 
     protected $fillable = [
-		"manufactured_by",
+		"make",
 		"ice_id",
 		"imei",
 		"sim1",
@@ -44,11 +43,7 @@ class Device extends Model
 		"user_id",
 		"customer_id",
     ];
-    public function manufactured_by_id()
-    {
-        return $this->belongsTo(Manifacturer::class, 'manufactured_by');
-    }
-	public function sim_1_type_id()
+    public function sim_1_type_id()
     {
         return $this->belongsTo(SimTypes::class, 'sim_1_type');
     }
@@ -87,9 +82,5 @@ class Device extends Model
 	public function customer_id_id()
     {
         return $this->belongsTo(Customer::class, 'customer_id');
-    }
-    public function manifacturer_id_id()
-    {
-        return $this->belongsTo(Manifacturer::class, 'manifacturer_id');
     }
 }

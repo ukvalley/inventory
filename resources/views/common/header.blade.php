@@ -149,7 +149,7 @@
                      </a>
                      <ul class="treeview-menu">
                         <li><a href="/device_sale">Sale Device</a></li>
-                        <li><a href="">Show Sale Device</a></li>
+                        <li><a href="sale/sales_table">Show Sale Device</a></li>
                         <li><a href="">Device Activation</a></li>
                       
                      </ul>
@@ -217,13 +217,13 @@
                         <li><a href="/device/device_table">Device</a></li>
                         <li><a href="/purchase/purchase_table">Purchase</a></li>
                         <li><a href="/sale/sales_table">Sales</a></li>
-                         <li><a href="/records/records_table">Records</a></li>
+                         <!-- <li><a href="/records/records_table">Records</a></li> -->
                          <li><a href="/sim/sim_table">Sim Types</a></li>
                          <li><a href="/manifacturer/manifacturer_table">Manifacturer</a></li>
                          <li><a href="/transaction/transaction_table">Transaction</a></li>
                          <li><a href="/device_sale">Device Sale</a></li>
                          <li><a href="/purchase/purchase_table">Purchase Table</a> </li>
-                         <li><a href="/sale/sale_table">Sales Table</a></li>
+                         <li><a href="/sale/sales_table">Sales Table</a></li>
                      </ul>
                   </li>
                 

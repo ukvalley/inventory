@@ -14,7 +14,8 @@ class DeviceRequest extends FormRequest
     public function rules()
     {
         return [
-            "manufactured_by"=>[
+            "make"=>[
+				"string",
 				"nullable"
 			],
 			"ice_id"=>[
@@ -69,7 +70,7 @@ class DeviceRequest extends FormRequest
     public function attributes()
     {
         return [
-            "manufactured_by"=>"Manufactured By",
+            "make"=>"Make",
 			"ice_id"=>"ICE ID",
 			"imei"=>"IMEI",
 			"sim1"=>"SIM1",

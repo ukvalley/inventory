@@ -50,7 +50,7 @@ class SalesController extends Controller
 {
    $data=DB::table('Sales')->get();
 
-   
+//    $data=Device::with(['sim_1_type_id','sim_2_type_id','customer_id_id','user_id_id',])->get();
 
    //print_r($data); die();
 

@@ -27,7 +27,7 @@
   <thead>
     <tr>
     <th scope="col">id</th>
-      <th scope="col">Make</th>
+      <th scope="col">Manifactured By</th>
       <th scope="col">ICE_ID</th>
       <th scope="col">IMEI</th>
       <!-- <th scope="col">SIM1</th> -->
@@ -54,7 +54,7 @@
               
                <td> <a href="{{url('/')}}/device_info?id={{$row->id }}">{{$row->id }} </a></td>
                
-                <td><a href="{{url('/')}}/device_info?id={{$row->id }}">{{$row->manifacturer_name}}</td>
+                <td><a href="{{url('/')}}/device_info?id={{$row->id }}">{{$row->manufactured_by_id->name ?? ''}}</td>
                 <td><a href="{{url('/')}}/device_info?id={{$row->id }}">{{$row->ice_id}}</td>
                 <td><a href="{{url('/')}}/device_info?id={{$row->id }}">{{$row->imei}}</td>
                 <!-- <td><a href="{{url('/')}}/device_info?id={{$row->id }}">{{$row->sim1}}</td> -->
@@ -70,7 +70,7 @@
                   <td><a href="{{url('/')}}/device_info?id={{$row->id }}">{{$row->customer_id_id->name ?? ''}}</td>
 
                   <td>
-                    @if($row->statuss == null || $row->status == 'unsold')
+                    @if($row->status == null || $row->status == 'unsold')
                       <span class="btn btn-danger small">Unsold</span>
                     @else
                     <span class="btn btn-success small">Sold</span>

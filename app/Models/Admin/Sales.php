@@ -9,6 +9,8 @@ namespace App\Models\Admin;
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
 use App\Models\Admin\Users;
+use App\Models\Admin\Customer;
+
 use App\Http\Controllers\Traits\Admin\AdmikoFileUploadTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -48,6 +50,10 @@ class Sales extends Model
 	public function device_id_id()
     {
         return $this->belongsTo(Device::class, 'device_id');
+    }
+    public function customer_id_id()
+    {
+        return $this->belongsTo(Customer::class, 'customer_id');
     }
     
 }

@@ -19,11 +19,10 @@
 
                 
                 <h3>Device Sale</h3>
-                           <form class="col-sm-6" action="{{url('/')}}/saleUpdate" method="post"  enctype="multipart/form-data">
-                    {{ csrf_field() }}
-                    
-                            
-
+                <div class="">
+                <label>Search.</label>
+                <input type="text" name="search1" id="search1" class="" placeholder="Search Device Data" />
+              </div>
 
 
 
@@ -34,6 +33,8 @@
       <th scope="col"><table class="table table-striped table-dark">
   <thead>
     <tr>
+    <th scope="col">Check</th>
+
     <th scope="col">id</th>
     
      <th scope="col">imei</th>
@@ -56,7 +57,6 @@
                 <td>{{$row->ice_id}}</td>
 
                 <td>{{$row->user_id}}</td>
-                <td>
                 <td>
                   <input type='checkbox' value="{{$row->id}}" name="select[]">
                 </td>
@@ -93,6 +93,7 @@
                                  </select>
 
                               </div>
+                             
 
 
                               
@@ -122,7 +123,7 @@
 
 
 
-                           </form>
+                      
                         </div>
                       </div>
                    </div>
@@ -134,6 +135,9 @@
 
  <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script>
  
 
 
@@ -162,6 +166,39 @@ $('#vehicle-select').change(function(){
     alert($(this).val());
 })
         </script>
+        
+  <script>
+    $(document).ready(function() {
+      
+      fetch_device_data();
+
+      function fetch_device_data(query = '') 
+      {
+        $.ajax({
+          url: "{{url('/')}}/device_sales/action",
+          type: "GET",
+          dataType: "json",
+          data: {
+            query: query
+          },
+         
+          success: function(data)
+           {
+            $("tbody").html(data.table_data);
+            $("#total_records").text(data.total_data);
+          }
+        })
+      }
+
+
+      $(document).on("keyup", "#search1", function() 
+      {
+        var query = $(this).val();
+        fetch_device_data(query);
+      });
+
+    });
+  </script> 
 
 
 

@@ -322,6 +322,12 @@ Route::get('/transfer_transaction', [SearchController::class, 'index']);
 
 Route::get('/transfer_transaction/action', [SearchController::class, 'action']);
 
+//sales search
+
+
+Route::get('/device_sales', [SearchController::class, 'sales_index']);
+
+Route::get('/device_sales/action', [SearchController::class, 'sales_action']);
 
 //manifacturer register edit delete
 

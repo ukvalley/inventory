@@ -21,13 +21,15 @@
                     {{ csrf_field() }}
                  
                                 
-                           <div class="form-group">
-                                 <label>Make</label>
-                                 <input type="text" class="form-control" name="make" value="{{$data->make}}"  placeholder=" Make" required>
-                              </div>
-                              @if($errors->has('make'))
-                             <div class="text-danger error">{{ $errors->first('make') }}</div>
-                               @endif
+                    <div class="form-group">
+                                 <label>Manufactured By</label>
+                                 <select class="form-control" name="manufactured_by" id="manufactured_by">
+
+                                 @foreach ($allmanifacturer as $value)
+                                    <option value="{{$value->id}}">{{$value->name}}</option>
+                                 @endforeach
+                              </select>
+                                 </div>
 
                                     
                            <div class="form-group">

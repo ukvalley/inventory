@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 use App\Models\Admin\Device;
 use App\Models\Admin\Purchase;
 use App\Models\Admin\Sales;
+use App\Models\Admin\Users;
+
+use App\Models\Admin\Manifacturer;
+
 use App\Models\Admin\Transaction;
 
 use App\Models\Admin\SimTypes;
@@ -20,7 +24,7 @@ class DeviceController extends Controller
              
          $request->validate(
           [
-               'make'=>'required',
+              
                'ice_id'=>'required|unique:Device',
                'imei'=>'required|unique:Device',
                'sim1'=>'required',
@@ -36,7 +40,7 @@ class DeviceController extends Controller
    
               
              $Device = new Device ;	
-             $Device->make = $request->input('make');
+             $Device->manufactured_by = $request->input('manufactured_by');
              $Device->ice_id = $request->input('ice_id');
              $Device->imei = $request->input('imei');
              $Device->sim1 = $request->input('sim1');
@@ -61,7 +65,8 @@ class DeviceController extends Controller
  
          public function view_device()
     {
-       $data=Device::with(['sim_1_type_id','sim_2_type_id','customer_id_id'])->get();
+       $data=Device::with(['sim_1_type_id','sim_2_type_id','customer_id_id','user_id_id'])->get();
+     
 
  
       //  print_r($data); die();
@@ -88,9 +93,10 @@ class DeviceController extends Controller
          $alldevice = device::get();
 
           $sim_get = SimTypes::get();
+          $allmanifacturer = Manifacturer::get();
 
          // print_r($alldevice); die();
-          return view('/device/add_device')->with(compact('alldevice','sim_get'));
+          return view('/device/add_device')->with(compact('alldevice','sim_get','allmanifacturer'));
      }
  
  
@@ -104,12 +110,13 @@ class DeviceController extends Controller
                 ->first();
  
           $alldevice = Device::get();
+          $allmanifacturer  = Manifacturer::get();
 
           $sim_get = DB::table('sim_types')->get();
  
  
          // print_r($data); die();
-          return view('/device/device_edit')->with(compact('data','alldevice','sim_get'));
+          return view('/device/device_edit')->with(compact('data','alldevice','sim_get','allmanifacturer'));
      }
  
  
@@ -125,7 +132,7 @@ class DeviceController extends Controller
                 $device = Device::find($id);
                 
                
-          $device->make = $request->input('make');
+          $device->manufactured_by = $request->input('manufactured_by_id');
            $device->ice_id = $request->input('ice_id');
            $device->imei = $request->input('imei');
            $device->sim1 = $request->input('sim1');
@@ -181,15 +188,20 @@ public function openDeviceInfo()
            ->where('id',"=",$id)
            ->first();
 
-     $alldevice = Device::get();
+     $alldevice = Device::with(['user_id_id'])->get();
 
+
+     
+
+     $manifacturer_get =Manifacturer::get();
      $sim_get = DB::table('sim_types')->get();
+     $manifacturer_get = DB::table('manifacturer')->get();
 
 
 
 
     // print_r($data); die();
-     return view('/device_info')->with(compact('data','alldevice','sim_get'));
+     return view('/device_info')->with(compact('data','alldevice','sim_get','manifacturer_get'));
 }
 
 public function deviceReport()
@@ -200,10 +212,12 @@ public function deviceReport()
      $allpurchase=DB::table('Purchase')->get();
      $allsales=Sales::with(['device_id_id'])->get();
      $alltransaction=Transaction::get();
+     $allmanifacturer=Manifacturer::get();
+
      $sim_get = DB::table('sim_types')->get();
 
     // print_r($data); die();
-     return view('/report_device')->with(compact('alldevice','allpurchase','allsales','sim_get','alltransaction'));
+     return view('/report_device')->with(compact('alldevice','allpurchase','allsales','sim_get','alltransaction','allmanifacturer'));
 }
 
 public function reportById($id)

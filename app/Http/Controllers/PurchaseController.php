@@ -61,7 +61,7 @@ class PurchaseController extends Controller
           
 
           $Device = new Device ;	
-          $Device->make = $request->input('manufactured_by');
+          $Device->manufactured_by = $request->input('manufactured_by');
           $Device->ice_id = $request->input('ice_id');
           $Device->imei = $request->input('imei');
           $Device->sim1 = $request->input('sim1_number');
@@ -105,11 +105,12 @@ class PurchaseController extends Controller
  {
     $data=DB::table('purchase')->get();
     $sim_get=DB::table('simtypes')->get();
+    $manifacturer=Manifacturer::with(['manufactured_by_id'])->get();
 
     //print_r($data); die();
 
     //get data from database 
-    return view('purchase/purchase_table')->with(compact($data,$sim_get)); 
+    return view('purchase/purchase_table')->with(compact($data,$sim_get,$manifacturer)); 
  }
 
  public function register_purchase()
@@ -169,7 +170,7 @@ public function purchase_edit()
           
           
 
-           $Device->make = $request->input('manufactured_by');
+           $Device->manufactured_by = $request->input('manufactured_by');
           $Device->ice_id = $request->input('ice_id');
           $Device->imei = $request->input('imei');
           $Device->sim1 = $request->input('sim1_number');
