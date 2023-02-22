@@ -45,32 +45,22 @@ class Controller extends BaseController
     $manifacturerCount=Manifacturer::where('id', '<>','id')->count();
 
     //
-    $allvehicle=Vechicles::with(['customer_id'])->latest()->limit(3)->get();
-
+    $allvehicle=Vechicles::with(['customer_id'])->latest()->limit(5)->get();
+    $data=Sales::latest()->limit(5)->get();
+    $allcustomer=Customer::latest()->limit(5)->get();
 
    
    
        
 
-    return view("index",compact('customerCount','vehicleCount','allvehicle','soldCount','unsoldCount','salesAgentCount','technicianCount','totalDeviceCount','manifacturerCount'));
+    return view("index",compact('data','allcustomer','customerCount','vehicleCount','allvehicle','soldCount','unsoldCount','salesAgentCount','technicianCount','totalDeviceCount','manifacturerCount'));
 
 
 
   
     }
 
-    public function latesDevice(){
-       
-        $data=DB::table('sales')->get();
-        $allcustomer=Customer::latest()->limit(3)->get();
-        $allvehicle=Vechicles::with(['customer_id'])->latest()->limit(3)->get();
-              
-           
-
-
-
-              return view('index')->with(compact('data','allcustomer','allvehicle'));
-    }
+    
 
     
 

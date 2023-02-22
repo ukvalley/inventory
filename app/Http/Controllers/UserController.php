@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 use DB;
 use Illuminate\Http\Request;
 use App\Models\Admin\Users;
-
+use PDF;
+use load;
 
 class UserController extends Controller
 {
@@ -139,5 +140,19 @@ public function  UserRegister(Request $request)
        // print_r($data); die();
         return view('user_info')->with(compact('data','allusers'));
    }
+   
+public function pdfview_user(Request $request)  
+{  
+  $user = Users::all();
+  $data = [
+     'title' => 'Welcome to CodeSolutionStuff.com',
+     'date' => date('m/d/Y'),
+     'user' => $user
+ ];
+   
+ $pdf = PDF::loadView('user.userpdf', $data);
+
+ return $pdf->download('userpdf.pdf');
+}  
 
 }

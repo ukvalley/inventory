@@ -5,7 +5,8 @@ use DB;
 use Illuminate\Http\Request;
 use App\Models\Admin\Vechicles;
 use App\Models\Admin\Customer;
-
+use PDF;
+use load;
 
 class VehicleController extends Controller
 {
@@ -172,5 +173,20 @@ public function openVehicleInfo()
     // print_r($Customer_name); die();
      return view('/vehicle_info')->with(compact('data','allcustomer'));
 }
+
+
+public function pdfview_vehicle(Request $request)  
+{  
+  $vehicle = Vechicles::all();
+  $data = [
+     'title' => 'Welcome to CodeSolutionStuff.com',
+     'date' => date('m/d/Y'),
+     'vehicle' => $vehicle
+ ];
+   
+ $pdf = PDF::loadView('vehicle.vehiclepdf', $data);
+
+ return $pdf->download('vehiclepdf.pdf');
+}  
 
 }

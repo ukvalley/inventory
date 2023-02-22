@@ -8,7 +8,8 @@
                 <div class="panel-heading role-list-info-header">
                   <a href="{{ url('/vehicle/register_vehicle') }}" class="btn btn-success">Register New Vehicle</a>
                     <p>Vehicle Table</p>
-                    
+                    <a class="btn btn-primary" href="{{route('pdfview_vehicle',['download'=>'pdf']) }}">Export to PDF</a>
+
                 </div>
 
                 <!-- /.panel-heading -->

@@ -208,7 +208,6 @@
                                        </tr>
                                     </thead>
                                     <tbody>
-                                    <?php  $data=DB::table('sales')->latest()->limit(3)->get();?>
 
                                      @foreach($data as $row)
                                        <tr class="info">
@@ -245,7 +244,6 @@
                                        </tr>
                                     </thead>
                                     <tbody>
-                                    <?php  $allcustomer=DB::table('customer')->latest()->limit(3)->get();?>
                                      @foreach($allcustomer as $row)
                                        <tr class="info">
                                           <td>{{$row->id}}</td>

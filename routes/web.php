@@ -47,7 +47,6 @@ Route::get('Dashboard', [Controller::class, 'Dashboard'])->name('Dashboard');
 
 
 Route::get('/', [Controller::class, 'Dashboard'])->name('Dashboard');
-Route::get('latesDevice', [Controller::class, 'latesDevice'])->name('latesDevice');
 
 
 
@@ -376,4 +375,28 @@ Route::get('/transaction/transactionpdf', function () {
 });
 Route::get('pdfview_transaction', [TransactionController::class, 'pdfview_transaction'])->name('pdfview_transaction');
 
-//
+//device pdf
+Route::get('/device/devicepdf', function () {
+    return view('/device/devicepdf');
+});
+Route::get('pdfview_device', [DeviceController::class, 'pdfview_device'])->name('pdfview_device');
+
+//customer pdf
+Route::get('/customer/customerpdf', function () {
+    return view('/customer/customerpdf');
+});
+Route::get('pdfview_customer', [CustomerController::class, 'pdfview_customer'])->name('pdfview_customer');
+
+//vehicle pdf
+Route::get('/vehicle/vehiclepdf', function () {
+    return view('/vehicle/vehiclepdf');
+});
+Route::get('pdfview_vehicle', [VehicleController::class, 'pdfview_vehicle'])->name('pdfview_vehicle');
+
+
+//user pdf
+Route::get('/user/userpdf', function () {
+    return view('/user/userpdf');
+});
+Route::get('pdfview_user', [UserController::class, 'pdfview_user'])->name('pdfview_user');
+

@@ -13,7 +13,8 @@ use App\Models\Admin\Manifacturer;
 use App\Models\Admin\Transaction;
 
 use App\Models\Admin\SimTypes;
-
+use PDF;
+use load;
 
 class DeviceController extends Controller
 {
@@ -236,6 +237,21 @@ public function reportById($id)
     // print_r($data); die();
      return view('/reportById')->with(compact('data','alldevice','allpurchase','allsales','alltransaction'));
 }
+
+
+public function pdfview_device(Request $request)  
+{  
+  $device = Device::all();
+  $data = [
+     'title' => 'Welcome to device ',
+     'date' => date('m/d/Y'),
+     'device' => $device
+ ];
+   
+ $pdf = PDF::loadView('device.devicepdf', $data);
+
+ return $pdf->download('devicepdf.pdf');
+}  
 
 
 }

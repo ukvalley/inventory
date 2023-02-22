@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use DB;
 use Illuminate\Http\Request;
 use App\Models\Admin\Customer;
+use PDF;
+use load;
 
 class CustomerController extends Controller
 {
@@ -138,5 +140,20 @@ public function openCustomerInfo()
     // print_r($data); die();
      return view('customer_info')->with(compact('data'));
 }
+
+
+public function pdfview_customer(Request $request)  
+{  
+  $customer = Customer::all();
+  $data = [
+     'title' => 'Welcome to device ',
+     'date' => date('m/d/Y'),
+     'customer' => $customer
+ ];
+   
+ $pdf = PDF::loadView('customer.customerpdf', $data);
+
+ return $pdf->download('customerpdf.pdf');
+}  
 
 }

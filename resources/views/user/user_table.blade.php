@@ -6,7 +6,8 @@
                 <div class="panel-heading role-list-info-header">
                   <a href="{{ url('/user/register_user') }}" class="btn btn-success">Register New User</a>
                     <p>User Table</p>
-                    
+                    <a class="btn btn-primary" href="{{route('pdfview_user',['download'=>'pdf']) }}">Export to PDF</a>
+
                 </div>
 
                 <!-- /.panel-heading -->
