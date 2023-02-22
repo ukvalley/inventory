@@ -10,7 +10,7 @@
                     <p></p>
                     <a class="btn btn-primary" href="{{route('pdfview_transaction',['download'=>'pdf']) }}">Export to PDF</a>
  
-                </div>
+</div>
 
                 <!-- /.panel-heading -->
                 <div class="panel-body">
@@ -40,12 +40,11 @@
       
     </tr>
   </thead>
-  <?php  $data=DB::table('Transaction')->get();?>
   @foreach($data as $row)
             <tr>
             <td>{{$row->id}}</td>
-               <td>{{$row->sender}}</td>
-                <td>{{$row->receiver}}</td>
+               <td>{{$row->sender_id->name ??''}}</td>
+                <td>{{$row->receiver_id->name ?? ''}}</td>
                 <td>{{$row->date}}</td>
                 <td>{{$row->quantity}}</td>
                 <td>{{$row->amount}}</td>

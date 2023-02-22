@@ -49,14 +49,14 @@ public function  UserRegister(Request $request)
             
 	    public function view_user()
    {
-      $data=DB::table('Users')->get();
+      $data=Users::get();
 
       //print_r($data); die();
 
 
 
       //get data from database 
-      return view('user_table')->with(compact($data)); 
+      return view('user/user_table')->with(compact('data')); 
    }
 
 

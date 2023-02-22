@@ -5,6 +5,13 @@ use DB;
 
 use Illuminate\Http\Request;
 use App\Models\Admin\Transaction;
+use App\Models\Admin\Device;
+use App\Models\Admin\Customer;
+use App\Models\Admin\Users;
+
+use App\Models\Admin\Vechicles;
+
+
 use PDF;
 use load;
 
@@ -15,10 +22,10 @@ class TransactionController extends Controller
  
 public function Transaction(){
 
-
+  $data = Transaction::with(['sender_id','receiver_id'])->get();
     $allCustomer = Customer::get();
-    $allDevice = Device::get();
-    $allVehicle = Vehicle::get();
+   
+    $allVehicle = Vechicles::get();
     $allUser = Users::get();
 
 
@@ -27,7 +34,7 @@ public function Transaction(){
         //    print_r($alldevice);die();
 
 
-    return view('/Transaction', compact('allCustomer','alldevice','allUser','allVehicle'));
+    return view('/transaction/transaction_table', compact('data','allCustomer','allUser','allVehicle'));
 
 
 }

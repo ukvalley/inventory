@@ -184,24 +184,14 @@ public function add_sim()
 public function openDeviceInfo()
 {    
      $id =$_GET['id'];   
-     $data=DB::table('device')
-           ->where('id',"=",$id)
-           ->first();
-
-     $alldevice = Device::with(['user_id_id'])->get();
+     $data=Device::with(['manufactured_by_id','user_id_id','customer_id_id','sim_1_type_id','sim_2_type_id'])->find($id);
 
 
-     
-
-     $manifacturer_get =Manifacturer::get();
      $sim_get = DB::table('sim_types')->get();
-     $manifacturer_get = DB::table('manifacturer')->get();
-
-
 
 
     // print_r($data); die();
-     return view('/device_info')->with(compact('data','alldevice','sim_get','manifacturer_get'));
+     return view('/device_info')->with(compact('data','sim_get'));
 }
 
 public function deviceReport()

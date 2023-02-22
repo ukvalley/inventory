@@ -38,6 +38,21 @@
                         </thead>
                          <?php  $data=DB::table('device')->get();?> 
                           <tbody>
+                          @foreach($alldevice as $row)
+            <tr>
+            <td>
+                  <input type='checkbox' value="{{$row->id}}" name="select[]">
+                </td>
+                <td>{{$row->id}}</td>
+                <td>{{$row->manufactured_by_id->name ?? ''}}</td>
+                <td>{{$row->imei}}</td>
+
+                <td>{{$row->ice_id}}</td>
+               
+
+            </tr>
+        @endforeach
+
                           </tbody>
                       </table>
                       <!------------------------------ //FORM------------------ -->

@@ -103,14 +103,13 @@ class PurchaseController extends Controller
 
       public function view_purchase()
  {
-    $data=DB::table('purchase')->get();
-    $sim_get=DB::table('simtypes')->get();
-    $manifacturer=Manifacturer::with(['manufactured_by_id'])->get();
+    $data=Purchase::with(['manufactured_by_id'])->get();
+    
 
     //print_r($data); die();
 
     //get data from database 
-    return view('purchase/purchase_table')->with(compact($data,$sim_get,$manifacturer)); 
+    return view('purchase/purchase_table')->with(compact('data')); 
  }
 
  public function register_purchase()

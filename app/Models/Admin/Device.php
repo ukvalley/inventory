@@ -88,8 +88,4 @@ class Device extends Model
     {
         return $this->belongsTo(Customer::class, 'customer_id');
     }
-    public function manifacturer_id_id()
-    {
-        return $this->belongsTo(Manifacturer::class, 'manifacturer_id');
-    }
 }

@@ -36,6 +36,7 @@ class Users extends Model
         $data = array();
         $UsersList = Users::where('id', $id)->first();
         if ($UsersList) {
+            
             $data[$UsersList->id] = $UsersList->name;
             if($UsersList->admiko_parent_child > 0){
                 $dataParent = Users::buildParentChildrenBreadcrumbs($UsersList->admiko_parent_child);

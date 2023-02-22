@@ -41,7 +41,7 @@
       
     </tr>
   </thead>
-  <?php  $data=DB::table('purchase')->get();?>
+  
   @foreach($data as $data)
             <tr>
                <td><a href="{{url('/')}}/purchase_info?id={{$data->id }}">{{$data->id }}</td>
@@ -50,7 +50,7 @@
                 <td><a href="{{url('/')}}/purchase_info?id={{$data->id }}">{{$data->ice_id}}</td>
                 <td><a href="{{url('/')}}/purchase_info?id={{$data->id }}">{{$data->amount}}</td>
                 <td><a href="{{url('/')}}/purchase_info?id={{$data->id }}">{{$data->quantity}}</td>
-                <td><a href="{{url('/')}}/purchase_info?id={{$data->id }}">{{$data->manufactured_by}}</td>
+                <td><a href="{{url('/')}}/purchase_info?id={{$data->id }}">{{$data->manufactured_by_id->name ?? ''}}</td>
 
                 
                 <td>

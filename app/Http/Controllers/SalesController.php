@@ -4,6 +4,12 @@ namespace App\Http\Controllers;
 use DB;
 use Illuminate\Http\Request;
 use App\Models\Admin\Sales;
+use App\Models\Admin\Users;
+use App\Models\Admin\Customer;
+
+use App\Models\Admin\Device;
+
+
 use PDF;
 
 use load;
@@ -48,9 +54,8 @@ class SalesController extends Controller
 
    public function view_sales()
 {
-   $data=DB::table('Sales')->get();
+   $data=Sales::with(['user_id_id','customer_id_id'])->get();
 
-//    $data=Device::with(['sim_1_type_id','sim_2_type_id','customer_id_id','user_id_id',])->get();
 
    //print_r($data); die();
 

@@ -59,6 +59,7 @@ class Vechicles extends Model
 		"vehicle_image_5",
 		"vehicle_image_5_admiko_delete",
     ];
+   
     public function customer_id()
     {
         return $this->belongsTo(Customer::class, 'customer');
@@ -135,4 +136,5 @@ class Vechicles extends Model
             $this->attributes['vehicle_image_5'] = $this->imageUpload('', Vechicles::$admiko_file_info["vehicle_image_5"], $this->getOriginal('vehicle_image_5'), $value);
         }
     }
+    
 }

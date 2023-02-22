@@ -85,7 +85,7 @@ class MAdminPanelController extends Controller
 
         public function get_device()
         { 
-           $alldevice = Device::get();
+           $alldevice =Device::with(['manufactured_by_id'])->get();
                                        //where('Status','=','Unsold')->get();
          
        
@@ -137,13 +137,14 @@ $devices = $request->select;
 
 public function getCustomer()
         { 
+            $data=Device::with(['user_id_id'])->get();
            $allCustomer = Customer::get();
 
            $allVehicle = Vechicles::get();
 
        
         //    print_r($alldevice);die();
-        return view('/device_sale', compact('allCustomer','allVehicle'));
+        return view('/device_sale', compact('data','allCustomer','allVehicle'));
 
         }
 

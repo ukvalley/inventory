@@ -156,6 +156,7 @@ Route::post('/register_user-update/{id}', [UserController::class, 'user_update']
 Route::get('user/user_edit', [UserController::class, 'user_edit'])->name('user_edit');
 Route::get('user_destroy', [UserController::class, 'user_destroy'])->name('user_destroy');
 
+Route::get('user/user_table', [UserController::class, 'view_user'])->name('view_user');
 
 //devices--------------------------------------------------------------------------------------------------
 
@@ -182,6 +183,7 @@ Route::post('/purchase_device-post', [PurchaseController::class, 'PurchaseDevice
 Route::post('/purchase_device-update/{id}', [PurchaseController::class, 'purchase_update'])->name('purchase_update');
 Route::get('purchase/purchase_edit', [PurchaseController::class, 'purchase_edit'])->name('purchase_edit');
 Route::get('purchase_destroy', [PurchaseController::class, 'purchase_destroy'])->name('purchase_destroy');
+Route::get('purchase/purchase_table', [PurchaseController::class, 'view_purchase'])->name('view_purchase');
 
 //SAles-------------------------------------------------------------------------------------------------------------------------
 Route::get('/sale/register_sales', [SalesController::class, 'register_sales'])->name('register_sales');
@@ -189,6 +191,8 @@ Route::post('/sales-post', [SalesController::class, 'Sales'])->name('Sales');
 Route::post('/sales-update/{id}', [SalesController::class, 'sales_update'])->name('sales_update');
 Route::get('/sale/sales_edit', [SalesController::class, 'sales_edit'])->name('sales_edit');
 Route::get('sales_destroy', [SalesController::class, 'sales_destroy'])->name('sales_destroy');
+
+Route::get('sale/sales_table', [SalesController::class, 'view_sales'])->name('view_sales');
 
 //Records----------------------------------------------------------------------------------------------------------------------
 
@@ -283,9 +287,9 @@ Route::get('getVehicle', [MAdminPanelController::class, 'getVehicle'])->name('ge
 
 //transcaction genaration
 
-Route::get('/transaction/transaction_table', function () {
-    return view('transaction/transaction_table');
-});
+Route::get('/transaction/transaction_table', [TransactionController::class, 'Transaction'])->name('Transaction');
+
+
 Route::get('/transaction/transaction', [TransactionController::class, 'register_sales'])->name('register_sales');
 
 
@@ -293,9 +297,7 @@ Route::get('/transaction/transaction', [TransactionController::class, 'register_
 ///view for single id in table
 
 
-Route::get('/device_info', function () {  
-    return view('device_info');
-});
+
 Route::get('/device_info', [DeviceController::class, 'openDeviceInfo'])->name('openDeviceInfo');
 
 Route::get('/customer_info', [CustomerController::class, 'openCustomerInfo'])->name('openCustomerInfo');
@@ -372,6 +374,6 @@ Route::get('pdfview_purchase', [PurchaseController::class, 'pdfview_purchase'])-
 Route::get('/transaction/transactionpdf', function () {
     return view('/transaction/transactionpdf');
 });
-Route::get('pdfview_transaction', [PurchaseController::class, 'pdfview_purchase'])->name('pdfview_purchase');
+Route::get('pdfview_transaction', [PurchaseController::class, 'pdfview_transaction'])->name('pdfview_transaction');
 
 //

@@ -23,8 +23,8 @@ class SearchController extends Controller
             {
                 
                 $data = Device::
-                      where('status','=','unsold')
-
+                        with(['manifacturer_by_id'])
+                      ->where('status','=','unsold')
                        ->where(function($query1) use ($query){
                             $query1->where('make', 'LIKE', '%'.$query.'%')
                                   ->orWhere('ice_id', 'LIKE', '%'.$query.'%')
@@ -38,7 +38,9 @@ class SearchController extends Controller
             } 
             else 
             {
-                $data = Device::where('status','=','unsold')
+                $data = Device::
+                    with(['manifacturer_by_id'])
+                    ->where('status','=','unsold')
                     ->orderBy('id', 'desc')
                     ->limit(10)
                     ->get();
@@ -54,7 +56,7 @@ class SearchController extends Controller
                     <tr>
                     <td><input type="checkbox" value="'.$row->id.'" name="select[]"></td>
                     <td>'.$row->id.'</td>
-                    <td>'.$row->make.'</td>
+                    <td>'.$row->manifacturer_by_id->name.'</td>
                     <td>'.$row->ice_id.'</td>
                     <td>'.$row->imei.'</td>
                    
@@ -93,7 +95,8 @@ class SearchController extends Controller
             {
                 
                 $data = Device::
-                      where('status','=','unsold')
+                with(['user_id_id'])
+                     ->where('status','=','unsold')
 
                        ->where(function($query1) use ($query){
                             $query1->where('imei', 'LIKE', '%'.$query.'%')
@@ -108,7 +111,9 @@ class SearchController extends Controller
             } 
             else 
             {
-                $data = Device::where('status','=','unsold')
+                $data = Device::
+                with(['user_id_id'])
+                ->where('status','=','unsold')
                     ->orderBy('id', 'desc')
                     ->limit(10)
                     ->get();
@@ -126,7 +131,7 @@ class SearchController extends Controller
                     <td>'.$row->id.'</td>
                     <td>'.$row->imei.'</td>
                     <td>'.$row->ice_id.'</td>
-                    <td>'.$row->user_id.'</td>
+                    <td>'.$row->user_id_id->name.'</td>
                    
                     </tr>
                     ';

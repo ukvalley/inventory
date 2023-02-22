@@ -42,7 +42,8 @@
             </h4>
             <form action="" method="post" enctype="multipart/form-data">
               {{ csrf_field() }}
-              <h4>Manafactured By: &nbsp&nbsp&nbsp <span class="spaninfo">{{$data->manufactured_by}} </span>
+              <h4>Manafactured By: &nbsp&nbsp&nbsp <span class="spaninfo">{{$data->manufactured_by_id->name ?? 
+                ''}} </span>
               </h4>
               <div class="row">
                 <div class="col-sm-4">
@@ -58,7 +59,7 @@
               </h4>
               <div class="row">
                 <div class="col-sm-4">
-                  <h4>SIM1 Type <span class="spaninfo">&nbsp&nbsp&nbsp{{$data->sim_1_type}}</span>
+                  <h4>SIM1 Type <span class="spaninfo">&nbsp&nbsp&nbsp{{$data->sim_1_type_id->name ?? ''}}</span>
                   </h4>
                 </div>
                 <div>
@@ -68,7 +69,7 @@
               </div>
               <div class="row">
                 <div class="col-sm-4">
-                  <h4>SIM2 Type <span class="spaninfo">&nbsp&nbsp&nbsp{{$data->sim_2_type}}</span>
+                  <h4>SIM2 Type <span class="spaninfo">&nbsp&nbsp&nbsp{{$data->sim_2_type_id->name ?? ''}}</span>
                   </h4>
                 </div>
                 <div>
@@ -94,11 +95,11 @@
               </h4>
               <div class="row">
                 <div class="col-sm-4">
-                  <h4>User Id:&nbsp&nbsp&nbsp <span class="spaninfo">{{$data->user_id_id->name}}</span>
+                  <h4>User Id:&nbsp&nbsp&nbsp <span class="spaninfo">{{$data->user_id_id->name ?? ''}}</span>
                   </h4>
-                </div>
+</div>
                 <div class="col-sm-4">
-                  <h4>Customer Id:&nbsp&nbsp&nbsp <span class="spaninfo">{{$data->customer_id}}</span>
+                  <h4>Customer Id:&nbsp&nbsp&nbsp <span class="spaninfo">{{$data->customer_id_id->name ?? ''}}</span>
                   </h4>
                 </div>
               </div>

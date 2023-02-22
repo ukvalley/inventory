@@ -48,7 +48,6 @@
 
 
   </thead>
-  <?php  $data=DB::table('Device')->get();?>
   @foreach($data as $row)
             <tr>
 
@@ -56,7 +55,7 @@
                 <td>{{$row->imei}}</td>
                 <td>{{$row->ice_id}}</td>
 
-                <td>{{$row->user_id}}</td>
+                <td>{{$row->user_id_id->name ?? ''}}</td>
                 <td>
                   <input type='checkbox' value="{{$row->id}}" name="select[]">
                 </td>

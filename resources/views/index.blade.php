@@ -279,11 +279,11 @@
                                        </tr>
                                     </thead>
                                     <tbody>
-                                    <?php  $allvehicle=DB::table('Vechicles')->latest()->limit(3)->get();?>
+                                    
                                      @foreach($allvehicle as $row)
                                        <tr class="info">
                                           <td>{{$row->vechicle_number}}</td>
-                                          <td>{{$row->customer}}</td>
+                                          <td>{{$row->customer_id->name}}</td>
                                        </tr>
                                        @endforeach
                                     </tbody>

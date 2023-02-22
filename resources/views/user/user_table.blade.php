@@ -36,7 +36,6 @@
       
     </tr>
   </thead>
-  <?php  $data=DB::table('users')->get();?>
   @foreach($data as $row)
             <tr>
                <td><a href="{{url('/')}}/user_info?id={{$row->id }}">{{$row->id }}</td>
