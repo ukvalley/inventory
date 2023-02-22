@@ -22,7 +22,7 @@ class SalesOrderController extends Controller
 public function salesformPost(Request $request)
 {  
    
-   $make = $request->make;
+   $make = $request->manifactured_by;
    $ice_id = $request->ice_id;
    $imei = $request->imei;
    $sim_1_type = $request->sim_1_type;
@@ -33,7 +33,7 @@ public function salesformPost(Request $request)
    $user_id = $request->user_id;
    $allocated_to = $request->allocated_to;
 
-   $this->salesOrder($make,$ice_id,$imei,$sim_1_type,$sim_2_type,$received_date,$activation_date,$renewal_date, $device_number,$user_id,$allocated_to);
+   $this->salesOrder($manifactured_by,$ice_id,$imei,$sim_1_type,$sim_2_type,$received_date,$activation_date,$renewal_date, $device_number,$user_id,$allocated_to);
  
    
 }
@@ -44,7 +44,7 @@ public function salesformPost(Request $request)
 
  
  ///recored update purchase
- public function salesOrder($make,$ice_id,$imei,$sim_1_type,$sim_2_type,$received_date,$activation_date,$renewal_date, $device_number,$user_id,$allocated_to){
+ public function salesOrder($manifactured_by,$ice_id,$imei,$sim_1_type,$sim_2_type,$received_date,$activation_date,$renewal_date, $device_number,$user_id,$allocated_to){
 
    //create device information
 
@@ -151,7 +151,7 @@ public function salesformPost(Request $request)
 
       
 
-      $make = $csv_row_data['make'];
+      $make = $csv_row_data['manifactured_by'];
       $ice_id = $csv_row_data['ice_id'];
       $imei = $csv_row_data['imei'];
       $sim_1_type = $csv_row_data['sim_1_type'];
@@ -168,7 +168,7 @@ public function salesformPost(Request $request)
 
     
 
-      $this->saleOrder($make,$ice_id,$imei,$sim_1_type,$sim_2_type,$received_date,$activation_date,$renewal_date,$user_id,$purchase_from,$amount);
+      $this->saleOrder($manifactured_by,$ice_id,$imei,$sim_1_type,$sim_2_type,$received_date,$activation_date,$renewal_date,$user_id,$purchase_from,$amount);
 
 
     }

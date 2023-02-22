@@ -137,7 +137,7 @@ return [
 
     'db_fields' => [
        
-        'make',
+        'manifactured_by',
         'ice_id',
         'imei',
         'sim_1_type',

@@ -53,7 +53,7 @@ class SalesController extends Controller
 
 
    public function view_sales()
-{
+{ 
    $data=Sales::with(['user_id_id','customer_id_id'])->get();
 
 

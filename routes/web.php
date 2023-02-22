@@ -374,6 +374,6 @@ Route::get('pdfview_purchase', [PurchaseController::class, 'pdfview_purchase'])-
 Route::get('/transaction/transactionpdf', function () {
     return view('/transaction/transactionpdf');
 });
-Route::get('pdfview_transaction', [PurchaseController::class, 'pdfview_transaction'])->name('pdfview_transaction');
+Route::get('pdfview_transaction', [TransactionController::class, 'pdfview_transaction'])->name('pdfview_transaction');
 
 //

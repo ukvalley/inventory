@@ -203,7 +203,7 @@
                                  <table class="table table-hover">
                                     <thead>
                                        <tr>
-                                          <th>Device Id</th>
+                                          <th>Ice Id</th>
                                           <th>Date</th>
                                        </tr>
                                     </thead>
@@ -212,7 +212,7 @@
 
                                      @foreach($data as $row)
                                        <tr class="info">
-                                          <td>{{$row->device_id}}</td>
+                                          <td>{{$row->device_number}}</td>
                                           <td>{{$row->date}}</td>
                                        </tr>
                                        @endforeach

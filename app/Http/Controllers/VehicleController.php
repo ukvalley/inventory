@@ -162,8 +162,10 @@ public function vehicle_destroy()
   
 public function openVehicleInfo()
 {    
-         
-     $data=Vechicles::with(['customer_id'])->get();
+  $id =$_GET['id'];
+ 
+     $data=Vechicles::with(['customer_id'])->find($id);
+
 
      $allcustomer = Customer::get();
 

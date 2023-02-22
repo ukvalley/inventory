@@ -8,7 +8,7 @@
                 <div class="panel-heading role-list-info-header">
                   <a href="{{ url('manifacturer/manifacturer') }}" class="btn btn-success">Add New Manifacturer</a>
                     <p>SIM Table</p>
-                    <a class="btn btn-primary" href="{{ URL::to('/manifacturer/pdf') }}">Export to PDF</a>
+                    <!-- <a class="btn btn-primary" href="{{ URL::to('/manifacturer/pdf') }}">Export to PDF</a> -->
                 </div>
 
                 <!-- /.panel-heading -->

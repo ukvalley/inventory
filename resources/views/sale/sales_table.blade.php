@@ -48,7 +48,7 @@
                 <td>{{$data->date }}</td>
                 <td>{{$data->device_id}}</td>
                 <td>{{$data->device_number}}</td>
-                <td>{{$data->customer_id_id->name ?? ''}}</td>
+                <td>{{$data->allocated_to}}</td>
                 <td>{{$data->user_id_id->name ?? ''}}</td>
                <td>
                <a href="{{url('/')}}/sale/sales_edit?id={{$data->id}}" class="btn btn-primary">Edit</a>

@@ -21,8 +21,8 @@
               
                                 
                            <div class="form-group">
-                                 <label>Make</label>
-                                 <input type="text" class="form-control" name="make" placeholder=" Make" value="make" required>
+                                 <label>Manifactured_by</label>
+                                 <input type="text" class="form-control" name="manifactured_by" placeholder=" manifactured_by" value="manifactured_by" required>
                               </div>
 
                                     

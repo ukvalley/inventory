@@ -8,6 +8,8 @@
 namespace App\Models\Admin;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Admin\Customer;
+use App\Models\Admin\Vechicles;
+
 use App\Http\Controllers\Traits\Admin\AdmikoFileUploadTrait;
 
 class Vechicles extends Model
@@ -60,6 +62,10 @@ class Vechicles extends Model
 		"vehicle_image_5_admiko_delete",
     ];
    
+    public function vechicle_number()
+    {
+        return $this->belongsTo(Vechicles::class, 'vechicle_number');
+    }
     public function customer_id()
     {
         return $this->belongsTo(Customer::class, 'customer');
