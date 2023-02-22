@@ -7,9 +7,12 @@
             <div class="panel panel-default">
                 <div class="panel-heading role-list-info-header">
                   <a href="{{ url('/customer/register_customer') }}" class="btn btn-success">Register New Customer</a>
-                    <p>Customer Table</p>
-                    <a class="btn btn-primary" href="{{route('pdfview_customer',['download'=>'pdf']) }}">Export to PDF</a>
- 
+                    
+                    <div class="text-right">
+                  <a class="btn btn-warning " href="{{route('pdfview_customer',['download'=>'pdf']) }}" >Export to PDF</a>
+                    <a class="btn btn-warning" href="/">Back</a>
+                    </div>
+                    <h4>Customer Table</h4>
                 </div>
 
                 <!-- /.panel-heading -->

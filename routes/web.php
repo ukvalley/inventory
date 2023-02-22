@@ -400,3 +400,9 @@ Route::get('/user/userpdf', function () {
 });
 Route::get('pdfview_user', [UserController::class, 'pdfview_user'])->name('pdfview_user');
 
+
+//Singel DeviceInfo pdf
+Route::get('/device/device_infopdf', function () {
+    return view('/device/device_infopdf');
+});
+Route::get('pdfview_device_info', [DeviceController::class, 'pdfview_device_info'])->name('pdfview_device_info');

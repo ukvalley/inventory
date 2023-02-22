@@ -32,9 +32,12 @@
             </div>
           </div>
           <div class="reset-button btn-flt">
+          <a class="btn btn-warning " href="{{route('pdfview_device_info',['download'=>'pdf']) }}" >Export to PDF</a>
+
           <a href="/device_sale" class="btn btn-purple ">Sale</a>
             <a href="/device/device_table" class="btn btn-warning ">Back</a>
           </div>
+
           <br>
           <div class="panel-body ">
             <h4 class="divid">Devices Id:{{$data->id}}
@@ -97,7 +100,7 @@
                 <div class="col-sm-4">
                   <h4>User Id:&nbsp&nbsp&nbsp <span class="spaninfo">{{$data->user_id_id->name ?? ''}}</span>
                   </h4>
-</div>
+           </div>
                 <div class="col-sm-4">
                   <h4>Customer Id:&nbsp&nbsp&nbsp <span class="spaninfo">{{$data->customer_id_id->name ?? ''}}</span>
                   </h4>

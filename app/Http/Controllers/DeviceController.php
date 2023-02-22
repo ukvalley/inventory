@@ -254,4 +254,19 @@ public function pdfview_device(Request $request)
 }  
 
 
+public function pdfview_device_info(Request $request)  
+{      
+  $device = Device::get();
+  $data = [
+     'title' => 'Welcome to device ',
+     'date' => date('m/d/Y'),
+     'device' => $device
+ ];
+   
+ $pdf = PDF::loadView('device.device_infopdf', $data);
+
+ return $pdf->download('devicedetails.pdf');
+}  
+
+
 }
