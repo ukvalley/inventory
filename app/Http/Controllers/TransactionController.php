@@ -72,4 +72,7 @@ public function pdfview_transaction(Request $request)
 
  return $pdf->download('transactionpdf.pdf');
 }  
+
+//Allow device allocation
+
 }

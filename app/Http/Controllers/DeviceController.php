@@ -254,9 +254,9 @@ public function pdfview_device(Request $request)
 }  
 
 
-public function pdfview_device_info(Request $request)  
-{      
-  $device = Device::get();
+public function pdfview_device_info()  {
+   
+  $device = Device::first();
   $data = [
      'title' => 'Welcome to device ',
      'date' => date('m/d/Y'),

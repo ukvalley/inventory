@@ -34,6 +34,7 @@
           <div class="reset-button btn-flt">
           <a class="btn btn-warning " href="{{route('pdfview_device_info',['download'=>'pdf']) }}" >Export to PDF</a>
 
+          
           <a href="/device_sale" class="btn btn-purple ">Sale</a>
             <a href="/device/device_table" class="btn btn-warning ">Back</a>
           </div>
