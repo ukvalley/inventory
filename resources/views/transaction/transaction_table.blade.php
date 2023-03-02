@@ -32,6 +32,7 @@
       <th scope="col">Amount</th>
       <th scope="col">Quantity</th>
       <th scope="col">Transaction Type</th>
+      <th scope="col">Status</th>
       
 
       <!-- <th scope="col">Edit</th>
@@ -51,6 +52,7 @@
 
 
                 <td>{{$row->transaction_type}}</td>
+                <td>{{$row->status}}</td>
                
                   <td>
                <a href="{{url('/')}}/transaction/transaction_edit?id={{$row->id}}" class="btn btn-primary">Edit</a>

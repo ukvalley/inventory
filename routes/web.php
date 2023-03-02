@@ -406,4 +406,3 @@ Route::get('/device/device_infopdf', function () {
     return view('/device/device_infopdf');
 });
 Route::get('/pdfview_device_info', [DeviceController::class, 'pdfview_device_info'])->name('pdfview_device_info');
-

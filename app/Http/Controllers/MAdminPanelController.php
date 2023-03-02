@@ -51,10 +51,6 @@ class MAdminPanelController extends Controller
 
 
 
-
-
-
-
     public function newManifacturer(Request $request)
 	   {      
 
@@ -86,7 +82,6 @@ class MAdminPanelController extends Controller
         public function get_device()
         { 
            $alldevice =Device::with(['manufactured_by_id'])->get();
-                                       //where('Status','=','Unsold')->get();
          
        
         //    print_r($alldevice);die();
@@ -213,6 +208,8 @@ public function get_customer($user_type)
             $Transaction->amount =1;
             $Transaction->transaction_type =1;
             $Transaction->quantity =1;
+            
+            // $Transaction->status ='pending';
  
 
           
@@ -225,6 +222,20 @@ public function get_customer($user_type)
 
           
 }
+
+
+// public function getVehicle()
+//         { 
+//             $data=Device::with(['user_id_id'])->get();
+//            $allCustomer = Customer::get();
+
+//            $allVehicle = Vechicles::get();
+
+       
+//         //    print_r($alldevice);die();
+//         return view('/device_sale', compact('data','allCustomer','allVehicle'));
+
+//         }
 
 
 }

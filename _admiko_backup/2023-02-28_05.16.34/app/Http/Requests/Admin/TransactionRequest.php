@@ -39,9 +39,6 @@ class TransactionRequest extends FormRequest
 			"quantity"=>[
 				"string",
 				"nullable"
-			],
-			"status"=>[
-				"nullable"
 			]
         ];
     }
@@ -54,8 +51,7 @@ class TransactionRequest extends FormRequest
 			"date"=>"Date",
 			"amount"=>"Amount",
 			"transaction_type"=>"Transaction Type",
-			"quantity"=>"Quantity",
-			"status"=>"Status"
+			"quantity"=>"Quantity"
         ];
     }
     

@@ -20,6 +20,8 @@
                 <label>Search.</label>
                 <input type="text" name="search1" id="search1" class="" placeholder="Search Device Data" />
               </div>
+
+             
               <!-- End search bar -->
               <table class="table table-striped table-dark">
               
@@ -36,7 +38,7 @@
                             <th scope="col">ICE ID</th>
                           </tr>
                         </thead>
-                         <?php  $data=DB::table('device')->get();?> 
+                         
                           <tbody>
                           @foreach($alldevice as $row)
             <tr>
@@ -56,7 +58,7 @@
                           </tbody>
                       </table>
                       <!------------------------------ //FORM------------------ -->
-                      <div class="form-group">
+                     
                         <div class="form-group">
                           <label>User Type</label>
                           <select class="form-control" onChange='' name="user_type" id="user-select">

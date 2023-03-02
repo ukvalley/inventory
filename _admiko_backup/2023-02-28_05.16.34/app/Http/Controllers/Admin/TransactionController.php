@@ -39,8 +39,7 @@ class TransactionController extends Controller
         
         
 		$users_all = Users::getParentChildrenList();
-		$status_all = Transaction::STATUS_CONS;
-        return view("admin.transaction.manage")->with(compact('admiko_data','users_all','status_all'));
+        return view("admin.transaction.manage")->with(compact('admiko_data','users_all'));
     }
 
     public function store(TransactionRequest $request)
@@ -73,9 +72,8 @@ class TransactionController extends Controller
         
         
 		$users_all = Users::getParentChildrenList();
-		$status_all = Transaction::STATUS_CONS;
         $data = $Transaction;
-        return view("admin.transaction.manage")->with(compact('admiko_data', 'data','users_all','status_all'));
+        return view("admin.transaction.manage")->with(compact('admiko_data', 'data','users_all'));
     }
 
     public function update(TransactionRequest $request,$id)

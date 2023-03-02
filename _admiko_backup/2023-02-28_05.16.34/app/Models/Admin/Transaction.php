@@ -18,7 +18,6 @@ class Transaction extends Model
     public $table = 'transaction';
     
     
-	const STATUS_CONS = ["accepted"=>"Accepted","pending"=>"Pending"];
     protected $dates = [
         'created_at',
         'updated_at',
@@ -33,7 +32,6 @@ class Transaction extends Model
 		"amount",
 		"transaction_type",
 		"quantity",
-		"status",
     ];
     public function sender_id()
     {

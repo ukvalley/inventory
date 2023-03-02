@@ -128,20 +128,14 @@
 
                               <div class="form-group">
                                  <label>User Id</label>
-                                 <input type="text" class="form-control" name="user_id" value="{{$data->user_id}}" placeholder="user_id" required>
+                                 <input type="text" class="form-control" name="user_id" value="{{$data->user_id}}" placeholder="user_id" >
                               </div>
                               <div class="form-group">
                                  <label>Customer Id</label>
-                                 <input type="text" class="form-control" name="customer_id" value="{{$data->customer_id}}" placeholder="customer_id" required>
+                                 <input type="text" class="form-control" name="customer_id" value="{{$data->customer_id}}" placeholder="customer_id" >
                               </div>
 
-                              <div class="form-group">
-                                 <label>Status</label >
-                                 <select class="form-control" name="statuss"  id="statuss">
-                                    <option  value="sold" >Sold</option>
-                                    <option  value="unsold">Unsold</option>
-                                 </select>
-                              </div>
+                             
                               
                              
 
