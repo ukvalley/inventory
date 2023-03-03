@@ -51,10 +51,6 @@ Route::get('/', [Controller::class, 'Dashboard'])->name('Dashboard');
 
 
 
-//search
-
-// Route::get('/', [SearchController::class, 'index']);
-// Route::get('/action', [SearchController::class, 'action'])->name('action');
 
 //
 Route::get('/index', function () {
@@ -281,6 +277,7 @@ Route::post('saleUpdate', [MAdminPanelController::class, 'saleUpdate'])->name('s
 Route::get('get_customer', [MAdminPanelController::class, 'get_customer'])->name('get_customer');
 
 Route::get('getVehicle', [MAdminPanelController::class, 'getVehicle'])->name('getVehicle');
+
 
 
 

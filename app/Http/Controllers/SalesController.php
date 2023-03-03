@@ -105,7 +105,7 @@ public function sales_edit()
         
 
 
-       $Device->update($data);
+       $Sales->update($data);
    
 
     return redirect()->back();
@@ -169,43 +169,6 @@ public function openSalesInfo()
     }  
 
 
-    
-//  public function createPDF() {
-//      // retreive all records from db
-//      $data = Sales::all();
-//      // share data to view
-//      view()->share('sales',$data);
-//      $pdf = PDF::loadView('sale/sales_table', $data);
-//      // download PDF file with download method
-
-//      return $pdf->download('pdf_file.pdf');
-//    }
-
-
-
-//    public function viewPDF()
-//     {
-//         $sales = Sales::all();
-
-//         $pdf = PDF::loadView('pdf.salesdetails', array('users' =>  $sales))
-//         ->setPaper('a4', 'portrait');
-
-//         return $pdf->stream();
-
-//     }
-
-
-
-
-//     public function downloadPDF()
-//     {
-//         $sales = Sales::all();
-
-//         $pdf = PDF::loadView('pdf.salesdetails', array('sales' =>  $sales))
-//         ->setPaper('a4', 'portrait');
-
-//         return $pdf->download('sales-details.pdf');   
-//     }
-
+   
 
 }

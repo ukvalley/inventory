@@ -49,10 +49,10 @@
                 <td>{{$row->date}}</td>
                 <td>{{$row->quantity}}</td>
                 <td>{{$row->amount}}</td>
-
-
                 <td>{{$row->transaction_type}}</td>
-                <td>{{$row->status}}</td>
+                <td>
+                  {{$row->status}}
+                </td>
                
                   <td>
                <a href="{{url('/')}}/transaction/transaction_edit?id={{$row->id}}" class="btn btn-primary">Edit</a>

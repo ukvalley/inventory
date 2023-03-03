@@ -14,7 +14,7 @@ class SimController extends Controller
    {         
     $request->validate(
      [
-          'name'=>'required|unique:SimTypes',
+          'name'=>'required|unique:sim_types',
          
            
      ]

@@ -51,36 +51,17 @@ class MAdminPanelController extends Controller
 
 
 
-    public function newManifacturer(Request $request)
-	   {      
-
-
-	        $manifacturers = new Manifacturers;
-
-
-
-	        $manifacturers->name = $request->input('name');
-	        $manifacturers->companyname = $request->input('companyname');
-	        $manifacturers->address = $request->input('address');
-	        $manifacturers->contact = $request->input('contact');
-	       
-
-
-	        $manifacturers->save();
-	       // 	
-
-	              
-	        return redirect()->back();
-	        	  
-	        
-	    }
+   
 
 
 
         //INTERNAL TRANSFER-------------------------------------------------------------------------
-
+         
         public function get_device()
         { 
+
+
+
            $alldevice =Device::with(['manufactured_by_id'])->get();
          
        
@@ -118,6 +99,8 @@ $devices = $request->select;
 
         $device->user_id = $request->user;
 
+
+        
         $device->save();
 
 
@@ -207,9 +190,7 @@ public function get_customer($user_type)
             
             $Transaction->amount =1;
             $Transaction->transaction_type =1;
-            $Transaction->quantity =1;
-            
-            // $Transaction->status ='pending';
+            $Transaction->quantity =1; 
  
 
           
@@ -224,18 +205,8 @@ public function get_customer($user_type)
 }
 
 
-// public function getVehicle()
-//         { 
-//             $data=Device::with(['user_id_id'])->get();
-//            $allCustomer = Customer::get();
 
-//            $allVehicle = Vechicles::get();
 
-       
-//         //    print_r($alldevice);die();
-//         return view('/device_sale', compact('data','allCustomer','allVehicle'));
-
-//         }
 
 
 }

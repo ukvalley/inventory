@@ -24,6 +24,8 @@
                 <input type="text" name="search1" id="search1" class="" placeholder="Search Device Data" />
               </div>
 
+              <form class="col-sm-6" action="{{url('/')}}/saleUpdate" method="post"  enctype="multipart/form-data">
+                    {{ csrf_field() }}
 
 
 
@@ -51,15 +53,16 @@
   </thead>
   @foreach($data as $row)
             <tr>
+            <td>
+                  <input type='checkbox' value="{{$row->id}}" name="select[]">
+                </td>
 
                 <td>{{$row->id}}</td>
                 <td>{{$row->imei}}</td>
                 <td>{{$row->ice_id}}</td>
 
                 <td>{{$row->user_id_id->name ?? ''}}</td>
-                <td>
-                  <input type='checkbox' value="{{$row->id}}" name="select[]">
-                </td>
+                
 
             </tr>
         @endforeach
@@ -100,7 +103,7 @@
                               <div class="form-group">
 
                                <label>Select Vehicle</label>
-                          <select class="form-control" name="vehicle" onChange=''    id="vehicle-select" >
+                          <select class="form-control" name="vehicle" onChange='' id="vehicle-select" >
                          
                      
                                    @foreach ($allVehicle as $value){
@@ -145,7 +148,7 @@
 
 $('#vehicle-select').change(function(){
        $('#user').find('option').remove().end()
-         console.log('{{url('/')}}/api/getVehicle/'+$(this).val()+'');
+        //  console.log('{{url('/')}}/api/getVehicle/'+$(this).val()+'');
          $.ajax({
         url: '{{url('/')}}/api/getVehicle/'+$(this).val()+'',
         type: "GET",
@@ -165,9 +168,12 @@ $('#vehicle-select').change(function(){
 
     alert($(this).val());
 })
-        </script>
-        
-  <script>
+
+</script>
+   
+
+<!--  -->
+ <script>
     $(document).ready(function() {
       
       fetch_device_data();
@@ -179,7 +185,8 @@ $('#vehicle-select').change(function(){
           type: "GET",
           dataType: "json",
           data: {
-            query: query
+            query
+            : query
           },
          
           success: function(data)

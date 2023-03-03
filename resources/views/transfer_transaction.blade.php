@@ -21,6 +21,9 @@
                 <input type="text" name="search1" id="search1" class="" placeholder="Search Device Data" />
               </div>
 
+              <form class="col-sm-6" action="{{url('/')}}/transferUpdate" method="post"  enctype="multipart/form-data">
+                    {{ csrf_field() }}
+
              
               <!-- End search bar -->
               <table class="table table-striped table-dark">
@@ -40,6 +43,7 @@
                         </thead>
                          
                           <tbody>
+
                           @foreach($alldevice as $row)
             <tr>
             <td>
@@ -82,12 +86,15 @@
       </div>
     </div>
   </section>
-  <!-- Main content -->
+  <!-- 
+    
+  Main content -->
   <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script>
+ 
+ <script>
     $('#user-select').change(function() {
           $('#user').find('option').remove().end()
           $.ajax({
@@ -101,13 +108,16 @@
                       });
                   },
                   error: function(request, status, error) {
-                    alert(request.statusText + "[" + request.status + "]");
+                    alert(request.statusText + "[" +
+                    
+                    request.status + "]");
                     alert(request.responseText);
                     $('button#form_salesReport_button').html(config.messages.searchReport);
                   }
               });
           });
   </script>
+
 
 
 
@@ -133,6 +143,7 @@
           }
         })
       }
+      
 
 
       $(document).on("keyup", "#search1", function() 
