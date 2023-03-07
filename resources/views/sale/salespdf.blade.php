@@ -35,7 +35,7 @@
                 <td>{{$data->device_number}}</td>
                 <td>{{$data->allocated_to}}</td>
                 <td>{{$data->user_id}}</td>
-               <td>
+               
                 </tr>
                 @endforeach
             </tbody>

@@ -27,6 +27,7 @@
     <th scope="col">Id</th>
       <th scope="col">Name</th>
       <th scope="col">City</th>
+      <th scope="col">Action</th>
 
     </tr>
 
@@ -43,9 +44,7 @@
                 
               
                 
-                 <td>
-                  <a href="{{url('/')}}/manifacturer/manifacturer_edit?id={{$row->id}}" class="btn btn-primary">Edit</a>
-                </td>
+                 
                 <td>
                 <a href="{{url('/')}}/manifacturer_destroy?id={{$row->id}}" class="btn btn-danger">Delete</a>
                 </td>

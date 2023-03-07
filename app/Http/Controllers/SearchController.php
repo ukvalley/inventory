@@ -36,8 +36,7 @@ class SearchController extends Controller
             else 
             {
                 $data = Device::
-                    with(['manufactured_by_id'])
-                    ->where('status','=','unsold')
+                    where('status','=','unsold')
                     ->orderBy('id', 'desc')
                     ->limit(10)
                     ->get();
@@ -53,7 +52,7 @@ class SearchController extends Controller
                     <tr>
                     <td><input type="checkbox" value="'.$row->id.'" name="select[]"></td>
                     <td>'.$row->id.'</td>
-                    <td>'.$row->manufactured_by_id.name.'</td>
+                 
                     <td>'.$row->ice_id.'</td>
                     <td>'.$row->imei.'</td>
                    

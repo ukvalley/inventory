@@ -24,7 +24,7 @@
                 <input type="text" name="search1" id="search1" class="" placeholder="Search Device Data" />
               </div>
 
-              <form class="col-sm-6" action="{{url('/')}}/saleUpdate" method="post"  enctype="multipart/form-data">
+              <form action="{{url('/')}}/saleUpdate" method="post"  enctype="multipart/form-data">
                     {{ csrf_field() }}
 
 

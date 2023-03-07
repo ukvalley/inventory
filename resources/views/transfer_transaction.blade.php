@@ -21,7 +21,7 @@
                 <input type="text" name="search1" id="search1" class="" placeholder="Search Device Data" />
               </div>
 
-              <form class="col-sm-6" action="{{url('/')}}/transferUpdate" method="post"  enctype="multipart/form-data">
+              <form action="{{url('/')}}/transferUpdate" method="post"  enctype="multipart/form-data">
                     {{ csrf_field() }}
 
              
@@ -36,7 +36,6 @@
                           <tr>
                             <th scope="col">Check</th>
                             <th scope="col">ID</th>
-                            <th scope="col">Manufacturer</th>
                             <th scope="col">IMEI</th>
                             <th scope="col">ICE ID</th>
                           </tr>
@@ -50,7 +49,6 @@
                   <input type='checkbox' value="{{$row->id}}" name="select[]">
                 </td>
                 <td>{{$row->id}}</td>
-                <td>{{$row->manufactured_by_id->name ?? ''}}</td>
                 <td>{{$row->imei}}</td>
 
                 <td>{{$row->ice_id}}</td>
