@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers;
 use App\Http\Controllers\MAdminPanelController;
 
@@ -39,47 +40,7 @@ use App\Http\Controllers\ManifacturerController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-// Route::get('/mail',[MAdminPanelController::class,'index']);
 
-Route::get('Dashboard', [Controller::class, 'Dashboard'])->name('Dashboard');
-
-
-
-
-Route::get('/', [Controller::class, 'Dashboard'])->name('Dashboard');
-
-
-
-
-
-//
-Route::get('/index', function () {
-    return view('index');
-});
-
-Route::get('/madmin_panel', function () {
-    return view('madmin_panel');
-});
-
-
-
-
-
-
-
-
-
-
-Route::get('/customer/customer_table', function () {
-    return view('customer/customer_table');
-});
-
-
-
-
-Route::get('/login', function () {
-    return view('login');
-});
 
 
 
@@ -403,3 +364,79 @@ Route::get('/device/device_infopdf', function () {
     return view('/device/device_infopdf');
 });
 Route::get('/pdfview_device_info', [DeviceController::class, 'pdfview_device_info'])->name('pdfview_device_info');
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+//imp
+//login admin
+
+
+Route::get('admin',[AdminController::class,'index']);
+
+Route::get('admin/forget_password', function () {
+    return view('admin/forget_password');
+});
+
+Route::get('admin/resetpassword', function () {
+    return view('admin/resetpassword');
+});
+
+Route::post('forgot_password_post',[AdminController::class,'forgot_password_post']);
+
+Route::post('resetpassword_post',[AdminController::class,'resetpassword_post']);
+
+//
+
+Route::post('admin/auth',[AdminController::class,'auth'])->name('admin.auth');
+
+
+
+
+Route::group(['prefix' => 'admin', 'middleware' => ['is_admin']], function(){
+
+    
+    Route::get('/dashboard',[Controller::class,'dashboard']);
+    Route::get('/logout',[AdminController::class,'logout']);
+
+    
+
+    //admin/routes
+    Route::get('/customer/customer_table', function () {
+    return view('customer/customer_table');
+});
+
+});//admins group middleware END
+
+//admin login END----------------------------------------------------
+
+
+
+//user login START----------------------------------------------------
+
+Route::get('user',[UserController::class,'index']);
+
+
+
+Route::post('user/auth',[UserController::class,'auth'])->name('user.auth');
+
+
+
+
+Route::group(['prefix' => 'user', 'middleware' => ['is_user']], function(){
+
+    
+    Route::get('/dashboard',[Controller::class,'dashboard']);
+    Route::get('/logout',[UserController::class,'logout']);
+
+    
+
+});
+//user login END----------------------------------------------------
+
+
+
+
+
+

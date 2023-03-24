@@ -23,6 +23,11 @@
                                  <label>Name</label>
                                  <input type="text" class="form-control" name="name" placeholder=" Name" required>
                               </div>
+                              <div class="form-group">
+                                 <label>Email</label>
+                                 <input type="text" class="form-control" name="email" placeholder=" Email" required>
+                              </div>
+                              
 
                               <div class="form-group">
                                  <label>Mobile</label>

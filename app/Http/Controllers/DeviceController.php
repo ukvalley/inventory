@@ -51,6 +51,7 @@ class DeviceController extends Controller
              $Device->activation_date = $this->change_date_format($request->input('activation_date'));
              $Device->received_date = $this->change_date_format($request->input('received_date'));
              $Device->renewal_date = $this->change_date_format($request->input('renewal_date'));
+
              $Device->status = $request->input('status');
  
              $Device->save();
@@ -267,6 +268,7 @@ public function pdfview_device_info()  {
 
  return $pdf->download('devicedetails.pdf');
 }  
+
 
 
 }

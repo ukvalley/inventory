@@ -65,6 +65,7 @@ class SalesController extends Controller
 
 public function register_sales()
  {    
+
      
      $allsales = Sales::get();
     
@@ -80,10 +81,11 @@ public function sales_edit()
       $data=DB::table('Sales')
             ->where('id',"=",$id)
             ->first();
-     
-      $allsales = Sales::get();
 
+      $allsales = Sales::get();
+     
      // print_r($data); die();
+
       return view('/sale/sales_edit')->with(compact('data','allsales'));
  }
 
@@ -94,6 +96,8 @@ public function sales_edit()
    {
       $data = $request->all();
             $Sales = Sales::find($id);
+ 
+ 
 
        $Sales->date =$this->change_date_format($request->input('date'));
        $Sales->device_id =$request->input('device_id');  

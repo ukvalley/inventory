@@ -42,9 +42,10 @@
         <th scope="col">Staff</th>
         <th scope="col">Customer</th>
         <th scope="col">Status</th>
+        <th scope="col">Device Acceptance </th>
 
        <th scope="col">Edit</th>
-      <th scope="col">Delete</th> 
+       <th scope="col">Delete</th> 
       
       
     </tr>
@@ -76,6 +77,17 @@
                     @else
                     <span class="btn btn-success small">Sold</span>
                     @endif
+                  </td>
+
+
+                  <td> 
+                    @if($row->user_id == null)
+                      <span class="btn btn-warning small">Not Accepted</span>
+                    @else
+                    
+                    <span class="btn btn-success ">Accepted</span>
+                    @endif
+
                   </td>
 
 

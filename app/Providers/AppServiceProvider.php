@@ -5,6 +5,8 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\Schema;
+
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -29,6 +31,13 @@ class AppServiceProvider extends ServiceProvider
         Validator::extend('file_extension', function ($attribute, $value, $parameters, $validator) {
             $extension = $value->getClientOriginalExtension();
             return $extension != '' && in_array($extension, $parameters);
+
+
+            Schema::defaultStringLength(191);
+
+
         });
     }
+
+
 }

@@ -3,12 +3,86 @@
 namespace App\Http\Controllers;
 use DB;
 use Illuminate\Http\Request;
-use App\Models\Admin\Users;
 use PDF;
 use load;
+use Sentinel;
+use Session;
+use App\Http\Middleware\UserAuth;
+
+use Response;
+use Validator;  
+use Hash;
+use App\Models\Admin\Users;
+
+
 
 class UserController extends Controller
+{   
+   ///user/staff login Start-------------------------------------------
+
+   public function index()
+   {
+
+       return view('user.login');
+   }
+
+  
+   
+
+
+   public function auth(Request $request){
+
+     $email=$request->post('email');
+     $password=$request->post('password');
+
+     $result=Users::where(['email'=>$email,'password'=>$password])->get();
+   if(isset($result['0']->id)){
+       Session::put('USER_LOGIN', 'yes');
+       return redirect('user/dashboard');
+
+   }else{
+       $request->session()->flash('error','Please Enter Valid Login Details');
+       return redirect('user');
+       
+   }
+}
+
+
+
+
+public function dashboard()
 {
+
+   return view('user.dashboard');
+}
+
+public function logout()
+   
+{
+   
+   Session::forget('USER_LOGIN');
+   return redirect('/user');
+}
+
+// public function forget_password()
+// {
+
+//     return view('admin/forgot_password');
+// }
+
+// public function reset_password()
+// {
+
+//     return view('admin.reset_password');
+// }
+
+
+
+
+   ///user/staff login End--------------------------------------------------
+
+
+   
    
 
 public function  UserRegister(Request $request)
@@ -17,6 +91,7 @@ public function  UserRegister(Request $request)
          $request->validate(
             [
                  'name'=>'required',
+                 'email'=>'required',
                  'mobile'=>'required|digits_between:10,10|unique:Users',
                  'city'=>'required',
                  'basic_amount'=>'required',
@@ -33,6 +108,8 @@ public function  UserRegister(Request $request)
 
 	 
 	        $User->name = $request->input('name');
+           $User->email = $request->input('email');
+
 	        $User->mobile = $request->input('mobile');
 	        $User->city = $request->input('city');	
 	        $User->admiko_parent_child = $request->input('admiko_parent_child');

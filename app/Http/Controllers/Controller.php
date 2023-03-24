@@ -53,9 +53,10 @@ class Controller extends BaseController
    
        
 
-    return view("index",compact('data','allcustomer','customerCount','vehicleCount','allvehicle','soldCount','unsoldCount','salesAgentCount','technicianCount','totalDeviceCount','manifacturerCount'));
 
 
+
+    return view("/admin/dashboard",compact('data','allcustomer','customerCount','vehicleCount','allvehicle','soldCount','unsoldCount','salesAgentCount','technicianCount','totalDeviceCount','manifacturerCount'));
 
   
     }
