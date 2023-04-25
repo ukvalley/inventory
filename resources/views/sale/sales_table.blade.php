@@ -44,6 +44,7 @@
 
   @foreach($data as $data)
             <tr>
+               
                <td>{{$data->id }}</td>
                 <td>{{$data->date }}</td>
                 <td>{{$data->device_id}}</td>
@@ -56,9 +57,7 @@
                 <td>
                 <a href="{{url('/')}}/sales_destroy?id={{$data->id}}" class="btn btn-danger">Delete</a>
                 </td>
-                
-            
-                 
+
             </tr>
         @endforeach
 </table>

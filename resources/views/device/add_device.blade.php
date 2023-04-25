@@ -47,7 +47,7 @@
                               <div class="form-group">
                                  <label>SIM1 Type</label>
                                      <select class="form-control" name="sim_1_type" id="sim_1_type">
-                                   @foreach ($sim_get as $value){ 
+                                   @foreach ($sim_get as $value)
                                     <option value="{{$value->id}}">{{$value->name}}</option>
                                  @endforeach
                                  </select>
@@ -64,7 +64,7 @@
                                <div class="form-group">
                                  <label>SIM2 Type</label>
                                      <select class="form-control" name="sim_2_type" id="sim_2_type">
-                                   @foreach ($sim_get as $value){ 
+                                   @foreach ($sim_get as $value)
                                     <option value="{{$value->id}}" >{{$value->name}}</option>
                                  @endforeach
                                  </select>

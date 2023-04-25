@@ -19,6 +19,7 @@ use App\Models\Admin\Transaction;
 
 
 
+
 //NOT YET DELETED...??????????????????
 
 class MAdminPanelController extends Controller
@@ -36,6 +37,7 @@ class MAdminPanelController extends Controller
  
            return $chnage_date_f;
     }
+
 
     private function change_date_format_time($date)
     {
@@ -92,19 +94,22 @@ public function transferUpdate(Request $request)
 $devices = $request->select;
 
     foreach ($devices as $key => $value) {
+
+
         
 
 
         $device = Device::find($value);
 
         $device->user_id = $request->user;
-
-
         
-        $device->save();
 
+        // print_r($device); die();
 
-        // create transaction for device transfer
+      
+
+  $device->save();
+
 
 
     }
@@ -155,8 +160,17 @@ public function get_customer($user_type)
             $device = Device::find($value);
     
             $device->customer_id= $request->customer;
-    
+
+            // print_r($device); 
+
             $device->save();
+
+        
+
+            
+
+        
+
 
 
             //entry in sales
@@ -169,8 +183,9 @@ public function get_customer($user_type)
             $Sale->device_id = $device->id;
             $Sale->device_number = $device->ice_id;
             $Sale->allocated_to = $device->customer_id;
-            $Sale->user_id = $device->user_id;
-          
+            $Sale->user_id = $device->user_id;          
+
+            // print_r($Sale);
             $Sale->save();
 
             
@@ -188,12 +203,14 @@ public function get_customer($user_type)
             $Transaction->receiver = $device->customer_id;
             $Transaction->date =  $this->change_date_format($today);
             
-            $Transaction->amount =1;
-            $Transaction->transaction_type =1;
-            $Transaction->quantity =1; 
+            $Transaction->amount = 1;
+            $Transaction->transaction_type = 1;
+            $Transaction->quantity = 1; 
+            
  
 
-          
+            // print_r($Transaction);  die();
+
 
             $Transaction->save();
 

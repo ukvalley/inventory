@@ -47,16 +47,17 @@ class CustomerController extends Controller
                
          
      }
+     
 
 
      public function view_customer()
 {
-   $data=DB::table('customer')->get();
+   $data=Customer::get();
 
    //print_r($data); die();
 
    //get data from database 
-   return view('customer_table')->with(compact($data)); 
+   return view('customer/customer_table')->with(compact('data')); 
 }
   
 

@@ -17,7 +17,7 @@
                   
 
 
-
+ 
 
 <table class="table table-striped table-dark">
   
@@ -42,10 +42,15 @@
         <th scope="col">Staff</th>
         <th scope="col">Customer</th>
         <th scope="col">Status</th>
-        <th scope="col">Device Acceptance </th>
+      
 
-       <th scope="col">Edit</th>
-       <th scope="col">Delete</th> 
+        
+      
+        <!-- <th scope="col">Edit</th>
+       <th scope="col">Delete</th>  -->
+       
+       <th scope="col">s_status</th>
+       <th scope="col">r_status</th> 
       
       
     </tr>
@@ -77,10 +82,14 @@
                     @else
                     <span class="btn btn-success small">Sold</span>
                     @endif
+
+
+              
                   </td>
 
 
-                  <td> 
+                  <!-- <td> 
+                    
                     @if($row->user_id == null)
                       <span class="btn btn-warning small">Not Accepted</span>
                     @else
@@ -88,16 +97,18 @@
                     <span class="btn btn-success ">Accepted</span>
                     @endif
 
-                  </td>
+                  </td> -->
 
 
-                  <td>
+                  
+                  
+                   <!-- <td>
                <a href="{{url('/')}}/device/device_edit?id={{$row->id}}" class="btn btn-primary">Edit</a>
                 </td>
                 <td>
                 <a href="{{url('/')}}/device_destroy?id={{$row->id}}" class="btn btn-danger">Delete</a>
                 </td>
-                
+                 -->
             
                  
             </tr>

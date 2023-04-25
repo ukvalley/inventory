@@ -27,8 +27,7 @@ public function Transaction(){
    
     $allVehicle = Vechicles::get();
     $allUser = Users::get();
-
-
+     
 
 
         //    print_r($alldevice);die();
@@ -39,10 +38,38 @@ public function Transaction(){
 
 }
 
+
+
+// function status_update($id){
+
+        
+//   //get device status with id
+//   $device_status=Device::select('r_status')->where('id','=','$id')->first();
+     
+//   //checking status
+//   if($device_status->r_status == 'pending'){
+//     $device_status = 'accepted';
+
+//   }else{
+//     $device_status = 'pending';
+//   }
+
+//   $value =array('r_status'=>$device_status);
+//   Device::where('id',$id)->update($values);
+  
+//  return view();
+
+// }
+
+
+
 public function transactionUpdate(Request $request)
         {
          
           foreach ($transaction as $key => $value) {
+
+            
+
             
     
     
@@ -51,14 +78,11 @@ public function transactionUpdate(Request $request)
             $transaction->user_id = $request->sender;
     
             $transaction->save();
-    
-
-            return view('');
-
-
-
+   
 }    
+
 }
+
 public function pdfview_transaction(Request $request)  
 {  
   $transaction = Transaction::all();
@@ -71,5 +95,7 @@ public function pdfview_transaction(Request $request)
  $pdf = PDF::loadView('transaction.transactionpdf', $data);
 
  return $pdf->download('transactionpdf.pdf');
+
+
 }  
 }

@@ -70,11 +70,9 @@ class DeviceController extends Controller
        $data=Device::with(['sim_1_type_id','sim_2_type_id','customer_id_id','user_id_id'])->get();
      
 
- 
-      //  print_r($data); die();
- 
-       //get data from database 
-       return view('device.device_table')->with(compact('data')); 
+        return view('device/device_table')->with(compact('data')); 
+
+
     }
 
     private function change_date_format($date)
@@ -92,7 +90,7 @@ class DeviceController extends Controller
      public function add_device()
      {    
          
-         $alldevice = device::get();
+         $alldevice = Device::get();
 
           $sim_get = SimTypes::get();
           $allmanifacturer = Manifacturer::get();
@@ -257,7 +255,7 @@ public function pdfview_device(Request $request)
 
 public function pdfview_device_info()  {
    
-  $device = Device::first();
+  $device = Device::all();
   $data = [
      'title' => 'Welcome to device ',
      'date' => date('m/d/Y'),
