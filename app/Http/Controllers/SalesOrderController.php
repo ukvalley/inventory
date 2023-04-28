@@ -22,7 +22,7 @@ class SalesOrderController extends Controller
 public function salesformPost(Request $request)
 {  
    
-   $make = $request->manifactured_by;
+   $manufactured_by = $request->manifactured_by;
    $ice_id = $request->ice_id;
    $imei = $request->imei;
    $sim_1_type = $request->sim_1_type;

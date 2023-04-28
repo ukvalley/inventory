@@ -38,7 +38,7 @@ class UserController extends Controller
      $result=Users::where(['email'=>$email,'password'=>$password])->get();
    if(isset($result['0']->id)){
        Session::put('USER_LOGIN', 'yes');
-       return redirect('user/dashboard');
+       return redirect('user/Userdashboard');
 
    }else{
        $request->session()->flash('error','Please Enter Valid Login Details');
@@ -50,10 +50,10 @@ class UserController extends Controller
 
 
 
-public function dashboard()
+public function Userdashboard()
 {
 
-   return view('user.dashboard');
+   return view('user.Userdashboard');
 }
 
 public function logout()

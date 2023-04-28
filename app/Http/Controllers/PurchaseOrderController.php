@@ -19,24 +19,39 @@ class PurchaseOrderController extends Controller
 {
     
 
+
+
+    private function change_date_format($date)
+    {
+           $chnage_date = strtotime($date);
+ 
+           $chnage_date_f = date('M d, Y',( $chnage_date ) );
+             
+
+           return $chnage_date_f;
+    }
+
    public function purchaseformPost(Request $request)
    {  
       
+ 
 
-
-      $make = $request->make;
+      $manufactured_by = $request->manufactured_by;
       $ice_id = $request->ice_id;
       $imei = $request->imei;
       $sim_1_type = $request->sim_1_type;
       $sim_2_type = $request->sim_2_type;
-      $activation_date =$request ->activation_date;
-      $received_date =$request ->received_date;
-      $renewal_date = $request ->renewal_date;
+      $activation_date = $this->change_date_format($request->activation_date);
+      $received_date = $this->change_date_format($request->received_date);
+      $renewal_date = $this->change_date_format($request->renewal_date);
+
+     
       $user_id = $request->user_id;
       $purchase_from = $request->purchase_from;
       $amount = $request->amount;
 
-      $this->purchaseOrder($make,$ice_id,$imei,$sim_1_type,$sim_2_type,$received_date,$activation_date,$renewal_date,$user_id,$purchase_from,$amount);
+
+      $this->purchaseOrder($manufactured_by,$ice_id,$imei,$sim_1_type,$sim_2_type,$received_date,$activation_date,$renewal_date,$user_id,$customer_id);
     
       
    }
@@ -49,7 +64,7 @@ class PurchaseOrderController extends Controller
 
       foreach($csv_data as $key=>$value)
       {
-         $this->purchaseOrder($make,$ice_id,$imei,$sim_1_type,$sim_2_type,$user_id,$purchase_from,$amount);
+         $this->purchaseOrder($manufactured_by,$ice_id,$sim1,$sim2,$imei,$sim_1_type,$sim_2_type,$user_id,$customer_id);
       }
 
    }
@@ -57,29 +72,28 @@ class PurchaseOrderController extends Controller
 
     
     ///recored update purchase
-    public function purchaseOrder($make,$ice_id,$imei,$sim_1_type,$sim_2_type,$received_date,$activation_date,$renewal_date,$user_id,$purchase_from){
+    public function purchaseOrder($manufactured_by,$ice_id,$imei,$sim1,$sim2,$sim_1_type,$sim_2_type,$received_date,$activation_date,$renewal_date,$user_id,$customer_id){
 
          // purchase validation add here
-
-
-
-
-
 
       //create device information
 
            $device= new Device;
 
-           $device->make = $make;
+           $device->manufactured_by = $manufactured_by;
            $device->ice_id = $ice_id;
            $device->imei = $imei;
+           $device->sim1 = $sim1;
+           $device->sim2 = $sim2;
+
            $device->sim_1_type = $sim_1_type;
            $device->sim_2_type = $sim_2_type;
            $device->activation_date =$this->change_date_format($activation_date);
 	       $device->received_date =$this->change_date_format($received_date);
 	       $device->renewal_date = $this->change_date_format($renewal_date);
 	        
-          
+          print_r($device);
+
            $device->save();
 
         
@@ -137,7 +151,11 @@ class PurchaseOrderController extends Controller
         'csv_data' => json_encode($data)
     ]);
 
-    $csv_data = array_slice($data, 0, 2);
+
+
+    $csv_data = array_slice(($data), 0, 1);
+
+
     return view('import_fields', compact('csv_data', 'csv_data_file'));
 }
 
@@ -174,21 +192,22 @@ class PurchaseOrderController extends Controller
     {
 
 
-      $make = $csv_row_data['make'];
+      $manufactured_by = $csv_row_data['manufactured_by'];
       $ice_id = $csv_row_data['ice_id'];
       $imei = $csv_row_data['imei'];
+      $sim1 = $csv_row_data['sim1'];
       $sim_1_type = $csv_row_data['sim_1_type'];
+      $sim2 = $csv_row_data['sim2'];
       $sim_2_type = $csv_row_data['sim_2_type'];
       $received_date = $csv_row_data['received_date'];
-      $activation_date = null;
-      $renewal_date = null;
-      $user_id = 1;
-      $purchase_from = $csv_row_data['purchase_from'];
-      $amount = $csv_row_data['amount'];
+      $activation_date = $csv_row_data['activation_date'];
+      $renewal_date = $csv_row_data['renewal_date'];
+      $user_id = $csv_row_data['user_id'];
+      $customer_id = $csv_row_data['customer_id'];
       
 
 
-      $this->purchaseOrder($make,$ice_id,$imei,$sim_1_type,$sim_2_type,$received_date,$activation_date,$renewal_date,$user_id,$purchase_from,$amount);
+      $this->purchaseOrder($manufactured_by,$ice_id,$sim1,$sim2,$imei,$sim_1_type,$sim_2_type,$received_date,$activation_date,$renewal_date,$user_id,$customer_id);
 
 
     }

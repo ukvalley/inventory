@@ -42,6 +42,7 @@ use App\Http\Controllers\ManifacturerController;
 */
 
 
+//old
 
 Route::get('/customer/customer_table', function () {
     return view('customer/customer_table');
@@ -80,12 +81,10 @@ Route::get('sim/sim_table', function () {
     return view('sim/sim_table');
 });
 
-//old
+// //New Routes
+// //*************************************************************************************************************** */
 
-//New Routes
-//*************************************************************************************************************** */
-
-//customer--------------------------------------------------------------------------------
+// //customer--------------------------------------------------------------------------------
   
 
         
@@ -209,13 +208,13 @@ Route::post('salesformPost', [SalesOrderController::class, 'salesformPost'])->na
 
 
 Route::get('getImport', [PurchaseOrderController::class, 'getImport'])->name('import');
-Route::post('/import_parse', [PurchaseOrderController::class, 'parseImport'])->name('import_parse');
+//Route::post('/import_parse', [PurchaseOrderController::class, 'parseImport'])->name('import_parse');
 Route::post('/import_process', [PurchaseOrderController::class, 'processImport'])->name('import_process');
 
 //sale csv import
 
 Route::get('getSaleImport', [SalesOrderController::class, 'getSaleImport'])->name('import');
-Route::post('/import_parse', [SalesOrderController::class, 'parseSaleImport'])->name('import_parse');
+//Route::post('/import_parse', [SalesOrderController::class, 'parseSaleImport'])->name('import_parse');
 Route::post('/import_process', [SalesOrderController::class, 'processSaleImport'])->name('import_process');
 
 
@@ -379,6 +378,12 @@ Route::get('/', function () {
 //login admin
 
 
+
+
+
+
+
+
 Route::get('admin',[AdminController::class,'index']);
 
 Route::get('admin/forget_password', function () {
@@ -391,12 +396,27 @@ Route::get('admin/resetpassword', function () {
 
 
 
+
+
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 Route::post('admin/auth',[AdminController::class,'auth'])->name('admin.auth');
+//************************************************************************* */
+///ADMIN GROUP MIDDLEWARe
+//************************************************************************* */
 
 
-///ADMIN GROUP MIDDLEWARE
+    Route::group(['prefix' => 'admin', 'middleware' => ['is_admin']], function(){
 
-Route::group([ 'middleware' => ['is_admin']], function(){
 
     
     Route::get('/dashboard',[Controller::class,'dashboard']);
@@ -404,12 +424,52 @@ Route::group([ 'middleware' => ['is_admin']], function(){
 
    
 
+
+
+    
+Route::get('/customer/customer_table', function () {
+    return view('customer/customer_table');
+    });
+
+
+Route::get('purchase/purchase_device', function () {
+    return view('purchase/purchase_device');
+});
+
+Route::get('purchase/purchase_table', function () {
+    return view('purchase/purchase_table');
+});
+
+
+Route::get('user/user_table', function () {
+    return view('user/user_table');
+});
+Route::get('vehicle/vehicle_table', function () {
+    return view('vehicle/vehicle_table');
+});
+
+
+
+Route::get('sale/sales_table', function () {
+    return view('sale/sales_table');
+});
+Route::get('/records', function () {
+    return view('records');
+});
+Route::get('records/records_table', function () {
+    return view('records/records_table');
+});
+
+Route::get('sim/sim_table', function () {
+    return view('sim/sim_table');
+});
     
 //customer--------------------------------------------------------------------------------
   
 
         
 Route::get('/customer/register_customer', [CustomerController::class, 'register_customer'])->name('register_customer');
+
 Route::post('/register_customer-post', [CustomerController::class, 'CustomerRegister'])->name('CustomerRegister');
 Route::post('/register_customer-update/{id}', [CustomerController::class, 'update'])->name('update');
 
@@ -422,10 +482,15 @@ Route::get('/customer/customer_table', [CustomerController::class, 'customer_vie
 
 //vehicle-------------------------------------------------------------------------------------
 Route::get('vehicle/register_vehicle', [VehicleController::class, 'register_vehicle'])->name('register_vehicle');
+
 Route::post('/register_vehicle-post', [VehicleController::class, 'VehiclesRegister'])->name('VehiclesRegister');
+
 Route::post('/register_vehicle-update/{id}', [VehicleController::class, 'vehicle_update'])->name('vehicle_update');
+
 Route::get('vehicle/vehicle_edit', [VehicleController::class, 'vehicle_edit'])->name('vehicle_edit');
+
 Route::get('vehicle_destroy', [VehicleController::class, 'vehicle_destroy'])->name('vehicle_destroy');
+
 Route::get('/vehicle/vehicle_table', [VehicleController::class, 'vehicle_table'])->name('vehicle_table');
 
 
@@ -433,12 +498,16 @@ Route::get('/vehicle/vehicle_table', [VehicleController::class, 'vehicle_table']
 //User--------------------------------------------------------------------------------------
 
 Route::get('user/register_user', [UserController::class, 'register_user'])->name('register_user');
+
 Route::post('/register_user-post', [UserController::class, 'UserRegister'])->name('UserRegister');
+
 Route::post('/register_user-update/{id}', [UserController::class, 'user_update'])->name('user_update');
+
 Route::get('user/user_edit', [UserController::class, 'user_edit'])->name('user_edit');
+
 Route::get('user_destroy', [UserController::class, 'user_destroy'])->name('user_destroy');
 
-Route::get('user/user_table', [UserController::class, 'view_user'])->name('view_user');
+Route::get('/user/user_table', [UserController::class, 'view_user'])->name('view_user');
 
 //devices--------------------------------------------------------------------------------------------------
 
@@ -454,7 +523,7 @@ Route::get('device_destroy',[DeviceController::class, 'device_destroy'])->name('
 Route::get('device_edit',[DeviceController::class, 'add_sim'])->name('add_sim');
 
 
-Route::get('device/device_table', [DeviceController::class, 'view_device'])->name('view_device');
+Route::get('/device/device_table', [DeviceController::class, 'view_device'])->name('view_device');
 
 
 
@@ -465,7 +534,7 @@ Route::post('/purchase_device-post', [PurchaseController::class, 'PurchaseDevice
 Route::post('/purchase_device-update/{id}', [PurchaseController::class, 'purchase_update'])->name('purchase_update');
 Route::get('purchase/purchase_edit', [PurchaseController::class, 'purchase_edit'])->name('purchase_edit');
 Route::get('purchase_destroy', [PurchaseController::class, 'purchase_destroy'])->name('purchase_destroy');
-Route::get('purchase/purchase_table', [PurchaseController::class, 'view_purchase'])->name('view_purchase');
+Route::get('/purchase/purchase_table', [PurchaseController::class, 'view_purchase'])->name('view_purchase');
 
 //SAles-------------------------------------------------------------------------------------------------------------------------
 Route::get('/sale/register_sales', [SalesController::class, 'register_sales'])->name('register_sales');
@@ -474,7 +543,7 @@ Route::post('/sales-update/{id}', [SalesController::class, 'sales_update'])->nam
 Route::get('/sale/sales_edit', [SalesController::class, 'sales_edit'])->name('sales_edit');
 Route::get('sales_destroy', [SalesController::class, 'sales_destroy'])->name('sales_destroy');
 
-Route::get('sale/sales_table', [SalesController::class, 'view_sales'])->name('view_sales');
+Route::get('/sale/sales_table', [SalesController::class, 'view_sales'])->name('view_sales');
 
 //Records----------------------------------------------------------------------------------------------------------------------
 
@@ -495,7 +564,7 @@ Route::get('sim/simtypes', [SimController::class, 'add_simtype'])->name('add_sim
 //changes
 //device
 
-Route::get('add_device', [DeviceController::class, 'add_sim'])->name('add_sim');
+Route::get('add_sim', [DeviceController::class, 'add_sim'])->name('add_sim');
 
 
 //Records Table
@@ -529,15 +598,16 @@ Route::post('salesformPost', [SalesOrderController::class, 'salesformPost'])->na
 //csv imports
 
 
-Route::get('getImport', [PurchaseOrderController::class, 'getImport'])->name('import');
+
+Route::get('/getImport', [PurchaseOrderController::class, 'getImport'])->name('import');
 Route::post('/import_parse', [PurchaseOrderController::class, 'parseImport'])->name('import_parse');
 Route::post('/import_process', [PurchaseOrderController::class, 'processImport'])->name('import_process');
 
 //sale csv import
 
-Route::get('getSaleImport', [SalesOrderController::class, 'getSaleImport'])->name('import');
-Route::post('/import_parse', [SalesOrderController::class, 'parseSaleImport'])->name('import_parse');
-Route::post('/import_process', [SalesOrderController::class, 'processSaleImport'])->name('import_process');
+// Route::get('/getSaleImport', [SalesOrderController::class, 'getSaleImport'])->name('import');
+// Route::post('/saleimport_parse', [SalesOrderController::class, 'parseSaleImport'])->name('saleimport_parse');
+// Route::post('/saleimport_process', [SalesOrderController::class, 'processSaleImport'])->name('saleimport_process');
 
 
 //Transfer Device
@@ -704,9 +774,15 @@ Route::get('/pdfview_device_info', [DeviceController::class, 'pdfview_device_inf
 
 
 
-});//ADMIN GROUP MIDDLEWARE END---------------------------------------------------------------------------------------------------------
+});
+
+//ADMIN GROUP MIDDLEWARE END---------------------------------------------------------------------------------------------------------
 
 //************************************************************************************************************************************ */
+
+
+
+
 
 
 
@@ -723,12 +799,13 @@ Route::post('user/auth',[UserController::class,'auth'])->name('user.auth');
 Route::group(['prefix' => 'user', 'middleware' => ['is_user']], function(){
 
     
-    Route::get('/dashboard',[Controller::class,'dashboard']);
+    Route::get('/Userdashboard',[Controller::class,'UserDashboard']);
     Route::get('/logout',[UserController::class,'logout']);
 
 
 
-Route::get('/customer/register_customer', [CustomerController::class, 'register_customer'])->name('register_customer');
+
+    Route::get('/customer/register_customer', [CustomerController::class, 'register_customer'])->name('register_customer');
     Route::post('/register_customer-post', [CustomerController::class, 'CustomerRegister'])->name('CustomerRegister');
     Route::post('/register_customer-update/{id}', [CustomerController::class, 'update'])->name('update');
 
@@ -739,6 +816,7 @@ Route::get('/customer/register_customer', [CustomerController::class, 'register_
     Route::get('customer/customer_table',[CustomerController::class,'view_customer'])->name('view_customer');
     
 
+   
     
 
 });

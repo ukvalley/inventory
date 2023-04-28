@@ -137,14 +137,18 @@ return [
 
     'db_fields' => [
        
-        'manifactured_by',
+        'manufactured_by',
         'ice_id',
         'imei',
+        'sim1',
         'sim_1_type',
+        'sim2',
         'sim_2_type',
         'received_date',
-        'purchase_from',
-        'amount', 
+        'renewal_date',
+        'activation_date',        
+        'user_id',
+        'customer_id',
        
         
     ],

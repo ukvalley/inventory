@@ -67,7 +67,7 @@ class DeviceController extends Controller
  
          public function view_device()
     {
-       $data=Device::with(['sim_1_type_id','sim_2_type_id','customer_id_id','user_id_id'])->get();
+       $data=Device::with(['sim_1_type_id','sim_2_type_id','customer_id_id','user_id_id','sales_id_id'])->get();
      
 
         return view('device/device_table')->with(compact('data')); 
@@ -91,12 +91,13 @@ class DeviceController extends Controller
      {    
          
          $alldevice = Device::get();
-
+         $allsales = Sales::get();
           $sim_get = SimTypes::get();
           $allmanifacturer = Manifacturer::get();
 
+
          // print_r($alldevice); die();
-          return view('/device/add_device')->with(compact('alldevice','sim_get','allmanifacturer'));
+          return view('/device/add_device')->with(compact('alldevice','sim_get','allmanifacturer','allsales'));
      }
  
  
@@ -144,7 +145,7 @@ class DeviceController extends Controller
            $device->renewal_date = $this->change_date_format($request->input('renewal_date'));
            $device->user_id = $request->input('user_id');
            $device->customer_id = $request->input('customer_id');
-           $device->status = $request->input('status');
+          
 
 
                     // print_r($device); die();

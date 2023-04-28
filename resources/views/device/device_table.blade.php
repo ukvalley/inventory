@@ -46,12 +46,12 @@
 
         
       
-        <!-- <th scope="col">Edit</th>
-       <th scope="col">Delete</th>  -->
+        <!-- <th scope="col">Edit</th> -->
+       <th scope="col">Delete</th> 
        
-       <th scope="col">s_status</th>
+       <!-- <th scope="col">s_status</th>
        <th scope="col">r_status</th> 
-      
+       -->
       
     </tr>
   </thead>
@@ -76,15 +76,18 @@
                   <td><a href="{{url('/')}}/device_info?id={{$row->id }}">{{$row->user_id_id->name ?? ''}}</td>
                   <td><a href="{{url('/')}}/device_info?id={{$row->id }}">{{$row->customer_id_id->name ?? ''}}</td>
 
+
+
                   <td>
-                    @if($row->status == null || $row->status == 'unsold')
+
+                    @if($row->status == null || $row-> status == 'unsold')
                       <span class="btn btn-danger small">Unsold</span>
-                    @else
+                    @else($row->status == sold)
                     <span class="btn btn-success small">Sold</span>
                     @endif
 
 
-              
+                    <!-- (App\Models\Admin\Sales::where('device_id', $row->id)->exists()) -->
                   </td>
 
 
@@ -104,11 +107,11 @@
                   
                    <!-- <td>
                <a href="{{url('/')}}/device/device_edit?id={{$row->id}}" class="btn btn-primary">Edit</a>
-                </td>
+                </td> -->
                 <td>
                 <a href="{{url('/')}}/device_destroy?id={{$row->id}}" class="btn btn-danger">Delete</a>
                 </td>
-                 -->
+                
             
                  
             </tr>

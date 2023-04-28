@@ -88,4 +88,8 @@ class Device extends Model
     {
         return $this->belongsTo(Customer::class, 'customer_id');
     }
+    public function sales_id_id()
+    {
+        return $this->belongsTo(Sales::class, 'sales_id');
+    }
 }

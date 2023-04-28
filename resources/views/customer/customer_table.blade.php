@@ -1,7 +1,5 @@
 @include('common.header')
 
-
-
 <div  class="content-wrapper">
         <div>
             <div class="panel panel-default">

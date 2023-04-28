@@ -52,11 +52,11 @@
                 <td>{{$data->allocated_to}}</td>
                 <td>{{$data->user_id_id->name ?? ''}}</td>
                <td>
-               <a href="{{url('/')}}/sale/sales_edit?id={{$data->id}}" class="btn btn-primary">Edit</a>
+               <!-- <a href="{{url('/')}}/sale/sales_edit?id={{$data->id}}" class="btn btn-primary">Edit</a>
                 </td>
                 <td>
                 <a href="{{url('/')}}/sales_destroy?id={{$data->id}}" class="btn btn-danger">Delete</a>
-                </td>
+                </td> -->
 
             </tr>
         @endforeach
