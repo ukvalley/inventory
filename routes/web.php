@@ -1,14 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AdminController;
 use App\Http\Controllers;
-use App\Http\Controllers\MAdminPanelController;
 
-
-//new
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\MAdminPanelController; 
 use App\Http\Controllers\Controller;
-
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\VehicleController;
 use App\Http\Controllers\UserController;
@@ -18,17 +16,13 @@ use App\Http\Controllers\SimController;
 use App\Http\Controllers\PurchaseController;
 use App\Http\Controllers\PurchaseOrderController;
 use App\Http\Controllers\SalesOrderController;
-
 use App\Http\Controllers\RecordsController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\SearchController;
-
 use App\Http\Controllers\ManifacturerController;
 
 
-
-
-
+//Admin
 
 /*
 |--------------------------------------------------------------------------
@@ -44,18 +38,20 @@ use App\Http\Controllers\ManifacturerController;
 
 //old
 
-Route::get('/customer/customer_table', function () {
-    return view('customer/customer_table');
-    });
 
 
+
+Route::get('/calender', function () {
+           return view('/calender');
+           });
+        
 Route::get('purchase/purchase_device', function () {
-    return view('purchase/purchase_device');
-});
+           return view('purchase/purchase_device');
+           });
 
 Route::get('purchase/purchase_table', function () {
-    return view('purchase/purchase_table');
-});
+           return view('purchase/purchase_table');
+           });
 
 
 Route::get('user/user_table', function () {
@@ -96,6 +92,10 @@ Route::get('sim/sim_table', function () {
     Route::get('customer/customer_edit', [CustomerController::class, 'customer_edit'])->name('customer_edit');
     Route::get('destroy', [CustomerController::class, 'destroy'])->name('destroy');
 
+
+
+
+   
     
 
 //vehicle-------------------------------------------------------------------------------------
@@ -116,7 +116,9 @@ Route::post('/register_user-update/{id}', [UserController::class, 'user_update']
 Route::get('user/user_edit', [UserController::class, 'user_edit'])->name('user_edit');
 Route::get('user_destroy', [UserController::class, 'user_destroy'])->name('user_destroy');
 
+
 Route::get('user/user_table', [UserController::class, 'view_user'])->name('view_user');
+
 
 //devices--------------------------------------------------------------------------------------------------
 
@@ -132,7 +134,7 @@ Route::get('device_destroy',[DeviceController::class, 'device_destroy'])->name('
 Route::get('device_edit',[DeviceController::class, 'add_sim'])->name('add_sim');
 
 
-Route::get('device/device_table', [DeviceController::class, 'view_device'])->name('view_device');
+Route::get('/device/device_table', [DeviceController::class, 'view_device'])->name('view_device');
 
 
 
@@ -143,7 +145,7 @@ Route::post('/purchase_device-post', [PurchaseController::class, 'PurchaseDevice
 Route::post('/purchase_device-update/{id}', [PurchaseController::class, 'purchase_update'])->name('purchase_update');
 Route::get('purchase/purchase_edit', [PurchaseController::class, 'purchase_edit'])->name('purchase_edit');
 Route::get('purchase_destroy', [PurchaseController::class, 'purchase_destroy'])->name('purchase_destroy');
-Route::get('purchase/purchase_table', [PurchaseController::class, 'view_purchase'])->name('view_purchase');
+Route::get('/purchase/purchase_table', [PurchaseController::class, 'view_purchase'])->name('view_purchase');
 
 //SAles-------------------------------------------------------------------------------------------------------------------------
 Route::get('/sale/register_sales', [SalesController::class, 'register_sales'])->name('register_sales');
@@ -152,7 +154,7 @@ Route::post('/sales-update/{id}', [SalesController::class, 'sales_update'])->nam
 Route::get('/sale/sales_edit', [SalesController::class, 'sales_edit'])->name('sales_edit');
 Route::get('sales_destroy', [SalesController::class, 'sales_destroy'])->name('sales_destroy');
 
-Route::get('sale/sales_table', [SalesController::class, 'view_sales'])->name('view_sales');
+Route::get('/sale/sales_table', [SalesController::class, 'view_sales'])->name('view_sales');
 
 //Records----------------------------------------------------------------------------------------------------------------------
 
@@ -374,13 +376,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+
+
+
 //imp
 //login admin
-
-
-
-
-
 
 
 
@@ -394,81 +395,70 @@ Route::get('admin/resetpassword', function () {
     return view('admin/resetpassword');
 });
 
-
-
-
-
-
-//
-//
-//
-//
-//
-//
-//
-//
 //
 
 Route::post('admin/auth',[AdminController::class,'auth'])->name('admin.auth');
+
+
+
 //************************************************************************* */
+//Admin Start
 ///ADMIN GROUP MIDDLEWARe
 //************************************************************************* */
 
 
+
     Route::group(['prefix' => 'admin', 'middleware' => ['is_admin']], function(){
 
-
-    
-    Route::get('/dashboard',[Controller::class,'dashboard']);
+        
+    Route::get('/dashboard',[DashboardController::class,'dashboard']);
     Route::get('/logout',[AdminController::class,'logout']);
 
-   
+    Route::get('adminprofile', [DashboardController::class, 'adminprofile'])->name('adminprofile');
 
 
 
-    
-Route::get('/customer/customer_table', function () {
-    return view('customer/customer_table');
-    });
+
+
 
 
 Route::get('purchase/purchase_device', function () {
-    return view('purchase/purchase_device');
+    return view('/purchase/purchase_device');
 });
 
 Route::get('purchase/purchase_table', function () {
-    return view('purchase/purchase_table');
+    return view('/purchase/purchase_table');
 });
 
 
 Route::get('user/user_table', function () {
-    return view('user/user_table');
+    return view('/user/user_table');
 });
 Route::get('vehicle/vehicle_table', function () {
-    return view('vehicle/vehicle_table');
+    return view('/vehicle/vehicle_table');
 });
 
 
 
 Route::get('sale/sales_table', function () {
-    return view('sale/sales_table');
+    return view('/sale/sales_table');
 });
 Route::get('/records', function () {
     return view('records');
 });
 Route::get('records/records_table', function () {
-    return view('records/records_table');
+    return view('/records/records_table');
 });
 
 Route::get('sim/sim_table', function () {
-    return view('sim/sim_table');
+    return view('/sim/sim_table');
 });
     
 //customer--------------------------------------------------------------------------------
   
 
         
-Route::get('/customer/register_customer', [CustomerController::class, 'register_customer'])->name('register_customer');
+Route::get('/customer1/register_customer', [CustomerController::class, 'register_customer'])->name('register_customer');
 
 Route::post('/register_customer-post', [CustomerController::class, 'CustomerRegister'])->name('CustomerRegister');
 Route::post('/register_customer-update/{id}', [CustomerController::class, 'update'])->name('update');
@@ -477,7 +467,7 @@ Route::post('/register_customer-update/{id}', [CustomerController::class, 'updat
 Route::get('customer/customer_edit', [CustomerController::class, 'customer_edit'])->name('customer_edit');
 Route::get('destroy', [CustomerController::class, 'destroy'])->name('destroy');
 
-Route::get('/customer/customer_table', [CustomerController::class, 'customer_view'])->name('customer_view');
+Route::get('customer1/customer_table',[CustomerController::class,'customer_view'])->name('customer_view');
 
 
 //vehicle-------------------------------------------------------------------------------------
@@ -523,18 +513,18 @@ Route::get('device_destroy',[DeviceController::class, 'device_destroy'])->name('
 Route::get('device_edit',[DeviceController::class, 'add_sim'])->name('add_sim');
 
 
-Route::get('/device/device_table', [DeviceController::class, 'view_device'])->name('view_device');
+Route::get('/device1/device_table', [DeviceController::class, 'view_device'])->name('view_device');
 
 
 
 
 //Purchase-------------------------------------------------------------------------------------------------------------------------
-Route::get('purchase/purchase_device',[PurchaseController::class, 'register_purchase'])->name('register_purchase');
+Route::get('purchase1/purchase_device',[PurchaseController::class, 'register_purchase'])->name('register_purchase');
 Route::post('/purchase_device-post', [PurchaseController::class, 'PurchaseDevice'])->name('PurchaseDevice');
 Route::post('/purchase_device-update/{id}', [PurchaseController::class, 'purchase_update'])->name('purchase_update');
 Route::get('purchase/purchase_edit', [PurchaseController::class, 'purchase_edit'])->name('purchase_edit');
 Route::get('purchase_destroy', [PurchaseController::class, 'purchase_destroy'])->name('purchase_destroy');
-Route::get('/purchase/purchase_table', [PurchaseController::class, 'view_purchase'])->name('view_purchase');
+Route::get('/purchase1/purchase_table', [PurchaseController::class, 'view_purchase'])->name('view_purchase');
 
 //SAles-------------------------------------------------------------------------------------------------------------------------
 Route::get('/sale/register_sales', [SalesController::class, 'register_sales'])->name('register_sales');
@@ -629,7 +619,7 @@ Route::get('device_sale', [MAdminPanelController::class, 'getCustomer'])->name('
 
 Route::get('getCustomer', [MAdminPanelController::class, 'getCustomer'])->name('getCustomer');
 
-
+ 
 Route::post('saleUpdate', [MAdminPanelController::class, 'saleUpdate'])->name('saleUpdate');
 Route::get('get_customer', [MAdminPanelController::class, 'get_customer'])->name('get_customer');
 
@@ -640,7 +630,7 @@ Route::get('getVehicle', [MAdminPanelController::class, 'getVehicle'])->name('ge
 
 //transcaction genaration
 
-Route::get('/transaction/transaction_table', [TransactionController::class, 'Transaction'])->name('Transaction');
+Route::get('/transaction1/transaction_table', [TransactionController::class, 'Transaction'])->name('Transaction');
 
 
 Route::get('/transaction/transaction', [TransactionController::class, 'register_sales'])->name('register_sales');
@@ -686,12 +676,12 @@ Route::get('/device_sales/action', [SearchController::class, 'sales_action']);
 
 //manifacturer register edit delete
 
-Route::get('/manifacturer/manifacturer_table', function () {
+Route::get('/manifacturer1/manifacturer_table', function () {
 return view('manifacturer/manifacturer_table');
 });
 
 
-Route::get('/manifacturer/manifacturer', function () {  
+Route::get('/manifacturer1/manifacturer', function () {  
 return view('/manifacturer/manifacturer');
 });
 Route::post('register_manifacturer', [ManifacturerController::class, 'register_manifacturer'])->name('register_manifacturer');
@@ -769,20 +759,20 @@ Route::get('/pdfview_device_info', [DeviceController::class, 'pdfview_device_inf
 
 // Route::get('/status_update/{/}',[TransactionController::class,'status_update']);
 
+    
 
-   
 
 
 
 });
 
+
+
 //ADMIN GROUP MIDDLEWARE END---------------------------------------------------------------------------------------------------------
 
-//************************************************************************************************************************************ */
 
-
-
-
+//********************************************************************************************************* */
+//************************************************************************************************************************************ 
 
 
 
@@ -790,10 +780,7 @@ Route::get('/pdfview_device_info', [DeviceController::class, 'pdfview_device_inf
 
 Route::get('user',[UserController::class,'index']);
 
-
 Route::post('user/auth',[UserController::class,'auth'])->name('user.auth');
-
-
 
 //USER GROUP MIDDLEWARE
 Route::group(['prefix' => 'user', 'middleware' => ['is_user']], function(){
@@ -801,6 +788,7 @@ Route::group(['prefix' => 'user', 'middleware' => ['is_user']], function(){
     
     Route::get('/Userdashboard',[Controller::class,'UserDashboard']);
     Route::get('/logout',[UserController::class,'logout']);
+    Route::get('profile', [Controller::class, 'profile'])->name('profile');
 
 
 
@@ -813,16 +801,10 @@ Route::group(['prefix' => 'user', 'middleware' => ['is_user']], function(){
     Route::get('customer/customer_edit', [CustomerController::class, 'customer_edit'])->name('customer_edit');
     Route::get('destroy', [CustomerController::class, 'destroy'])->name('destroy');
 
-    Route::get('customer/customer_table',[CustomerController::class,'view_customer'])->name('view_customer');
-    
+    Route::get('/customer/customer_table',[CustomerController::class,'customer_view'])->name('customer_view');
+     
 
-   
-    
 
 });
-
-
-
-
 
 

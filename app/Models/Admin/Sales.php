@@ -51,9 +51,9 @@ class Sales extends Model
     {
         return $this->belongsTo(Device::class, 'device_id');
     }
-    public function customer_id_id()
+    public function allocated_to_id()
     {
-        return $this->belongsTo(Customer::class, 'customer_id');
+        return $this->belongsTo(Customer::class, 'allocated_to');
     }
     
 }
