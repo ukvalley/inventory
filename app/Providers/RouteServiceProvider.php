@@ -7,6 +7,7 @@ use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvi
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\Route;
+use Sessions;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -33,7 +34,9 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @return void
      */
+
     public function boot()
+
     {
         $this->configureRateLimiting();
 
@@ -41,6 +44,14 @@ class RouteServiceProvider extends ServiceProvider
             Route::prefix('api')->middleware('api')->namespace($this->namespace)->group(base_path('routes/api.php'));
             Route::prefix('admin')->name('admin.')->middleware('admin')->group(base_path('routes/admiko_admin.php'));
             Route::middleware('web')->namespace($this->namespace)->group(base_path('routes/web.php'));
+
+
+            Route::middleware('is_admin')->namespace($this->namespace)->group(base_path('routes/admin.php'));
+            Route::middleware('is_user')->namespace($this->namespace)->group(base_path('routes/user.php'));
+
+
+
+
         });
     }
 
@@ -50,9 +61,13 @@ class RouteServiceProvider extends ServiceProvider
      * @return void
      */
     protected function configureRateLimiting()
+    
     {
         RateLimiter::for('api', function (Request $request) {
             return Limit::perMinute(60)->by(optional($request->user())->id ?: $request->ip());
         });
     }
+
+
+
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Users;
+namespace App\Http\Controllers\GpsAdmin;
 use App\Http\Controllers\admin\BroadcastController; 
 use Sentinel;
 use Session;

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Users;
+namespace App\Http\Controllers\GpsAdmin;
 use DB;
 use PDF;
 
