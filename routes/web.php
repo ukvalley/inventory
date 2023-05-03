@@ -31,6 +31,12 @@ Route::get('/device_sales/action', [SearchController::class, 'sales_action']);
 
 
 
+//Welcome file
+Route::get('/', function () {
+    return view('welcome');
+});
+
+
 //***********ADMIN************* */
 
 Route::get('admin',[AdminController::class,'index']);
