@@ -181,7 +181,7 @@ public function  UserRegister(Request $request)
 	        $users->update($data);
  			
 
- 			 return redirect()->back();
+           return redirect('users/user/user_table');
  
 
     }

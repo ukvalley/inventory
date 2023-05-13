@@ -102,7 +102,7 @@ public function sim_edit()
         $SimTypes->update($data);
     
 
-      return redirect()->back();
+        return redirect('users/sim/sim_table');
        // return redirect()->route('customer_table')
        //                ->with('success','Customer updated successfully'); 
 

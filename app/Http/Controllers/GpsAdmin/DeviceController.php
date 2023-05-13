@@ -153,7 +153,7 @@ class DeviceController extends Controller
 
              $device->update($data);
               
-               return redirect()->back();
+             return view('device/device_table');
           // return redirect()->route('customer_table')
           //                ->with('success','Customer updated successfully'); 
  

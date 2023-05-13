@@ -111,7 +111,7 @@ public function customer_edit()
          $Customer->update($data);
           
 
-            return redirect()->back();
+         return redirect('user/customer1/customer_table');
       // return redirect()->route('customer_table')
       //                ->with('success','Customer updated successfully'); 
 

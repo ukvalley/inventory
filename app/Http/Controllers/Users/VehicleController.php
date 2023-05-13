@@ -142,7 +142,7 @@ public function vehicle_edit()
           $Vechicles->update($data);
            
 
-            return redirect()->back();
+          return redirect('/vehicle/vehicle_table');
        // return redirect()->route('customer_table')
        //                ->with('success','Customer updated successfully'); 
 
