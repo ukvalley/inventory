@@ -106,9 +106,7 @@ public function register_manifacturer()
           $data=DB::table('manifacturer')
                 ->where('id',"=",$id)
                 ->delete();
-                 
-     
-         return redirect()->back();
+                   return redirect()->back();
      }
     
     

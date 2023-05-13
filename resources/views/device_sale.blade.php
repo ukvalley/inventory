@@ -1,4 +1,4 @@
-@include('common.header')
+@include('common_admin.header')
 
 
 <div class="content-wrapper">
@@ -210,4 +210,4 @@ $('#vehicle-select').change(function(){
 
 
 
-    @include('common.footer')
+    @include('common_admin.footer')

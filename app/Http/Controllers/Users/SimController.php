@@ -33,7 +33,7 @@ class SimController extends Controller
           
 
               
-        return redirect('/sim/sim_table');
+        return redirect('users/sim/sim_table');
 
             
         
@@ -52,7 +52,7 @@ public function add_sim()
 
 
     // print_r($data);die();
-      return view('add_device', compact('sim_get'));
+      return view('users/add_device', compact('sim_get'));
 
  }
  
@@ -65,7 +65,7 @@ $user_get = DB::table('users')->get();
 
 
   // print_r($data);die();
-    return view('add_user', compact('user_get'));
+    return view('users/add_user', compact('user_get'));
 
 }
 
@@ -79,7 +79,7 @@ public function sim_edit()
            
 
       // print_r($data); die();
-       return view('/sim/sim_edit')->with(compact('data'));
+       return view('users//sim/sim_edit')->with(compact('data'));
   }
 
 
@@ -129,7 +129,7 @@ public function sim_destroy()
   
   
      // print_r($data);die();
-       return view('sim/simtypes', compact('sim_get'));
+       return view('users/sim/simtypes', compact('sim_get'));
   
   }
     

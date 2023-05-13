@@ -1,4 +1,4 @@
- @include('common.header')vehicles
+ @include('common_admin.header')
 
  <!-- Form controls -->
  <div class="content-wrapper">
@@ -42,7 +42,7 @@
                   </div>
 
 
-                  @include('common.footer')
+                  @include('common_admin.footer')
 
 
 

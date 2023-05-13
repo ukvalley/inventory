@@ -23,7 +23,7 @@ class CustomerController extends Controller
           ]
           );
 
-     
+          
 
 
          $Customer = new Customer;
@@ -43,7 +43,7 @@ class CustomerController extends Controller
          
 
                
-         return redirect('customer_table');
+         return redirect('user/customer1/customer_table');
                
          
      }
@@ -57,7 +57,7 @@ class CustomerController extends Controller
    //print_r($data); die();
 
    //get data from database 
-   return view('customer/customer_table')->with(compact('data')); 
+   return view('users/customer/customer_table')->with(compact('data')); 
 }
   
 
@@ -72,7 +72,7 @@ class CustomerController extends Controller
  
 
    // print_r($data);die();
-     return view('customer/register_customer', compact('customer_get'));
+     return view('users/customer/register_customer', compact('customer_get'));
 
 }
 
@@ -87,7 +87,7 @@ public function customer_edit()
             ->first();
 
      // print_r($data); die();
-      return view('customer/customer_edit')->with(compact('data'));
+      return view('users/customer/customer_edit')->with(compact('data'));
  }
 
 
@@ -152,7 +152,7 @@ public function pdfview_customer(Request $request)
      'customer' => $customer
  ];
    
- $pdf = PDF::loadView('customer.customerpdf', $data);
+ $pdf = PDF::loadView('users.customer.customerpdf', $data);
 
  return $pdf->download('customerpdf.pdf');
 }  

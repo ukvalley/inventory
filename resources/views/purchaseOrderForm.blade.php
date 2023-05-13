@@ -1,4 +1,4 @@
-@include('common.header')
+@include('common_admin.header')
 
 
  <!-- Main content -->
@@ -113,4 +113,4 @@
 
 
 
-@include('common.footer')
+@include('common_admin.footer')

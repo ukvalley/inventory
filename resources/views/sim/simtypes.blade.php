@@ -1,4 +1,4 @@
-@include('common.header')
+@include('common_admin.header')
 
 
 
@@ -17,7 +17,7 @@
                         </div>
                         <div class="panel-body">
                              <h3> Sim Operator</h3>
-                           <form class="col-sm-6" action="{{url('/')}}/simtypes-post" method="post"  enctype="multipart/form-data">
+                           <form class="col-sm-6" action="{{url('/')}}/admin/simtypes-post" method="post"  enctype="multipart/form-data">
                     {{ csrf_field() }}
 
                      <div class="form-group">
@@ -48,4 +48,4 @@
 
 
 
-@include('common.footer')
+@include('common_admin.footer')

@@ -1,4 +1,4 @@
-@include('common.header')
+@include('common_admin.header')
 
 
 
@@ -6,7 +6,7 @@
         <div>
             <div class="panel panel-default">
                 <div class="panel-heading role-list-info-header">
-                  <a href="{{ url('manifacturer/manifacturer') }}" class="btn btn-success">Add New Manifacturer</a>
+                  <a href="{{ url('admin/manifacturer1/manifacturer') }}" class="btn btn-success">Add New Manifacturer</a>
                     <p>SIM Table</p>
                     <!-- <a class="btn btn-primary" href="{{ URL::to('/manifacturer/pdf') }}">Export to PDF</a> -->
                 </div>
@@ -46,7 +46,7 @@
                 
                  
                 <td>
-                <a href="{{url('/')}}/manifacturer_destroy?id={{$row->id}}" class="btn btn-danger">Delete</a>
+                <a href="{{url('/')}}/admin/manifacturer_destroy?id={{$row->id}}" class="btn btn-danger">Delete</a>
                 </td>
             </tr>
         @endforeach
@@ -60,4 +60,4 @@
     </div>
     </div>
 
-    @include('common.footer')
+    @include('common_admin.footer')

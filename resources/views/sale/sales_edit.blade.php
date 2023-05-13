@@ -1,4 +1,4 @@
-@include('common.header')
+@include('common_admin.header')
 
 <div class="content-wrapper">
    <section class="content">
@@ -15,7 +15,7 @@
                         </div>
                         <div class="panel-body">
                              <h3> Sale Details </h3>
-                           <form class="col-sm-6" action="{{url('/')}}/sales-update/{{$data->id}}" method="post"  enctype="multipart/form-data">
+                           <form class="col-sm-6" action="{{url('/')}}/admin/sales-update/{{$data->id}}" method="post"  enctype="multipart/form-data">
                     {{ csrf_field() }}
                  
                         <div class="form-group">
@@ -86,4 +86,4 @@
 
             </div>
 
-@include('common.footer')
+@include('common_admin.footer')

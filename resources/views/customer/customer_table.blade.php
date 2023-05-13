@@ -1,10 +1,10 @@
-@include('common.header')
+@include('common_admin.header')
 
 <div  class="content-wrapper">
         <div>
             <div class="panel panel-default">
                 <div class="panel-heading role-list-info-header">
-                  <a href="{{ url('/customer/register_customer') }}" class="btn btn-success">Register New Customer</a>
+                  <a href="{{ url('admin/customer1/register_customer') }}" class="btn btn-success">Register New Customer</a>
                     
                     <div class="text-right">
                   <a class="btn btn-warning " href="{{route('pdfview_customer',['download'=>'pdf']) }}" >Export to PDF</a>
@@ -42,19 +42,19 @@
   <?php  $data=DB::table('customer')->get();?>
   @foreach($data as $row)
             <tr>
-               <td><a href="{{url('/')}}/customer_info?id={{$row->id }}">{{$row->id }}</td>
-                <td><a href="{{url('/')}}/customer_info?id={{$row->id }}">{{$row->name }}</td>
-                <td><a href="{{url('/')}}/customer_info?id={{$row->id }}">{{$row->address}}</td>
-                <td><a href="{{url('/')}}/customer_info?id={{$row->id }}">{{$row->mobile}}</td>
-                <td><a href="{{url('/')}}/customer_info?id={{$row->id }}">{{$row->adhar_number}}</td>
-                <td><a href="{{url('/')}}/customer_info?id={{$row->id }}"> 
+               <td><a href="{{url('/')}}/admin/customer_info?id={{$row->id }}">{{$row->id }}</td>
+                <td><a href="{{url('/')}}/admin/customer_info?id={{$row->id }}">{{$row->name }}</td>
+                <td><a href="{{url('/')}}/admin/customer_info?id={{$row->id }}">{{$row->address}}</td>
+                <td><a href="{{url('/')}}/admin/customer_info?id={{$row->id }}">{{$row->mobile}}</td>
+                <td><a href="{{url('/')}}/admin/customer_info?id={{$row->id }}">{{$row->adhar_number}}</td>
+                <td><a href="{{url('/')}}/admin/customer_info?id={{$row->id }}"> 
                   @if(isset($row->adhar_front_image))
                   <img width="50px" src="{{url('/')}}/upload/{{$row->adhar_front_image}}"> 
                   @else
                   <p>No Image</p>
                   @endif
                 </td>
-                <td><a href="{{url('/')}}/customer_info?id={{$row->id }}">
+                <td><a href="{{url('/')}}/admin/customer_info?id={{$row->id }}">
                   @if(isset($row->adhar_back_image))
                   <img width="50px" src="{{url('/')}}/upload/{{$row->adhar_back_image}}"> 
                   @else
@@ -63,10 +63,10 @@
                 </td>
                 
                 <td>
-                <a href="{{url('/')}}/customer/customer_edit?id={{$row->id}}" class="btn btn-primary">Edit</a>
+                <a href="{{url('/')}}/admin/customer1/customer_edit?id={{$row->id}}" class="btn btn-primary">Edit</a>
                 </td>
                 <td>
-                <a href="{{url('/')}}/destroy?id={{$row->id}}"  class="btn btn-danger">Delete</a>
+                <a href="{{url('/')}}/admin/destroy?id={{$row->id}}"  class="btn btn-danger">Delete</a>
                 </td>
                 
             
@@ -83,4 +83,4 @@
     </div>
     </div>
 
-    @include('common.footer')
+    @include('common_admin.footer')

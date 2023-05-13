@@ -1,4 +1,4 @@
-@include('common.header')
+@include('common_admin.header')
 
 
  <!-- Main content -->
@@ -15,7 +15,7 @@
                            </div>
                         </div>
                         <div class="panel-body">
-                           <form class="col-sm-6" action="{{url('/')}}/register_user-post" method="post"  enctype="multipart/form-data">
+                           <form class="col-sm-6" action="{{url('/')}}/admin/register_user-post" method="post"  enctype="multipart/form-data">
                     {{ csrf_field() }}
                  
                                 
@@ -85,4 +85,4 @@
             <!-- /.content -->
             </div>
 
-@include('common.footer')
+@include('common_admin.footer')

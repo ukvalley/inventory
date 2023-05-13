@@ -1,4 +1,4 @@
-@include('common.header')
+@include('common_admin.header')
 
 
 <div class="content-wrapper">
@@ -86,4 +86,4 @@
             </section>
 </div>
 
-@include('common.footer')
+@include('common_admin.footer')

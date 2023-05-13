@@ -1,4 +1,4 @@
-@include('common.header')
+@include('common_admin.header')
 
 
 
@@ -6,7 +6,7 @@
         <div>
             <div class="panel panel-default">
                 <div class="panel-heading role-list-info-header">
-                  <a href="{{ url('/purchase/purchase_device') }}" class="btn btn-success">Purchase New Device</a>
+                  <a href="{{ url('admin/purchase1/purchase_device') }}" class="btn btn-success">Purchase New Device</a>
                     <p>Device Table</p>
                     <a class="btn btn-primary" href="{{route('pdfview_device',['download'=>'pdf']) }}">Export to PDF</a>
 
@@ -47,7 +47,7 @@
         
       
         <!-- <th scope="col">Edit</th> -->
-       <th scope="col">Delete</th> 
+       <!-- <th scope="col">Delete</th>  -->
        
        <!-- <th scope="col">s_status</th>
        <th scope="col">r_status</th> 
@@ -59,22 +59,22 @@
   @foreach($data as $row)
             <tr>
               
-               <td> <a href="{{url('/')}}/device_info?id={{$row->id }}">{{$row->id }} </a></td>
-               
-                <td><a href="{{url('/')}}/device_info?id={{$row->id }}">{{$row->manufactured_by_id->name ?? ''}}</td>
-                <td><a href="{{url('/')}}/device_info?id={{$row->id }}">{{$row->ice_id}}</td>
-                <td><a href="{{url('/')}}/device_info?id={{$row->id }}">{{$row->imei}}</td>
-                <!-- <td><a href="{{url('/')}}/device_info?id={{$row->id }}">{{$row->sim1}}</td> -->
+               <td> <a href="{{url('/')}}/admin/device_info?id={{$row->id }}">{{$row->id }} </a></td>
+               /admin
+                <td><a href="{{url('/')}}/admin/device_info?id={{$row->id }}">{{$row->manufactured_by_id->name ?? ''}}</td>
+                <td><a href="{{url('/')}}/admin/device_info?id={{$row->id }}">{{$row->ice_id}}</td>
+                <td><a href="{{url('/')}}/admin/device_info?id={{$row->id }}">{{$row->imei}}</td>
+                <!-- <td><a href="{{url('/')}}/admin/device_info?id={{$row->id }}">{{$row->sim1}}</td> -->
                 
-                <td><a href="{{url('/')}}/device_info?id={{$row->id }}">{{$row->sim_1_type_id->name ?? ''}}</td>
-                <!-- <td<a href="{{url('/')}}/device_info?id={{$row->id }}">{{$row->sim2}}</td> -->
-                  <td><a href="{{url('/')}}/device_info?id={{$row->id }}">{{$row->sim_2_type_id->name ?? ''}}</td>
-                  <!-- <td><a href="{{url('/')}}/device_info?id={{$row->id }}">{{$row->activation_date}}</td> -->
-                  <td><a href="{{url('/')}}/device_info?id={{$row->id }}">{{$row->received_date}}</td>
-                  <!-- <td><a href="{{url('/')}}/device_info?id={{$row->id }}">{{$row->renewal_date}}</td> -->
-                  <!-- <td><a href="{{url('/')}}/device_info?id={{$row->id }}">{{$row->asset_id_type}}</td> -->
-                  <td><a href="{{url('/')}}/device_info?id={{$row->id }}">{{$row->user_id_id->name ?? ''}}</td>
-                  <td><a href="{{url('/')}}/device_info?id={{$row->id }}">{{$row->customer_id_id->name ?? ''}}</td>
+                <td><a href="{{url('/')}}/admin/device_info?id={{$row->id }}">{{$row->sim_1_type_id->name ?? ''}}</td>
+                <!-- <td<a href="{{url('/')}}/admin/device_info?id={{$row->id }}">{{$row->sim2}}</td> -->
+                  <td><a href="{{url('/')}}/admin/device_info?id={{$row->id }}">{{$row->sim_2_type_id->name ?? ''}}</td>
+                  <!-- <td><a href="{{url('/')}}/admin/device_info?id={{$row->id }}">{{$row->activation_date}}</td> -->
+                  <td><a href="{{url('/')}}/admin/device_info?id={{$row->id }}">{{$row->received_date}}</td>
+                  <!-- <td><a href="{{url('/')}}/admin/device_info?id={{$row->id }}">{{$row->renewal_date}}</td> -->
+                  <!-- <td><a href="{{url('/')}}/admin/device_info?id={{$row->id }}">{{$row->asset_id_type}}</td> -->
+                  <td><a href="{{url('/')}}/admin/device_info?id={{$row->id }}">{{$row->user_id_id->name ?? ''}}</td>
+                  <td><a href="{{url('/')}}/admin/device_info?id={{$row->id }}">{{$row->customer_id_id->name ?? ''}}</td>
 
 
 
@@ -106,13 +106,13 @@
                   
                   
                    <!-- <td>
-               <a href="{{url('/')}}/device/device_edit?id={{$row->id}}" class="btn btn-primary">Edit</a>
+               <a href="{{url('/')}}/admin/device/device_edit?id={{$row->id}}" class="btn btn-primary">Edit</a>
                 </td> -->
 
 
                 
                 <!-- <td>
-                <a href="{{url('/')}}/device_destroy?id={{$row->id}}" class="btn btn-danger">Delete</a>
+                <a href="{{url('/')}}/admin/device_destroy?id={{$row->id}}" class="btn btn-danger">Delete</a>
                 </td>
                 <td>
                 <form id="permission-form">
@@ -139,4 +139,4 @@
     </div>
 
 
-    @include('common.footer')
+    @include('common_admin.footer')

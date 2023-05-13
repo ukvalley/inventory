@@ -43,7 +43,7 @@ class CustomerController extends Controller
          
 
                
-         return redirect('customer_table');
+         return redirect('admin/customer1/customer_table');
                
          
      }
@@ -87,7 +87,7 @@ public function customer_edit()
             ->first();
 
      // print_r($data); die();
-      return view('customer/customer_edit')->with(compact('data'));
+      return view('/customer/customer_edit')->with(compact('data'));
  }
 
 

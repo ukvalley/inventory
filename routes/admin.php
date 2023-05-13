@@ -12,7 +12,7 @@ use App\Http\Controllers\GpsAdmin\Controller;
 use App\Http\Controllers\GpsAdmin\DashboardController;
 use App\Http\Controllers\GpsAdmin\CustomerController;
 use App\Http\Controllers\GpsAdmin\VehicleController;
-use App\Http\Controllers\GpsAdmin\UserController;
+use App\Http\Controllers\GpsAdmin\UserController; 
 use App\Http\Controllers\GpsAdmin\DeviceController;
 use App\Http\Controllers\GpsAdmin\SalesController;
 use App\Http\Controllers\GpsAdmin\SimController;
@@ -32,6 +32,7 @@ use App\Http\Controllers\GpsAdmin\ManifacturerController;
 ///ADMIN GROUP MIDDLEWARE
 
 //************************************************************************* */
+Route::get('/device_sales/action', [SearchController::class, 'sales_action']);
 
 
 
@@ -87,7 +88,7 @@ Route::get('/customer1/register_customer', [CustomerController::class, 'register
 
 Route::post('/register_customer-post', [CustomerController::class, 'CustomerRegister'])->name('CustomerRegister');
 Route::post('/register_customer-update/{id}', [CustomerController::class, 'update'])->name('update');
-Route::get('customer/customer_edit', [CustomerController::class, 'customer_edit'])->name('customer_edit');
+Route::get('customer1/customer_edit', [CustomerController::class, 'customer_edit'])->name('customer_edit');
 Route::get('destroy', [CustomerController::class, 'destroy'])->name('destroy');
 Route::get('customer1/customer_table',[CustomerController::class,'customer_view'])->name('customer_view');
 

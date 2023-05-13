@@ -1,4 +1,4 @@
- @include('common.header')
+@include('common_admin.header')
 
 
 <!-- Content Wrapper. Contains page content -->
@@ -299,4 +299,4 @@
 <!-- /.content-wrapper -->
 
 </div>     
-@include('common.footer')
+@include('common_admin.footer')

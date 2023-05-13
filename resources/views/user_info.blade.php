@@ -1,4 +1,4 @@
-@include('common.header')
+@include('common_admin.header')
 
 
 <style>
@@ -79,4 +79,4 @@
             <!-- /.content -->
             </div>
 
-@include('common.footer')
+@include('common_admin.footer')

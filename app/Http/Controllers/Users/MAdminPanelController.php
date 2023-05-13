@@ -65,7 +65,7 @@ class MAdminPanelController extends Controller
        
          //print_r($alldevice);die();
 
-         return view('/transfer_transaction', compact('alldevice'));
+         return view('users/transfer_transaction', compact('alldevice'));
        
         }
 
@@ -137,7 +137,7 @@ public function getCustomer()
             $allVehicle = Vechicles::get();
 
         //    print_r($alldevice);die();
-        return view('/device_sale', compact('data','allCustomer','allVehicle'));
+        return view('users/device_sale', compact('data','allCustomer','allVehicle'));
         }
 
         

@@ -60,7 +60,7 @@ class DeviceController extends Controller
         
              //    print_r($Device); die();
            
-             return redirect('/device/device_table');
+             return redirect('users/device/device_table');
 
                  
                  }
@@ -70,7 +70,7 @@ class DeviceController extends Controller
        $data=Device::with(['sim_1_type_id','sim_2_type_id','customer_id_id','user_id_id','sales_id_id'])->get();
      
 
-        return view('device/device_table')->with(compact('data')); 
+        return view('users/device/device_table')->with(compact('data')); 
 
 
     }
@@ -97,7 +97,7 @@ class DeviceController extends Controller
 
 
          // print_r($alldevice); die();
-          return view('/device/add_device')->with(compact('alldevice','sim_get','allmanifacturer','allsales'));
+          return view('users//device/add_device')->with(compact('alldevice','sim_get','allmanifacturer','allsales'));
      }
  
  
@@ -117,7 +117,7 @@ class DeviceController extends Controller
  
  
          // print_r($data); die();
-          return view('/device/device_edit')->with(compact('data','alldevice','sim_get','allmanifacturer'));
+          return view('users//device/device_edit')->with(compact('data','alldevice','sim_get','allmanifacturer'));
      }
  
  
@@ -177,7 +177,7 @@ public function add_sim()
 {
  $sim_get = DB::table('sim_types')->get();
    // print_r($data);die();
-     return view('/device_edit', compact('sim_get'));
+     return view('users/device_edit', compact('sim_get'));
 
 }
 

@@ -6,7 +6,7 @@
         <div>
             <div class="panel panel-default">
                 <div class="panel-heading role-list-info-header">
-                  <a href="{{ url('/transaction/transaction_table') }}" class="btn btn-success">Transaction Table</a>
+                  <a href="{{ url('admin/transaction/transaction_table') }}" class="btn btn-success">Transaction Table</a>
                     <p></p>
                     <a class="btn btn-primary" href="{{route('pdfview_transaction',['download'=>'pdf']) }}">Export to PDF</a>
  
@@ -55,10 +55,10 @@
                 </td>
                
                   <td>
-               <a href="{{url('/')}}/transaction/transaction_edit?id={{$row->id}}" class="btn btn-primary">Edit</a>
+               <a href="{{url('/')}}/admin/transaction/transaction_edit?id={{$row->id}}" class="btn btn-primary">Edit</a>
                 </td>
                 <td>
-                <a href="{{url('/')}}/transaction_destroy?id={{$row->id}}" class="btn btn-danger">Delete</a>
+                <a href="{{url('/')}}/admin/transaction_destroy?id={{$row->id}}" class="btn btn-danger">Delete</a>
                 </td>
                 
             
@@ -75,4 +75,4 @@
     </div>
     </div>
 
-    @include('common.footer')
+    @include('common_admin.footer')

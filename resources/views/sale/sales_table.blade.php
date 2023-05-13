@@ -1,4 +1,4 @@
-@include('common.header')
+@include('common_admin.header')
 
 
 
@@ -6,7 +6,7 @@
         <div>
             <div class="panel panel-default">
                 <div class="panel-heading role-list-info-header">
-                  <a href="{{ url('/sale/sales') }}" class="btn btn-success">Sale New Device</a>
+                  <a href="{{ url('admin/sale/sales') }}" class="btn btn-success">Sale New Device</a>
                     <p>Sale Table</p>
                     <a class="btn btn-primary" href="{{route('pdfview',['download'=>'pdf']) }}">Export to PDF</a>
                 </div>
@@ -52,10 +52,10 @@
                 <td>{{$data->allocated_to_id->name ?? ''}}</td>
                 <td>{{$data->user_id_id->name ?? ''}}</td>
                <td>
-               <!-- <a href="{{url('/')}}/sale/sales_edit?id={{$data->id}}" class="btn btn-primary">Edit</a>
+               <!-- <a href="{{url('/')}}/admin/sale/sales_edit?id={{$data->id}}" class="btn btn-primary">Edit</a>
                 </td>
                 <td>
-                <a href="{{url('/')}}/sales_destroy?id={{$data->id}}" class="btn btn-danger">Delete</a>
+                <a href="{{url('/')}}/admin/sales_destroy?id={{$data->id}}" class="btn btn-danger">Delete</a>
                 </td> -->
 
             </tr>
@@ -70,4 +70,4 @@
     </div>
     </div>
 
-    @include('common.footer')
+    @include('common_admin.footer')

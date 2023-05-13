@@ -1,4 +1,4 @@
-@include('common.header')
+@include('common_admin.header')
 
 
 
@@ -46,7 +46,7 @@
                
               
                 <td>
-                <a href="{{url('/')}}/record_destroy?id={{$row->id}}" class="btn btn-danger">Delete</a>
+                <a href="{{url('/')}}/admin/record_destroy?id={{$row->id}}" class="btn btn-danger">Delete</a>
                 </td>
               
             </tr>
@@ -61,4 +61,4 @@
     </div>
     </div>
 
-    @include('common.footer')
+    @include('common_admin.footer')

@@ -1,4 +1,4 @@
-@include('common.header') <style>
+@include('common_admin.header') <style>
   h4 {
     font-weight: 600;
     font-size: 13px;
@@ -106,4 +106,4 @@
     </div>
   </section>
   <!-- /.content -->
-</div> @include('common.footer')
+</div> @include('common_admin.footer')

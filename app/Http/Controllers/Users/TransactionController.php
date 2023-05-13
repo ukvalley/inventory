@@ -33,7 +33,7 @@ public function Transaction(){
         //    print_r($alldevice);die();
 
 
-    return view('/transaction/transaction_table', compact('data','allCustomer','allUser','allVehicle'));
+    return view('users/transaction/transaction_table', compact('data','allCustomer','allUser','allVehicle'));
 
 
 }

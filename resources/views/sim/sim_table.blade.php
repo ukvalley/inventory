@@ -1,4 +1,4 @@
-@include('common.header')
+@include('common_admin.header')
 
 
 
@@ -6,7 +6,7 @@
         <div>
             <div class="panel panel-default">
                 <div class="panel-heading role-list-info-header">
-                  <a href="{{ url('/sim/simtypes') }}" class="btn btn-success">Add New Sim</a>
+                  <a href="{{ url('admin/sim/simtypes') }}" class="btn btn-success">Add New Sim</a>
                     <p>SIM Table</p>
                     
                 </div>
@@ -40,10 +40,10 @@
               
                 
                  <td>
-                  <a href="{{url('/')}}/sim/sim_edit?id={{$row->id}}" class="btn btn-primary">Edit</a>
+                  <a href="{{url('/')}}/admin/sim/sim_edit?id={{$row->id}}" class="btn btn-primary">Edit</a>
                 </td>
                 <td>
-                <a href="{{url('/')}}/sim_destroy?id={{$row->id}}" class="btn btn-danger">Delete</a>
+                <a href="{{url('/')}}/admin/sim_destroy?id={{$row->id}}" class="btn btn-danger">Delete</a>
                 </td>
             </tr>
         @endforeach
@@ -57,4 +57,5 @@
     </div>
     </div>
 
-    @include('common.footer')
+    @include('common_admin.footer')
+

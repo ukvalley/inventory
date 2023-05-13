@@ -58,7 +58,7 @@ public function UserDashboard(){
 
     
     
-        return view("/user/Userdashboard",compact('allvehicle','Customer','data','user_id','soldCount','unsoldCount','totalDeviceCount'));
+        return view("users/user/Userdashboard",compact('allvehicle','Customer','data','user_id','soldCount','unsoldCount','totalDeviceCount'));
 
       
         }

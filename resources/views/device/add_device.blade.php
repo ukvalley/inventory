@@ -1,4 +1,4 @@
-@include('common.header')
+@include('common_admin.header')
 
 
  <!-- Main content -->
@@ -17,7 +17,7 @@
                         </div>
                         <div class="panel-body">
                              <h3>Devices Table</h3>
-                           <form class="col-sm-6" action="{{url('/')}}/add_device-post" method="post"  enctype="multipart/form-data">
+                           <form class="col-sm-6" action="{{url('/')}}/admin/add_device-post" method="post"  enctype="multipart/form-data">
                     {{ csrf_field() }}
                  
                                 
@@ -135,4 +135,4 @@
 
 
 
-@include('common.footer')
+@include('common_admin.footer')

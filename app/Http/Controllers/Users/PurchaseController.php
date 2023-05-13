@@ -147,7 +147,7 @@ public function purchase_edit()
 
 
       // print_r($allpurchase); die();
-       return view('/purchase/purchase_edit')->with(compact('data','allpurchase','sim_get','allcustomer','allusers','alldevice'));
+       return view('users/purchase/purchase_edit')->with(compact('data','allpurchase','sim_get','allcustomer','allusers','alldevice'));
   }
 
 
@@ -213,7 +213,7 @@ public function openPurchaseInfo()
 
 
     // print_r($allpurchase); die();
-     return view('purchase_info')->with(compact('data','allpurchase'));
+     return view('users/purchase_info')->with(compact('data','allpurchase'));
 }
 
 public function pdfview_purchase(Request $request)  

@@ -23,7 +23,7 @@ class UserController extends Controller
    public function index()
    {
 
-       return view('user.login');
+       return view('users.user.login');
    }
 
   
@@ -39,7 +39,7 @@ class UserController extends Controller
    if(isset($result['0']->id)){
        Session::put('USER_LOGIN', 'yes');
        Session::put('USER_ID', $result['0']->id);
-       return redirect('user/Userdashboard');
+       return redirect('users.user.Userdashboard');
 
    }else{
 
@@ -62,7 +62,7 @@ class UserController extends Controller
 public function Userdashboard()
 {
 
-   return view('user.Userdashboard');
+   return view('users.user.Userdashboard');
 }
 
 public function logout()
@@ -116,7 +116,7 @@ public function  UserRegister(Request $request)
 	        	
 
 	              
-             return redirect('/user/user_table');
+             return redirect('users/user/user_table');
 	        	
 	        	}
             
@@ -129,7 +129,7 @@ public function  UserRegister(Request $request)
 
 
       //get data from database 
-      return view('user/user_table')->with(compact('data')); 
+      return view('users/user/user_table')->with(compact('data')); 
    }
 
 
@@ -139,7 +139,7 @@ public function  UserRegister(Request $request)
         $allusers = Users::get();
 
         // print_r($data); die();
-         return view('/user/register_user')->with(compact('allusers'));
+         return view('users/user/register_user')->with(compact('allusers'));
     }
 
 
@@ -153,7 +153,7 @@ public function  UserRegister(Request $request)
         $allusers = Users::get();
 
         // print_r($data); die();
-         return view('/user/user_edit')->with(compact('data','allusers'));
+         return view('users/user/user_edit')->with(compact('data','allusers'));
     }
 
 

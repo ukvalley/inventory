@@ -1,10 +1,10 @@
-@include('common.header')
+@include('common_admin.header')
 
 <div  class="content-wrapper">
         <div>
             <div class="panel panel-default">
                 <div class="panel-heading role-list-info-header">
-                  <a href="{{ url('/user/register_user') }}" class="btn btn-success">Register New User</a>
+                  <a href="{{ url('admin/user/register_user') }}" class="btn btn-success">Register New User</a>
                     <p>User Table</p>
                     <a class="btn btn-primary" href="{{route('pdfview_user',['download'=>'pdf']) }}">Export to PDF</a>
 
@@ -39,18 +39,18 @@
   </thead>
   @foreach($data as $row)
             <tr>
-               <td><a href="{{url('/')}}/user_info?id={{$row->id }}">{{$row->id }}</td>
-                <td><a href="{{url('/')}}/user_info?id={{$row->id }}">{{$row->name }}</td>
-                <td><a href="{{url('/')}}/user_info?id={{$row->id }}">{{$row->mobile }}</td>
-                <td><a href="{{url('/')}}/user_info?id={{$row->id }}">{{$row->city}}</td>
-                <td><a href="{{url('/')}}/user_info?id={{$row->id }}">{{$row->admiko_parent_child}}</td>
-                <td><a href="{{url('/')}}/user_info?id={{$row->id }}">{{$row->basic_amount}}</td>
-                <td><a href="{{url('/')}}/user_info?id={{$row->id }}">{{$row->user_type}}</td>
+               <td><a href="{{url('/')}}/admin/user_info?id={{$row->id }}">{{$row->id }}</td>
+                <td><a href="{{url('/')}}/admin/user_info?id={{$row->id }}">{{$row->name }}</td>
+                <td><a href="{{url('/')}}/admin/user_info?id={{$row->id }}">{{$row->mobile }}</td>
+                <td><a href="{{url('/')}}/admin/user_info?id={{$row->id }}">{{$row->city}}</td>
+                <td><a href="{{url('/')}}/admin/user_info?id={{$row->id }}">{{$row->admiko_parent_child}}</td>
+                <td><a href="{{url('/')}}/admin/user_info?id={{$row->id }}">{{$row->basic_amount}}</td>
+                <td><a href="{{url('/')}}/admin/user_info?id={{$row->id }}">{{$row->user_type}}</td>
                 <td>
-                <a href="{{url('/')}}/user/user_edit?id={{$row->id}}" class="btn btn-primary">Edit</a>
+                <a href="{{url('/')}}//admin/user_edit?id={{$row->id}}" class="btn btn-primary">Edit</a>
                 </td>
                 <td>
-                <a href="{{url('/')}}/user_destroy?id={{$row->id}}" class="btn btn-danger">Delete</a>
+                <a href="{{url('/')}}/admin/user_destroy?id={{$row->id}}" class="btn btn-danger">Delete</a>
                 </td>
                 
             
@@ -66,8 +66,9 @@
         </div>
         <!-- /.col-lg-12 -->
     </div>
+    
     </div>
 
-    @include('common.footer')
+    @include('common_admin.footer')
 
     

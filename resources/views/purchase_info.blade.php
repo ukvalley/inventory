@@ -1,4 +1,4 @@
-@include('common.header')
+@include('common_admin.header')
 
 
 <style>
@@ -74,4 +74,4 @@
 
 
 
-@include('common.footer')
+@include('common_admin.footer')

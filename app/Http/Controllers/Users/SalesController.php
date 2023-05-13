@@ -60,7 +60,7 @@ class SalesController extends Controller
    //print_r($data); die();
 
    //get data from database 
-   return view('sale/sales_table')->with(compact('data')); 
+   return view('users/sale/sales_table')->with(compact('data')); 
 }
 
 public function register_sales()
@@ -70,7 +70,7 @@ public function register_sales()
      $allsales = Sales::get();
     
      // print_r($allsales); die();
-      return view('/sale/register_sales')->with(compact('allsales'));
+      return view('users/sale/register_sales')->with(compact('allsales'));
  }
 
 
@@ -86,7 +86,7 @@ public function sales_edit()
      
      // print_r($data); die();
 
-      return view('/sale/sales_edit')->with(compact('data','allsales'));
+      return view('users/sale/sales_edit')->with(compact('data','allsales'));
  }
 
 

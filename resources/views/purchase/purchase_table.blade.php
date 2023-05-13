@@ -1,4 +1,4 @@
-@include('common.header')
+@include('common_admin.header')
 
 
 
@@ -6,7 +6,7 @@
         <div>
             <div class="panel panel-default">
                 <div class="panel-heading role-list-info-header">
-                  <a href="{{ url('/purchase/purchase_device') }}" class="btn btn-success">Purchase New Device</a>
+                  <a href="{{ url('admin/purchase/purchase_device') }}" class="btn btn-success">Purchase New Device</a>
                     <p>Device Purchase Table</p>
                     <a class="btn btn-primary" href="{{route('pdfview_purchase',['download'=>'pdf']) }}">Export to PDF</a>
 
@@ -44,20 +44,21 @@
   
   @foreach($data as $data)
             <tr>
-               <td><a href="{{url('/')}}/purchase_info?id={{$data->id }}">{{$data->id }}</td>
-                <td><a href="{{url('/')}}/purchase_info?id={{$data->id }}">{{$data->date }}</td>
-             
-                <td><a href="{{url('/')}}/purchase_info?id={{$data->id }}">{{$data->ice_id}}</td>
-                <td><a href="{{url('/')}}/purchase_info?id={{$data->id }}">{{$data->amount}}</td>
-                <td><a href="{{url('/')}}/purchase_info?id={{$data->id }}">{{$data->quantity}}</td>
-                <td><a href="{{url('/')}}/purchase_info?id={{$data->id }}">{{$data->manufactured_by_id->name ?? ''}}</td>
+               <td><a href="{{url('/')}}/admin/purchase_info?id={{$data->id }}">{{$data->id }}</td>
+                <td><a href="{{url('/')}}/admin/purchase_info?id={{$data->id }}">{{$data->date }}</td>
+             /admin
+                <td><a href="{{url('/')}}/admin/purchase_info?id={{$data->id }}">{{$data->ice_id}}</td>
+                <td><a href="{{url('/')}}/admin/purchase_info?id={{$data->id }}">{{$data->amount}}</td>
+                <td><a href="{{url('/')}}/admin/purchase_info?id={{$data->id }}">{{$data->quantity}}</td>
+                <td><a href="{{url('/')}}/admin/purchase_info?id={{$data->id }}">{{$data->manufactured_by_id->name ?? ''}}</td>
 
                 
                 <td>
-               <a href="{{url('/')}}/purchase/purchase_edit?id={{$data->id}}" class="btn btn-primary">Edit</a>
+               <a href="{{url('/')}}/admin/purchase/purchase_edit?id={{$data->id}}" class="btn btn-primary">Edit</a>
                 </td>
+                
                 <td>
-                <a href="{{url('/')}}/purchase_destroy?id={{$data->id}}" class="btn btn-danger">Delete</a>
+                <a href="{{url('/')}}/admin/purchase_destroy?id={{$data->id}}" class="btn btn-danger">Delete</a>
                 </td>
                    
             </tr>
@@ -72,4 +73,4 @@
     </div>
     </div>
 
-    @include('common.footer')
+    @include('common_admin.footer')
