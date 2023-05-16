@@ -156,7 +156,7 @@ class PurchaseOrderController extends Controller
     $csv_data = array_slice(($data), 0, 1);
 
 
-    return view('import_fields', compact('csv_data', 'csv_data_file'));
+    return view('admin/import_fields', compact('csv_data', 'csv_data_file'));
 }
 
     public function processImport(Request $request)

@@ -116,7 +116,7 @@ public function  UserRegister(Request $request)
 	        	
 
 	              
-             return redirect('/user/user_table');
+             return redirect('admin/user/user_table');
 	        	
 	        	}
             

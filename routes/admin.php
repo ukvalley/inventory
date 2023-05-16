@@ -47,12 +47,15 @@ Route::get('/device_sales/action', [SearchController::class, 'sales_action']);
 
 
 
+    Route::get('transaction1/transaction_table', [TransactionController::class, 'Transaction'])->name('Transaction');
 
 
 
 Route::get('purchase/purchase_device', function () {
     return view('/purchase/purchase_device');
 });
+
+
 
 Route::get('purchase/purchase_table', function () {
     return view('/purchase/purchase_table');
@@ -227,7 +230,6 @@ Route::get('getVehicle', [MAdminPanelController::class, 'getVehicle'])->name('ge
 
 //transcaction genaration
 
-Route::get('/transaction1/transaction_table', [TransactionController::class, 'Transaction'])->name('Transaction');
 Route::get('/transaction/transaction', [TransactionController::class, 'register_sales'])->name('register_sales');
 
 
@@ -278,6 +280,16 @@ Route::get('/manifacturer/manifacturer_edit', [ManifacturerController::class, 'm
 Route::get('destroy', [ManifacturerController::class, 'destroy'])->name('destroy');
 
 
+
+
+///device accept and reject
+Route::post('/device-transfers', [TransactionController::class, 'send']);
+
+// Accept device transfer request
+Route::put('/device-transfers/{transfer}/accept', [TransactionController::class, 'accept']);
+
+// Reject device transfer request
+Route::put('/device-transfers/{transfer}/reject', [TransactionController::class, 'reject']);
 
 
 

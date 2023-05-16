@@ -24,7 +24,7 @@
                 <input type="text" name="search1" id="search1" class="" placeholder="Search Device Data" />
               </div>
 
-              <form action="{{url('/')}}/saleUpdate" method="post"  enctype="multipart/form-data">
+              <form action="{{url('/')}}/admin/saleUpdate" method="post"  enctype="multipart/form-data">
                     {{ csrf_field() }}
 
 
@@ -87,7 +87,7 @@
 
                     <label>Select Customer</label>
                           <select class="form-control" name="customer" onChange=''    id="customer-select" >
-                         
+                          <option value="" >Select Customer</option>}
                      
                                    @foreach ($allCustomer as $value){
                                    
@@ -146,27 +146,29 @@
 
  <script>
 
-$('#vehicle-select').change(function(){
-       $('#user').find('option').remove().end()
+$('#customer-select').change(function(){
+   
+       $('#vehicle-select').find('option').remove().end();
         //  console.log('{{url('/')}}/api/getVehicle/'+$(this).val()+'');
          $.ajax({
         url: '{{url('/')}}/api/getVehicle/'+$(this).val()+'',
         type: "GET",
         dataType: 'json',
         success: function (result) {
+          console.log(result);
             $.each(result, function (i, value) {
-                $('#vehicle').append('<option id=' + JSON.stringify(value.id) + '>' + value.name + '</option>');
+              console.log(value);
+                $('#vehicle-select').append('<option id=' + JSON.stringify(value.id) + '>' + value.vechicle_number + '</option>');
             });
         },
         error: function (request, status, error) {
-            alert(request.statusText + "[" + request.status + "]");
-            alert(request.responseText);
-            $('button#form_salesReport_button').html(config.messages.searchReport);
+           
+          console.log(error);
         }
     });
 
 
-    alert($(this).val());
+  
 })
 
 </script>

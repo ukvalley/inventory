@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\MAdminPanelController;
+use App\Http\Controllers\GpsAdmin\MAdminPanelController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,12 +15,12 @@ use App\Http\Controllers\MAdminPanelController;
 |
 */
 
-Route::get('getUserType/{id}', [MAdminPanelController::class, 'getUserType'])->name('getUserType');
+Route::get('/getUserType/{id}', [MAdminPanelController::class, 'getUserType'])->name('getUserType');
 
 
-Route::get('getCustomer/{id}', [MAdminPanelController::class, 'getCustomer'])->name('getCustomer');
+Route::get('/getCustomer/{id}', [MAdminPanelController::class, 'getCustomer'])->name('getCustomer');
 
-Route::get('getVehicle/{id}', [MAdminPanelController::class, 'getVehicle'])->name('getVehicle');
+Route::get('/getVehicle/{id}', [MAdminPanelController::class, 'getVehicle'])->name('getVehicle');
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();

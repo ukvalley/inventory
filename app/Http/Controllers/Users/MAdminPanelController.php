@@ -172,7 +172,7 @@ public function get_customer($user_type)
 
             $device->save();
 
-        
+            return redirect('/admin/sale/sales_table');
 
             
 

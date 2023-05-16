@@ -50,7 +50,7 @@ class VehicleController extends Controller
               
 
                 
-          return redirect('/vehicle/vehicle_table');
+          return redirect('/admin/vehicle/vehicle_table');
            
           
   }
@@ -85,7 +85,7 @@ class VehicleController extends Controller
   
 
     // print_r($allvehicle);die();
-      return view('/vehicle/register_vehicle', compact('allvehicle','allcustomer'));
+      return view('vehicle/register_vehicle', compact('allvehicle','allcustomer'));
 
  }
 

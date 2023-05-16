@@ -1,4 +1,4 @@
-@include('common.header')
+@include('common_admin.header')
 
 
 
@@ -6,7 +6,7 @@
         <div>
             <div class="panel panel-default">
                 <div class="panel-heading role-list-info-header">
-                  <a href="{{ url('admin/transaction/transaction_table') }}" class="btn btn-success">Transaction Table</a>
+                  <a href="{{ url('/transaction1/transaction_table') }}" class="btn btn-success">Transaction Table</a>
                     <p></p>
                     <a class="btn btn-primary" href="{{route('pdfview_transaction',['download'=>'pdf']) }}">Export to PDF</a>
  
@@ -32,7 +32,7 @@
       <th scope="col">Amount</th>
       <th scope="col">Quantity</th>
       <th scope="col">Transaction Type</th>
-      <th scope="col">Status</th>
+      <!-- <th scope="col">Status</th> -->
       
 
       <!-- <th scope="col">Edit</th>
@@ -50,17 +50,17 @@
                 <td>{{$row->quantity}}</td>
                 <td>{{$row->amount}}</td>
                 <td>{{$row->transaction_type}}</td>
-                <td>
+                <!-- <td>
                   {{$row->status}}
                 </td>
-               
-                  <td>
+                -->
+                  <!-- <td>
                <a href="{{url('/')}}/admin/transaction/transaction_edit?id={{$row->id}}" class="btn btn-primary">Edit</a>
-                </td>
-                <td>
+                </td> -->
+                <!-- <td>
                 <a href="{{url('/')}}/admin/transaction_destroy?id={{$row->id}}" class="btn btn-danger">Delete</a>
                 </td>
-                
+                 -->
             
                  
             </tr>

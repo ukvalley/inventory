@@ -48,7 +48,6 @@ Route::post('user/auth',[UserController::class,'auth'])->name('user.auth');
 
 
 //sales search
-Route::get('/device_sales/action', [SearchController::class, 'sales_action']);
 
 
 

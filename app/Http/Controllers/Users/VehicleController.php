@@ -85,7 +85,7 @@ class VehicleController extends Controller
   
 
     // print_r($allvehicle);die();
-      return view('/vehicle/register_vehicle', compact('allvehicle','allcustomer'));
+      return view('/vehicle/vehicle_table', compact('allvehicle','allcustomer'));
 
  }
 

@@ -93,6 +93,7 @@ $devices = $request->select;
     foreach ($devices as $key => $value) {
 
 
+
         
 
 
@@ -102,28 +103,13 @@ $devices = $request->select;
 
         $device->user_id = $request->user;
         
-        //--------------------
-        // foreach ($devices as $key => $value) {
-        //     $device = Device::find($value);
-            
-        //     // Show confirmation dialog
-        //     $isConfirmed = false;
-        //     $isConfirmed = $this->showConfirmationDialog($device, $userId);
-            
-        //     if ($isConfirmed) {
-        //         // Update device user ID
-        //         $device->user_id = $userId;
-        //         $device->save();
-        //     } else {
-        //         // Handle cancellation or rejection
-        //         // ...
-        //     }
-        // }
-        //---------------------
+    
 
-  $device->save();
+        $device->save();
 
     }
+
+    return redirect()->back();
 
 }
 
@@ -139,8 +125,27 @@ public function getCustomer()
         //    print_r($alldevice);die();
         return view('/device_sale', compact('data','allCustomer','allVehicle'));
         }
+        
+
+
+
+
 
         
+public function getVehicle($customer_id)      
+{ 
+    $data=Vechicles::with(['customer_id'])->where('customer','=',$customer_id)->get();
+   
+    $data = json_encode($data);
+    
+    return $data;
+ 
+ }
+
+        
+
+
+
 public function get_customer($user_type)
 { 
 
@@ -221,7 +226,10 @@ public function get_customer($user_type)
 
             $Transaction->save();
 
-           
+
+            return view('/transaction1/transaction_table');
+
+
                  
 }
 
