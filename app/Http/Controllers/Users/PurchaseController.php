@@ -109,7 +109,7 @@ class PurchaseController extends Controller
     //print_r($data); die();
 
     //get data from database 
-    return view('purchase/purchase_table')->with(compact('data')); 
+    return view('users/purchase/purchase_table')->with(compact('data')); 
  }
 
  public function register_purchase()
@@ -127,7 +127,7 @@ class PurchaseController extends Controller
 
 
       // print_r($allpurchase); die();
-       return view('/purchase/purchase_device')->with(compact('allpurchase','sim_get','allusers','allmanifacturer'));
+       return view('users/purchase/purchase_device')->with(compact('allpurchase','sim_get','allusers','allmanifacturer'));
   }
 
 public function purchase_edit()

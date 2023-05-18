@@ -184,7 +184,7 @@ $('#customer-select').change(function(){
       function fetch_device_data(query = '') 
       {
         $.ajax({
-          url: "{{url('/')}}/device_sales/action",
+          url: "{{url('/')}}/user/device_sales/action",
           type: "GET",
           dataType: "json",
           data: {
@@ -213,4 +213,4 @@ $('#customer-select').change(function(){
 
 
 
-    @include('common_admin.footer')
+    @include('users.common.footer')

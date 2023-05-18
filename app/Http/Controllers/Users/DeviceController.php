@@ -97,7 +97,7 @@ class DeviceController extends Controller
 
 
          // print_r($alldevice); die();
-          return view('users//device/add_device')->with(compact('alldevice','sim_get','allmanifacturer','allsales'));
+          return view('users/device/add_device')->with(compact('alldevice','sim_get','allmanifacturer','allsales'));
      }
  
  

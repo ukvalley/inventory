@@ -65,7 +65,7 @@ class VehicleController extends Controller
     $data=Vechicles::with(['customer_id'])->get();
 
   //  print_r($data); die();
-    return view('vehicle.vehicle_table')->with(compact('data')); 
+    return view('/users/vehicle/vehicle_table')->with(compact('data')); 
 
  }
 
@@ -76,16 +76,18 @@ class VehicleController extends Controller
  public function register_vehicle()
  {
  
+  //  die();
 
  
    $allvehicle = Vechicles::get();
    
     $allcustomer = Customer::get();
+    $data=Vechicles::get();
 
   
 
     // print_r($allvehicle);die();
-      return view('/vehicle/vehicle_table', compact('allvehicle','allcustomer'));
+      return view('users/vehicle/register_vehicle', compact('allvehicle','allcustomer','data'));
 
  }
 
@@ -94,13 +96,13 @@ class VehicleController extends Controller
 
 public function view_vehicle()
  {
-    $data=DB::table('vechicles')->get();
+    $data=Vechicles::get();
     
 
 
 
     //print_r($data); die();
-    return view('vehicle_table')->with(compact('data',)); 
+    return view('users/vehicle/vehicle_table')->with(compact('data')); 
  }
 
 
@@ -115,7 +117,7 @@ public function vehicle_edit()
        $allcustomer = Customer::get();
 
       // print_r($Customer_name); die();
-       return view('/vehicle/vehicle_edit')->with(compact('data','allcustomer'));
+       return view('users/vehicle/vehicle_edit')->with(compact('data','allcustomer'));
   }
 
 

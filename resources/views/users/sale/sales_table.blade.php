@@ -6,7 +6,7 @@
         <div>
             <div class="panel panel-default">
                 <div class="panel-heading role-list-info-header">
-                  <a href="{{ url('user/sale/sales') }}" class="btn btn-success">Sale New Device</a>
+                  <a href="{{ url('user/device_sale') }}" class="btn btn-success">Sale New Device</a>
                     <p>Sale Table</p>
                     <a class="btn btn-primary" href="{{route('pdfview',['download'=>'pdf']) }}">Export to PDF</a>
                 </div>

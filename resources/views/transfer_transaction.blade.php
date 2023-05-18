@@ -21,10 +21,10 @@
                 <input type="text" name="search1" id="search1" class="" placeholder="Search Device Data" />
               </div>
 
-              <form action="{{url('/')}}/admin/device-transfers" method="post"  enctype="multipart/form-data">
+              <form action="{{url('/')}}/transferUpdate" method="post"  enctype="multipart/form-data">
                     {{ csrf_field() }}
 
-
+             
               <!-- End search bar -->
               <table class="table table-striped table-dark">
               
@@ -126,7 +126,7 @@
       function fetch_device_data(query = '') 
       {
         $.ajax({
-          url: "{{url('/')}}/admin/transfer_transaction/action",
+          url: "{{url('/')}}/transfer_transaction/action",
           type: "GET",
           dataType: "json",
           data: {
@@ -152,5 +152,5 @@
     });
   </script> 
 
-  @include("common_admin.footer")
+  @include("users.common.footer")
 

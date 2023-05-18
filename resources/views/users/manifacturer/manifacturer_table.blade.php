@@ -6,7 +6,7 @@
         <div>
             <div class="panel panel-default">
                 <div class="panel-heading role-list-info-header">
-                  <a href="{{ url('user/manifacturer/manifacturer') }}" class="btn btn-success">Add New Manifacturer</a>
+                  <a href="{{ url('user//manifacturer/register_manifacturer') }}" class="btn btn-success">Add New Manifacturer</a>
                     <p>SIM Table</p>
                     <!-- <a class="btn btn-primary" href="{{ URL::to('/manifacturer/pdf') }}">Export to PDF</a> -->
                 </div>

@@ -58,7 +58,7 @@ public function UserDashboard(){
 
     
     
-        return view("users/user/Userdashboard",compact('allvehicle','Customer','data','user_id','soldCount','unsoldCount','totalDeviceCount'));
+        return view("/users/user/Userdashboard",compact('allvehicle','Customer','data','user_id','soldCount','unsoldCount','totalDeviceCount'));
 
       
         }
@@ -87,7 +87,7 @@ public function UserDashboard(){
                               ->where('user_id', '=', $user_id)
                               ->count();
 
-            return view("/profile",compact('data','user_id','username','soldCount','unsoldCount','totalDeviceCount')); 
+            return view("/users/profile",compact('data','user_id','username','soldCount','unsoldCount','totalDeviceCount')); 
 
 
         }

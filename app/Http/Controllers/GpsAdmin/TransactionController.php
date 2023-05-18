@@ -114,14 +114,50 @@ public function send(Request $request)
         return response()->json(['message' => 'Device transfer request sent successfully']);
     }
 
-    public function accept(DeviceTransfer $transfer)
+   
+    public function accept(Request $request,$action)
     {
-        // Only the to_user can accept a transfer request
-        if (Auth::id() !== $transfer->to_user_id) {
-            abort(403);
-        }
+        
+        $device_id=$request->devices;
+      //   print_r($device_id) ; die();
+        if($action == 'accept')
+        { 
 
-        $transfer->accept();
+            foreach ($device_id as $key => $value) {
+                echo $value;
+                $device=DeviceTransfer::find($value);
+
+                print_r($device);
+
+                if(Session::get('USER_ID') !== $device->to_user_id);
+                {
+                  //  abort(403);
+                }
+
+                $device->accept();
+            }
+            return response()->json(['message' => 'Device transfer request accepted successfully']);
+
+        }
+        if($action == 'reject')
+        {
+
+
+            foreach ($device_id as $key => $value) {
+                $device=DeviceTransfer::findOrFail($value);
+
+                if (Session::get('USER_ID') !== $device->to_user_id) {
+                  //  abort(403);
+                }
+
+                $device->reject();
+            }
+
+            return response()->json(['message' => 'Device transfer request rejected successfully']);
+
+
+        }
+      
 
         return response()->json(['message' => 'Device transfer request accepted successfully']);
     }
@@ -137,6 +173,27 @@ public function send(Request $request)
 
         return response()->json(['message' => 'Device transfer request rejected successfully']);
     }
-}
 
-    
+
+
+
+
+
+
+
+
+
+    public function index(Request $request)
+    {
+        $deviceTransfers = DeviceTransfer::all();
+        return view('/acceptdevice', compact('deviceTransfers'));
+    }
+
+    public function view_acceptdevice()
+    {
+       $data=DB::table('DeviceTransfer')->get();
+       //print_r($data); die();
+       return view('/acceptdevice')->with(compact('data',)); 
+    }
+   
+}

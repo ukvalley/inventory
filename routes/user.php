@@ -23,6 +23,8 @@ use App\Http\Controllers\Users\RecordsController;
 use App\Http\Controllers\Users\TransactionController;
 use App\Http\Controllers\Users\SearchController;
 use App\Http\Controllers\Users\ManifacturerController;
+use App\Http\Controllers\Users\DeviceAcceptController; 
+
 
 
 
@@ -36,7 +38,7 @@ Route::group(['prefix' => 'user', 'middleware' => ['is_user']], function(){
     
     Route::get('/Userdashboard',[Controller::class,'UserDashboard']);
     Route::get('/logout',[UserController::class,'logout']);
-    Route::get('profile', [Controller::class, 'profile'])->name('profile');
+    Route::get('/profile', [Controller::class, 'profile'])->name('profile');
 
 
 
@@ -71,6 +73,11 @@ Route::group(['prefix' => 'user', 'middleware' => ['is_user']], function(){
     Route::get('sim/sim_table', function () {
         return view('/sim/sim_table');
     });
+
+
+    
+
+    
         
     //customer--------------------------------------------------------------------------------
     
@@ -89,8 +96,8 @@ Route::group(['prefix' => 'user', 'middleware' => ['is_user']], function(){
     Route::post('/register_vehicle-update/{id}', [VehicleController::class, 'vehicle_update'])->name('vehicle_update');
     Route::get('vehicle/vehicle_edit', [VehicleController::class, 'vehicle_edit'])->name('vehicle_edit');
     Route::get('vehicle_destroy', [VehicleController::class, 'vehicle_destroy'])->name('vehicle_destroy');
-    Route::get('/vehicle/vehicle_table', [VehicleController::class, 'vehicle_table'])->name('vehicle_table');
-    
+    Route::get('/vehicle/vehicle_table', [VehicleController::class, 'view_vehicle'])->name('view_vehicle');
+
     
     
     //User--------------------------------------------------------------------------------------
@@ -149,6 +156,29 @@ Route::group(['prefix' => 'user', 'middleware' => ['is_user']], function(){
     
     //
     //changes
+
+
+    ///////you
+    
+
+///device accept and reject
+Route::post('/device-transfers', [TransactionController::class, 'send']);
+
+// Accept device transfer request
+Route::post('/device-transfers/{action}', [TransactionController::class, 'accept']);
+
+// Reject device transfer request
+Route::put('/device-transfers/{transfer}/reject', [TransactionController::class, 'reject']);
+
+
+
+  
+    Route::get('/acceptdevice_table', [TransactionController::class, 'index'])->name('index');
+
+    Route::get('/view_acceptdevice', [TransactionController::class, 'view_acceptdevice'])->name('view_acceptdevice');
+
+
+
     //device
     
     Route::get('add_sim', [DeviceController::class, 'add_sim'])->name('add_sim');
@@ -206,7 +236,7 @@ Route::group(['prefix' => 'user', 'middleware' => ['is_user']], function(){
     //sale device
     
     
-    Route::get('device_sale', [MAdminPanelController::class, 'getCustomer'])->name('device_sale');
+    Route::get('/device_sale', [MAdminPanelController::class, 'getCustomer'])->name('device_sale');
     Route::get('getCustomer', [MAdminPanelController::class, 'getCustomer'])->name('getCustomer');
     Route::post('saleUpdate', [MAdminPanelController::class, 'saleUpdate'])->name('saleUpdate');
     Route::get('get_customer', [MAdminPanelController::class, 'get_customer'])->name('get_customer');
@@ -253,21 +283,17 @@ Route::group(['prefix' => 'user', 'middleware' => ['is_user']], function(){
     
     //manifacturer register edit delete
     
-    Route::get('/manifacturer1/manifacturer_table', function () {
-    return view('manifacturer/manifacturer_table');
-    });
+  
     
-    
-    Route::get('/manifacturer1/manifacturer', function () {  
-    return view('/manifacturer/manifacturer');
-    });
-    Route::post('register_manifacturer', [ManifacturerController::class, 'register_manifacturer'])->name('register_manifacturer');
+
+    Route::get('/manifacturer/register_manifacturer', [ManifacturerController::class, 'register_manifacturer'])->name('register_manifacturer');
     Route::post('/manifacturer-post', [ManifacturerController::class, 'ManifacturerRegister'])->name('ManifacturerRegister');
     Route::post('/manifacturer-update/{id}', [ManifacturerController::class, 'update'])->name('update');
     Route::get('/manifacturer/manifacturer_edit', [ManifacturerController::class, 'manifacturer_edit'])->name('manifacturer_edit');
     Route::get('destroy', [ManifacturerController::class, 'destroy'])->name('destroy');
     
-    
+    Route::get('manifacturer1/manifacturer_table', [ManifacturerController::class, 'view_manifacturer'])->name('view_manifacturer');
+
     
     
     

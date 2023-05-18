@@ -193,6 +193,8 @@
                      </a>
 
                      <ul class="treeview-menu">
+                     <li><a href="{{url('/')}}/admin/acceptdevice_table">Accept Device</a></li>
+
                         <li><a href="{{url('/')}}/admin/sim/simtypes">Add Sim Types</a></li>
                         <li><a href="{{url('/')}}/admin/manifacturer1/manifacturer">Add Manifacturer</a></li>
                         <li><a href="{{url('/')}}/admin/user/register_user">Add User</a></li>

@@ -41,7 +41,7 @@ class ManifacturerController extends Controller
              
     
                    
-             return redirect('users/manifacturer/manifacturer_table');
+             return redirect('user/manifacturer/manifacturer_table');
                    
              
          }
@@ -57,10 +57,23 @@ public function register_manifacturer()
 
 
    // print_r($data);die();
-     return view('users//manifacturer/manifacturer_table', compact('manifacturer'));
+     return view('users/manifacturer/manifacturer', compact('manifacturer'));
 
 }
     
+
+
+public function view_manifacturer()
+ {
+    $data=Manifacturer::get();
+    
+
+
+
+    //print_r($data); die();
+    return view('users/manifacturer/manifacturer_table')->with(compact('data')); 
+ }
+
      
     
     

@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GpsAdmin\MAdminPanelController;
 
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -14,6 +15,7 @@ use App\Http\Controllers\GpsAdmin\MAdminPanelController;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+
 
 Route::get('/getUserType/{id}', [MAdminPanelController::class, 'getUserType'])->name('getUserType');
 

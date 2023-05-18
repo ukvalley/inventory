@@ -280,6 +280,25 @@ Route::get('/manifacturer/manifacturer_edit', [ManifacturerController::class, 'm
 Route::get('destroy', [ManifacturerController::class, 'destroy'])->name('destroy');
 
 
+  
+
+///device accept and reject
+Route::post('/device-transfers', [TransactionController::class, 'send']);
+
+// Accept device transfer request
+Route::post('/device-transfers/{action}', [TransactionController::class, 'accept']);
+
+// Reject device transfer request
+Route::put('/device-transfers/{transfer}/reject', [TransactionController::class, 'reject']);
+
+
+
+  
+    Route::get('/acceptdevice_table', [TransactionController::class, 'index'])->name('index');
+
+    Route::get('/view_acceptdevice', [TransactionController::class, 'view_acceptdevice'])->name('view_acceptdevice');
+
+
 
 
 ///device accept and reject

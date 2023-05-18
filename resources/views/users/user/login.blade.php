@@ -64,11 +64,7 @@
 
                             <br>
 
-                            <div>
-
-                                <a class="btn btn-warning" href="{{ url('/user/forget_password') }}">Forgot Password</a>
-                        
-                            </div>
+                            
 
                         </form>
                         </div>

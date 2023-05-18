@@ -6,7 +6,7 @@
         <div>
             <div class="panel panel-default">
                 <div class="panel-heading role-list-info-header">
-                  <a href="{{ url('user/vehicle/register_vehicle') }}" class="btn btn-success">Register New Vehicle</a>
+                  <a href="{{ url('/user/vehicle/register_vehicle') }}" class="btn btn-success">Register New Vehicle</a>
                     <p>Vehicle Table</p>
                     <a class="btn btn-primary" href="{{route('pdfview_vehicle',['download'=>'pdf']) }}">Export to PDF</a>
 
@@ -40,7 +40,7 @@
       
     </tr>
   </thead>
- 
+
   @foreach($data as $row)
             <tr>
 

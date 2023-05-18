@@ -45,6 +45,8 @@
       <!--<link href="asset/dist/css/stylecrm-rtl.css" rel="stylesheet" type="text/css"/>-->
       <!-- End Theme Layout Style
          =====================================================================-->
+         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
    </head>
    <body class="hold-transition sidebar-mini">
       <!--preloader-->
@@ -150,6 +152,7 @@
                         <li><a href="{{url('/')}}/user/purchase1/purchase_device">Purchase Device</a></li>
                         <li><a href="{{url('/')}}/user/getImport">Import Device</a></li>
                         <li><a href="{{url('/')}}/user/transfer">Transfer Device</a></li>
+
                      </ul>
                   </li>
                   <li class="treeview">
@@ -193,8 +196,10 @@
                      </a>
 
                      <ul class="treeview-menu">
+                     <li><a href="{{url('/')}}/user/acceptdevice_table">Accept Device</a></li>
+
                         <li><a href="{{url('/')}}/user/sim/simtypes">Add Sim Types</a></li>
-                        <li><a href="{{url('/')}}/user/manifacturer1/manifacturer">Add Manifacturer</a></li>
+                        <li><a href="{{url('/')}}/user/manifacturer1/manifacturer_table">Add Manifacturer</a></li>
                         <li><a href="{{url('/')}}/user/user/register_user">Add User</a></li>
                      </ul>
                      
