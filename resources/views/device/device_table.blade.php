@@ -59,9 +59,7 @@
   @foreach($data as $row)
             <tr>
               
-               <td> <a href="{{url('/')}}/admin/device_info?id={{$row->id }}">{{$row->id }} </a></td>
-               /admin
-                <td><a href="{{url('/')}}/admin/device_info?id={{$row->id }}">{{$row->manufactured_by_id->name ?? ''}}</td>
+               <td> <a href="{{url('/')}}/admin/device_info?id={{$row->id }}">{{$row->id }} </a></td>                <td><a href="{{url('/')}}/admin/device_info?id={{$row->id }}">{{$row->manufactured_by_id->name ?? ''}}</td>
                 <td><a href="{{url('/')}}/admin/device_info?id={{$row->id }}">{{$row->ice_id}}</td>
                 <td><a href="{{url('/')}}/admin/device_info?id={{$row->id }}">{{$row->imei}}</td>
                 <!-- <td><a href="{{url('/')}}/admin/device_info?id={{$row->id }}">{{$row->sim1}}</td> -->
@@ -127,7 +125,6 @@
         @endforeach
 </table>
 
-<button type="submit">Accept</button>
 
 </div>
                 <!-- /.panel-body -->

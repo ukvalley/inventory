@@ -144,11 +144,7 @@ return [
         'sim_1_type',
         'sim2',
         'sim_2_type',
-        'received_date',
-        'renewal_date',
         'activation_date',        
-        'user_id',
-        'customer_id',
        
         
     ],

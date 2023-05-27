@@ -15,7 +15,7 @@ use App\Models\Admin\SimTypes;
 use App\Models\Admin\Records;
 use App\Models\CsvData;
 use App\Models\Admin\Transaction;
-
+use Session;
 
 
 
@@ -58,9 +58,12 @@ class MAdminPanelController extends Controller
         //INTERNAL TRANSFER-------------------------------------------------------------------------
          
         public function get_device()
-        { 
+        {         $user_id=Session::get('USER_ID');
 
-        $alldevice =Device::with(['manufactured_by_id'])->get();
+
+        $alldevice =Device::with(['manufactured_by_id'])
+        ->where('user_id','=', $user_id)
+        ->get();
          
        
          //print_r($alldevice);die();
@@ -74,7 +77,9 @@ class MAdminPanelController extends Controller
 
 
 public function getUserType($user_type)
-{ 
+
+{  
+
 
     $userType = Users::where('user_type',"=",$user_type)->get();
 
@@ -102,24 +107,7 @@ $devices = $request->select;
 
         $device->user_id = $request->user;
         
-        //--------------------
-        // foreach ($devices as $key => $value) {
-        //     $device = Device::find($value);
-            
-        //     // Show confirmation dialog
-        //     $isConfirmed = false;
-        //     $isConfirmed = $this->showConfirmationDialog($device, $userId);
-            
-        //     if ($isConfirmed) {
-        //         // Update device user ID
-        //         $device->user_id = $userId;
-        //         $device->save();
-        //     } else {
-        //         // Handle cancellation or rejection
-        //         // ...
-        //     }
-        // }
-        //---------------------
+        
 
   $device->save();
 
@@ -130,10 +118,14 @@ $devices = $request->select;
 //////////Salessssssssssss DEvice
 
 public function getCustomer()      
-       { 
+       {   $user_id=Session::get('USER_ID');
+
 
        
-            $data=Device::with(['user_id_id'])->get();
+            $data=Device::with(['user_id_id'])
+            ->where('user_id','=', $user_id)
+            ->get();
+            
             $allCustomer = Customer::get();
 
             $allVehicle = Vechicles::get();

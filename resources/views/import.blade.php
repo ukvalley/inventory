@@ -9,13 +9,13 @@
                         <div class="panel-heading">
                            <div class="btn-group" id="buttonlist"> 
                               <a class="btn btn-add "href="purchase_device"> 
-                              <i class="fa fa-list"></i>EXel 1 </a>  
+                              <i class="fa fa-list"></i>EXcel 1 </a>  
                            </div>
 
                         </div>
                         <div class="panel-body">
                              <h3>Csv</h3>
-                             <form class="form-horizontal" method="POST" action="{{ route('import_parse') }}" enctype="multipart/form-data">
+                             <form class="form-horizontal" method="POST" action="{{ route('import_parse_admin') }}" enctype="multipart/form-data">
                             {{ csrf_field() }}
 
                             <div class="form-group{{ $errors->has('csv_file') ? ' has-error' : '' }}">
@@ -70,3 +70,4 @@
 
 
 @include('common_admin.footer')
+

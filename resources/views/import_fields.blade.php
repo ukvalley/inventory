@@ -43,7 +43,7 @@
                                                         @if ($key === $db_field) selected @endif>{{ $db_field }}</option>
                                                 @endforeach
                                             </select>
-                                        </td>
+                                        </td>  
                                     @endforeach
                                 </tr>
                             </table>

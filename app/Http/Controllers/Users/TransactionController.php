@@ -25,6 +25,7 @@ class TransactionController extends Controller
 public function Transaction(){
 
   $data = Transaction::with(['sender_id','receiver_id'])->get();
+  
     $allCustomer = Customer::get();
    
     $allVehicle = Vechicles::get();

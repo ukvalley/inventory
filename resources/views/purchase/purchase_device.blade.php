@@ -58,7 +58,7 @@
                                  @endforeach
                               </select>
                                  </div>
-4
+
                               <div class="form-group">
                                  <label>IMEI</label>
                                  <input type="text" class="form-control" name="imei" placeholder="imei" required>

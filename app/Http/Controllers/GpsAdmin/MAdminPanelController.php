@@ -85,7 +85,7 @@ public function getUserType($user_type)
 
 }
 
-public function transferUpdate(Request $request)
+public function admintransferUpdate(Request $request)
 {
 
 $devices = $request->select;

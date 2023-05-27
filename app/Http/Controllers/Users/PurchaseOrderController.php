@@ -13,7 +13,7 @@ use App\Models\Admin\Sales;
 use App\Models\Admin\SimTypes;
 use App\Models\Admin\Records;
 use App\Models\CsvData;
-
+use App\Models\Admin\Manifacturer;
 
 class PurchaseOrderController extends Controller
 {
@@ -92,8 +92,7 @@ class PurchaseOrderController extends Controller
 	       $device->received_date =$this->change_date_format($received_date);
 	       $device->renewal_date = $this->change_date_format($renewal_date);
 	        
-          print_r($device);
-
+          
            $device->save();
 
         
@@ -101,13 +100,7 @@ class PurchaseOrderController extends Controller
       
           // update records
 
-           $record = Records::where('user_id','=',$user_id)->first();
-
-           $update_record_device_count = $record->device_count + 1;
-
-           $record->device_count = $update_record_device_count;
-
-           $record->save();
+         
 
 
            
@@ -115,18 +108,7 @@ class PurchaseOrderController extends Controller
  
        //purchase entry creation
 
-       $purchase = new purchase;
-
-       $today = date("M d, Y");
-
-       $purchase->date = $today;
-      
-       $purchase->device_number = $device_id;
-       $purchase->quantity = 1;
-      
-       $purchase->purchase_from = $purchase_from;
-
-       $purchase->save();
+       
 
     
 
@@ -168,13 +150,23 @@ class PurchaseOrderController extends Controller
 
         $data = CsvData::find($request->csv_data_file_id);
         $csv_data = json_decode($data->csv_data, true);
-        foreach ($csv_data as $row) {
+        foreach ($csv_data as $key=>$row) {
         $csv_row_data = [];
+
+        if($key==0)
+        {
+            continue;
+        }
         
         foreach (config('app.db_fields') as $index => $field) {
           // print_r($row);
-          $csv_row_data[$field] = $row[$index];
+
+          
+            $csv_row_data[$field] = $row[$index];
+          
+          
         }
+       
         $this->csvPurchaseProcess($csv_row_data);
         
     }
@@ -190,24 +182,26 @@ class PurchaseOrderController extends Controller
 
     public function csvPurchaseProcess($csv_row_data)
     {
+        
+     $manifacturer_data = Manifacturer::where('name','=',$csv_row_data['manufactured_by'])->first();
+
+     $sim1_type = SimTypes::where('name','=',$csv_row_data['sim_1_type'])->first();
+     $sim2_type = SimTypes::where('name','=',$csv_row_data['sim_2_type'])->first();
 
 
-      $manufactured_by = $csv_row_data['manufactured_by'];
+      $manufactured_by = $manifacturer_data->id;
       $ice_id = $csv_row_data['ice_id'];
       $imei = $csv_row_data['imei'];
       $sim1 = $csv_row_data['sim1'];
-      $sim_1_type = $csv_row_data['sim_1_type'];
+      $sim_1_type = $sim1_type->id;
       $sim2 = $csv_row_data['sim2'];
-      $sim_2_type = $csv_row_data['sim_2_type'];
-      $received_date = $csv_row_data['received_date'];
+      $sim_2_type = $sim1_type->id;
       $activation_date = $csv_row_data['activation_date'];
-      $renewal_date = $csv_row_data['renewal_date'];
-      $user_id = $csv_row_data['user_id'];
-      $customer_id = $csv_row_data['customer_id'];
+    
       
 
 
-      $this->purchaseOrder($manufactured_by,$ice_id,$sim1,$sim2,$imei,$sim_1_type,$sim_2_type,$received_date,$activation_date,$renewal_date,$user_id,$customer_id);
+      $this->purchaseOrder($manufactured_by,$ice_id,$sim1,$sim2,$imei,$sim_1_type,$sim_2_type,null,null,null,null,null);
 
 
     }

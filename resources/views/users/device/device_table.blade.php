@@ -127,7 +127,6 @@
         @endforeach
 </table>
 
-<button type="submit">Accept</button>
 
 </div>
                 <!-- /.panel-body -->

@@ -11,6 +11,8 @@ use App\Models\Admin\Device;
 use App\Models\Admin\Purchase;
 use App\Models\Admin\Sales;
 use App\Models\Admin\SimTypes;
+use App\Models\Admin\Manifacturer;
+
 use App\Models\Admin\Records;
 use App\Models\CsvData;
 
@@ -137,11 +139,17 @@ class PurchaseOrderController extends Controller
 
     public function getImport()
     {
+
         return view('import');
+
     }
-       
+      
+    
     public function parseImport(CsvImportRequest $request)
-{
+{  
+
+    
+
     $path = $request->file('csv_file')->getRealPath();
     $data = array_map('str_getcsv', file($path));
 
@@ -150,26 +158,27 @@ class PurchaseOrderController extends Controller
         'csv_header' => $request->has('header'),
         'csv_data' => json_encode($data)
     ]);
-
-
-
+      
+     
+    
     $csv_data = array_slice(($data), 0, 1);
 
 
-    return view('admin/import_fields', compact('csv_data', 'csv_data_file'));
+    return view('import_fields', compact('csv_data', 'csv_data_file'));
 }
 
     public function processImport(Request $request)
     {
-       
-
-
-
-
+      
         $data = CsvData::find($request->csv_data_file_id);
         $csv_data = json_decode($data->csv_data, true);
-        foreach ($csv_data as $row) {
+        foreach ($csv_data as $key=>$row) {
         $csv_row_data = [];
+
+        if($key==0)
+        {
+            continue;
+        }
         
         foreach (config('app.db_fields') as $index => $field) {
           // print_r($row);
@@ -190,24 +199,26 @@ class PurchaseOrderController extends Controller
 
     public function csvPurchaseProcess($csv_row_data)
     {
+        
+     $manifacturer_data = Manifacturer::where('name','=',$csv_row_data['manufactured_by'])->first();
+
+     $sim1_type = SimTypes::where('name','=',$csv_row_data['sim_1_type'])->first();
+     $sim2_type = SimTypes::where('name','=',$csv_row_data['sim_2_type'])->first();
 
 
-      $manufactured_by = $csv_row_data['manufactured_by'];
+      $manufactured_by = $manifacturer_data->id;
       $ice_id = $csv_row_data['ice_id'];
       $imei = $csv_row_data['imei'];
       $sim1 = $csv_row_data['sim1'];
-      $sim_1_type = $csv_row_data['sim_1_type'];
+      $sim_1_type = $sim1_type->id;
       $sim2 = $csv_row_data['sim2'];
-      $sim_2_type = $csv_row_data['sim_2_type'];
-      $received_date = $csv_row_data['received_date'];
+      $sim_2_type = $sim1_type->id;
       $activation_date = $csv_row_data['activation_date'];
-      $renewal_date = $csv_row_data['renewal_date'];
-      $user_id = $csv_row_data['user_id'];
-      $customer_id = $csv_row_data['customer_id'];
+    
       
 
 
-      $this->purchaseOrder($manufactured_by,$ice_id,$sim1,$sim2,$imei,$sim_1_type,$sim_2_type,$received_date,$activation_date,$renewal_date,$user_id,$customer_id);
+      $this->purchaseOrder($manufactured_by,$ice_id,$sim1,$sim2,$imei,$sim_1_type,$sim_2_type,null,null,null,null,null);
 
 
     }
@@ -215,21 +226,14 @@ class PurchaseOrderController extends Controller
 
     public function newManifacturer(Request $request)
 	   {      
-
-
 	        $manifacturers = new Manifacturers;
-
-
-
 	        $manifacturers->name = $request->input('name');
 	        $manifacturers->companyname = $request->input('companyname');
 	        $manifacturers->address = $request->input('address');
 	        $manifacturers->contact = $request->input('contact');
 	       
 	        $manifacturers->save();
-	       // 	
-
-	              
+                   
 	        return redirect()->back();
 	        	  
 	        

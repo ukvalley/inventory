@@ -194,24 +194,24 @@ Route::get('/purchaseForm', [PurchaseOrderController::class, 'purchaseForm'])->n
 Route::post('salesformPost', [SalesOrderController::class, 'salesformPost'])->name('salesformPost');
 
 
+
+
 //csv imports
 
-Route::get('/getImport', [PurchaseOrderController::class, 'getImport'])->name('import');
-Route::post('/import_parse', [PurchaseOrderController::class, 'parseImport'])->name('import_parse');
-Route::post('/import_process', [PurchaseOrderController::class, 'processImport'])->name('import_process');
+Route::get('getImport', [PurchaseOrderController::class, 'getImport'])->name('import');
+Route::post('import_parse_admin', [PurchaseOrderController::class, 'parseImport'])->name('import_parse_admin');
 
-//sale csv import
-
-// Route::get('/getSaleImport', [SalesOrderController::class, 'getSaleImport'])->name('import');
-// Route::post('/saleimport_parse', [SalesOrderController::class, 'parseSaleImport'])->name('saleimport_parse');
-// Route::post('/saleimport_process', [SalesOrderController::class, 'processSaleImport'])->name('saleimport_process');
+Route::post('import_process', [PurchaseOrderController::class, 'processImport'])->name('import_process');
 
 
-//Transfer Device
+
+
+
+
 
 
 Route::get('transfer', [MAdminPanelController::class, 'get_device'])->name('get_device');
-Route::post('transferUpdate', [MAdminPanelController::class, 'transferUpdate'])->name('transferUpdate');
+Route::post('admintransferUpdate', [MAdminPanelController::class, 'admintransferUpdate'])->name('admintransferUpdate');
 
 
 Route::get('getUserType', [MAdminPanelController::class, 'getUserType'])->name('getUserType');

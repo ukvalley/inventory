@@ -14,6 +14,7 @@ use App\Models\Admin\Transaction;
 
 use App\Models\Admin\SimTypes;
 use PDF;
+use Session;
 use load;
 
 class DeviceController extends Controller
@@ -67,7 +68,11 @@ class DeviceController extends Controller
  
          public function view_device()
     {
-       $data=Device::with(['sim_1_type_id','sim_2_type_id','customer_id_id','user_id_id','sales_id_id'])->get();
+     $user_id=Session::get('USER_ID');
+
+       $data=Device::with(['sim_1_type_id','sim_2_type_id','customer_id_id','user_id_id','sales_id_id'])
+                         ->where('user_id','=', $user_id)
+                         ->get();
      
 
         return view('users/device/device_table')->with(compact('data')); 

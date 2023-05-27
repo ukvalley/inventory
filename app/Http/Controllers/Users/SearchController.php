@@ -5,6 +5,7 @@ use DB;
 use App\Models\Admin\Device;
 
 use Illuminate\Http\Request;
+use Session;
 
 class SearchController extends Controller
 {
@@ -15,7 +16,7 @@ class SearchController extends Controller
  
     function action(Request $request)
     {
-        
+        $user_id=Session::get('USER_ID');
         
             $output = '';
             $query = $request->get('query');
@@ -24,6 +25,7 @@ class SearchController extends Controller
                 
                 $data = Device::
                         with(['manufactured_by_id'])
+                        ->where('user_id','=', $user_id)
                       ->where('status','=','unsold')
                        ->where(function($query1) use ($query){
                             $query1->orWhere('ice_id', 'LIKE', '%'.$query.'%')
@@ -34,9 +36,11 @@ class SearchController extends Controller
                                       
             } 
             else 
-            {
+            {    
+
                 $data = Device::
                     where('status','=','unsold')
+                    ->where('user_id','=', $user_id)
                     ->orderBy('id', 'desc')
                     ->limit(10)
                     ->get();
